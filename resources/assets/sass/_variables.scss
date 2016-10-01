@@ -2,12 +2,13 @@
 // Body
 $body-bg: #f5f8fa;
 
-// Borders
-$laravel-border-color: darken($body-bg, 10%);
-$list-group-border: $laravel-border-color;
-$navbar-default-border: $laravel-border-color;
-$panel-default-border: $laravel-border-color;
-$panel-inner-border: $laravel-border-color;
+//Custom variables
+$hover-background-list-items-color: #464646;
+$hover-list-items-color: lighten(#FF1E00, 10%);
+$active-list-item-color: #083EBA;
+$custom-blue: #2249A3;
+$custom-orange: #FF5C00;
+$custom-gray: #2F3233;
 
 // Brands
 $brand-primary: #3097D1;
