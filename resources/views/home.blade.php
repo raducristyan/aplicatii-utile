@@ -1,17 +1,23 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Aplicațiile mele
+                    </h3>
+                </div>
+                
                 <div class="panel-body">
-                    You are logged in!
+                    Sunteți autentificat!
+                   @if (isset($data)) $data @endif
                 </div>
             </div>
         </div>
     </div>
 </div>
+    
 @endsection

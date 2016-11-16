@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use App\Institution;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -48,9 +49,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'institution' => 'required|string',
+            'cif'         => 'required|digits_between:6,10|unique:institutions,cif',
+            'first_name'  => 'required|max:255',
+            'last_name'   => 'required|max:255',
+            'email'       => 'required|email|max:255|unique:users',
+            'password'    => 'required|confirmed|min:6',
         ]);
     }
 
@@ -60,12 +64,37 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
-    }
+     protected function create(array $data)
+     {
+             return $this->newAccount($data);
+     }
+
+     /**
+      * Create new user an institution instances
+      * @param  array  $data
+      * @return User
+      */
+     private function newAccount(array $data)
+     {
+         $institution = Institution::create([
+             'name' => $data['institution'],
+             'cif'  => $data['cif'],
+         ]);
+
+         $newUser = new User([
+             'first_name' => $data['first_name'],
+             'last_name'  => $data['last_name'],
+             'email'      => $data['email'],
+             'password'   => bcrypt($data['password']),
+             'role'       => 'admin',
+         ]);
+
+         if($institution->users()->save($newUser)) {
+             return $newUser;
+         } else {
+             $institution->delete();
+             return false;
+         };
+
+     }
 }

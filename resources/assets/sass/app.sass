@@ -6,7 +6,10 @@
 @import "variables";
 
 // Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/bootstrap-sass/assets/stylesheets/_bootstrap";
+
+//Font awesome
+@import "node_modules/font-awesome/scss/font-awesome";
 
 // Body
 body
@@ -59,10 +62,6 @@ body
     display: inline-block
     height: 40px
     margin-top: -9px
-
-// Search
-.search
-    vertical-align: middle
 
 // Navigation, dropdown menu
 .dropdown-menu, .nav-sidebar
@@ -168,7 +167,7 @@ ul.nav.navbar-nav li.active a, .nav-sidebar li.active a
         a.btn.btn-primary.btn-lg
             border-color: $custom-orange
             border-radius: 25px
-            color: $custom-blue
+            color: darken($custom-blue,15%)
             &:hover
                 box-shadow: 0px 0px 9px 1px $custom-orange
                 color: $custom-orange
@@ -195,3 +194,7 @@ th
 thead
     background-color: $custom-gray
     color: white
+
+.panel-heading
+    .panel-title
+        font-weight: bolder

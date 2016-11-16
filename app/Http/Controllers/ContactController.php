@@ -15,7 +15,7 @@ class ContactController extends Controller
     public function index()
     {
         $title = "Contact";
-        return view('contact.contact', compact('title'));
+        return view('contact.index', compact('title'));
     }
 
     public function sendMessage(Request $request)

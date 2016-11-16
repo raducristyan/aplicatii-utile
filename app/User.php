@@ -3,11 +3,12 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +16,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name',
+        'last_name',
+        'email',
+        'password',
     ];
 
     /**
@@ -26,4 +30,45 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+    * Get the institution that owns the model.
+    */
+    public function institution()
+    {
+        return $this->belongsTo(Institution::class);
+    }
+
+    /**
+     * Set the user's first name.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setFirstNameAttribute($value)
+    {
+        $this->attributes['first_name'] = ucwords(strtolower(trim(preg_replace('/\s+/',' ', $value))));
+    }
+
+    /**
+     * Set the user's last name.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setLastNameAttribute($value)
+    {
+        $this->attributes['last_name'] = ucwords(strtolower(trim(preg_replace('/\s+/',' ', $value))));
+    }
+
+    /**
+     * Set the user's email.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setEmailAttribute($value)
+    {
+        $this->attributes['email'] = strtolower(trim($value));
+    }
 }

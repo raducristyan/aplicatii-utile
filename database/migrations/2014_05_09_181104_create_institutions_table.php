@@ -14,13 +14,14 @@ class CreateInstitutionsTable extends Migration
     {
       Schema::create('institutions', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('cif');
+          $table->string('cif')->unique();
           $table->string('name');
           $table->string('email')->nullable();
           $table->string('phone')->nullable();
           $table->string('fax')->nullable();
           $table->string('iban')->nullable();
           $table->string('bank')->nullable();
+          $table->softDeletes();
           $table->timestamps();
       });
     }

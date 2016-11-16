@@ -11,7 +11,7 @@
                     <h3 class="panel-title">Contact</h3>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" role="form" action="{{route('contact')}}">
+                    <form class="form-horizontal" method="POST" role="form" action="{{route('contact.send')}}">
                     {!! csrf_field() !!}
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 

@@ -26,8 +26,8 @@
             <i class="fa fa-cogs fa-lg"></i><span > Aplicații</span>
           </a>
         </li>
-        <li @if (Request::is('contact')) class="active" @endif>
-          <a href="{{route('contact')}}">
+        <li @if (Request::is('contact.index')) class="active" @endif>
+          <a href="{{route('contact.index')}}">
             <i class="fa fa-envelope fa-lg"></i><span > Contact</span>
           </a>
         </li>
@@ -37,18 +37,7 @@
           </a>
         </li>
       </ul>
-      @if (Auth::check())
-      <form action="#" class="navbar-form navbar-left" role="search">
-         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Caută...">
-          <div class="input-group-btn">
-            <button class="btn btn-default" type="button">
-              <i class="fa fa-search fa-lg"></i>
-            </button>
-          </div>
-        </div><!-- /input-group -->
-      </form>
-      @endif
+      
       <ul class="nav navbar-nav navbar-right">
         @if (Auth::guest())
           <li >

@@ -15,9 +15,17 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
+        'first_name' => $faker->name,
+        'last_name' => $faker->name,
         'email' => $faker->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Institution::class, function (Faker\Generator $faker) {
+    return [
+        'cif' => '4326760',
+        'name' => 'comuna fundu moldovei',
     ];
 });

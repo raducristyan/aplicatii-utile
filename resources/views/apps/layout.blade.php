@@ -6,7 +6,7 @@
             @yield('sidebar')
         </div>
 
-        <div id="app" class="col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 main">
+        <div class="col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 main">
             @yield('main')
         </div>
     </div>

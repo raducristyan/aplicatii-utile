@@ -16,17 +16,16 @@ Route::get('/', ['as' => 'welcome', function(){
       $title = config('apps.title.welcome');
       return view('welcome', compact('title'));
   }else {
-      return redirect('/home');
+      return redirect(route('home'));
   }
 }]);
 
-
-Route::get('/contact', ['as' => 'contact', 'uses' => 'ContactController@index']);
-Route::post('/contact', 'ContactController@sendMessage');
+Route::group(['prefix' => 'contact'], function(){
+    Route::get('/', ['as' => 'contact.index', 'uses' => 'ContactController@index']);
+    Route::post('/send', ['as' => 'contact.send', 'uses' => 'ContactController@sendMessage']);
+});
 
 Route::get('/help', ['as' => 'help', 'uses' => 'HelpController@index']);
-
-Route::auth();
 
 Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
 
@@ -35,7 +34,7 @@ Route::get('/apps', ['as' => 'apps', 'uses' => 'Apps\AppsController@index']);
 /*-- Aplications routes --*/
 Route::group(['namespace' => 'Apps', 'middleware' => 'auth'], function(){
   Route::get('/myapps', ['as' => 'myapps', 'uses' => 'AppsController@index']);
-  Route::group(['prefix' => 'myapps', 'namespace' => 'RegistartionCertificate'], function (){
+  Route::group(['as' => 'myapps.', 'prefix' => 'myapps', 'namespace' => 'RegistartionCertificate'], function (){
     Route::resource('rc', 'RegistrationController');
   });
 });
@@ -47,5 +46,3 @@ Route::group(['prefix' => 'admin'], function()
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index');

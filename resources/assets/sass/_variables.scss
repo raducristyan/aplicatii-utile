@@ -2,20 +2,22 @@
 // Body
 $body-bg: #f5f8fa;
 
+//Custom colors
+$hover-background-list-items-color: #5e5e5e;
+$active-list-item-color: darken(white,15%);
+$custom-blue: #04A7FF;
+$custom-orange: lighten(#FF5C00,10%);
+$custom-gray: #4b4e4f;
+
 //Custom variables
-$hover-background-list-items-color: #464646;
-$hover-list-items-color: lighten(#FF1E00, 10%);
-$active-list-item-color: #083EBA;
-$custom-blue: #2249A3;
-$custom-orange: #FF5C00;
-$custom-gray: #2F3233;
+$hover-list-items-color: $custom-orange;
 
 // Brands
-$brand-primary: #3097D1;
-$brand-info: #8eb4cb;
-$brand-success: #2ab27b;
-$brand-warning: #cbb956;
-$brand-danger:  #bf5329;
+$brand-primary: #33b5e5;
+$brand-info: #8e24aa;
+$brand-success: #00e676;
+$brand-warning: #ffbb33;
+$brand-danger:  #ff4444;
 
 // Typography
 $font-family-sans-serif: "Raleway", sans-serif;
@@ -36,3 +38,8 @@ $input-color-placeholder: lighten($text-color, 30%);
 
 // Panels
 $panel-default-heading-bg: #fff;
+
+//Border radius
+$border-radius-base: 2px;
+$border-radius-large: 4px;
+$border-radius-small: 3px;
