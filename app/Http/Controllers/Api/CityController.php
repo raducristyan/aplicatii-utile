@@ -19,7 +19,7 @@ class CityController extends Controller
   public function index(Request $request)
   {
     $county_id = $request->county_id;
-    $cities = City::where('county_id', '=', $county_id)->orderBy('name')->get();
+    $cities = City::where('county_siruta', '=', $county_id)->orderBy('name')->get();
     return $cities;
   }
 }
