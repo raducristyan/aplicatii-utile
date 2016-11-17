@@ -11,6 +11,8 @@ class InstitutionsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('users')->delete();
+        DB::table('institutions')->delete();
         factory(App\Institution::class, 1)->create()->each(function($i) {
             $i->users()->save(factory(App\User::class)->make([
                 'first_name' => 'radu cristian',

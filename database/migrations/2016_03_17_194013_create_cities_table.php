@@ -14,15 +14,11 @@ class CreateCitiesTable extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('siruta');
-            $table->decimal('longitude', 18, 16);
-            $table->decimal('latitude', 18, 16);
             $table->string('name');
-            $table->string('region');
-            $table->integer('county_id')->unsigned();
+            $table->integer('county_siruta')->unsigned();
 
-            $table->foreign('county_id')
-                  ->references('id')
+            $table->foreign('county_siruta')
+                  ->references('siruta')
                   ->on('counties');
         });
     }
