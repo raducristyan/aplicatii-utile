@@ -22,8 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('role')->default('user');
             $table->rememberToken();
             $table->integer('institution_id')->unsigned();
-            $table->SoftDeletes();
             $table->timestamps();
+            $table->SoftDeletes();
 
             $table->foreign('institution_id')
                   ->references('id')

@@ -21,6 +21,7 @@ class CreateInstitutionsTable extends Migration
           $table->string('fax')->nullable();
           $table->string('iban')->nullable();
           $table->string('bank')->nullable();
+          $table->boolean('active')->default(false);
           $table->softDeletes();
           $table->timestamps();
       });

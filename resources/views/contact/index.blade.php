@@ -31,7 +31,7 @@
                         <div class="form-group{{ $errors->has('subject') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label" for="subject">Subiect</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="subject" placeholder="Subiectul mesajului" value="{{ old('subject') }}" min="5" max="60" required="required" @if (Auth::check()) autofocus @endif>
+                                <input type="text" class="form-control" name="subject" placeholder="Subiectul mesajului" value="{{ old('subject') }}" min="3" max="60" required="required" @if (Auth::check()) autofocus @endif>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">

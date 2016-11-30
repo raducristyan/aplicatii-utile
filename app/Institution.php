@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Institution extends Model
 {
     use SoftDeletes;
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -21,7 +21,8 @@ class Institution extends Model
         'phone',
         'fax',
         'iban',
-        'bank'
+        'bank',
+        'active',
     ];
 
     /**
@@ -30,6 +31,14 @@ class Institution extends Model
     public function users()
     {
         return $this->hasMany(User::class);
+    }
+
+    /**
+    * Get the token record associated with the model.
+    */
+    public function token()
+    {
+        return $this->hasOne(ActivationToken::class);
     }
 
     /**
@@ -62,7 +71,7 @@ class Institution extends Model
      */
     public function setIbanAttribute($value)
     {
-        $this->attributes['iban'] = strtoupper(trim($value));
+        $this->attributes['iban'] = strtoupper(trim(preg_replace('/\s+/','', $value)));
     }
 
     /**

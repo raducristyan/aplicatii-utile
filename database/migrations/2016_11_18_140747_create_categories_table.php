@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMarkTypesTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +13,10 @@ class CreateMarkTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('mark_types', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('type');
-            $table->integer('mark_id')->unsigned();
+            $table->string('name');
             $table->timestamps();
-
-            $table->foreign('mark_id')
-                  ->references('id')
-                  ->on('marks');
         });
     }
 
@@ -31,6 +27,6 @@ class CreateMarkTypesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('mark_types');
+        Schema::dropIfExists('categories');
     }
 }

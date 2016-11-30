@@ -16,7 +16,7 @@ Route::get('/', ['as' => 'welcome', function(){
       $title = config('apps.title.welcome');
       return view('welcome', compact('title'));
   }else {
-      return redirect(route('home'));
+      return redirect(route('dashboard'));
   }
 }]);
 
@@ -27,9 +27,12 @@ Route::group(['prefix' => 'contact'], function(){
 
 Route::get('/help', ['as' => 'help', 'uses' => 'HelpController@index']);
 
-Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
+Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 
 Route::get('/apps', ['as' => 'apps', 'uses' => 'Apps\AppsController@index']);
+
+Route::get('/activate/confirm/{$token}', ['as' => 'activate.confirm', 'uses' => 'Auth\ActivationController@activate']);
+Route::get('/activate/resend', ['as' => 'activate.resend', 'uses' => 'Auth\ActivationController@resend']);
 
 /*-- Aplications routes --*/
 Route::group(['namespace' => 'Apps', 'middleware' => 'auth'], function(){
@@ -40,7 +43,7 @@ Route::group(['namespace' => 'Apps', 'middleware' => 'auth'], function(){
 });
 
 /*-- Admin routes --*/
-Route::group(['prefix' => 'admin'], function()
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function()
 {
   Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'AdminController@index']);
 });

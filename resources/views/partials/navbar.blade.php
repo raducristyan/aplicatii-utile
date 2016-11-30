@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" @if (Auth::check()) href="/home" @else href="/" @endif>
+      <a class="navbar-brand" @if (Auth::check()) href="{{route('dashboard')}}" @else href="/" @endif>
         <img src="/img/logo_brand.png" alt="Aplicații utile" class="logo_brand">
       </a>
     </div>
@@ -16,8 +16,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li @if (Request::is('/') || Request::is('home')) class="active" @endif>
-          <a @if (Auth::guest()) href="{{route('welcome')}}" @else href="{{route('home')}}" @endif >
+        <li @if (Request::is('/') || Request::is('dashboard')) class="active" @endif>
+          <a @if (Auth::guest()) href="{{route('welcome')}}" @else href="{{route('dashboard')}}" @endif >
             <i class="fa fa-home fa-lg"></i><span > Acasă</span>
           </a>
         </li>
@@ -37,7 +37,7 @@
           </a>
         </li>
       </ul>
-      
+
       <ul class="nav navbar-nav navbar-right">
         @if (Auth::guest())
           <li >
@@ -53,11 +53,21 @@
         @else
           <li class="dropdown" >
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" v>
-              <i class="fa fa-user fa-lg"></i> {{Auth::user()->first_name.' '.Auth::user()->last_name}} <span class="caret"></span></a>
+              <i class="fa fa-user fa-lg"></i> {{Auth::user()->full_name}} <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li ><a href="/setings" ><i class="fa fa-cog"></i><span> Setări</span></a></li>
               <li role="separator" class="divider" ></li>
-              <li ><a href="/logout"><i class="fa fa-power-off" ></i><span> Ieșire</span></a></li>
+              <li ><a href="{{url('/logout')}}" onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+                      <i class="fa fa-power-off" ></i><span> Ieșire</span>
+                  </a>
+                  <form id="logout-form"
+                        action="{{ url('/logout') }}"
+                        method="POST"
+                        style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+              </li>
             </ul>
           </li>
         @endif

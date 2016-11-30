@@ -6,6 +6,7 @@ use Auth;
 use Mail;
 use App\User;
 use App\Http\Requests;
+use App\Mail\ContactEmail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -22,17 +23,17 @@ class ContactController extends Controller
     {
         $rules = [
             'email' => 'required|email',
-            'subject' => 'required|min:5|max:60',
+            'subject' => 'required|min:3|max:60',
             'body' => 'required|min:15|max:1000'
         ];
         $this->validate($request, $rules);
 
-        $user = Auth::user();
+        $subject = $request->input('subject');
+        $body = $request->input('body');
+        $from = $request->input('email');
 
-        Mail::send('contact.email', ['body' => $request->body], function ($m) use ($user, $request) {
-            $m->from($request->email, $user->firstName." ".$user->lastName);
+        Mail::to(config('mail.from.address'))->send(new ContactEmail($from, $subject, $body));
 
-            $m->to('raducristyan@gmail.com')->subject($request->subject);
-        });
+        return redirect()->back()->withSuccess('Mesajul a fost trimis.');
     }
 }

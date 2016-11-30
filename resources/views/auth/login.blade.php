@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+@include('partials.message')
 @section('content')
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -9,7 +9,7 @@
                 </div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-                        {!! csrf_field() !!}
+                        {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Adresa de e-mail</label>

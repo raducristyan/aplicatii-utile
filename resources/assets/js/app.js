@@ -13,7 +13,7 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+//Vue.component('example', require('./components/Example.vue'));
 
 const app = new Vue({
     el: 'body',
@@ -176,7 +176,9 @@ const app = new Vue({
     //end data section
 
     ready: function (){
-        this.getCities();
+        if ($this.selected.county) {
+            this.getCities();
+        }
     },
 
     //start methods

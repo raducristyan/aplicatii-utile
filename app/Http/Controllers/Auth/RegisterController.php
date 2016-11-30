@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use App\ActivationToken;
 use App\Institution;
+use App\Events\InstitutionCreated;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -28,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -66,19 +68,23 @@ class RegisterController extends Controller
      */
      protected function create(array $data)
      {
-             return $this->newAccount($data);
+         return $this->newAccount($data);
      }
 
      /**
-      * Create new user an institution instances
+      * Create new user and institution instances
       * @param  array  $data
       * @return User
       */
      private function newAccount(array $data)
      {
          $institution = Institution::create([
-             'name' => $data['institution'],
-             'cif'  => $data['cif'],
+             'name'  => $data['institution'],
+             'cif'   => $data['cif'],
+         ]);
+
+         $token = new ActivationToken([
+             'token' => str_random( 128 ),
          ]);
 
          $newUser = new User([
@@ -89,11 +95,12 @@ class RegisterController extends Controller
              'role'       => 'admin',
          ]);
 
-         if($institution->users()->save($newUser)) {
+         if($institution->users()->save($newUser) && $institution->token()->save($token)) {
+             event( new InstitutionCreated($institution));
              return $newUser;
          } else {
              $institution->delete();
-             return false;
+             return redirect()->back()->withMessage(['content' => 'Nu am putut crea contul instituției Dumneavostră', 'type' => 'danger']);
          };
 
      }
