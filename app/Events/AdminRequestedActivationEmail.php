@@ -2,7 +2,7 @@
 
 namespace App\Events;
 
-use App\User;
+use App\Institution;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -14,15 +14,15 @@ class AdminRequestedActivationEmail
 {
     use SerializesModels;
 
-    public $user;
+    public $institution;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct(Institution $institution)
     {
-        $this->user = $user;
+        $this->institution = $institution;
     }
 }

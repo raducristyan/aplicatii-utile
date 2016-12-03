@@ -31,8 +31,10 @@ Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@in
 
 Route::get('/apps', ['as' => 'apps', 'uses' => 'Apps\AppsController@index']);
 
-Route::get('/activate/confirm/{$token}', ['as' => 'activate.confirm', 'uses' => 'Auth\ActivationController@activate']);
-Route::get('/activate/resend', ['as' => 'activate.resend', 'uses' => 'Auth\ActivationController@resend']);
+Route::group(['prefix' => 'activate', 'as' => 'activate.', 'namespace' => 'Auth'], function(){
+    Route::get('/confirm/{token}', ['as' => 'confirm', 'uses' => 'ActivationController@activate']);
+    Route::get('/resend', ['as' => 'resend', 'uses' => 'ActivationController@resend']);
+});
 
 /*-- Aplications routes --*/
 Route::group(['namespace' => 'Apps', 'middleware' => 'auth'], function(){

@@ -16,6 +16,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\InstitutionCreated' => [
             'App\Listeners\SendActivationToken',
         ],
+        'App\Events\AdminRequestedActivationEmail' => [
+            'App\Listeners\SendActivationToken',
+        ],
     ];
 
     /**

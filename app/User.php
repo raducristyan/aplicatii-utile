@@ -123,4 +123,16 @@ class User extends Authenticatable
     {
         return $query->where('role', 'admin');
     }
+
+    /**
+     * Return a user by email
+     * 
+     * @param  string $email
+     * @return static
+     */
+        public static function byEmail($email)
+        {
+            return static::where('email', $email);
+        }
+
 }

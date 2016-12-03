@@ -12,10 +12,7 @@
 
             @include('apps.rc.partials.forms._formAddRegistrationCertificates')
         </div>
-
-
     </div>
-
 @endsection
 
 @section('scripts')

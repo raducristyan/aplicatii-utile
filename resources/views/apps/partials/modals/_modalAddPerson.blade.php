@@ -40,7 +40,7 @@
                 <button type="button" class="btn btn-warning" data-dismiss="modal">Renunță</button>
                 <button type="submit" class="btn btn-primary" :disabled="!formAddPerson.isCompleted">Salvează</button>
             </div>
-                {!! Form::close() !!}
+            {!! Form::close() !!}
         </div><!-- /.modalAddPerson-content -->
     </div><!-- /.modalAddPerson-dialog -->
 </div><!-- /.modalAddPerson -->

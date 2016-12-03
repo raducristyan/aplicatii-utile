@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\AdminRequestedActivationEmail;
+use App\User;
 use App\ActivationToken;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -34,8 +36,16 @@ class ActivationController extends Controller
         return redirect(route('login'));
     }
 
-    public function resend($value='')
+    public function resend(Request $request)
     {
-        # code...
+        $user = User::byEmail($request->email)->firstOrFail();
+
+        if ($user->admin && $user->institution()->active) {
+        return redirect('/');
+        }
+
+        event(new AdminRequestedActivationEmail($user->institution()->first()));
+
+        return redirect('/login')->withMessage(['content' => 'Am transmis un email cu linkul pentru activare.', 'type' => 'info']);
     }
 }
