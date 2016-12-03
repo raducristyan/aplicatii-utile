@@ -3,8 +3,8 @@
 namespace App\Listeners;
 
 use Mail;
-use App\Mail\SendActivationToken;
 use Illuminate\Queue\InteractsWithQueue;
+use App\Notifications\SendActivationEmail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 class SendActivationToken
@@ -27,6 +27,7 @@ class SendActivationToken
      */
     public function handle($event)
     {
-        Mail::to($event->institution->users()->admin()->email)->send(new SendActivationToken($event->institution->token));
+        $user = $event->institution->users()->admin()->first();
+        $user->notify(new SendActivationEmail($event->institution->token));
     }
 }

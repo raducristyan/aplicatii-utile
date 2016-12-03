@@ -112,4 +112,14 @@ class User extends Authenticatable
     {
         return $this->email;
     }
+
+    /**
+     * Scope a query to only include admin.
+     *
+     * @return IlluminateDatabaseEloquentBuilder
+     */
+    public function scopeAdmin($query)
+    {
+        return $query->where('role', 'admin');
+    }
 }

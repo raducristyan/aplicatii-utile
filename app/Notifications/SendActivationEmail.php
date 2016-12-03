@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class ResetPassword extends Notification
+class SendActivationEmail extends Notification
 {
     use Queueable;
 
@@ -43,12 +43,14 @@ class ResetPassword extends Notification
      */
     public function toMail($notifiable)
     {
-        $url = url('password/reset', $this->token);
+        $url = route('activate.confirm', [$this->token], true);
 
-        return (new MailMessage)->subject('Resetare parolă')
-                                ->line('Ai primit acest mesaj pentru că ai transmis o solicitare de resetare a parolei.')
-                                ->action('Resetare parolă', $url)
-                                ->line('Dacă nu ai transmis o solicitare în acest sens, poți ignora acest mesaj.');
+        return (new MailMessage)->subject('Activare cont')
+                                ->greeting('Bine ați venit!')
+                                ->line('Tocmai am creat un cont pentru instituția dumneavoastră.')
+                                ->line('Pentru a folosi aplicația trebuie să activați contul instituției accesând butonul de mai jos.')
+                                ->action('Activare cont', $url)
+                                ->line('Îți mulțumim pentru că folosești aplicația noastră.');
     }
 
     /**

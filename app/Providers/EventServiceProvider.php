@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\SomeEvent' => [
-            'App\Listeners\EventListener',
+        'App\Events\InstitutionCreated' => [
+            'App\Listeners\SendActivationToken',
         ],
     ];
 
@@ -27,6 +27,5 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        //
     }
 }

@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
 use App\User;
 use Validator;
-use App\ActivationToken;
 use App\Institution;
+use App\ActivationToken;
+use Illuminate\Http\Request;
 use App\Events\InstitutionCreated;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
+    const ADMIN_ROLE = 'admin';
+
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -92,16 +96,29 @@ class RegisterController extends Controller
              'last_name'  => $data['last_name'],
              'email'      => $data['email'],
              'password'   => bcrypt($data['password']),
-             'role'       => 'admin',
+             'role'       => self::ADMIN_ROLE,
          ]);
 
-         if($institution->users()->save($newUser) && $institution->token()->save($token)) {
-             event( new InstitutionCreated($institution));
+         if ($institution->users()->save($newUser) && $institution->token()->save($token)) {
+             event(new InstitutionCreated($institution));
+
              return $newUser;
          } else {
              $institution->delete();
-             return redirect()->back()->withMessage(['content' => 'Nu am putut crea contul instituției Dumneavostră', 'type' => 'danger']);
-         };
+         }
+     }
 
+     /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+     protected function registered(Request $request, $user)
+     {
+         Auth::logout();
+
+         return redirect('/login')->withMessage(['content' => 'Vă rugăm să activați contul dumneavoastră. Verificați căsuța de email.', 'type' => 'info']);
      }
 }
