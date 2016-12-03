@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\ActivationToken;
 use App\Notifications\ResetPassword;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
