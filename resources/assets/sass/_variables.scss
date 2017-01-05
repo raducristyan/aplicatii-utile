@@ -1,23 +1,25 @@
-
 // Body
 $body-bg: #f5f8fa;
 
 //Custom colors
-$hover-background-list-items-color: #5e5e5e;
-$active-list-item-color: darken(white,15%);
-$custom-blue: #04A7FF;
-$custom-orange: #ff7d33;
-$custom-gray: #4b4e4f;
+$custom-blue: rgba(4, 167, 255, 1);
+$custom-green: rgba(0, 230, 118, 1);
+$custom-orange: rgba(246, 121, 75, 1);
+$custom-purple: rgba(135, 13, 217, 1);
+$custom-red: rgba(252, 39, 39, 1);
+$custom-gray: #9d9d9d;
+$light-gray: lighten($custom-gray,20%);
+$dark-gray: darken($custom-gray,22%);
 
 //Custom variables
 $hover-list-items-color: $custom-orange;
 
 // Brands
-$brand-primary: #33b5e5;
-$brand-info: #8e24aa;
-$brand-success: #00e676;
-$brand-warning: #ffbb33;
-$brand-danger:  #ff4444;
+$brand-primary: $custom-blue;
+$brand-info: $custom-purple;
+$brand-success: $custom-green;
+$brand-warning: $custom-orange;
+$brand-danger:  $custom-red;
 
 // Typography
 $font-family-sans-serif: "Raleway", sans-serif;
@@ -40,6 +42,6 @@ $input-color-placeholder: lighten($text-color, 30%);
 $panel-default-heading-bg: #fff;
 
 //Border radius
-$border-radius-base: 2px;
-$border-radius-large: 4px;
-$border-radius-small: 3px;
+$border-radius-base: 3px;
+$border-radius-large: 5px;
+$border-radius-small: 2px;

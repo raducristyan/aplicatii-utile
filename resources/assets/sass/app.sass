@@ -1,9 +1,8 @@
-
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&subset=latin-ext');
 
 // Variables
-@import "variables";
+@import "_variables";
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/_bootstrap";
@@ -67,14 +66,14 @@ body
 .dropdown-menu, .nav-sidebar
     li
         a:hover
-            background-color: $hover-background-list-items-color
-            color: $hover-list-items-color
+            background-color: $custom-gray
+            color: $custom-orange
 
 ul.nav.navbar-nav li a:hover, .nav-sidebar li a:hover
-    color: $hover-list-items-color
+    color: $custom-orange
 
 ul.nav.navbar-nav li.active a, .nav-sidebar li.active a
-    color: $active-list-item-color
+    color: $light-gray
 
 .dropdown-menu
     margin-right: 5px
@@ -119,24 +118,27 @@ ul.nav.navbar-nav li.active a, .nav-sidebar li.active a
 //Main container
 .main
     font-weight: 400
-    padding-top: 20px
+    .main-container
+        width: auto
+        height: 85vh
+        display: flex
+        align-items: center
+        .no-content
+            text-align: center
+            padding-top: 20%
+            padding-bottom: 20%
+        .panel-heading
+            .panel-title
+                padding-top: 15px
+                padding-bottom: 15px
+                color: $custom-blue
 
-.main-container
-    width: auto
-    margin-top: 0px
-    display: block
-    padding: 0
-    .no-content
-        text-align: center
-        padding-top: 20%
-        padding-bottom: 20%
-
-    h1
-        font-family: 'Lato'
-        font-weight: 100
-        text-align: center
-        display: inline-block
-        font-size: 4em
+        h1
+            font-family: 'Lato'
+            font-weight: 100
+            text-align: center
+            display: inline-block
+            font-size: 4em
 
 
 .row.v-align
@@ -165,9 +167,9 @@ ul.nav.navbar-nav li.active a, .nav-sidebar li.active a
         font-weight: 200
     p
         a.btn.btn-primary.btn-lg
-            border-color: $custom-orange
+            border-color: rgba(243, 85, 27, .8);
             border-radius: 25px
-            color: darken($custom-blue,15%)
+            color: $custom-blue
             &:hover
                 box-shadow: 0px 0px 9px 1px $custom-orange
                 color: $custom-orange
@@ -177,7 +179,7 @@ ul.nav.navbar-nav li.active a, .nav-sidebar li.active a
         color: $custom-orange
         font-family: 'Lato'
         font-weight: 400
-        text-shadow: 3px 3px 6px darken($custom-orange, 25)
+        text-shadow: 3px 3px 6px darken($custom-orange, 15)
 
 th
     text-align: center
@@ -196,5 +198,44 @@ thead
     color: white
 
 .panel-heading
-    .panel-title
-        font-weight: bolder
+    border-bottom: 0
+    .panel-title.login-register
+        font-size: 36px
+        text-align: center
+
+@media (min-width: 768px)
+    ul.navbar-nav > li > a.btn-register,  ul.navbar-nav > li > a.btn-auth
+        margin: 10px 15px
+        padding: 0
+
+.navbar-inverse
+    background-color: rgba(60, 64, 107, 1)
+    border-color: rgba(40,43,72, 1)
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus
+    background-color: rgba(40, 43, 72, 1)
+
+.navbar-right a
+    margin-left: 10px
+    &:focus
+    &:hover
+        text-decoration: none
+        width: inherit
+.row > a > img
+    margin-bottom: 35px
+
+.btn-outline
+    background-color: transparent
+    border-color: $custom-gray
+    color: $custom-gray
+    &:hover
+        border-color: $custom-orange
+        color: $custom-orange
+
+.btn-orange
+    background-color: $custom-orange
+    border-color: $custom-orange
+    color: $dark-gray
+    &:hover
+        background-color: lighten($custom-orange, 15%)
+        border-color: lighten($custom-orange, 15%)

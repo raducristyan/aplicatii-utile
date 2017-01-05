@@ -1,21 +1,29 @@
 @extends('layouts.master')
 @include('partials.message')
 @section('content')
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+    <div class="row main-container">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="row">
+                <a href="/">
+                    <img src="/img/logo_brand.png" class="img-responsive center-block" alt="aplicatii utile">
+                </a>
+            </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Autentificare</h3>
+                    <h3 class="panel-title login-register">Autentificare</h3>
                 </div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Adresa de e-mail</label>
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} form-group-lg">
+                            {{-- <label class="col-md-4 control-label">Adresa de e-mail</label> --}}
 
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                            <div class="input-group col-md-10 col-md-offset-1">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                </span>
+                                <input type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -25,11 +33,14 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Parola</label>
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }} form-group-lg">
+                            {{-- <label class="col-md-4 control-label">Parola</label> --}}
 
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" name="password">
+                            <div class="input-group col-md-10 col-md-offset-1">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-key" aria-hidden="true"></i>
+                                </span>
+                                <input type="password" class="form-control" name="password" placeholder="Parola">
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -39,26 +50,27 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember"> Autentificare automată
-                                    </label>
-                                </div>
+                        <div class="row">
+                            <div class="checkbox col-md-6 col-md-offset-1">
+                                <label>
+                                    <input type="checkbox" name="remember"> Autentificare automată
+                                </label>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-sign-in"></i> Autentificare
-                                </button>
-
+                            <div class="col-md-4">
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">Ai uitat parola?</a>
                             </div>
                         </div>
-                    </form>
+                        <br/>
+
+                        <div class="form-group form-group-lg">
+                            <div class="col-md-10 col-md-offset-1 login-register-container">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                    <i class="fa fa-btn fa-sign-in"></i> Autentificare
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
