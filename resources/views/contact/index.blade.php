@@ -2,13 +2,12 @@
 
 @section(@content)
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+    <div class="row main-container">
+        <div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
         @include('partials.errors')
-            <div class="panel panel-default">
+            <div class="panel panel-default contact">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Contact</h3>
+                    <h3 class="panel-title panel-contact">Contact</h3>
                 </div>
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" role="form" action="{{route('contact.send')}}">
@@ -65,6 +64,5 @@
             </div>
         </div>
     </div>
-</div>
 
 @endsection

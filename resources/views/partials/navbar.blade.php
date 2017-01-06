@@ -43,12 +43,12 @@
                         @if (Auth::guest())
                             <a href="/login">
                                 <button type="button" class="btn navbar-btn btn-sm btn-outline">
-                                        <i class="fa fa-user-plus fa-lg"></i> <span> Autentificare</span>
+                                        <i class="fa fa-user-secret fa-lg"></i> <span> Autentificare</span>
                                 </button>
                             </a>
                             <a href="/register">
                                 <button type="button" class="btn navbar-btn btn-sm btn-orange">
-                                    <i class="fa fa-user-secret fa-lg"></i><span> Creează cont</span>
+                                    <i class="fa fa-user-plus fa-lg"></i><span> Creează cont</span>
                                 </button>
                             </a>
                         @else

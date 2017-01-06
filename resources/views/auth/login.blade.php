@@ -2,7 +2,7 @@
 @include('partials.message')
 @section('content')
     <div class="row main-container">
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-md-4 col-sm-8 col-md-offset-4 col-sm-offset-2">
             <div class="row">
                 <a href="/">
                     <img src="/img/logo_brand.png" class="img-responsive center-block" alt="aplicatii utile">
@@ -10,7 +10,7 @@
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title login-register">Autentificare</h3>
+                    <h3 class="panel-title panel-login">Autentificare</h3>
                 </div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">

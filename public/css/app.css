@@ -10957,11 +10957,15 @@ thead {
   color: white;
 }
 
+.panel.register, .panel.contact {
+  margin-top: 40px;
+}
+
 .panel-heading {
   border-bottom: 0;
 }
 
-.panel-heading .panel-title.login-register {
+.panel-heading .panel-title.panel-login, .panel-heading .panel-title.panel-register, .panel-heading .panel-title.panel-contact {
   font-size: 36px;
   text-align: center;
 }

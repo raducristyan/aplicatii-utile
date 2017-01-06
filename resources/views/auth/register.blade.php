@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="panel panel-default">
+    <div class="row main-container">
+        <div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
+            <div class="panel panel-default register">
                 <div class="panel-heading">
-                    <h2 class="panel-title">Înregistrare cont instituție</h2>
+                    <h3 class="panel-title panel-login">Înregistrare</h3>
                 </div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
