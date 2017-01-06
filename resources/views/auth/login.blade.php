@@ -5,7 +5,7 @@
         <div class="col-md-4 col-sm-8 col-md-offset-4 col-sm-offset-2">
             <div class="row">
                 <a href="/">
-                    <img src="/img/logo_brand.png" class="img-responsive center-block" alt="aplicatii utile">
+                    <img src="/img/logo_brand.png" class="img-responsive center-block img-brand" alt="aplicatii utile">
                 </a>
             </div>
             <div class="panel panel-default">

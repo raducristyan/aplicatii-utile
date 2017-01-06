@@ -10853,7 +10853,6 @@ ul.nav.navbar-nav li.active a, .nav-sidebar li.active a {
 
 .main .main-container {
   width: auto;
-  height: 85vh;
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
@@ -10878,6 +10877,10 @@ ul.nav.navbar-nav li.active a, .nav-sidebar li.active a {
   text-align: center;
   display: inline-block;
   font-size: 4em;
+}
+
+.main .main-container .img-brand {
+  margin-top: 2em;
 }
 
 .row.v-align {
@@ -10958,7 +10961,7 @@ thead {
 }
 
 .panel.register, .panel.contact {
-  margin-top: 40px;
+  margin-top: 2em;
 }
 
 .panel-heading {
