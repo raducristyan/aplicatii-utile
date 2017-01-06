@@ -1,13 +1,12 @@
 @extends('layouts.master')
 @include('partials.message')
 @section('content')
-    <div class="row main-container">
+    <div class="row">
         <div class="col-md-4 col-sm-8 col-md-offset-4 col-sm-offset-2">
-            <div class="row">
-                <a href="/">
-                    <img src="/img/logo_brand.png" class="img-responsive center-block img-brand" alt="aplicatii utile">
-                </a>
-            </div>
+            <a href="/">
+                <img src="/img/logo_brand.png" class="img-responsive center-block img-brand" alt="aplicatii utile">
+            </a>
+
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title panel-login">Autentificare</h3>
@@ -75,5 +74,4 @@
             </div>
         </div>
     </div>
-
 @endsection

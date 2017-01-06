@@ -10847,40 +10847,15 @@ ul.nav.navbar-nav li.active a, .nav-sidebar li.active a {
   color: #04a7ff;
 }
 
-.main {
-  font-weight: 400;
-}
-
-.main .main-container {
-  width: auto;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-}
-
-.main .main-container .no-content {
-  text-align: center;
-  padding-top: 20%;
-  padding-bottom: 20%;
-}
-
-.main .main-container .panel-heading .panel-title {
+.panel-heading .panel-login, .panel-heading .panel-register, .panel-heading .panel-contact {
   padding-top: 15px;
   padding-bottom: 15px;
   color: #04a7ff;
 }
 
-.main .main-container h1 {
-  font-family: 'Lato';
-  font-weight: 100;
-  text-align: center;
-  display: inline-block;
-  font-size: 4em;
-}
-
-.main .main-container .img-brand {
+.img-brand {
   margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 .row.v-align {
