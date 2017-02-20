@@ -52,16 +52,22 @@
                                 </button>
                             </a>
                         @else
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <a href="#" class="btn navbar-btn btn-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-user fa-lg"></i> {{Auth::user()->full_name}} <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li ><a href="/setings" ><i class="fa fa-cog"></i><span> Setări</span></a></li>
+                                <li >
+                                    <a href="/setings" >
+                                        <i class="fa fa-cog"></i><span> Setări</span>
+                                    </a>
+                                </li>
                                 <li role="separator" class="divider" ></li>
-                                <li ><a href="{{url('/logout')}}" onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                    <i class="fa fa-power-off" ></i><span> Ieșire</span>
-                                </a>
+                                <li>
+                                    <a href="{{url('/logout')}}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                        <i class="fa fa-power-off" ></i><span> Ieșire</span>
+                                    </a>
+                                </li>
                                 <form id="logout-form"
                                 action="{{ url('/logout') }}"
                                 method="POST"

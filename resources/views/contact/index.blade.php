@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section(@content)
+<div class="row">
     <div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
     @include('partials.errors')
         <div class="panel panel-default contact">
@@ -61,4 +62,6 @@
             </div>
         </div>
     </div>
+</div>
+
 @endsection

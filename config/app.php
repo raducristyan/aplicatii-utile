@@ -164,6 +164,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         'Fideloper\Proxy\TrustedProxyServiceProvider',
+        Laravel\Tinker\TinkerServiceProvider::class,
 
 
         /*

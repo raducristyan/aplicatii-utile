@@ -1,53 +1,45 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are handled
-| by your application. Just tell Laravel the URIs it should respond
-| to using a Closure or controller method. Build something great!
-|
-*/
-
-Route::get('/', ['as' => 'welcome', function(){
+Route::get('xml', function(){
+    return view('xml.index');
+});
+Route::get('/', function(){
   if (! Auth::check()) {
       $title = config('apps.title.welcome');
       return view('welcome', compact('title'));
   }else {
       return redirect(route('dashboard'));
   }
-}]);
+})->name('welcome');
 
-Route::group(['prefix' => 'contact'], function(){
-    Route::get('/', ['as' => 'contact.index', 'uses' => 'ContactController@index']);
-    Route::post('/send', ['as' => 'contact.send', 'uses' => 'ContactController@sendMessage']);
+Route::prefix('contact')->name('contact')->group(function(){
+    Route::get('/', 'ContactController@index')->name('.index');
+    Route::post('/send', 'ContactController@sendMessage')->name('.send');
 });
 
-Route::get('/help', ['as' => 'help', 'uses' => 'HelpController@index']);
+Route::get('/help', 'HelpController@index')->name('help');
 
-Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-Route::get('/apps', ['as' => 'apps', 'uses' => 'Apps\AppsController@index']);
+Route::get('/apps', 'Apps\AppsController@index')->name('apps');
 
-Route::group(['prefix' => 'activate', 'as' => 'activate.', 'namespace' => 'Auth'], function(){
-    Route::get('/confirm/{token}', ['as' => 'confirm', 'uses' => 'ActivationController@activate']);
-    Route::get('/resend', ['as' => 'resend', 'uses' => 'ActivationController@resend']);
+Route::prefix('activate')->namespace('Auth')->group( function(){
+    Route::get('/confirm/{token}', 'ActivationController@activate')->name('confirm');
+    Route::get('/resend', 'ActivationController@resend')->name('resend');
 });
 
 /*-- Aplications routes --*/
-Route::group(['namespace' => 'Apps', 'middleware' => 'auth'], function(){
-  Route::get('/myapps', ['as' => 'myapps', 'uses' => 'AppsController@index']);
-  Route::group(['as' => 'myapps.', 'prefix' => 'myapps', 'namespace' => 'RegistartionCertificate'], function (){
-    Route::resource('rc', 'RegistrationController');
-  });
+Route::prefix('myapps')->name('myapps.')->namespace('Apps')->middleware('auth')->group(function(){
+  Route::get('/', 'AppsController@index')->name('all');
+  Route::namespace('RegistartionCertificate')->group(function (){
+        Route::resource('rc', 'RegistrationController');
+    });
 });
 
 /*-- Admin routes --*/
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function()
+Route::name('admin.')->group(function()
 {
-  Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'AdminController@index']);
+  Route::get('/dashboard', 'AdminController@index')->name('dashboard');
 });
 
 Auth::routes();
