@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Institution;
 use App\Events\InstitutionCreated;
 use Laravel\Dusk\DuskServiceProvider;
 use Illuminate\Support\ServiceProvider;
