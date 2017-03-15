@@ -14,9 +14,9 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('cif');
-            $table->string('j')->nullable(); //nr Registrul Comertului
+            $table->string('name')->index();
+            $table->string('cif')->index();
+            $table->string('j')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('iban')->nullable();
@@ -25,6 +25,7 @@ class CreateCompaniesTable extends Migration
             $table->string('cnp');
             $table->integer('user_id')->unsigned();
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('user_id')
                   ->references('id')

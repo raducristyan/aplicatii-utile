@@ -13,6 +13,15 @@ class User extends Authenticatable
     use Notifiable, SoftDeletes;
 
     /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'deleted_at'
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -22,7 +31,7 @@ class User extends Authenticatable
         'last_name',
         'email',
         'password',
-        'role',
+        'is_admin',
     ];
 
     /**
@@ -31,7 +40,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     /**
@@ -57,7 +67,7 @@ class User extends Authenticatable
      */
     public function setFirstNameAttribute($value)
     {
-        $this->attributes['first_name'] = ucwords(strtolower(trim(preg_replace('/\s+/',' ', $value))));
+        $this->attributes['first_name'] = ucwords(strtolower($value));
     }
 
     /**
@@ -68,7 +78,7 @@ class User extends Authenticatable
      */
     public function setLastNameAttribute($value)
     {
-        $this->attributes['last_name'] = ucwords(strtolower(trim(preg_replace('/\s+/',' ', $value))));
+        $this->attributes['last_name'] = ucwords(strtolower($value));
     }
 
     /**
@@ -79,7 +89,7 @@ class User extends Authenticatable
      */
     public function setEmailAttribute($value)
     {
-        $this->attributes['email'] = strtolower(trim($value));
+        $this->attributes['email'] = strtolower($value);
     }
 
     /**
@@ -121,12 +131,12 @@ class User extends Authenticatable
      */
     public function scopeAdmin($query)
     {
-        return $query->where('role', 'admin');
+        return $query->where('is_admin', true);
     }
 
     /**
      * Return a user by email
-     * 
+     *
      * @param  string $email
      * @return static
      */

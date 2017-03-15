@@ -10,20 +10,20 @@ class Institution extends Model
     use SoftDeletes;
 
     /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'deleted_at'
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'cif',
-        'name',
-        'email',
-        'phone',
-        'fax',
-        'iban',
-        'bank',
-        'active',
-    ];
+    protected $fillable = ['cif', 'name', 'email', 'phone', 'fax', 'iban', 'bank', 'active',];
 
     /**
      * Get the users for the Institution model.

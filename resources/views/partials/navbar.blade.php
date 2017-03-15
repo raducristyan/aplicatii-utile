@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" @if (Auth::check()) href="{{route('dashboard')}}" @else href="/" @endif>
+            <a class="navbar-brand" @if ( Auth::check() ) href="{{ route('admin.dashboard') }}" @else href="/" @endif>
                 <img src="/img/logo_brand.png" alt="Aplicații utile" class="logo_brand">
             </a>
         </div>
@@ -16,23 +16,23 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li @if (Request::is('/') || Request::is('dashboard')) class="active" @endif>
-                    <a @if (Auth::guest()) href="{{route('welcome')}}" @else href="{{route('dashboard')}}" @endif >
+                <li @if ( Request::is('/') || Request::is('dashboard') ) class="active" @endif>
+                    <a @if ( Auth::guest() ) href="{{ route('welcome') }}" @else href="{{ route('admin.dashboard') }}" @endif >
                         <i class="fa fa-home fa-lg"></i><span > Acasă</span>
                     </a>
                 </li>
-                <li @if (Request::is('apps*') || Request::is('myapps*')) class="active" @endif >
-                    <a @if (Auth::guest()) href="{{route('apps')}}" @else href="{{route('myapps')}}" @endif>
+                <li @if ( Request::is('apps*') || Request::is('myapps*') ) class="active" @endif >
+                    <a @if ( Auth::guest() ) href="{{ route('apps') }}" @else href="{{route('myapps.all')}}" @endif>
                         <i class="fa fa-cogs fa-lg"></i><span > Aplicații</span>
                     </a>
                 </li>
                 <li @if (Request::is('contact.index')) class="active" @endif>
-                        <a href="{{route('contact.index')}}">
+                        <a href="{{ route('contact.index') }}">
                             <i class="fa fa-envelope fa-lg"></i><span > Contact</span>
                         </a>
                     </li>
                     <li @if (Request::is('help')) class="active" @endif>
-                        <a href="{{route('help')}}" >
+                        <a href="{{ route('help') }}" >
                             <i class="fa fa-question fa-lg"></i><span > Ajutor</span>
                         </a>
                     </li>
@@ -43,27 +43,27 @@
                         @if (Auth::guest())
                             <a href="/login">
                                 <button type="button" class="btn navbar-btn btn-sm btn-outline">
-                                        <i class="fa fa-user-secret fa-lg"></i> <span> Autentificare</span>
+                                        <i class="fa fa-user-secret fa-lg"></i>  <span>Autentificare</span>
                                 </button>
                             </a>
-                            <a href="/register">
+                            <a href="{{ route('register') }}">
                                 <button type="button" class="btn navbar-btn btn-sm btn-orange">
-                                    <i class="fa fa-user-plus fa-lg"></i><span> Creează cont</span>
+                                    <i class="fa fa-user-plus fa-lg"></i> <span>Creează cont</span>
                                 </button>
                             </a>
                         @else
                             <a href="#" class="btn navbar-btn btn-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-user fa-lg"></i> {{Auth::user()->full_name}} <span class="caret"></span>
+                                <i class="fa fa-user fa-lg"></i> {{ Auth::user()->full_name }} <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li >
-                                    <a href="/setings" >
+                                    <a href="/settings" >
                                         <i class="fa fa-cog"></i><span> Setări</span>
                                     </a>
                                 </li>
                                 <li role="separator" class="divider" ></li>
                                 <li>
-                                    <a href="{{url('/logout')}}" onclick="event.preventDefault();
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                         <i class="fa fa-power-off" ></i><span> Ieșire</span>
                                     </a>

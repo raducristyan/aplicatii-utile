@@ -14,9 +14,9 @@ class CreateInstitutionsTable extends Migration
     {
       Schema::create('institutions', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('cif')->unique();
-          $table->string('name');
-          $table->string('email')->nullable();
+          $table->string('cif')->unique()->index();
+          $table->string('name')->index();
+          $table->string('email')->nullable()->index();
           $table->string('phone')->nullable();
           $table->string('fax')->nullable();
           $table->string('iban')->nullable();

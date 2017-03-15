@@ -14,16 +14,18 @@ class CreatePeopleTable extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('cnp');
-            $table->string('email')->nullable();
+            $table->string('name')->index();
+            $table->string('cnp')->index();
+            $table->string('email')->index()->nullable();
             $table->string('phone')->nullable();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('user_id')
                   ->references('id')
-                  ->on('users');
+                  ->on('users')
+                  ->onDelete('cascade');
         });
     }
 

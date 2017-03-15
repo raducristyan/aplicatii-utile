@@ -14,7 +14,6 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
-    const ADMIN_ROLE = 'admin';
 
     /*
     |--------------------------------------------------------------------------
@@ -96,13 +95,14 @@ class RegisterController extends Controller
              'last_name'  => $data['last_name'],
              'email'      => $data['email'],
              'password'   => bcrypt($data['password']),
-             'role'       => self::ADMIN_ROLE,
+             'is_admin'       => true,
          ]);
 
          if ($institution->users()->save($newUser) && $institution->token()->save($token)) {
              event(new InstitutionCreated($institution));
 
              return $newUser;
+             
          } else {
              $institution->delete();
          }

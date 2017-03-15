@@ -11,18 +11,14 @@ class ActivationToken extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'token',
-    ];
+    protected $fillable = ['token'];
 
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
-    protected $hidden = [
-        'token',
-    ];
+    protected $hidden = ['token'];
 
     /**
      * Get the institution that owns the model.
