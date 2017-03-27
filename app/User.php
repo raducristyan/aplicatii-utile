@@ -62,7 +62,7 @@ class User extends Authenticatable
     /**
      * Set the user's first name.
      *
-     * @param  string  $value
+     * @param  string $value
      * @return void
      */
     public function setFirstNameAttribute($value)
@@ -140,9 +140,24 @@ class User extends Authenticatable
      * @param  string $email
      * @return static
      */
-        public static function byEmail($email)
-        {
-            return static::where('email', $email);
-        }
+    public static function byEmail($email)
+    {
+        return static::where('email', $email);
+    }
 
+    /**
+    * Get the companys for the user model.
+    */
+    public function companies()
+    {
+        return $this->hasMany(Company::class);
+    }
+
+    /**
+    * Get the people for the user model.
+    */
+    public function people()
+    {
+        return $this->hasMany(Person::class);
+    }
 }

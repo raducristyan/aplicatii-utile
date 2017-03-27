@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
                 {!! Form::open( ['url' => 'api/category', 'method' => 'POST', 'class' => 'form-horizontal'] ) !!}
-                @include('apps.rc.partials.forms._formAddCategory')
+                @include('apps.vehicles.partials.forms._formAddCategory')
             </div>
             <div class="modal-footer">
                 <button type="button" id="renunta" class="btn btn-warning" data-dismiss="modal">Renunță</button>

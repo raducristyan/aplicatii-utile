@@ -22,6 +22,9 @@ class CreateVehiclesTable extends Migration
             $table->string('color');
             $table->string('card_series')->nullable();
             $table->string('card_number')->nullable();
+            $table->string('registration_number');
+            $table->morphs();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -33,6 +36,6 @@ class CreateVehiclesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('vehicles');
+        Schema::dropIfExists('vehicles');
     }
 }

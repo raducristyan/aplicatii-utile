@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
                 {!! Form::open( ['url' => 'api/mark', 'method' => 'POST', 'class' => 'form-horizontal'] ) !!}
-                @include('apps.rc.partials.forms._formAddMark')
+                @include('apps.vehicles.partials.forms._formAddMark')
             </div>
             <div class="modal-footer">
                 <button type="button" id="renunta" class="btn btn-warning" data-dismiss="modal">Renunță</button>

@@ -21,15 +21,14 @@ class CreateCompaniesTable extends Migration
             $table->string('phone')->nullable();
             $table->string('iban')->nullable();
             $table->string('bank')->nullable();
-            $table->string('authorized');
-            $table->string('cnp');
             $table->integer('user_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
 
             $table->foreign('user_id')
-                  ->references('id')
-                  ->on('users');
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 
@@ -40,6 +39,6 @@ class CreateCompaniesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('companies');
+        Schema::dropIfExists('companies');
     }
 }

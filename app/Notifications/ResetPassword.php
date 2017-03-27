@@ -46,9 +46,9 @@ class ResetPassword extends Notification
         $url = url('password/reset', $this->token);
 
         return (new MailMessage)->subject('Resetare parolă')
-                                ->line('Ai primit acest mesaj pentru că ai transmis o solicitare de resetare a parolei.')
-                                ->action('Resetare parolă', $url)
-                                ->line('Dacă nu ai transmis o solicitare în acest sens, poți ignora acest mesaj.');
+            ->line('Ai primit acest mesaj pentru că ai transmis o solicitare de resetare a parolei.')
+            ->action('Resetare parolă', $url)
+            ->line('Dacă nu ai transmis o solicitare în acest sens, poți ignora acest mesaj.');
     }
 
     /**

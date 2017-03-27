@@ -23,7 +23,6 @@ class CreateMarksTable extends Migration
                   ->references('id')
                   ->on('users')
                   ->onDelete('cascade');
-
         });
     }
 
@@ -34,6 +33,6 @@ class CreateMarksTable extends Migration
      */
     public function down()
     {
-        Schema::drop('marks');
+        Schema::dropIfExists('marks');
     }
 }

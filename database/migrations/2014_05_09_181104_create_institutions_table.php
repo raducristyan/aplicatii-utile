@@ -12,19 +12,19 @@ class CreateInstitutionsTable extends Migration
      */
     public function up()
     {
-      Schema::create('institutions', function (Blueprint $table) {
-          $table->increments('id');
-          $table->string('cif')->unique()->index();
-          $table->string('name')->index();
-          $table->string('email')->nullable()->index();
-          $table->string('phone')->nullable();
-          $table->string('fax')->nullable();
-          $table->string('iban')->nullable();
-          $table->string('bank')->nullable();
-          $table->boolean('active')->default(false);
-          $table->softDeletes();
-          $table->timestamps();
-      });
+        Schema::create('institutions', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('cif')->unique()->index();
+            $table->string('name')->index();
+            $table->string('email')->nullable()->index();
+            $table->string('phone')->nullable();
+            $table->string('fax')->nullable();
+            $table->string('iban')->nullable();
+            $table->string('bank')->nullable();
+            $table->boolean('active')->default(false);
+            $table->softDeletes();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -34,6 +34,6 @@ class CreateInstitutionsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('institutions');
+        Schema::dropIfExists('institutions');
     }
 }

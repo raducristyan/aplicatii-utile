@@ -10,7 +10,7 @@
             @include('../../partials.success')
             @include('../../partials.errors')
 
-            @include('apps.rc.partials.forms._formAddRegistrationCertificates')
+            @include('apps.vehicles.partials.forms._formAddRegistrationCertificates')
         </div>
     </div>
 @endsection

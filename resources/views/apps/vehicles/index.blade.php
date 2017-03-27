@@ -16,7 +16,7 @@
         </div>
 
         <div class="col-md-6 col-sm-6 text-right">
-            <a href="{{route('myapps.rc.create')}}" class="btn btn-success btn-md">
+            <a href="{{route('myapps.vehicles.create')}}" class="btn btn-success btn-md">
                 <i class="fa fa-plus"></i> Adaugă certificat
             </a>
         </div>
@@ -35,7 +35,7 @@
         </div>
 
     @else
-        @include('apps.rc.partials._registrationCertificates')
+        @include('apps.vehicles.partials._registrationCertificates')
     @endif
 
     $file = base_path()."/database/seeds/counties.csv";

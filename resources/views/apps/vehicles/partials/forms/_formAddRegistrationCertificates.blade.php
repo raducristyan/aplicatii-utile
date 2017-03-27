@@ -4,7 +4,7 @@
         <h3 class="panel-title">Adaugă certificat de înregistrare</h3>
     </div>
     <div class="panel-body">
-        {!! Form::open(['method' => 'POST', 'route' => 'myapps.rc.store', 'class' => 'form-horizontal']) !!}
+        {!! Form::open(['method' => 'POST', 'route' => 'myapps.vehicles.store', 'class' => 'form-horizontal']) !!}
         
         <div class="form-group">
             {!! Form::label('person', 'Tip persoană', ['class' => 'col-md-3 control-label']) !!}
@@ -206,5 +206,5 @@
 
                 @include('apps.partials.modals._modalAddPerson')
                 @include('apps.partials.modals._modalAddCompany')
-                @include('apps.rc.partials.modals._modalAddMark')
-                @include('apps.rc.partials.modals._modalAddCategory')
+                @include('apps.vehicles.partials.modals._modalAddMark')
+                @include('apps.vehicles.partials.modals._modalAddCategory')
