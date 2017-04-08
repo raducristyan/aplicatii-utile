@@ -60,6 +60,22 @@ class User extends Authenticatable
     }
 
     /**
+    * Get all of the people's vehicles for the user.
+    */
+    public function peopleVehicles()
+    {
+        return $this->hasManyThrough(Vehicles::class, Person::class);
+    }
+
+    /**
+    * Get all of the companies vehicles for the user.
+    */
+    public function companiesVehicles()
+    {
+        return $this->hasManyThrough(Vehicle::class, Company::class);
+    }
+
+    /**
      * Set the user's first name.
      *
      * @param  string $value

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Requests\VehicleRequest;
 use App\Http\Requests;
 
-class VehicleCategoryController extends Controller
+class VehicleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class VehicleCategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\VehicleRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VehicleRequest $request)
     {
         //
     }

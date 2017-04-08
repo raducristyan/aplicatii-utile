@@ -22,9 +22,9 @@ class ContactController extends Controller
     public function sendMessage(Request $request)
     {
         $rules = [
-            'email' => 'required|email',
+            'email'   => 'required|email',
             'subject' => 'required|min:3|max:60',
-            'body' => 'required|min:15|max:1000'
+            'body'    => 'required|min:5|max:1000'
         ];
         $this->validate($request, $rules);
 
@@ -34,6 +34,6 @@ class ContactController extends Controller
 
         Mail::to(config('mail.from.address'))->send(new ContactEmail($from, $subject, $body));
 
-        return redirect()->back()->withSuccess('Mesajul a fost trimis.');
+        return redirect()->back()->withSuccess('Mesajul a fost trimis cu succes.');
     }
 }

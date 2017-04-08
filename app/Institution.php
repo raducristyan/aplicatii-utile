@@ -49,7 +49,7 @@ class Institution extends Model
      */
     public function setNameAttribute($value)
     {
-        $this->attributes['name'] = ucwords(strtolower(trim(preg_replace('/\s+/',' ', $value))));
+        $this->attributes['name'] = ucwords(strtolower(trim(preg_replace('/\s+/', ' ', $value))));
     }
 
     /**
@@ -71,7 +71,7 @@ class Institution extends Model
      */
     public function setIbanAttribute($value)
     {
-        $this->attributes['iban'] = strtoupper(trim(preg_replace('/\s+/','', $value)));
+        $this->attributes['iban'] = strtoupper(trim(preg_replace('/\s+/', '', $value)));
     }
 
     /**
@@ -82,6 +82,6 @@ class Institution extends Model
      */
     public function setBankAttribute($value)
     {
-        $this->attributes['bank'] = ucwords(strtolower(trim(preg_replace('/\s+/',' ', $value))));
+        $this->attributes['bank'] = ucwords(strtolower(trim(preg_replace('/\s+/', ' ', $value))));
     }
 }

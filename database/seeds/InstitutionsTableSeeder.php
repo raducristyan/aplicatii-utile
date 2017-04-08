@@ -13,7 +13,7 @@ class InstitutionsTableSeeder extends Seeder
     {
         DB::table('users')->delete();
         DB::table('institutions')->delete();
-        factory(App\Institution::class, 1)->create()->each(function($i) {
+        factory(App\Institution::class, 1)->create()->each(function ($i) {
             $i->users()->save(factory(App\User::class)->make([
                 'first_name' => 'radu cristian',
                 'last_name' => 'burduhos',

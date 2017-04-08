@@ -15,6 +15,7 @@ class Vehicle extends Model
     * @var array
     */
     protected $fillable = [
+        'mark',
         'type',
         'displacement',
         'engine_series',

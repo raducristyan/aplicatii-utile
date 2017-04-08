@@ -17,10 +17,10 @@ class CountiesTableSeeder extends Seeder
         $file = base_path()."/database/seeds/counties.csv";
         $handle = fopen($file, "r");
 
-        if ($handle !== FALSE) {
+        if ($handle !== false) {
             while (!feof($handle)) {
                 $data = fgetcsv($handle, 1000, ";");
-                if(($data[0] != "") && ($data[1] != "")) {
+                if (($data[0] != "") && ($data[1] != "")) {
                     DB::table('counties')->insert([
                         'siruta' => $data[0],
                         'name'   => $data[1]
