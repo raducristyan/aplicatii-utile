@@ -206,5 +206,4 @@
 
                 @include('apps.partials.modals._modalAddPerson')
                 @include('apps.partials.modals._modalAddCompany')
-                @include('apps.vehicles.partials.modals._modalAddMark')
                 @include('apps.vehicles.partials.modals._modalAddCategory')

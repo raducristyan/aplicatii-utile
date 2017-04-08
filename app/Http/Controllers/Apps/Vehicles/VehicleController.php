@@ -1,21 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Apps\Vehicles;
 
 use Illuminate\Http\Request;
 
-use App\User;
-use App\Http\Requests\MarkTypeRequest;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
 
-class MarkTypeController extends Controller
+class VehicleController extends Controller
 {
-    protected $user;
-
-    public function __construct (User $user)
-    {
-        $this->user = Auth::user();
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -42,9 +35,9 @@ class MarkTypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(MarkTypeRequest $request)
+    public function store(Request $request)
     {
-        $markType = new MarkType();
+        //
     }
 
     /**

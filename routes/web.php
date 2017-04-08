@@ -32,7 +32,7 @@ Route::prefix('activate')->namespace('Auth')->middleware('guest')->group(functio
 Route::prefix('myapps')->name('myapps.')->namespace('Apps')->middleware('auth')->group(function () {
     Route::get('/', 'AppsController@index')->name('all');
     Route::namespace('Vehicles')->group(function () {
-        Route::resource('vehicles', 'VehiclesController');
+        Route::resource('vehicles', 'VehicleController');
     });
 });
 

@@ -10,14 +10,12 @@
             @include('../../partials.success')
             @include('../../partials.errors')
 
-            @include('apps.vehicles.partials.forms._formAddRegistrationCertificates')
+            @include('apps.vehicles.partials.forms._formAddVehicleCertificate')
         </div>
     </div>
 @endsection
 
 @section('scripts')
-    <script type="text/javascript" src="/js/vue/createRegistrationCertificate.js"></script>
-
     <script type="text/javascript">
 
     $(document).ready(function(){

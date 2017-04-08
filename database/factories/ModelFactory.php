@@ -27,6 +27,6 @@ $factory->define(App\Institution::class, function (Faker\Generator $faker) {
     return [
         'cif' => '4326760',
         'name' => 'comuna fundu moldovei',
-        'token' => str_random( 60 ),
+        'active' => true,
     ];
 });

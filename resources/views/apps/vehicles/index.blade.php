@@ -35,21 +35,7 @@
         </div>
 
     @else
-        @include('apps.vehicles.partials._registrationCertificates')
+        @include('apps.vehicles.partials._vehiclesCertificates')
     @endif
-
-    $file = base_path()."/database/seeds/counties.csv";
-
-    if (($handle = fopen($file, "r")) !== FALSE) {
-        while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-            $num = count($data);
-            for ($c=0; $c < $num; $c++) {
-                echo $data[$c][0]."-".$data[$c][1];
-                ]);
-            }
-        }
-        fclose($handle);
-    }
-
 
 @endsection
