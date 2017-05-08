@@ -1,71 +1,68 @@
 @extends('layouts.master')
 @include('partials.message')
 @section('content')
-    <div class="row">
-        <div class="col-md-4 col-sm-8 col-md-offset-4 col-sm-offset-2">
-            <a href="/">
-                <img src="/img/logo_brand.png" class="img-responsive center-block img-brand" alt="aplicatii utile">
+    <div class="container-fluid">
+        <div class="row justify-content-center col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+            <a class="my-4" href="/">
+                <img src="/img/logo_brand.png" class="img-fluid mx-auto img-brand" alt="aplicatii utile">
             </a>
 
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title panel-login">Autentificare</h3>
+            <div class="card px-1 py-1">
+                <div class="card-block mx-auto">
+                    <h3 class="card-title text-primary">Autentificare</h3>
                 </div>
-                <div class="panel-body">
-                    <div class="container-fluid">
-                        
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-                            {{ csrf_field() }}
+                <div class="card-block">
+                    <form method="POST" action="{{ url('/login') }}">
+                        {{ csrf_field() }}
 
-                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} form-group-lg">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                        <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }} form-control-lg">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                </span>
+                                <input type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}">
+                            </div>
+                                @if ($errors->has('email'))
+                                    <span class="form-text">
+                                        <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                                    <input type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}">
-                                </div>
-                                    @if ($errors->has('email'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
-                                    @endif
+                                @endif
+                        </div>
+
+                        <div class="form-group {{ $errors->has('password') ? ' has-danger' : '' }} form-control-lg">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-key" aria-hidden="true"></i>
+                                </span>
+                                <input type="password" class="form-control" name="password" placeholder="Parola">
                             </div>
 
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }} form-group-lg">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-key" aria-hidden="true"></i>
+                                @if ($errors->has('password'))
+                                    <span class="form-text">
+                                        <strong>{{ $errors->first('password') }}</strong>
                                     </span>
-                                    <input type="password" class="form-control" name="password" placeholder="Parola">
-                                </div>
+                                @endif
+                        </div>
 
-                                    @if ($errors->has('password'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('password') }}</strong>
-                                        </span>
-                                    @endif
+                        <div class="row mx-0 px-4">
+                            <div class="form-check mt-2 mr-sm-2 mb-sm-0">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" name="remember"> Autentificare automată
+                                </label>
                             </div>
 
-                            <div class="row">
-                                <div class="checkbox col-md-6 col-md-offset-1">
-                                    <label>
-                                        <input type="checkbox" name="remember"> Autentificare automată
-                                    </label>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <a class="btn btn-link" href="{{ url('/password/reset') }}">Ai uitat parola?</a>
-                                </div>
+                            <div>
+                                <a class="btn btn-link pwd-forgot" href="{{ url('/password/reset') }}">Ai uitat parola?</a>
                             </div>
-                            <br/>
+                        </div>
+                        <br/>
 
-                            <div class="form-group form-group-lg">
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block">
-                                        <i class="fa fa-btn fa-sign-in"></i> Autentificare
-                                    </button>
-                            </div>
-                        </form>
-                    </div>
+                        <div class="form-group form-control-lg">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                    <i class="fa fa-btn fa-sign-in"></i> Autentificare
+                                </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

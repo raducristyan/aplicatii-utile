@@ -1,7 +1,7 @@
 @extends('apps.layout')
 
-@section('main')
-    <div class="col-md-10 col-md-offset-1 all-apps-main">
+@section('main-wrapper')
+    <div class="row">
         <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores qui a necessitatibus, fuga accusamus earum iusto quibusdam reprehenderit at dolor explicabo illo veniam? Voluptas dicta maiores eum doloremque, error modi.</div>
         <div>Suscipit blanditiis totam magnam, placeat eius pariatur nobis at provident, recusandae, necessitatibus, deserunt expedita molestias repudiandae eligendi magni laboriosam fugit eaque nemo repellat veritatis eos earum accusamus. Nemo, odio, libero!</div>
         <div>Laudantium, impedit omnis perferendis quo odio hic enim, molestiae modi. Ex ducimus distinctio, doloremque possimus, illum dolores beatae laborum culpa et sapiente consequuntur nostrum suscipit reiciendis cumque omnis dolorem voluptates.</div>

@@ -9,13 +9,8 @@
 	@include('partials.head')
 </head>
 <body>
-	<div id="app">
-		@include('partials.navbar')
-		<div class="container-fluid">
-			@yield('content')
-			<app></app>
-		</div>
-	</div>
+	@include('partials.navbar')
+	@yield('content')
 	@include('partials.footer')
 </body>
 </html>

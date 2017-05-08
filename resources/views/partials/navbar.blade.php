@@ -1,83 +1,76 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" @if ( Auth::check() ) href="{{ route('admin.dashboard') }}" @else href="/" @endif>
-                <img src="/img/logo_brand.png" alt="Aplicații utile" class="logo_brand">
-            </a>
-        </div>
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-purple py-1">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#topNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" @if ( Auth::check() ) href="{{ route('admin.dashboard') }}" @else href="/" @endif>
+        <img src="/img/logo_brand_hight50.png" alt="Aplicații utile" class="logo-brand">
+    </a>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li @if ( Request::is('/') || Request::is('dashboard') ) class="active" @endif>
-                    <a @if ( Auth::guest() ) href="{{ route('welcome') }}" @else href="{{ route('admin.dashboard') }}" @endif >
-                        <i class="fa fa-home fa-lg"></i><span > Acasă</span>
-                    </a>
-                </li>
-                <li @if ( Request::is('apps*') || Request::is('myapps*') ) class="active" @endif >
-                    <a @if ( Auth::guest() ) href="{{ route('apps') }}" @else href="{{route('myapps.all')}}" @endif>
-                        <i class="fa fa-cogs fa-lg"></i><span > Aplicații</span>
-                    </a>
-                </li>
-                <li @if (Request::is('contact.index')) class="active" @endif>
-                        <a href="{{ route('contact.index') }}">
-                            <i class="fa fa-envelope fa-lg"></i><span > Contact</span>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="topNavbar">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" @if ( Request::is('/') || Request::is('dashboard') ) class="active" @endif>
+                <a class="nav-link" @if ( Auth::guest() ) href="{{ route('welcome') }}" @else href="{{ route('admin.dashboard') }}" @endif >
+                    <i class="fa fa-home"></i><span > Acasă</span>
+                </a>
+            </li>
+            <li class="nav-item" @if ( Request::is('apps*') || Request::is('myapps*') ) class="active" @endif >
+                <a class="nav-link" @if ( Auth::guest() ) href="{{ route('apps') }}" @else href="{{route('myapps.all')}}" @endif>
+                    <i class="fa fa-cogs"></i><span > Aplicații</span>
+                </a>
+            </li>
+            <li class="nav-item" @if (Request::is('contact.index')) class="active" @endif>
+                <a class="nav-link" href="{{ route('contact.index') }}">
+                    <i class="fa fa-envelope"></i><span> Contact</span>
+                </a>
+            </li>
+            <li class="nav-item" @if (Request::is('help')) class="active" @endif>
+                <a class="nav-link" href="{{ route('help') }}" >
+                    <i class="fa fa-question"></i><span > Ajutor</span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav">
+            @if (Auth::guest())
+            <li class="nav-item mr-2 mb-md-1">
+                <a class="btn btn-md btn-outline-danger btn-auth" href="/login">
+                    <i class="fa fa-user-secret"></i>  <span>Autentificare</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-md btn-danger" href="{{ route('register') }}">
+                    <i class="fa fa-user-plus"></i> <span>Creează cont</span>
+                </a>
+            </li>
+            @else
+            <li class="nav-item">
+                <a href="#" class="btn navbar-btn btn-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-user"></i> {{ Auth::user()->full_name }} <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li >
+                        <a href="/settings" >
+                            <i class="fa"></i><span> Setări</span>
                         </a>
                     </li>
-                    <li @if (Request::is('help')) class="active" @endif>
-                        <a href="{{ route('help') }}" >
-                            <i class="fa fa-question fa-lg"></i><span > Ajutor</span>
+                    <li role="separator" class="divider" ></li>
+                    <li>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            <i class="fa fa-power-off" ></i><span> Ieșire</span>
                         </a>
                     </li>
+                    <form id="logout-form"
+                    action="{{ url('/logout') }}"
+                    method="POST"
+                    style="display: none;">
+                    {{ csrf_field() }}
+                    </form>
                 </ul>
-
-                <div class="nav navbar-nav navbar-right">
-                    <div class="container-fluid">
-                        @if (Auth::guest())
-                            <a href="/login">
-                                <button type="button" class="btn navbar-btn btn-sm btn-outline">
-                                        <i class="fa fa-user-secret fa-lg"></i>  <span>Autentificare</span>
-                                </button>
-                            </a>
-                            <a href="{{ route('register') }}">
-                                <button type="button" class="btn navbar-btn btn-sm btn-orange">
-                                    <i class="fa fa-user-plus fa-lg"></i> <span>Creează cont</span>
-                                </button>
-                            </a>
-                        @else
-                            <a href="#" class="btn navbar-btn btn-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-user fa-lg"></i> {{ Auth::user()->full_name }} <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li >
-                                    <a href="/settings" >
-                                        <i class="fa fa-cog"></i><span> Setări</span>
-                                    </a>
-                                </li>
-                                <li role="separator" class="divider" ></li>
-                                <li>
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                                        <i class="fa fa-power-off" ></i><span> Ieșire</span>
-                                    </a>
-                                </li>
-                                <form id="logout-form"
-                                action="{{ url('/logout') }}"
-                                method="POST"
-                                style="display: none;">
-                                {{ csrf_field() }}
-                                </form>
-                            </ul>
-                        @endif
-                    </div>
-            </div>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+            </li>
+            @endif
+        </ul>
+    </div><!-- /.navbar-collapse -->
 </nav>

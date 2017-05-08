@@ -11,12 +11,11 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/main.js', 'public/js/app.js');
-mix.js('resources/assets/js/vendor.js', 'public/js');
+// mix.js('resources/assets/js/main.js', 'public/js/app.js');
+// mix.js('resources/assets/js/vendor.js', 'public/js');
 
 mix.sass('resources/assets/sass/app.sass', 'public/css');
 
-// mix.copy('node_modules/bootstrap-sass/assets/fonts/bootstrap', 'public/fonts');
 // mix.copy('node_modules/font-awesome/fonts', 'public/fonts');
 
 

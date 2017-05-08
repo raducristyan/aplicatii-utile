@@ -4,7 +4,7 @@
     @include('apps.partials.left-menu')
 @endsection
 
-@section('main')
+@section('main-wrapper')
 
     <div class="row v-align">
 
@@ -28,7 +28,7 @@
 
     @if (!isset($v) || count($v) == 0)
 
-        <div class="container main-container">
+        <div class="main-container">
             <div class="no-content">
                 <h1>Nu aveti certificate de inregistrare</h1>
             </div>

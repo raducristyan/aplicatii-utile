@@ -1,5 +1,3 @@
-<div class="row">
-
     <div class="form-group" :class="{'has-error': person.name.hasError && !formAddPerson.isEmpty}">
 
         {!! Form::label('name', 'Nume', ['class' => 'col-md-3 control-label', 'for' => 'name']) !!}
@@ -110,4 +108,4 @@
         </div>
 
     </div>
-</div>
+

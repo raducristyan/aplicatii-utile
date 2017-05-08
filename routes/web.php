@@ -12,9 +12,9 @@ Route::get('/', function () {
     }
 })->name('welcome');
 
-Route::prefix('contact')->name('contact.')->middleware('guest')->group(function () {
-    Route::get('/', 'ContactController@index')->name('index');
-    Route::post('/send', 'ContactController@sendMessage')->name('send');
+Route::prefix('contact')->name('contact')->middleware('guest')->group(function () {
+    Route::get('/', 'ContactController@index')->name('.index');
+    Route::post('/send', 'ContactController@sendMessage')->name('.send');
 });
 
 Route::get('/help', 'HelpController@index')->name('help')->middleware('guest');

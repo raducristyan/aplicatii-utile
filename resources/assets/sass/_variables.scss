@@ -8,8 +8,9 @@ $custom-orange: rgba(246, 121, 75, 1);
 $custom-purple: rgba(135, 13, 217, 1);
 $custom-red: rgba(252, 39, 39, 1);
 $custom-gray: #9d9d9d;
-$light-gray: lighten($custom-gray,20%);
-$dark-gray: darken($custom-gray,22%);
+$light-gray: lighten($custom-gray, 20%);
+$dark-gray: darken($custom-gray, 22%);
+$white: #fff;
 
 //Custom variables
 $hover-list-items-color: $custom-orange;
@@ -22,7 +23,7 @@ $brand-warning: $custom-orange;
 $brand-danger:  $custom-red;
 
 // Typography
-$font-family-sans-serif: "Raleway", sans-serif;
+$font-family-sans-serif: Raleway', sans-serif;
 $font-size-base: 14px;
 $line-height-base: 1.6;
 $text-color: #636b6f;
