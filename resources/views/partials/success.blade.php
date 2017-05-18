@@ -1,5 +1,5 @@
 @if (Session::has('success'))
-	<div class="alert alert-success in fade">
+	<div class="alert alert-success in fade" role="alert">
 		<button class="close" type="button" data-dismiss="alert">
 			<i class="fa fa-close fa-fw"></i>
 		</button>

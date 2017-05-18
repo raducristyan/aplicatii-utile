@@ -4,12 +4,12 @@
     <div class="container-fluid">
         <div class="row justify-content-center col-md-8 col-lg-6 offset-md-2 offset-lg-3">
             <a class="my-4" href="/">
-                <img src="/img/logo_brand.png" class="img-fluid mx-auto img-brand" alt="aplicatii utile">
+                <img src="/img/logo_brand.png" class="img-fluid mx-auto login-img-brand" alt="aplicatii utile">
             </a>
 
-            <div class="card px-1 py-1">
+            <div class="card px-1 py-1 mb-4">
                 <div class="card-block mx-auto">
-                    <h3 class="card-title text-primary">Autentificare</h3>
+                    <h2 class="card-title text-primary">Autentificare</h2>
                 </div>
                 <div class="card-block">
                     <form method="POST" action="{{ url('/login') }}">
