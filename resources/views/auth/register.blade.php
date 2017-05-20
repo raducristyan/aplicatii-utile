@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
+<div class="container-fluid">
+
     <div class="row justify-content-center col-lg-8 col-md-10 col-sm-10 offset-lg-2 offset-md-1 offset-sm-1">
         <div class="card my-4 w-75">
             <div class="card-block mx-auto">
@@ -108,7 +110,7 @@
                         </div>
                     </div>
 
-                    <div class="row form-group mt-4">
+                    <div class="row mt-4">
                         <div class="col-md-10 offset-md-1">
                             <button type="submit" class="btn btn-primary btn-lg btn-block">
                                 <i class="fa fa-user-plus"></i> Înregistrare
@@ -119,4 +121,6 @@
             </div>
         </div>
     </div>
+    
+</div>
 @endsection

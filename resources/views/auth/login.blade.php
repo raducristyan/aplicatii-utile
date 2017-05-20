@@ -15,12 +15,12 @@
                     <form method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }} form-control-lg">
+                        <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                                 </span>
-                                <input type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}">
+                                <input type="email" class="form-control form-control-lg" name="email" placeholder="Email" value="{{ old('email') }}">
                             </div>
                                 @if ($errors->has('email'))
                                     <span class="form-text">
@@ -29,12 +29,12 @@
                                 @endif
                         </div>
 
-                        <div class="form-group {{ $errors->has('password') ? ' has-danger' : '' }} form-control-lg">
+                        <div class="form-group {{ $errors->has('password') ? ' has-danger' : '' }}">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-key" aria-hidden="true"></i>
                                 </span>
-                                <input type="password" class="form-control" name="password" placeholder="Parola">
+                                <input type="password" class="form-control form-control-lg" name="password" placeholder="Parola">
                             </div>
 
                                 @if ($errors->has('password'))
@@ -57,10 +57,10 @@
                         </div>
                         <br/>
 
-                        <div class="form-group form-control-lg">
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">
-                                    <i class="fa fa-btn fa-sign-in"></i> Autentificare
-                                </button>
+                        <div class="">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                <i class="fa fa-btn fa-sign-in"></i> Autentificare
+                            </button>
                         </div>
                     </form>
                 </div>
