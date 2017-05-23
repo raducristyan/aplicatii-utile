@@ -27,3 +27,20 @@ body
 
 .pwd-forgot
   margin-top: 1px
+
+.dropdown-item:hover
+  background-color: $gray
+  color: $orange
+
+.app-card
+  .fa
+    color: $gray
+  &:hover
+    border: 1px solid $purple
+    box-shadow: 0 0 3px lighten($purple, 15%)
+    .fa
+      color: $purple
+
+.app-divider
+  height: 1px
+  background: linear-gradient(to right, lighten($orange, 35%), $orange, lighten($orange, 35%))

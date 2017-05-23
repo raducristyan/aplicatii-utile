@@ -14,9 +14,9 @@
                 {!! csrf_field() !!}
                     <div class="row form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 
-                        <label class="col-md-3 col-form-label offset-1" for="email">Adresa de e-mail</label>
+                        <label class="col-md-3 col-form-label offset-1" for="contact-email">Adresa de e-mail</label>
                         <div class="col-md-7">
-                            <input type="email" class="form-control" name="email" value="@if (Auth::check()) {{Auth::user()->email}} @else {{old('email')}} @endif" required="required" @if (! Auth::check()) autofocus @endif>
+                            <input id="contact-email" type="email" class="form-control" name="email" value="@if (Auth::check()) {{Auth::user()->email}} @else {{old('email')}} @endif" required="required" @if (! Auth::check()) autofocus @endif>
 
                             @if ($errors->has('email'))
                                 <span class="form-text">
@@ -28,9 +28,9 @@
                     </div>
 
                     <div class="row form-group{{ $errors->has('subject') ? ' has-error' : '' }}">
-                        <label class="col-md-3 col-form-label offset-1" for="subject">Subiect</label>
+                        <label class="col-md-3 col-form-label offset-1" for="message-subject">Subiect</label>
                         <div class="col-md-7">
-                            <input type="text" class="form-control" name="subject" value="{{ old('subject') }}" min="3" max="60" required="required" @if (Auth::check()) autofocus @endif>
+                            <input id="message-subject" type="text" class="form-control" name="subject" value="{{ old('subject') }}" min="3" max="60" required="required" @if (Auth::check()) autofocus @endif>
 
                             @if ($errors->has('email'))
                                 <span class="form-text">
@@ -41,9 +41,9 @@
                     </div>
 
                     <div class="row form-group{{ $errors->has('body') ? ' has-error' : '' }}">
-                        <label class="col-md-3 col-form-label offset-1" for="body">Mesaj</label>
+                        <label class="col-md-3 col-form-label offset-1" for="message-body">Mesaj</label>
                         <div class="col-md-7">
-                            <textarea class="form-control" name="body" rows="5"  value="{{ old('body') }}" minlength="15" maxlength="1000" required="required"></textarea>
+                            <textarea id="message-body" class="form-control" name="body" rows="5"  value="{{ old('body') }}" minlength="15" maxlength="1000" required="required"></textarea>
 
                             @if ($errors->has('email'))
                                 <span class="form-text">

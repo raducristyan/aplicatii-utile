@@ -42,6 +42,14 @@ class Institution extends Model
     }
 
     /**
+    * The applications that belong to the institution.
+    */
+    public function applications()
+    {
+        return $this->belongsToMany(Application::class, 'application_institution', 'institution_id', 'application_id');
+    }
+
+    /**
      * Set the institution's name.
      *
      * @param  string  $value

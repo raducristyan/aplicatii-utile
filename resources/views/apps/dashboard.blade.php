@@ -1,7 +1,8 @@
 @extends('apps.layout')
 
 @section('main-wrapper')
-    <div class="row">
+<div class="container-fluid">
+    <div class="row col-md-10 offset-md-1">
         <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores qui a necessitatibus, fuga accusamus earum iusto quibusdam reprehenderit at dolor explicabo illo veniam? Voluptas dicta maiores eum doloremque, error modi.</div>
         <div>Suscipit blanditiis totam magnam, placeat eius pariatur nobis at provident, recusandae, necessitatibus, deserunt expedita molestias repudiandae eligendi magni laboriosam fugit eaque nemo repellat veritatis eos earum accusamus. Nemo, odio, libero!</div>
         <div>Laudantium, impedit omnis perferendis quo odio hic enim, molestiae modi. Ex ducimus distinctio, doloremque possimus, illum dolores beatae laborum culpa et sapiente consequuntur nostrum suscipit reiciendis cumque omnis dolorem voluptates.</div>
@@ -18,4 +19,5 @@
         <div>Architecto accusantium autem vero at quae mollitia blanditiis, eos voluptate dolore doloremque odit alias error quibusdam asperiores nemo suscipit repellendus quidem sunt. Impedit iste voluptates cum sed veniam, quas officia?</div>
         <div>Modi iure recusandae eligendi enim id amet tempora molestiae possimus ipsam molestias aperiam dolorem ipsa nemo magni, nisi vero. Et aperiam, suscipit, sit maiores aut eligendi voluptatibus. Nam, minima, vel!</div>
     </div>
+</div>
 @endsection

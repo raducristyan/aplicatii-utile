@@ -30,3 +30,12 @@ $factory->define(App\Institution::class, function (Faker\Generator $faker) {
         'active' => true,
     ];
 });
+
+$factory->define(App\Application::class, function (Faker\Generator $faker) {
+    return [
+        'name' => 'Înregistrare vehicule',
+        'short_name' => 'i-v',
+        'slug' => 'inregistrare-vehicule',
+        'description' => 'Aplicație pentru generarea numerelor de înregistrare vehiculelor neînmatriculabile',
+    ];
+});

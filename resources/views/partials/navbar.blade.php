@@ -1,6 +1,6 @@
 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-purple align-middle py-0">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#topNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler navbar-toggler-right mt-1" type="button" data-toggle="collapse" data-target="#topNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" @if ( Auth::check() ) href="{{ route('admin.dashboard') }}" @else href="/" @endif>
@@ -45,30 +45,26 @@
                 </a>
             </li>
             @else
-            <li class="nav-item">
-                <a href="#" class="btn navbar-btn btn-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbar-dropdown-menu-right" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-user"></i> {{ Auth::user()->full_name }} <span class="caret"></span>
                 </a>
-                <ul class="dropdown-menu">
-                    <li >
-                        <a href="/settings" >
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown-menu-right">
+                        <a class="dropdown-item" href="/settings" >
                             <i class="fa"></i><span> Setări</span>
                         </a>
-                    </li>
-                    <li role="separator" class="divider" ></li>
-                    <li>
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                    <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                             <i class="fa fa-power-off" ></i><span> Ieșire</span>
                         </a>
-                    </li>
                     <form id="logout-form"
                     action="{{ url('/logout') }}"
                     method="POST"
                     style="display: none;">
                     {{ csrf_field() }}
                     </form>
-                </ul>
+                </div>
             </li>
             @endif
         </ul>

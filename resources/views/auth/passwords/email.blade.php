@@ -17,10 +17,10 @@
                         {!! csrf_field() !!}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-10 col-form-label offset-md-1">Adresa de e-mail</label>
+                            <label class="col-md-10 col-form-label offset-md-1" for="email-reset-password">Adresa de e-mail</label>
 
                             <div class="col-md-10 offset-md-1">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                <input id="email-reset-password" type="email" class="form-control" name="email" value="{{ old('email') }}">
 
                                 @if ($errors->has('email'))
                                     <span class="form-text">

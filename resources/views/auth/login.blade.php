@@ -15,7 +15,7 @@
                     <form method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+                        <div class="form-group {{ $errors->has('email') ? ' has-danger' : '' }}">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-user-circle-o" aria-hidden="true"></i>
@@ -23,8 +23,8 @@
                                 <input type="email" class="form-control form-control-lg" name="email" placeholder="Email" value="{{ old('email') }}">
                             </div>
                                 @if ($errors->has('email'))
-                                    <span class="form-text">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                    <span class="form-text text-muted">
+                                        {{ $errors->first('email') }}
                                     </span>
                                 @endif
                         </div>
@@ -38,8 +38,8 @@
                             </div>
 
                                 @if ($errors->has('password'))
-                                    <span class="form-text">
-                                        <strong>{{ $errors->first('password') }}</strong>
+                                    <span class="form-text text-muted">
+                                        {{ $errors->first('password') }}
                                     </span>
                                 @endif
                         </div>

@@ -10,7 +10,7 @@
                         </h3>
                     </div>
 
-                    <div class="panel-body">
+                    <div class="card">
                         Sunteți autentificat!
                         @if (isset($data)) $data @endif
                         </div>

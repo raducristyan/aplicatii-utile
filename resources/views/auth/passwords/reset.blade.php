@@ -13,10 +13,10 @@
                         <input type="hidden" name="token" value="{{ $token }}">
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Adresa de e-mail</label>
+                            <label class="col-md-4 control-label" for="email">Adresa de e-mail</label>
 
                             <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ $email or old('email') }}">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -27,10 +27,10 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Parola</label>
+                            <label class="col-md-4 control-label" for="password-reset">Parola</label>
 
                             <div class="col-md-6">
-                                <input type="password" class="form-control" name="password">
+                                <input id="password-reset" type="password" class="form-control" name="password">
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -41,9 +41,9 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Confirmă parola</label>
+                            <label class="col-md-4 control-label" for="confirm-password-reset">Confirmă parola</label>
                             <div class="col-md-6">
-                                <input type="password" class="form-control" name="password_confirmation">
+                                <input id="confirm-password-reset" type="password" class="form-control" name="password_confirmation">
 
                                 @if ($errors->has('password_confirmation'))
                                     <span class="help-block">
