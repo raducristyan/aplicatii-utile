@@ -7,7 +7,7 @@
                 <img src="/img/logo_brand.png" class="img-fluid mx-auto login-img-brand" alt="aplicatii utile">
             </a>
 
-            <div class="card px-1 py-1 mb-4">
+            <div class="card login-card px-1 py-1 mb-4">
                 <div class="card-block mx-auto">
                     <h2 class="card-title text-primary">Autentificare</h2>
                 </div>

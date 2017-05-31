@@ -15,8 +15,8 @@
                     <i class="fa fa-home"></i><span > Acasă</span>
                 </a>
             </li>
-            <li class="nav-item" @if ( Request::is('apps*') || Request::is('myapps*') ) class="active" @endif >
-                <a class="nav-link" @if ( Auth::guest() ) href="{{ route('apps') }}" @else href="{{route('myapps.all')}}" @endif>
+            <li class="nav-item" @if ( Request::is('apps*') ) class="active" @endif >
+                <a class="nav-link" href="{{route('apps.all')}}">
                     <i class="fa fa-cogs"></i><span > Aplicații</span>
                 </a>
             </li>

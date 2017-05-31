@@ -12,7 +12,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- {{implode(',',$v)}} --}}
                     @foreach($v as $vehicle)
                         <tr>
                             @if(isset($vehicle->people) && isset($vehicle->company))
@@ -44,17 +43,11 @@
                             </td>
                         </tr>
                     @endforeach
-
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-
 @section('scripts')
-    <script>
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-    </script>
+    
 @endsection

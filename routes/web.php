@@ -21,19 +21,20 @@ Route::get('/help', 'HelpController@index')->name('help')->middleware('guest');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-Route::get('/apps', 'Apps\AppsController@index')->name('apps')->middleware('guest');
-
 Route::prefix('activate')->namespace('Auth')->middleware('guest')->group(function () {
     Route::get('/confirm/{token}', 'ActivationController@activate')->name('confirm');
     Route::get('/resend', 'ActivationController@resend')->name('resend');
 });
 
 /*-- Aplications routes --*/
-Route::prefix('myapps')->name('myapps.')->namespace('Apps')->middleware('auth')->group(function () {
-    Route::get('/', 'AppsController@index')->name('all');
-    Route::namespace('Vehicles')->group(function () {
-        Route::resource('vehicles', 'VehicleController');
-    });
+Route::prefix('apps')->name('apps')->namespace('Apps')->middleware('auth')->group(function () {
+    Route::get('/', 'AppsController@index')->name('.all');
+    // Route::name('.')->group(function () {
+        Route::get('vehicle', 'VehicleController@index')->name('.vehicle.index');
+        // foreach (getAppsRoutes() as $route) {
+        //     Route::resource($route->slug, title_case($route->slug).'Controller');
+        // };
+    // });
 });
 
 /*-- Admin routes --*/

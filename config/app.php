@@ -163,7 +163,6 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        'Fideloper\Proxy\TrustedProxyServiceProvider',
         Laravel\Tinker\TinkerServiceProvider::class,
 
 
@@ -171,7 +170,8 @@ return [
          * Package Service Providers...
          */
 
-        //
+        'Fideloper\Proxy\TrustedProxyServiceProvider',
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Application Service Providers...

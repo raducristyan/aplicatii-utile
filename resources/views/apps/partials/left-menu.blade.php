@@ -6,16 +6,7 @@
         </h4>
     </li>
 
-    <li @if (Request::is('myapps/rc*')) class="active" @endif>
-        <a href="{{route('myapps.rc.index')}}">Certificate de inregistrare</a>
+    <li @if (Request::is('apps/vehicle*')) class="active" @endif>
+        <a href="{{route('apps.vehicle.index')}}">Certificate de inregistrare</a>
     </li>
-
-    <li>
-        <a href="{{route('myapps.rc.index')}}">Certificate de producator</a>
-    </li>
-
-    <li>
-        <a href="{{route('myapps.rc.index')}}">Registru intrare iesire</a>
-    </li>
-
 </ul>

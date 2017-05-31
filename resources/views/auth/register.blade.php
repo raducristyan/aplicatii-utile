@@ -4,7 +4,7 @@
 <div class="container-fluid">
 
     <div class="row justify-content-center col-lg-8 col-md-10 col-sm-10 offset-lg-2 offset-md-1 offset-sm-1">
-        <div class="card my-4 w-75">
+        <div class="card register-card my-4 w-75">
             <div class="card-block mx-auto">
                 <h2 class="card-title text-primary">Înregistrare</h2>
             </div>

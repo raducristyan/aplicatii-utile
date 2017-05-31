@@ -7,9 +7,13 @@
 //Font awesome
 @import 'node_modules/font-awesome/scss/font-awesome'
 
+html
+  height: 100%
 
 body
-  padding-top: 60px
+  min-height: 100%
+  padding-top: 52px
+  background-color: $gray-lighter
 
 .bg-purple
   background-color: $purple
@@ -38,9 +42,15 @@ body
   &:hover
     border: 1px solid $purple
     box-shadow: 0 0 3px lighten($purple, 15%)
+    transition: background-color, .5s
     .fa
-      color: $purple
+      color: $blue
+      transition: color, .5s
 
 .app-divider
   height: 1px
   background: linear-gradient(to right, lighten($orange, 35%), $orange, lighten($orange, 35%))
+
+.login-card, .register-card
+  border: 1px solid $purple
+  box-shadow: 0 0 7px lighten($purple, 15%)
