@@ -3,7 +3,7 @@
 @section(@content)
 <div class="container-fluid">
     <div class="row justify-content-center col-md-8 col-lg-8 offset-md-2 offset-lg-2">
-        @include('partials.errors')
+        @include('partials.message')
 
         <div class="card w-75 my-4 px-2">
             <div class="card-block mx-auto">

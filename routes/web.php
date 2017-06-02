@@ -29,12 +29,11 @@ Route::prefix('activate')->namespace('Auth')->middleware('guest')->group(functio
 /*-- Aplications routes --*/
 Route::prefix('apps')->name('apps')->namespace('Apps')->middleware('auth')->group(function () {
     Route::get('/', 'AppsController@index')->name('.all');
-    // Route::name('.')->group(function () {
-        Route::get('vehicle', 'VehicleController@index')->name('.vehicle.index');
-        // foreach (getAppsRoutes() as $route) {
-        //     Route::resource($route->slug, title_case($route->slug).'Controller');
-        // };
-    // });
+    Route::name('.')->group(function () {
+        foreach (getAppsRoutes() as $route) {
+            Route::resource($route->slug, title_case($route->slug).'Controller');
+        };
+    });
 });
 
 /*-- Admin routes --*/

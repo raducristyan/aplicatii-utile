@@ -13,6 +13,7 @@ class AppsController extends Controller
     public function index()
     {
         $institution = Auth::user()->institution()->with('applications')->get();
-        return view('apps.index', compact('institution'));
+        flash('You are now a Laracasts ember!');
+        return view('apps.index', ['institution' => $institution]);
     }
 }

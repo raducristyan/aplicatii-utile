@@ -7,21 +7,40 @@
 //Font awesome
 @import 'node_modules/font-awesome/scss/font-awesome'
 
+
 html
   height: 100%
+  margin: 0
 
 body
-  min-height: 100%
-  padding-top: 52px
   background-color: $gray-lighter
+  height: 100%
+  margin: 0
+  padding-top: 52px
 
-.bg-purple
-  background-color: $purple
+.wrapper
+  min-height: 100%
+  position: relative
+
+.main
+  height: 90.53vh
+  padding-bottom: 130px
+
+.main-bar
+  background-color: $gray-lightest
 
 .footer
   background-color: $gray-dark
+  bottom: 0
   color: $gray-lighter
   font-weight: 300
+  height: 130px
+  left: 0
+  position: absolute
+  width: 100%
+
+.bg-purple
+  background-color: $purple
 
 .welcome-img-brand
   height: 4rem
@@ -39,18 +58,22 @@ body
 .app-card
   .fa
     color: $gray
+
   &:hover
     border: 1px solid $purple
     box-shadow: 0 0 3px lighten($purple, 15%)
     transition: background-color, .5s
+
     .fa
       color: $blue
       transition: color, .5s
 
 .app-divider
-  height: 1px
   background: linear-gradient(to right, lighten($orange, 35%), $orange, lighten($orange, 35%))
+  height: 1px
 
-.login-card, .register-card
+.login-card,
+.register-card
   border: 1px solid $purple
   box-shadow: 0 0 7px lighten($purple, 15%)
+

@@ -9,7 +9,8 @@ function validateCnp($cnp)
             return false;
         } else {
             $cnp_v = str_split((int) $cnp);
-            $suma = $cnp_v[0]*2+$cnp_v[1]*7+$cnp_v[2]*9+$cnp_v[3]*1+$cnp_v[4]*4+$cnp_v[5]*6+$cnp_v[6]*3+$cnp_v[7]*5+$cnp_v[8]*8+$cnp_v[9]*2+$cnp_v[10]*7+$cnp_v[11]*9;
+            $suma = $cnp_v[0]*2+$cnp_v[1]*7+$cnp_v[2]*9+$cnp_v[3]*1+$cnp_v[4]*4+$cnp_v[5]*6
+                    +$cnp_v[6]*3+$cnp_v[7]*5+$cnp_v[8]*8+$cnp_v[9]*2+$cnp_v[10]*7+$cnp_v[11]*9;
             if ($suma % 11 < 11) {
                 if ($suma%11 < 10 && $suma%11 == $cnp_v[12]) {
                     return true;

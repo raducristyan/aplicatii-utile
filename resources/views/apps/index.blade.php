@@ -1,6 +1,7 @@
 @extends('apps.layout')
 
 @section('main-wrapper')
+    @include('../partials.message')
     @if(isset($institution))
         <div class="row col-md-10 offset-md-1 col-12 p-4">
             @foreach ($institution[0]->applications as $app)
@@ -13,7 +14,7 @@
                         <div class="card-block">
                             <h4 class="card-title">{{$app->name}}</h4>
                             <p class="card-text">{{$app->description}}</p>
-                            <a href="{{route('apps.vehicle.index')}}" class="btn btn-primary">Deschide</a>
+                            <a href="{{route('apps.'.$app->slug.'.index')}}" class="btn btn-primary">Deschide</a>
                         </div>
                     </div>
                 </div>

@@ -9,10 +9,12 @@
 	@include('partials.head')
 </head>
 <body>
-	@include('partials.navbar')
-	<div class="main">
-		@yield('content')
+	<div class="wrapper">
+		@include('partials.navbar')
+		<div class="main">
+			@yield('content')
+		</div>
+		@include('partials.footer')
 	</div>
-	@include('partials.footer')
 </body>
 </html>
