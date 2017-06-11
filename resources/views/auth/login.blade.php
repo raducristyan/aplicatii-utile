@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@include('partials.message')
+@include('flash.message')
 @section('content')
     <div class="container-fluid">
         <div class="row justify-content-center col-md-8 col-lg-6 offset-md-2 offset-lg-3">

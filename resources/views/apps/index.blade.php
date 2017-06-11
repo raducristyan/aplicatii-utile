@@ -1,7 +1,7 @@
 @extends('apps.layout')
 
 @section('main-wrapper')
-    @include('../partials.message')
+    @include('../flash.message')
     @if(isset($institution))
         <div class="row col-md-10 offset-md-1 col-12 p-4">
             @foreach ($institution[0]->applications as $app)

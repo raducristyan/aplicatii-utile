@@ -6,8 +6,7 @@
 
 @section('main-wrapper')
         <div class="col-md-8 col-md-offset-2">
-            @include('../../partials.success')
-            @include('../../partials.errors')
+            @include('../../flash.message')
 
             @include('apps.vehicles.partials.forms._formAddVehicleCertificate')
         </div>

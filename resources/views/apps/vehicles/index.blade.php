@@ -18,7 +18,7 @@
             </a>
         </div>
     </div>
-    @include('../partials.message')
+    @include('../flash.message')
     @if (!isset($vehicles) || count($vehicles) == 0)
         <div class="main-container">
             <div class="no-content">
