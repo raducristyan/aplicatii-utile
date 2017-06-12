@@ -26,3 +26,13 @@
         </div>
     @endif
 @endsection
+
+@section('scripts')
+<script>
+    window.setTimeout(function() {
+        $(".flash-message").fadeTo(500, 0).slideUp(500, function(){
+            $(this).alert('close'); 
+        });
+    }, 40000);
+</script>
+@endsection

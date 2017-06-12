@@ -9,7 +9,8 @@
         <div class="alert
                     alert-dismissible
                     alert-{{ $message['level'] }}
-                    {{ $message['important'] ? 'alert-important' : '' }}"
+                    text-center
+                    {{ $message['important'] ? 'alert-important' : 'flash-message' }}"
                     role="alert"
         >
             @if ($message['important'])

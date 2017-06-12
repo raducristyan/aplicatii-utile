@@ -19,5 +19,8 @@
     "lodash": "^4.17.4",
     "node-sass": "^4.5.1",
     "vue": "^2.3.3"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6"
   }
 }
