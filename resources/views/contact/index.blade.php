@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section(@content)
+@section('wrapper')
 <div class="container-fluid">
     <div class="row justify-content-center col-md-8 col-lg-8 offset-md-2 offset-lg-2">
         @include('flash.message')

@@ -5,7 +5,7 @@
 @endsection
 
 @section('main-wrapper')
-        <div class="col-md-8 col-md-offset-2">
+        <div class="main-wrapper">
             @include('../../flash.message')
 
             @include('apps.vehicles.partials.forms._formAddVehicleCertificate')
@@ -14,12 +14,6 @@
 
 @section('scripts')
     <script type="text/javascript">
-
-    $(document).ready(function(){
-
-        // Initializare tooltip
-        $('body').tooltip({selector: '[data-toggle="tooltip"]'})
-    })
 
     </script>
 @endsection

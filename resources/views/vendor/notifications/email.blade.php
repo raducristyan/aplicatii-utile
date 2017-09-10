@@ -71,7 +71,8 @@ $style = [
                     <tr>
                         <td style="{{ $style['email-masthead'] }}">
                             <a style="{{ $fontFamily }} {{ $style['email-masthead_name'] }}" href="{{ url('/') }}" target="_blank">
-                                <img src="{{ $message->embed(public_path()."/img/email_logo_brand.png") }}" alt="Aplicații utile" width="180px">
+                            {{-- ![Some option text][logo]
+                                [Logo]:{{ asset("/images/email_logo_brand.png") }} " Logo" --}}
                             </a>
                         </td>
                     </tr>

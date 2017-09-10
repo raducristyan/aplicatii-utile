@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="ro">
-<head>
-	<meta charset="UTF-8">
-	<link rel="shortcut icon" href="{{ asset('assets/img/favicon.ico') }}">
-	@if (isset($title)) <title>{{$title}}</title>
-	@else <title>Aplicatii Utile</title>
-	@endif
+
 	@include('partials.head')
-</head>
-<body>
-	<div class="wrapper">
-		@include('partials.navbar')
-		<div class="main">
-			@yield('content')
+	<body>
+		<!-- ============================================================== -->
+		<!-- Preloader - style you can find in spinners.css -->
+		<!-- ============================================================== -->
+		<div class="preloader">
+			<svg class="circular" viewBox="25 25 50 50">
+				<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
 		</div>
-		@include('partials.footer')
-	</div>
-</body>
+		<!-- ============================================================== -->
+		<!-- Main wrapper - style you can find in pages.scss -->
+		<!-- ============================================================== -->
+		@yield('wrapper')
+		@include('partials.scripts')
+	</body>
+
 </html>

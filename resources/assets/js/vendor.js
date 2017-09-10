@@ -1,15 +1,4 @@
-window._ = require('lodash');
-
-/**
- * We'll load jQuery and the Bootstrap jQuery plugin which provides support
- * for JavaScript based Bootstrap features such as modals and tabs. This
- * code may be modified to fit the specific needs of your application.
- */
-
-window.$ = window.jQuery = require('jquery');
-
-require('tether');
-require('bootstrap');
+// window._ = require('lodash');
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
@@ -20,6 +9,7 @@ require('bootstrap');
 window.Vue = require('vue');
 window.axios = require('axios');
 
+window.Laravel = { csrfToken: $('meta[name=csrf-token]').attr("content") };
 window.axios.defaults.headers.common = {
     'X-CSRF-TOKEN': window.Laravel.csrfToken,
     'X-Requested-With': 'XMLHttpRequest'

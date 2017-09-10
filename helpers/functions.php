@@ -67,6 +67,6 @@ function validateCif($cif)
 
 function getAppsRoutes()
 {
-    $routes = Application::all();
+    $routes = Application::pluck('slug');
     return $routes;
 }

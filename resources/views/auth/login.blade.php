@@ -1,70 +1,58 @@
 @extends('layouts.master')
-@include('flash.message')
-@section('content')
-    <div class="container-fluid">
-        <div class="row justify-content-center col-md-8 col-lg-6 offset-md-2 offset-lg-3">
-            <a class="my-4" href="/">
-                <img src="/img/logo_brand.png" class="img-fluid mx-auto login-img-brand" alt="aplicatii utile">
-            </a>
 
-            <div class="card login-card px-1 py-1 mb-4">
-                <div class="card-block mx-auto">
-                    <h2 class="card-title text-primary">Autentificare</h2>
-                </div>
-                <div class="card-block">
-                    <form method="POST" action="{{ url('/login') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group {{ $errors->has('email') ? ' has-danger' : '' }}">
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-                                </span>
-                                <input type="email" class="form-control form-control-lg" name="email" placeholder="Email" value="{{ old('email') }}">
-                            </div>
-                                @if ($errors->has('email'))
-                                    <span class="form-text text-muted">
-                                        {{ $errors->first('email') }}
-                                    </span>
-                                @endif
+<!-- Main Content -->
+@section('wrapper')
+    <section id="wrapper">
+        <div class="login-register login">        
+            <div class="login-register-box login-box card">
+            <div class="card-block">
+                <form class="form-horizontal form-material" id="loginform" method="POST" action="{{ url('/login') }}">
+                    {{ csrf_field() }}
+                    <h3 class="box-title m-b-20">Autentificare</h3>
+                    <div class="form-group {{ $errors->has('email') ? ' has-danger' : '' }}">
+                        <div class="col-xs-12">
+                            <input class="form-control" name="email" type="email" required="" placeholder="Email" value="{{ old('email')}}">
                         </div>
-
-                        <div class="form-group {{ $errors->has('password') ? ' has-danger' : '' }}">
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <i class="fa fa-key" aria-hidden="true"></i>
-                                </span>
-                                <input type="password" class="form-control form-control-lg" name="password" placeholder="Parola">
-                            </div>
-
-                                @if ($errors->has('password'))
-                                    <span class="form-text text-muted">
-                                        {{ $errors->first('password') }}
-                                    </span>
-                                @endif
+                        @if ($errors->has('email'))
+                            <span class="form-text text-muted">
+                                {{ $errors->first('email') }}
+                            </span>
+                        @endif
+                    </div>
+                    <div class="form-group {{ $errors->has('password') ? ' has-danger' : '' }}">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="password" name="password" required="" placeholder="Parola">
                         </div>
-
-                        <div class="row mx-0 px-4">
-                            <div class="form-check mt-2 mr-sm-2 mb-sm-0">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" name="remember"> Autentificare automată
-                                </label>
-                            </div>
-
-                            <div>
-                                <a class="btn btn-link pwd-forgot" href="{{ url('/password/reset') }}">Ai uitat parola?</a>
-                            </div>
+                        @if ($errors->has('password'))
+                            <span class="form-text text-muted">
+                                {{ $errors->first('password') }}
+                            </span>
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="checkbox checkbox-primary pull-left p-t-0">
+                                <input id="checkbox-signup" type="checkbox">
+                                <label for="checkbox-signup"> Autentificare automată </label>
+                            </div> <a href="{{ route('password.request') }}" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> Ai uitat parola?</a> </div>
+                    </div>
+                    <div class="form-group text-center m-t-20">
+                        <div class="col-xs-12">
+                            <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Autentificare</button>
                         </div>
-                        <br/>
-
-                        <div class="">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">
-                                <i class="fa fa-btn fa-sign-in"></i> Autentificare
-                            </button>
+                    </div>
+                    <div class="form-group m-b-0">
+                        <div class="col-sm-12 text-center">
+                            <p>Nu ai cont? <a href="{{ route('register') }}" class="text-info m-l-5"><b>Creare cont</b></a></p>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
+            </div>
             </div>
         </div>
-    </div>
+    </section>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
 @endsection
+

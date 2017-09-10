@@ -21,6 +21,10 @@
     "vue": "^2.3.3"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0-alpha.6"
+    "animate.css": "^3.5.2",
+    "bootstrap": "^4.0.0-alpha.6",
+    "mdi": "^1.9.33",
+    "simple-line-icons": "^2.4.1",
+    "tether": "^1.4.0"
   }
 }

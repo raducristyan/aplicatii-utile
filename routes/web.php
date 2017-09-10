@@ -30,8 +30,8 @@ Route::prefix('activate')->namespace('Auth')->middleware('guest')->group(functio
 Route::prefix('apps')->name('apps')->namespace('Apps')->middleware('auth')->group(function () {
     Route::get('/', 'AppsController@index')->name('.all');
     Route::name('.')->group(function () {
-        foreach (getAppsRoutes() as $route) {
-            Route::resource($route->slug, title_case($route->slug).'Controller');
+        foreach (getAppsRoutes() as $key => $route) {
+            Route::resource($route, title_case($route).'Controller');
         };
     });
 });

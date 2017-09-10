@@ -1,9 +1,9 @@
-<div class="panel panel-default">
+<div class="row col-8 offset-2">
     <div class="panel-heading">
-        <h3 class="panel-title">Adaugă certificat de înregistrare</h3>
+        <h3 class="panel-title">Adaugă un vehicul nou</h3>
     </div>
     <div class="panel-body">
-        {!! Form::open(['method' => 'POST', 'route' => 'myapps.vehicles.store', 'class' => 'form-horizontal']) !!}
+        {!! Form::open(['method' => 'POST', 'route' => 'apps.vehicles.store', 'class' => 'form-horizontal']) !!}
 
         <div class="form-group">
             {!! Form::label('person', 'Tip persoană', ['class' => 'col-md-3 control-label']) !!}

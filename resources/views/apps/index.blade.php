@@ -1,38 +1,12 @@
 @extends('apps.layout')
-
 @section('main-wrapper')
-    @include('../flash.message')
-    @if(isset($institution))
-        <div class="row col-md-10 offset-md-1 col-12 p-4">
-            @foreach ($institution[0]->applications as $app)
-                <div class="col-sm-6 col-lg-4">
-                    <div class="card app-card my-1">
-                        <div class="card-block text-center">
-                            <i class="fa fa-motorcycle fa-5x"></i>
-                        </div>
-                        <div class="app-divider mx-2"></div>
-                        <div class="card-block">
-                            <h4 class="card-title">{{$app->name}}</h4>
-                            <p class="card-text">{{$app->description}}</p>
-                            <a href="{{route('apps.'.$app->slug.'.index')}}" class="btn btn-primary">Deschide</a>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-block">
+                Listă aplicații
+            </div>
         </div>
-    @else
-        <div class="row col-md-10 offset-md-1 col-12 p-4 justify-content-center">
-            <h2 class="">Nu sunt aplicatii disponibile.</h2>
-        </div>
-    @endif
-@endsection
-
-@section('scripts')
-<script>
-    window.setTimeout(function() {
-        $(".flash-message").fadeTo(500, 0).slideUp(500, function(){
-            $(this).alert('close'); 
-        });
-    }, 40000);
-</script>
+    </div>
+</div>
 @endsection

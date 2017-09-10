@@ -11,13 +11,45 @@ let mix = require('laravel-mix');
  |
  */
 
+// mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/js')
+//     .copy(['node_modules/tether/dist/js/tether.min.js',
+//         'node_modules/bootstrap/dist/js/bootstrap.min.js'], 'public/js')
+//     .js('resources/assets/js/vendor.js', 'public/js')
+
 // mix.js('resources/assets/js/main.js', 'public/js/app.js');
-// mix.js('resources/assets/js/vendor.js', 'public/js');
+// mix.combine(['resources/assets/js/jquery.slimscroll.js',
+//     'resources/assets/js/waves.js', 
+//     'resources/assets/js/sidebarmenu.js',
+//     'resources/assets/js/sticky-kit.min.js',
+//     'resources/assets/js/jQuery.style.switcher.js',
+//     'resources/assets/js/custom.min.js'
+// ], 'public/js/custom.js');
 
-mix.sass('resources/assets/sass/app.sass', 'public/css');
 
-// mix.copy('node_modules/font-awesome/fonts', 'public/fonts');
+//Mix scss files
+// mix.sass('node_modules/bootstrap/scss/bootstrap.scss', 'public/css');
+mix.sass('resources/assets/scss/style.scss', 'public/css');
+// mix.sass('resources/assets/scss/style-lp.scss', 'public/css');
+// mix.sass('resources/assets/scss/colors/purple-dark.scss', 'public/css/colors');
+// mix.sass('resources/assets/scss/colors/blue-dark.scss', 'public/css/colors');
+// mix.sass('resources/assets/scss/colors/blue.scss', 'public/css/colors');
+// mix.sass('resources/assets/scss/colors/default-dark.scss', 'public/css/colors');
+// mix.sass('resources/assets/scss/colors/default.scss', 'public/css/colors');
+// mix.sass('resources/assets/scss/colors/green-dark.scss', 'public/css/colors');
+// mix.sass('resources/assets/scss/colors/green.scss', 'public/css/colors');
+// mix.sass('resources/assets/scss/colors/megna-dark.scss', 'public/css/colors');
+// mix.sass('resources/assets/scss/colors/megna.scss', 'public/css/colors');
+// mix.sass('resources/assets/scss/colors/purple.scss', 'public/css/colors');
+// mix.sass('resources/assets/scss/colors/red-dark.scss', 'public/css/colors');
+// mix.sass('resources/assets/scss/colors/red.scss', 'public/css/colors');
 
+// //Copy font folder
+// mix.copy(['node_modules/font-awesome/fonts',
+    // 'node_modules/mdi/fonts',
+    // 'node_modules/simple-line-icons/fonts',
+    // 'resources/assets/fonts/*.*'
+// ], 'public/fonts')
+// .copy('resources/assets/images', 'public/images');
 
 // Full API
 // mix.js(src, output);
