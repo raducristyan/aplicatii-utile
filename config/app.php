@@ -173,6 +173,7 @@ return [
         'Fideloper\Proxy\TrustedProxyServiceProvider',
         Barryvdh\Debugbar\ServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
+        'Laravel\Dusk\DuskServiceProvider',
 
         /*
          * Application Service Providers...
