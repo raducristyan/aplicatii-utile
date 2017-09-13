@@ -6,3 +6,25 @@ $brown: #A87F48;
     padding: 1px;
   }
 }
+
+.register {
+  padding-bottom: 0;
+  position: static;
+}
+
+/* Media query */
+
+@media screen and (min-width: 768px) {
+  .register-box {
+    width: 520px;
+  }
+}
+
+.register-box {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.login, .register {
+  background: url("./images/background/login-register-bg.png") repeat;
+}

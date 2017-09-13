@@ -3,7 +3,7 @@
 @section('wrapper')
     <section id="wrapper">
         <div class="login-register register">        
-            <div class="login-register-box register-box card">
+            <div class="login-box register-box card">
                 <div class="card-block">
                     <form class="form-horizontal form-material" id="loginform" action="{{ url('/register') }}">
                         {!! csrf_field() !!}
