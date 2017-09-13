@@ -4,7 +4,7 @@ Route::get('xml', function () {
     return view('xml.index');
 });
 Route::get('/', function () {
-    if (! Auth::check()) {
+    if (auth()->guest()) {
         $title = config('apps.title.welcome');
         return view('welcome', compact('title'));
     } else {
@@ -29,11 +29,13 @@ Route::prefix('activate')->namespace('Auth')->middleware('guest')->group(functio
 /*-- Aplications routes --*/
 Route::prefix('apps')->name('apps')->namespace('Apps')->middleware('auth')->group(function () {
     Route::get('/', 'AppsController@index')->name('.all');
-    Route::name('.')->group(function () {
-        foreach (getAppsRoutes() as $key => $route) {
-            Route::resource($route, title_case($route).'Controller');
-        };
-    });
+    // if ( getAppsRoutes() ){
+    //     Route::name('.')->group(function () {
+    //         foreach (getAppsRoutes() as $key => $route) {
+    //             Route::resource($route, title_case($route).'Controller');
+    //         };
+    //     });
+    // };
 });
 
 /*-- Admin routes --*/
