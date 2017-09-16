@@ -29,7 +29,7 @@ Route::prefix('activate')->namespace('Auth')->middleware('guest')->group(functio
 /*-- Aplications routes --*/
 Route::prefix('apps')->name('apps')->namespace('Apps')->middleware('auth')->group(function () {
     Route::get('/', 'AppsController@index')->name('.all');
-    if ( getAppsRoutes() ){
+    if (getAppsRoutes()) {
         Route::name('.')->group(function () {
             foreach (getAppsRoutes() as $key => $route) {
                 Route::resource($route, title_case($route).'Controller');

@@ -10,15 +10,16 @@ File: scss
 $bodyfont:'Rubik', sans-serif;
 $headingfont:'Rubik', sans-serif;
 
+
 /*Theme Colors*/
 
 $topbar: #fff;
-$sidebar: #f2f7f8;
-$sidebar-white: #e5edef;
+$sidebar: #fff;
+$sidebar-white: #ffffff;
 $sidebar-alt:#e8eff0;
 $bodycolor: #fff;
-$headingtext: #2c2b2e;
-$bodytext: #54667a;
+$headingtext: #4f5368;
+$bodytext: #4f5368;
 $sidebar-text: #54667a;
 $sidebar-icons: #a6b7bf;
 
@@ -35,8 +36,8 @@ $info: #009efb;
 $inverse: #2f3d4a;
 $muted: #90a4ae;
 $dark: #263238;
-$light: #f2f4f8;
-$extra-light: #ebf3f5;
+$light: #f2f7f8;
+$extra-light: #eef2f3;
 
 /*Light colors*/
 $light-danger: #f9e7eb;
@@ -75,7 +76,6 @@ $table-border:#f3f1f1;
 $dark-text: #848a96;
 $radius: 4px;
 $form-brd: #d9d9d9;
-
 /*Preloader*/
 .preloader{
     width: 100%;

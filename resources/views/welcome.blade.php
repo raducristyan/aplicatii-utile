@@ -88,10 +88,15 @@
                     <div class="fix-width">
                         <div class="row justify-content-center banner-text">
                             <div class="col-md-10 m-b-20">
-                                <h1>Aplicații utile</h1>
-                                <p class="subtext"><span class="font-medium">Toate aplicatiile de care ai nevoie, într-un singur loc</p>
-                                <div class="subtext"><span class="font-medium text-info">Împreună facem lucrurile mai simple</div>
-                                <div class="down-btn"> <a href="{{ route('register') }}" class="btn btn-rounded btn-info m-b-10">ÎNREGISTRARE</a> <a href="{{ route('login') }}" class="btn btn-rounded btn-success m-b-10">AUTENTIFICARE</a> </div>
+                                <h1>Aplicatii utile</h1>
+                                <p class="subtext">
+                                    <span class="font-medium">Toate aplicatiile de care ai nevoie, într-un singur loc. </span>
+                                    <span class="font-medium text-info">Împreună facem lucrurile mai simple!</span>
+                                </p>
+                                <div class="down-btn"> 
+                                    <a href="{{ route('register') }}" class="btn btn-rounded btn-info m-b-10">ÎNREGISTRARE</a> 
+                                    <a href="{{ route('login') }}" class="btn btn-rounded btn-success m-b-10">AUTENTIFICARE</a> 
+                                </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="hero-banner m-t-30"> <img src="images/hero.jpg" class="img-responsive" alt="Monster admin template" /> </div>
@@ -107,7 +112,8 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-6"><img src="images/logo-light-icon.png" alt="logo" /> <img src="images/logo-light-text.png" alt="logo" />
                                 <p class="m-t-30">
-                                    <span class="text-white">Monstrous Admin</span> is premium quality admin dashboard template with flat design. It is fully responsive admin dashboard template built with Bootstrap Framework, HTML5 & CSS3, Media query. </p>
+                                    <span class="text-white">Monstrous Admin</span> is premium quality admin dashboard template with flat design. It is fully responsive admin dashboard template built with Bootstrap Framework, HTML5 & CSS3, Media query. 
+                                </p>
                             </div>
                             <div class="col-lg-3 col-md-6">
                                 <ul class="footer-link list-icons">

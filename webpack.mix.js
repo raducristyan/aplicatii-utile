@@ -29,7 +29,7 @@ let mix = require('laravel-mix');
 //Mix scss files
 // mix.sass('node_modules/bootstrap/scss/bootstrap.scss', 'public/css');
 mix.sass('resources/assets/scss/style.scss', 'public/css');
-// mix.sass('resources/assets/scss/style-lp.scss', 'public/css');
+mix.sass('resources/assets/scss/welcome/style.scss', 'public/css/style-lp.css');
 // mix.sass('resources/assets/scss/colors/purple-dark.scss', 'public/css/colors');
 // mix.sass('resources/assets/scss/colors/blue-dark.scss', 'public/css/colors');
 // mix.sass('resources/assets/scss/colors/blue.scss', 'public/css/colors');
