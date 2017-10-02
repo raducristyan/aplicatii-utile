@@ -1,4 +1,4 @@
-@extends('apps.layout')
+@extends('layouts.apps.layout')
 
 @section('sidebar')
     @include('apps.partials.left-menu')

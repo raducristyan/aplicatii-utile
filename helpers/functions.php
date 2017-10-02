@@ -2,6 +2,7 @@
 
 use App\Application;
 
+/* Validare CNP */
 function validateCnp($cnp)
 {
     if (strlen($cnp)) {
@@ -25,6 +26,8 @@ function validateCnp($cnp)
         return false;
     }
 }
+
+/* Validare CIF */
 function validateCif($cif)
 {
     $cif = (int) $cif;
@@ -65,10 +68,11 @@ function validateCif($cif)
     }
 }
 
+/* Get apps routes */
 function getAppsRoutes()
 {
-    $routes = Application::pluck('slug');
-    if( $routes ) {
+    $routes = Application::pluck('route');
+    if ($routes) {
         return $routes;
     } else {
         return null;

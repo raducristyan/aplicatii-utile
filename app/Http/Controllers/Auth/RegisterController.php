@@ -55,7 +55,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'institution' => 'required|string',
-            'cif'         => 'required|digits_between:6,10|unique:institutions,cif',
+            'cif'         => 'required|digits_between:6,10|unique:institutions',
             'first_name'  => 'required|max:255',
             'last_name'   => 'required|max:255',
             'email'       => 'required|email|max:255|unique:users',
@@ -69,44 +69,43 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return User
      */
-     protected function create(array $data)
-     {
-         return $this->newAccount($data);
-     }
+    protected function create(array $data)
+    {
+        return $this->newAccount($data);
+    }
 
      /**
       * Create new user and institution instances
       * @param  array  $data
       * @return User
       */
-     private function newAccount(array $data)
-     {
-         $institution = Institution::create([
-             'name'  => $data['institution'],
-             'cif'   => $data['cif'],
-         ]);
-
-         $token = new ActivationToken([
-             'token' => str_random( 128 ),
-         ]);
-
-         $newUser = new User([
-             'first_name' => $data['first_name'],
-             'last_name'  => $data['last_name'],
-             'email'      => $data['email'],
-             'password'   => bcrypt($data['password']),
-             'is_admin'       => true,
-         ]);
-
-         if ($institution->users()->save($newUser) && $institution->token()->save($token)) {
-             event(new InstitutionCreated($institution));
-
-             return $newUser;
-             
-         } else {
-             $institution->delete();
-         }
-     }
+    private function newAccount(array $data)
+    {
+        if ($institution = Institution::create([
+            'name'  => $data['institution'],
+            'cif'   => $data['cif'],
+         ])) {
+            $token = new ActivationToken([
+                'token' => str_random( 128 ),
+             ]);
+     
+             $newUser = new User([
+                'first_name' => $data['first_name'],
+                'last_name'  => $data['last_name'],
+                'email'      => $data['email'],
+                'password'   => bcrypt($data['password']),
+                'is_admin'       => true,
+             ]);
+     
+            if ($institution->users()->save($newUser) && $institution->token()->save($token)) {
+                event(new InstitutionCreated($institution));
+     
+                return $newUser;
+            } else {
+                $institution->delete();
+            }
+        }
+    }
 
      /**
      * The user has been registered.
@@ -115,10 +114,10 @@ class RegisterController extends Controller
      * @param  mixed  $user
      * @return mixed
      */
-     protected function registered(Request $request, $user)
-     {
-         Auth::logout();
-
-         return redirect('/login')->withMessage(['content' => 'Vă rugăm să activați contul dumneavoastră. Verificați căsuța de email.', 'type' => 'info']);
-     }
+    protected function registered(Request $request, $user)
+    {
+        Auth::logout();
+        flash('Vă rugăm să activați contul dumneavoastră. Verificați căsuța de email.')->success();
+        return redirect('/login');
+    }
 }

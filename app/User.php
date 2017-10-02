@@ -146,7 +146,7 @@ class User extends Authenticatable implements CanResetPassword
      *
      * @return IlluminateDatabaseEloquentBuilder
      */
-    public function scopeAdmin($query)
+    public function scopeIsAdmin($query)
     {
         return $query->where('is_admin', true);
     }

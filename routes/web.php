@@ -21,7 +21,7 @@ Route::get('/help', 'HelpController@index')->name('help')->middleware('guest');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-Route::prefix('activate')->namespace('Auth')->middleware('guest')->group(function () {
+Route::prefix('activate')->name('activate.')->namespace('Auth')->middleware('guest')->group(function () {
     Route::get('/confirm/{token}', 'ActivationController@activate')->name('confirm');
     Route::get('/resend', 'ActivationController@resend')->name('resend');
 });
@@ -39,8 +39,18 @@ Route::prefix('apps')->name('apps')->namespace('Apps')->middleware('auth')->grou
 });
 
 /*-- Admin routes --*/
-Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth','admin'])->group(function () {
     Route::get('/dashboard', 'AdminController@index')->name('dashboard');
 });
 
 Auth::routes();
+
+// Application admin
+Route::prefix('root')->middleware('auth:root')->name('root.')->group(function () {
+    Route::resource('/root', 'RootController');
+});
+
+Route::get('test', function () {
+    flash('Mesaj de test')->error();
+    return view('test');
+});

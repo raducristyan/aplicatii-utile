@@ -47,4 +47,16 @@ class ResetPasswordController extends Controller
             'remember_token' => Str::random(60),
         ])->save();
     }
+
+    /**
+     * Get the response for a successful password reset link.
+     *
+     * @param  string  $response
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function sendResetLinkResponse($response)
+    {
+        flash('Linkul pentru resetarea parolei a fost transmis cu succes pe email')->success();
+        return back()->with('status', trans($response));
+    }
 }

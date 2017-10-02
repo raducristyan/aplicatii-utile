@@ -20,7 +20,7 @@ $brown: #A87F48;
 /* Media query */
 
 @media screen and (min-width: 768px) {
-  .register-box {
+  .register-box, .reset-box {
     width: 520px;
   }
 }
@@ -30,6 +30,26 @@ $brown: #A87F48;
   border-bottom-right-radius: 0;
 }
 
-.login, .register {
+.bg-img {
   background: url("./images/background/login-register-bg.png") repeat;
+}
+
+.message {
+  align-items: center;
+  animation-delay: 800ms;
+  border-radius: 0;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10001;
+  .msg, .close {
+    text-align: center;
+  }
+  .msg {
+    flex-basis: 90%;
+  }
+  .close {
+    flex-basis: 10%;
+  }
 }

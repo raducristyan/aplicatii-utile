@@ -1,25 +1,34 @@
 @foreach (session('flash_notification', collect())->toArray() as $message)
     @if ($message['overlay'])
-        @include('flash::modal', [
+        @include('vendor.flash.modal', [
             'modalClass' => 'flash-modal',
             'title'      => $message['title'],
             'body'       => $message['message']
         ])
     @else
-        <div class="alert
+        <div class="d-flex
+                    message
+                    animated
+                    fadeInDown
+                    text-center
+                    alert
                     alert-{{ $message['level'] }}
                     {{ $message['important'] ? 'alert-important' : '' }}"
                     role="alert"
-        >
+                    id="app-msg">
+            <div class="msg">
+                {!! $message['message'] !!}
+            </div>
             @if ($message['important'])
-                <button type="button"
-                        class="close"
-                        data-dismiss="alert"
-                        aria-hidden="true"
-                >&times;</button>
+                <div class="close">
+                    <button type="button" 
+                            class="close" 
+                            data-dismiss="alert" 
+                            aria-label="Close"> 
+                        <span aria-hidden="true">×</span> 
+                    </button>
+                </div>
             @endif
-
-            {!! $message['message'] !!}
         </div>
     @endif
 @endforeach

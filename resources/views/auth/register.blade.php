@@ -2,10 +2,10 @@
 
 @section('wrapper')
     <section id="wrapper">
-        <div class="login-register register">        
+        <div class="login-register register bg-img">        
             <div class="login-box register-box card">
                 <div class="card-block">
-                    <form class="form-horizontal form-material" id="loginform" action="{{ url('/register') }}">
+                    <form class="form-horizontal form-material" id="loginform" action="{{ url('/register') }}" method="POST">
                         {!! csrf_field() !!}
                         <h3 class="box-title m-b-20">Înregistrare</h3>
                         <div class="form-group {{ $errors->has('institution') ? ' has-danger' : '' }}">
@@ -78,14 +78,14 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group">
+                        {{--  <div class="form-group">
                             <div class="col-md-12">
                                 <div class="checkbox checkbox-success p-t-0 p-l-10">
                                     <input id="checkbox-signup" name="checkbox-signup" type="checkbox">
                                     <label for="checkbox-signup"> Sunt de acord cu <a href="#">Termenii și condițiile</a></label>
                                 </div>
                             </div>
-                        </div>
+                        </div>  --}}
                         <div class="form-group text-center m-t-20">
                             <div class="col-xs-12">
                                 <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Crează contul</button>

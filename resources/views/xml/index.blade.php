@@ -1,28 +1,35 @@
 <?php
 
-ini_set('max_execution_time', 0);
-
+$initTime = microtime(true);
 $xml=new DOMDocument();
-$xml->load("P2000-1.xml");
-$xml->preserveWhiteSpace = false;
-$xmlDoc = $xml->documentElement;
-$tags = ["Auto", "Teren", "Cladire"];
+$xml->load("P2000.xml");
+$domXpath = new DOMXpath($xml);
+$bunuri = $domXpath->query('./*');
+$totalPlata = $xml->documentElement->getAttribute("totalPlata_A");
+$deletedItems = 0;
 
-foreach ($tags as $tag) {
-	$bunuri = $xmlDoc->getElementsByTagName($tag);
-	for ($i = 1; $i < $bunuri->length; $i++) {
-		$proprietar = $bunuri->item($i)->getElementsByTagName("Proprietar");
-		$cnp = $proprietar->item(0)->getAttribute("Cnp_cui");
-		if (!validateCif($cnp) && !validateCnp($cnp)){
-			$valid = false;
-		}else {
-			$valid = true;
-		};
-		if (!$valid) {
-			$xmlDoc->removeChild($bunuri[$i]);
-		}
+for($i = 0; $i < $bunuri->length; $i++){
+	$cnp = $bunuri->item($i)->getElementsByTagName("Proprietar")->item(0)->getAttribute("Cnp_cui");
+	$registru = $bunuri->item($i)->getElementsByTagName("Registru")->item(0)->getAttribute("Id_Registru");
+	if (!validateCif($cnp) && !validateCnp($cnp)){
+		$bunuri->item($i)->parentNode->removeChild($bunuri->item($i));
+		$deletedItems += 1;
+	};
+
+	$dataModif = new DateTime($bunuri->item($i)->getElementsByTagName("Registru")->item(0)->getAttribute("Data_modif"));
+	if ($dataModif > new DateTime('2017-01-01')){
+		//echo $dataModif->format("Y-m-d H:i:s")."<br>";
 	}
-}
+};
 
+$totalPlata -= $deletedItems;
+$xml->documentElement->setAttribute("totalPlata_A", $totalPlata);
 $xml->normalizeDocument();
-$xml->save("p2000-2.xml");
+$endTime = microtime(true);
+$xml->save("P2000-valid.xml");
+$timeDiff = $endTime - $initTime;
+echo $initTime;
+echo "<br>";
+echo round($timeDiff, 3);
+echo "<br>";
+echo $endTime;

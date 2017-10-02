@@ -27,7 +27,7 @@ class SendActivationToken
      */
     public function handle($event)
     {
-        $user = $event->institution->users()->admin()->first();
+        $user = $event->institution->users()->isAdmin()->first();
         $user->notify(new SendActivationEmail($event->institution->token));
     }
 }

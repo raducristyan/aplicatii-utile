@@ -3,8 +3,8 @@
 <!-- Main Content -->
 @section('wrapper')
     <section id="wrapper">
-        <div class="login-register login">        
-            <div class="login-register-box login-box card">
+        <div class="login-register bg-img">        
+            <div class="login-box card">
             <div class="card-block">
                 <form class="form-horizontal form-material" id="loginform" method="POST" action="{{ url('/login') }}">
                     {{ csrf_field() }}

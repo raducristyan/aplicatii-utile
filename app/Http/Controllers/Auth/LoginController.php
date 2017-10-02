@@ -51,13 +51,14 @@ class LoginController extends Controller
 
         if (!$user->institution->active) {
             Auth::logout($user);
-
-            if ($user->role == 'admin') {
-                return redirect('/login')->withMessage(['content' => 'Te rog să activezi contul instituției. <a href="' . route('activate.resend') . '?email=' . $user->email . '">Retransmite email-ul pentru activare.</a>', 'type' => 'info']);
+            
+            if ($user->is_admin) {
+                flash('Vă rugăm să activați contul instituției. <a href="' . route('activate.resend') . '?email=' . $user->email . '">Retransmite email-ul pentru activare.</a>');
+                return redirect('/login');
             } else {
-                return redirect('/login')->withMessage(['content' => 'Contul instituției nu a fost activat. Contactați administratorul contului', 'type' => 'info']);
+                flash('Contul instituției nu a fost activat. Contactați administratorul contului');
+                return redirect('/login');
             }
-
         }
     }
 

@@ -5,8 +5,8 @@
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <section id="wrapper">
-        <div class="login-register" style="background-image:url(/images/background/login-register.jpg);">        
-            <div class="login-box card">
+        <div class="login-register bg-img">        
+            <div class="login-box reset-box card">
             <div class="card-block">
                 <form class="form-horizontal form-material" role="form" method="POST" action="{{ url('/password/reset') }}">
                     {!! csrf_field() !!}

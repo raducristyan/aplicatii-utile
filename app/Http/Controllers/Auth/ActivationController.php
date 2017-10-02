@@ -25,10 +25,10 @@ class ActivationController extends Controller
      * @param  Request $request token for activation
      * @return void
      */
-     public function activate (ActivationToken $token)
+    public function activate(ActivationToken $token)
     {
         $token->institution()->update([
-            'active' => true
+          'active' => true
         ]);
 
         $token->delete();
@@ -40,12 +40,12 @@ class ActivationController extends Controller
     {
         $user = User::byEmail($request->email)->firstOrFail();
 
-        if ($user->admin && $user->institution()->active) {
-        return redirect('/');
+        if ($user->isAdmin && $user->institution()->active) {
+            return redirect('/');
         }
 
         event(new AdminRequestedActivationEmail($user->institution()->first()));
-
-        return redirect('/login')->withMessage(['content' => 'Am transmis un email cu linkul pentru activare.', 'type' => 'info']);
+        flash('Am transmis un email cu linkul pentru activarea contului.');
+        return redirect('/login');
     }
 }
