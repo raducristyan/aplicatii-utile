@@ -11,11 +11,11 @@
     "posttest": "nyc report --reporter=html"
   },
   "devDependencies": {
-    "axios": "^0.17.*",
+    "axios": "^0.18.0",
     "cross-env": "^5.1.*",
     "font-awesome": "^4.7.*",
     "jquery": "^3.2.1",
-    "laravel-mix": "1.7.*",
+    "laravel-mix": "2.1.11",
     "lodash": "^4.17.4",
     "node-sass": "^4.7.2",
     "vue": "^2.5.9"
@@ -23,7 +23,7 @@
   "dependencies": {
     "animate.css": "^3.5.2",
     "bootstrap": "^4.0.0-alpha.6",
-    "mdi": "^1.9.33",
+    "mdi": "^2.2.43",
     "simple-line-icons": "^2.4.1",
     "tether": "^1.4.0"
   }
