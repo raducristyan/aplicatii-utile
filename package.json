@@ -11,14 +11,14 @@
     "posttest": "nyc report --reporter=html"
   },
   "devDependencies": {
-    "axios": "^0.16.*",
-    "cross-env": "^3.2.3",
+    "axios": "^0.17.*",
+    "cross-env": "^5.1.*",
     "font-awesome": "^4.7.*",
     "jquery": "^3.2.1",
-    "laravel-mix": "0.*",
+    "laravel-mix": "1.7.*",
     "lodash": "^4.17.4",
-    "node-sass": "^4.5.1",
-    "vue": "^2.3.3"
+    "node-sass": "^4.7.2",
+    "vue": "^2.5.9"
   },
   "dependencies": {
     "animate.css": "^3.5.2",

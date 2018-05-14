@@ -6,7 +6,8 @@
             'body'       => $message['message']
         ])
     @else
-        <div class="d-flex
+        <div class="app-msg
+                    d-flex
                     message
                     animated
                     fadeInDown
@@ -15,7 +16,7 @@
                     alert-{{ $message['level'] }}
                     {{ $message['important'] ? 'alert-important' : '' }}"
                     role="alert"
-                    id="app-msg">
+                    >
             <div class="msg">
                 {!! $message['message'] !!}
             </div>

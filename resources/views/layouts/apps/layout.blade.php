@@ -166,7 +166,6 @@
                 </div>
                 <div class="col-md-6 col-4 align-self-center">
                     <button class="right-side-toggle waves-effect waves-light btn-info btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                    <button class="btn pull-right hidden-sm-down btn-success"><i class="mdi mdi-plus-circle"></i> Crează</button>
                 </div>
             </div>
             <!-- ============================================================== -->
@@ -177,7 +176,7 @@
             <!-- ============================================================== -->
             @yield('main-wrapper')
             <!-- ============================================================== -->
-            <!-- End PAge Content -->
+            <!-- End Page Content -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
             <!-- Right sidebar -->

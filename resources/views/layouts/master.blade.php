@@ -23,7 +23,7 @@
 
 		<script>
 			function fadeOutMsg () {
-				$('#app-msg').removeClass('fadeInDown').addClass('fadeOutUp');
+				$('.app-msg').removeClass('fadeInDown').addClass('fadeOutUp');
 			};
 
 			$(function(){

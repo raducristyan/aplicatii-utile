@@ -27,16 +27,16 @@ Route::prefix('activate')->name('activate.')->namespace('Auth')->middleware('gue
 });
 
 /*-- Aplications routes --*/
-Route::prefix('apps')->name('apps')->namespace('Apps')->middleware('auth')->group(function () {
-    Route::get('/', 'AppsController@index')->name('.all');
-    if (getAppsRoutes()) {
-        Route::name('.')->group(function () {
-            foreach (getAppsRoutes() as $key => $route) {
-                Route::resource($route, title_case($route).'Controller');
-            };
-        });
-    };
-});
+// Route::prefix('apps')->name('apps')->namespace('Apps')->middleware('auth')->group(function () {
+//     Route::get('/', 'AppsController@index')->name('.all');
+//     if (getAppsRoutes()) {
+//         Route::name('.')->group(function () {
+//             foreach (getAppsRoutes() as $key => $route) {
+//                 Route::resource($route, title_case($route).'Controller');
+//             };
+//         });
+//     };
+// });
 
 /*-- Admin routes --*/
 Route::prefix('admin')->name('admin.')->middleware(['auth','admin'])->group(function () {
@@ -51,6 +51,6 @@ Route::prefix('root')->middleware('auth:root')->name('root.')->group(function ()
 });
 
 Route::get('test', function () {
-    flash('Mesaj de test')->error();
+    flash()->overlay('Modal Message', 'Modal Title');
     return view('test');
 });
