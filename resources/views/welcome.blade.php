@@ -30,7 +30,7 @@
         <!-- Bootstrap Core CSS -->
         <link href="/css/bootstrap.css" rel="stylesheet">
         <!-- Custom CSS -->
-        <link href="/css/style-lp.css" rel="stylesheet">
+        <link href="/css/landingpage/style.css" rel="stylesheet">
 
         @stack('styles')
         

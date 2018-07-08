@@ -353,15 +353,16 @@ B&&(c=f.height(),u+q>c&&!v&&(d-=l,d=Math.max(c-u,d),d=Math.min(q,d),m&&a.css({to
 y=function(){x();return l()},H=function(){G=!0;f.off("touchmove",l);f.off("scroll",l);f.off("resize",y);c(document.body).off("sticky_kit:recalc",y);a.off("sticky_kit:detach",H);a.removeData("sticky_kit");a.css({position:"",bottom:"",top:"",width:""});g.position("position","");if(m)return null==p&&("left"!==r&&"right"!==r||a.insertAfter(h),h.remove()),a.removeClass(t)},f.on("touchmove",l),f.on("scroll",l),f.on("resize",y),c(document.body).on("sticky_kit:recalc",y),a.on("sticky_kit:detach",H),setTimeout(l,
 0)}};n=0;for(K=this.length;n<K;n++)b=this[n],J(c(b));return this}}).call(this);
 
+function store(name, val) {
+  if (typeof (Storage) !== "undefined") {
+    localStorage.setItem(name, val);
+  } else {
+    window.alert('Please use a modern browser to properly view this template!');
+  }
+}
 // Theme color settings
 $(document).ready(function(){
-function store(name, val) {
-    if (typeof (Storage) !== "undefined") {
-      localStorage.setItem(name, val);
-    } else {
-      window.alert('Please use a modern browser to properly view this template!');
-    }
-  }
+
  $("*[data-theme]").click(function(e){
       e.preventDefault();
         var currentStyle = $(this).attr('data-theme');

@@ -117,9 +117,6 @@
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
                     <li class="nav-small-cap">CONT</li>
-                    <li class="{{ Route::is('/') ? 'active' : '' }}">
-                        <a href="{{ url('/') }}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Home</span></a>
-                    </li>
                     <li class="{{ Route::is('/dashboard') ? 'active' : '' }}">
                         <a href="{{ url('/dashboard') }}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
                     </li>

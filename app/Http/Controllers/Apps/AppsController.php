@@ -13,6 +13,6 @@ class AppsController extends Controller
     public function index()
     {
         // $institution = Auth::user()->institution()->with('applications')->get();
-        // return view('apps.index', compact('institution'));
+        return view('apps.index');
     }
 }

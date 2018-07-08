@@ -38,6 +38,10 @@ Route::prefix('activate')->name('activate.')->namespace('Auth')->middleware('gue
 //     };
 // });
 
+Route::prefix('apps')->name('apps')->namespace('Apps')->middleware('auth')->group(function () {
+        Route::get('/', 'AppsController@index')->name('.all');
+});
+
 /*-- Admin routes --*/
 Route::prefix('admin')->name('admin.')->middleware(['auth','admin'])->group(function () {
     Route::get('/dashboard', 'AdminController@index')->name('dashboard');
