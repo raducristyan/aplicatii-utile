@@ -57,6 +57,6 @@ class ResetPasswordController extends Controller
     protected function sendResetLinkResponse($response)
     {
         flash('Linkul pentru resetarea parolei a fost transmis cu succes pe email')->success();
-        return back()->with('status', trans($response));
+        return back();
     }
 }

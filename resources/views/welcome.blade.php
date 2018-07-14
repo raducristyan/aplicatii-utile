@@ -30,7 +30,7 @@
         <!-- Bootstrap Core CSS -->
         <link href="/css/bootstrap.css" rel="stylesheet">
         <!-- Custom CSS -->
-        <link href="/css/landingpage/style.css" rel="stylesheet">
+        <link href="/landingpage/css/style.css" rel="stylesheet">
 
         @stack('styles')
         
@@ -60,10 +60,10 @@
             <!-- ============================================================== -->
             <header class="topheader">
                 <div class="fix-width">
-                    <nav class="navbar navbar-toggleable-md navbar-light">
+                    <nav class="navbar navbar-expand-md navbar-light">
                         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
                         <!-- Logo will be here -->
-                        <a class="navbar-brand" href="index.html"><img src="images/favicon/favicon-32x32.png" alt="aplicații utile" /> <h2 class="d-inline"><strong>aplicatii</strong> utile</h2></a>
+                        <a class="navbar-brand" href="index.html"><img src="assets/images/favicon/favicon-32x32.png" alt="aplicații utile" /> <h2 class="d-inline"><strong>aplicatii</strong> utile</h2></a>
                         <!-- This is the navigation menu -->
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav ml-auto stylish-nav">
@@ -99,7 +99,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <div class="hero-banner m-t-30"> <img src="images/hero.jpg" class="img-responsive" alt="Monster admin template" /> </div>
+                                <div class="hero-banner m-t-30"> <img src="assets/images/hero.jpg" class="img-responsive" alt="Monster admin template" /> </div>
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                     <footer class="footer row">
                     <div class="fix-width">
                         <div class="row">
-                            <div class="col-lg-3 col-md-6"><img src="images/logo-light-icon.png" alt="logo" /> <img src="images/logo-light-text.png" alt="logo" />
+                            <div class="col-lg-3 col-md-6"><img src="assets/images/logo-light-icon.png" alt="logo" /> <img src="assets/images/logo-light-text.png" alt="logo" />
                                 <p class="m-t-30">
                                     <span class="text-white">Monstrous Admin</span> is premium quality admin dashboard template with flat design. It is fully responsive admin dashboard template built with Bootstrap Framework, HTML5 & CSS3, Media query. 
                                 </p>

@@ -6,10 +6,10 @@
         @include('flash.message')
 
         <div class="card w-75 my-4 px-2">
-            <div class="card-block mx-auto">
+            <div class="card-body mx-auto">
                 <h3 class="text-primary">Contact</h3>
             </div>
-            <div class="card-block">
+            <div class="card-body">
                 <form method="POST" role="form" action="{{route('contact.send')}}">
                 {!! csrf_field() !!}
                     <div class="row form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -54,7 +54,7 @@
                     </div>
                     <div class="row form-group col-6 offset-3">
                         <button type="submit" class="btn btn-primary btn-block">
-                            <i class="fa fa-envelope"></i> Trimite mesajul
+                            <i class="fal fa-envelope"></i> Trimite mesajul
                         </button>
                     </div>
                 </form>

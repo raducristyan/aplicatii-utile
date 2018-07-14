@@ -1,17 +1,6 @@
 {
-    "/css/bootstrap.css": "/css/bootstrap.css",
-    "/main/css/style.css": "/main/css/style.css",
-    "/landingpage/css/style.css": "/landingpage/css/style.css",
-    "/main/css/colors/purple-dark.css": "/main/css/colors/purple-dark.css",
-    "/main/css/colors/blue-dark.css": "/main/css/colors/blue-dark.css",
-    "/main/css/colors/blue.css": "/main/css/colors/blue.css",
-    "/main/css/colors/default-dark.css": "/main/css/colors/default-dark.css",
-    "/main/css/colors/default.css": "/main/css/colors/default.css",
-    "/main/css/colors/green-dark.css": "/main/css/colors/green-dark.css",
-    "/main/css/colors/green.css": "/main/css/colors/green.css",
-    "/main/css/colors/megna-dark.css": "/main/css/colors/megna-dark.css",
-    "/main/css/colors/megna.css": "/main/css/colors/megna.css",
-    "/main/css/colors/purple.css": "/main/css/colors/purple.css",
-    "/main/css/colors/red-dark.css": "/main/css/colors/red-dark.css",
-    "/main/css/colors/red.css": "/main/css/colors/red.css"
+    "/js/vendor.js": "/js/vendor.js",
+    "/js/jquery.min.js": "/js/jquery.min.js",
+    "/js/popper.min.js": "/js/popper.min.js",
+    "/js/bootstrap.min.js": "/js/bootstrap.min.js"
 }

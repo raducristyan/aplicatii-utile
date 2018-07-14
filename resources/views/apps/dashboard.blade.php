@@ -3,7 +3,7 @@
 	<!-- Column -->
 	<div class="col-lg-4 col-xlg-3 col-md-5">
 		<div class="card">
-			<div class="card-block">
+			<div class="card-body">
 				<center class="m-t-30">
 					<img src="../assets/images/users/5.jpg" class="img-circle" width="150" />
 					<h4 class="card-title m-t-10">{{ auth()->user()->full_name }}</h4>
@@ -26,7 +26,7 @@
 			</div>
 			<div>
 				<hr> </div>
-			<div class="card-block">
+			<div class="card-body">
 				<small class="text-muted">Adresa de email </small>
 				<h6>{{ auth()->user()->email }}</h6>
 				<small class="text-muted p-t-30 db">Telefon</small>
@@ -70,7 +70,7 @@
 			<!-- Tab panes -->
 			<div class="tab-content">
 				<div class="tab-pane active" id="home" role="tabpanel">
-					<div class="card-block">
+					<div class="card-body">
 						<div class="profiletimeline">
 							<div class="sl-item">
 								<div class="sl-left">
@@ -168,7 +168,7 @@
 				</div>
 				<!--second tab-->
 				<div class="tab-pane" id="profile" role="tabpanel">
-					<div class="card-block">
+					<div class="card-body">
 						<div class="row">
 							<div class="col-md-3 col-xs-6 b-r">
 								<strong>Nume</strong>
@@ -237,7 +237,7 @@
 					</div>
 				</div>
 				<div class="tab-pane" id="settings" role="tabpanel">
-					<div class="card-block">
+					<div class="card-body">
 						<form class="form-horizontal form-material">
 							<div class="form-group">
 								<label class="col-md-12">Full Name</label>

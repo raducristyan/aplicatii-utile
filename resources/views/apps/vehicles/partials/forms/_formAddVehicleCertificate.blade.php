@@ -34,7 +34,7 @@
             <div class="col-md-1">
                 <span data-toggle="tooltip" data-placement="right" title="Adaugă persoana">
                         <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#add-people">
-                            <i class="fa fa-plus-circle"></i>
+                            <i class="fal fa-plus-circle"></i>
                         </button>
                     </span>
             </div>
@@ -54,7 +54,7 @@
             <div class="col-md-1">
                 <span data-toggle="tooltip" data-placement="right" title="Adaugă firma">
                     <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#add-companies">
-                        <i class="fa fa-plus-circle"></i>
+                        <i class="fal fa-plus-circle"></i>
                     </button>
                 </span>
             </div>
@@ -74,7 +74,7 @@
             <div class="col-md-1">
                 <span data-toggle="tooltip" data-placement="right" title="Adaugă categorie">
                     <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#add-categories">
-                        <i class="fa fa-plus-circle"></i>
+                        <i class="fal fa-plus-circle"></i>
                     </button>
                 </span>
             </div>
@@ -94,7 +94,7 @@
             <div class="col-md-1">
                 <span data-toggle="tooltip" data-placement="right" title="Adaugă marca">
                     <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#add-marks">
-                        <i class="fa fa-plus-circle"></i>
+                        <i class="fal fa-plus-circle"></i>
                     </button>
                 </span>
             </div>

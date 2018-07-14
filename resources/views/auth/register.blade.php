@@ -4,10 +4,10 @@
     <section id="wrapper">
         <div class="login-register register bg-img">        
             <div class="login-box register-box card">
-                <div class="card-block">
+                <div class="card-body">
                     <form class="form-horizontal form-material" id="loginform" action="{{ url('/register') }}" method="POST">
                         {!! csrf_field() !!}
-                        <h3 class="box-title m-b-20">Înregistrare</h3>
+                        <h3 class="card-title text-center m-b-20">Înregistrare</h3>
                         <div class="form-group {{ $errors->has('institution') ? ' has-danger' : '' }}">
                             <div class="col-xs-12">
                                 <input class="form-control" type="text" name="institution" value="{{ old('institution') }}" required="required" placeholder="Instituție">

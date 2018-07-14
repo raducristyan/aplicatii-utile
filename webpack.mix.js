@@ -19,41 +19,41 @@ let mix = require('laravel-mix');
 // mix.copy('resources/assets/assets/images', 'public/assets/images');
 
 // Mix jQuery, tether and bootstrap
-// mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/js')
-//     .copy(['node_modules/tether/dist/js/tether.min.js',
-//         'node_modules/bootstrap/dist/js/bootstrap.min.js'], 'public/js')
-//     .js('resources/assets/js/vendor.js', 'public/js')
+mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/js')
+    .copy(['node_modules/popper.js/dist/popper.min.js',
+        'node_modules/bootstrap/dist/js/bootstrap.min.js'], 'public/js')
+    .js('resources/assets/js/vendor.js', 'public/js')
 
-// // Mix custom applicationCache.js
+// // Mix custom application
 // mix.js('resources/assets/js/main.js', 'public/js/app.js');
 
-// // Mix combine assets
+// Mix combine assets
 // mix.combine(['resources/assets/js/jquery.slimscroll.js',
 //     'resources/assets/js/waves.js', 
 //     'resources/assets/js/sidebarmenu.js',
 //     'resources/assets/js/sticky-kit.min.js',
 //     'resources/assets/js/jQuery.style.switcher.js',
-//     'resources/assets/js/custom.min.js'
+//     'resources/assets/js/custom.js'
 // ], 'public/js/custom.js');
 
 
 
-// //Mix scss files
-mix.sass('node_modules/bootstrap/scss/bootstrap.scss', 'public/css');
-mix.sass('resources/assets/main/scss/style.scss', 'public/main/css');
-mix.sass('resources/assets/landingpage/scss/style.scss', 'public/landingpage/css/style.css');
-mix.sass('resources/assets/main/scss/colors/purple-dark.scss', 'public/main/css/colors');
-mix.sass('resources/assets/main/scss/colors/blue-dark.scss', 'public/main/css/colors');
-mix.sass('resources/assets/main/scss/colors/blue.scss', 'public/main/css/colors');
-mix.sass('resources/assets/main/scss/colors/default-dark.scss', 'public/main/css/colors');
-mix.sass('resources/assets/main/scss/colors/default.scss', 'public/main/css/colors');
-mix.sass('resources/assets/main/scss/colors/green-dark.scss', 'public/main/css/colors');
-mix.sass('resources/assets/main/scss/colors/green.scss', 'public/main/css/colors');
-mix.sass('resources/assets/main/scss/colors/megna-dark.scss', 'public/main/css/colors');
-mix.sass('resources/assets/main/scss/colors/megna.scss', 'public/main/css/colors');
-mix.sass('resources/assets/main/scss/colors/purple.scss', 'public/main/css/colors');
-mix.sass('resources/assets/main/scss/colors/red-dark.scss', 'public/main/css/colors');
-mix.sass('resources/assets/main/scss/colors/red.scss', 'public/main/css/colors');
+//Mix scss files
+// mix.sass('node_modules/bootstrap/scss/bootstrap.scss', 'public/css');
+// mix.sass('resources/assets/main/scss/style.scss', 'public/main/css');
+// mix.sass('resources/assets/landingpage/scss/style.scss', 'public/landingpage/css/style.css');
+// mix.sass('resources/assets/main/scss/colors/purple-dark.scss', 'public/main/css/colors');
+// mix.sass('resources/assets/main/scss/colors/blue-dark.scss', 'public/main/css/colors');
+// mix.sass('resources/assets/main/scss/colors/blue.scss', 'public/main/css/colors');
+// mix.sass('resources/assets/main/scss/colors/default-dark.scss', 'public/main/css/colors');
+// mix.sass('resources/assets/main/scss/colors/default.scss', 'public/main/css/colors');
+// mix.sass('resources/assets/main/scss/colors/green-dark.scss', 'public/main/css/colors');
+// mix.sass('resources/assets/main/scss/colors/green.scss', 'public/main/css/colors');
+// mix.sass('resources/assets/main/scss/colors/megna-dark.scss', 'public/main/css/colors');
+// mix.sass('resources/assets/main/scss/colors/megna.scss', 'public/main/css/colors');
+// mix.sass('resources/assets/main/scss/colors/purple.scss', 'public/main/css/colors');
+// mix.sass('resources/assets/main/scss/colors/red-dark.scss', 'public/main/css/colors');
+// mix.sass('resources/assets/main/scss/colors/red.scss', 'public/main/css/colors');
 
 
 // Full API

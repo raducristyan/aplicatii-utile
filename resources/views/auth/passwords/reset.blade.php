@@ -7,11 +7,11 @@
     <section id="wrapper">
         <div class="login-register bg-img">        
             <div class="login-box reset-box card">
-            <div class="card-block">
+            <div class="card-body">
                 <form class="form-horizontal form-material" role="form" method="POST" action="{{ url('/password/reset') }}">
                     {!! csrf_field() !!}
                     <input type="hidden" name="token" value="{{ $token }}">
-                    <h3 class="box-title m-b-20">Resetare parolă</h3>
+                    <h3 class="card-title text-center m-b-20">Resetare parolă</h3>
                     <div class="form-group ">
                         <div class="col-xs-12">
                             <input class="form-control" type="email" name="email" required="" placeholder="Email" value="{{ $email or old('email') }}">

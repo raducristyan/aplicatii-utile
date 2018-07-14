@@ -7394,6 +7394,24 @@ readers do not read off random characters that represent icons */
   width: auto;
 }
 
+/*!
+ * Font Awesome Pro 5.0.13 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license (Commercial License)
+ */
+
+@font-face {
+  font-family: 'Font Awesome 5 Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: url(/fonts/fa-light-300.eot?0168148b32ee8477d3c773a560497cad);
+  src: url(/fonts/fa-light-300.eot?0168148b32ee8477d3c773a560497cad) format("embedded-opentype"), url(/fonts/fa-light-300.woff2?b6a503f4ef2da53e2cb706dfd3c1e6c7) format("woff2"), url(/fonts/fa-light-300.woff?57e3d393650e0143239dcdda84cd78ae) format("woff"), url(/fonts/fa-light-300.ttf?fa2f6b92b26cbf62f502ddc3beaf5638) format("truetype"), url(/fonts/fa-light-300.svg?a2e703563d62095222c725e59b70ea40) format("svg");
+}
+
+.fal {
+  font-family: 'Font Awesome 5 Pro';
+  font-weight: 300;
+}
+
 /*
 Template Name: Monster Admin
 Author: Themedesigner

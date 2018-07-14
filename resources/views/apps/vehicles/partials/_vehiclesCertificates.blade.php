@@ -32,13 +32,13 @@
                             <td class="text-right">{{ $vehicle['registrationNumber']->number }}</td>
                             <td>
                                 <a href="/myapps/rc/{{ $vehicle->id }}" class="btn btn-xs btn-primary" data-toggle="tooltip" data-placement="top" title="Vizualizare">
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                    <i class="fal fa-eye" aria-hidden="true"></i>
                                 </a>
                                 <a href="/myapps/rc/{{ $vehicle->id }}/edit" class="btn btn-xs btn-info" data-toggle="tooltip" data-placement="top" title="Editare">
-                                    <i class="fa fa-edit"></i>
+                                    <i class="fal fa-edit"></i>
                                 </a>
                                 <a href="/myapps/rc/{{ $vehicle->id }}" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Ștergere">
-                                    <i class="fa fa-trash"></i>
+                                    <i class="fal fa-trash"></i>
                                 </a>
                             </td>
                         </tr>

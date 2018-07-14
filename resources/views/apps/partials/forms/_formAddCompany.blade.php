@@ -99,7 +99,7 @@
                     </select>
                 </div>
                 <div class="col-md-3 loading-spin" v-show='hideCities'>
-                    <i class="fa fa-spinner fa-spin"></i> Loading...
+                    <i class="fal fa-spinner fa-spin"></i> Loading...
                 </div>
             </div>
 

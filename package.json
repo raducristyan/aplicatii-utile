@@ -2,7 +2,6 @@
   "name": "aplicatii-utile",
   "version": "1.0.0",
   "private": true,
-
   "scripts": {
     "dev": "npm run development",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --display-error-details --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
@@ -24,8 +23,6 @@
   "dependencies": {
     "animate.css": "^3.6.*",
     "bootstrap": "^4.1.*",
-    "mdi": "^2.2.43",
-    "simple-line-icons": "^2.4.1",
-    "tether": "^1.4.*"
+    "popper.js": "^1.14.3"
   }
 }

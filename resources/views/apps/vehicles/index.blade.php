@@ -9,12 +9,12 @@
         <div class="col-8">
             <h4>
                 Certificate de înregistrare
-                <small><i class="fa fa-angle-double-right" aria-hidden="true"></i> vehicule neînmatriculabile</small>
+                <small><i class="fal fa-angle-double-right" aria-hidden="true"></i> vehicule neînmatriculabile</small>
             </h4>
         </div>
         <div class="col-4 text-right">
             <a href="{{route('apps.vehicles.create')}}" class="btn btn-success btn-sm">
-                <i class="fa fa-plus"></i> Adaugă certificat
+                <i class="fal fa-plus"></i> Adaugă certificat
             </a>
         </div>
     </div>

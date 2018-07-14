@@ -5,10 +5,10 @@
     <section id="wrapper">
         <div class="login-register bg-img">        
             <div class="login-box card">
-            <div class="card-block">
+            <div class="card-body">
                 <form class="form-horizontal form-material" id="loginform" method="POST" action="{{ url('/login') }}">
                     {{ csrf_field() }}
-                    <h3 class="box-title m-b-20">Autentificare</h3>
+                    <h3 class="card-title text-center m-b-20">Autentificare</h3>
                     <div class="form-group {{ $errors->has('email') ? ' has-danger' : '' }}">
                         <div class="col-xs-12">
                             <input class="form-control" name="email" type="email" required="" placeholder="Email" value="{{ old('email')}}">
@@ -34,7 +34,7 @@
                             <div class="checkbox checkbox-primary pull-left p-t-0">
                                 <input id="checkbox-signup" type="checkbox">
                                 <label for="checkbox-signup"> Autentificare automată </label>
-                            </div> <a href="{{ route('password.request') }}" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> Ai uitat parola?</a> </div>
+                            </div> <a href="{{ route('password.request') }}" class="text-dark pull-right"><i class="fal fa-lock-open m-r-5"></i> Ai uitat parola?</a> </div>
                     </div>
                     <div class="form-group text-center m-t-20">
                         <div class="col-xs-12">

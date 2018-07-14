@@ -23,12 +23,14 @@
 
 		<script>
 			function fadeOutMsg () {
-				$('.app-msg').removeClass('fadeInDown').addClass('fadeOutUp');
+				$('.app-msg').not('.alert-important').removeClass('fadeInDown').addClass('fadeOutUp');
 			};
 
 			$(function(){
 				window.setTimeout("fadeOutMsg()", 5000);
 			});
+
+			$('#flash-overlay-modal').modal();
 		</script>
 	</body>
 
