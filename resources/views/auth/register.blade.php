@@ -20,7 +20,7 @@
                         </div>
                         <div class="form-group {{ $errors->has('cif') ? ' has-danger' : '' }}">
                             <div class="col-xs-12">
-                                <input class="form-control" type="number" name="cif" value="{{ old('cif') }}" required="required" placeholder="CIF" min="0">
+                                <input class="form-control" type="number" name="cif" value="{{ old('cif') }}" required="required" placeholder="Cod de identificare fiscală" min="0">
                                 @if ($errors->has('cif'))
                                     <span class="form-text text-muted">
                                         {{ $errors->first('cif') }}
