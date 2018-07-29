@@ -26,26 +26,25 @@ function store(name, val) {
       });
 
 });
- function get(name) {
-    
-  }
+//  function get(name) {
+//   }
 
-$(document).ready(function(){
-    $("*[data-theme]").click(function(e){
-      e.preventDefault();
-        var currentStyle = $(this).attr('data-theme');
-        store('theme', currentStyle);
-        $('#theme').attr({href: 'main/css/colors/'+currentStyle+'.css'})
-    });
+// $(document).ready(function(){
+//     $("*[data-theme]").click(function(e){
+//       e.preventDefault();
+//         var currentStyle = $(this).attr('data-theme');
+//         store('theme', currentStyle);
+//         $('#theme').attr({href: 'main/css/colors/'+currentStyle+'.css'})
+//     });
 
-    var currentTheme = get('theme');
-    if(currentTheme)
-    {
-      $('#theme').attr({href: 'main/css/colors/'+currentTheme+'.css'});
-    }
-    // color selector
-$('#themecolors').on('click', 'a', function(){
-        $('#themecolors li a').removeClass('working');
-        $(this).addClass('working')
-      });
-});
+//     var currentTheme = get('theme');
+//     if(currentTheme)
+//     {
+//       $('#theme').attr({href: 'main/css/colors/'+currentTheme+'.css'});
+//     }
+//     // color selector
+// $('#themecolors').on('click', 'a', function(){
+//         $('#themecolors li a').removeClass('working');
+//         $(this).addClass('working')
+//       });
+// });

@@ -1,9 +1,5 @@
-$themecolor: #683BE5;
-$themecolor-dark: #6028FC;
+// Custom css and overrides
 
-$primary: #7460ee;
-
-$brown: #A87F48;
 
 .topbar {
   .profile-pic {
@@ -50,5 +46,43 @@ $brown: #A87F48;
   }
   .close {
     flex-basis: 10%;
+  }
+}
+
+//Overrides
+
+.page-titles .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f105";
+}
+
+.page-titles {
+  .breadcrumb {
+    padding: 0px;
+    background: transparent;
+    .breadcrumb-item+.breadcrumb-item::before {
+      font-family: "Font Awesome 5 Pro";
+      content: "\f105";
+    }
+  }
+}
+
+.checkbox input[type="checkbox"]:checked + label::after {
+  font-family: 'Font Awesome 5 Pro';
+}
+
+ul#themecolors li a.working:before {
+  font-family: "Font Awesome 5 Pro";
+}
+
+/*******************
+Checkbox
+*******************/
+
+.checkbox {
+  input[type="checkbox"]:checked + label {
+    &::after {
+      font-family: 'Font Awesome 5 Pro';
+    }
   }
 }

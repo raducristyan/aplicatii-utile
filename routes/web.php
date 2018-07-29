@@ -1,8 +1,5 @@
 <?php
 
-Route::get('xml', function () {
-    return view('xml.index');
-});
 Route::get('/', function () {
     if (auth()->guest()) {
         $title = config('apps.title.welcome');
@@ -19,7 +16,7 @@ Route::prefix('contact')->name('contact')->middleware('guest')->group(function (
 
 Route::get('/help', 'HelpController@index')->name('help')->middleware('guest');
 
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middleware('auth');
 
 Route::prefix('activate')->name('activate.')->namespace('Auth')->middleware('guest')->group(function () {
     Route::get('/confirm/{token}', 'ActivationController@activate')->name('confirm');

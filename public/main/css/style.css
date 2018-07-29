@@ -13228,3 +13228,34 @@ File: scss
       flex-basis: 10%;
 }
 
+.page-titles .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  font-family: "Font Awesome 5 Pro";
+  content: "\F105";
+}
+
+.page-titles .breadcrumb {
+  padding: 0px;
+  background: transparent;
+}
+
+.page-titles .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  font-family: "Font Awesome 5 Pro";
+  content: "\F105";
+}
+
+.checkbox input[type="checkbox"]:checked + label::after {
+  font-family: 'Font Awesome 5 Pro';
+}
+
+ul#themecolors li a.working:before {
+  font-family: "Font Awesome 5 Pro";
+}
+
+/*******************
+Checkbox
+*******************/
+
+.checkbox input[type="checkbox"]:checked + label::after {
+  font-family: 'Font Awesome 5 Pro';
+}
+

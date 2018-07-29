@@ -1,0 +1,26 @@
+@import '../../../../node_modules/bootstrap/scss/_functions';
+@import '../../../../node_modules/bootstrap/scss/_variables';
+@import '../../../../node_modules/bootstrap/scss/mixins/_breakpoints';
+
+// Custom css and overrides
+
+#main-wrapper {
+  margin-top: 93px;
+}
+
+.topheader {
+  background-color: rgb(48, 65, 119);
+  border-bottom: 1px solid #222f55;
+}
+
+@include media-breakpoint-down(md) {
+  .footer, .footer .sub-footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }  
+}
+
+.my-50 {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}

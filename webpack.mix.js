@@ -19,10 +19,10 @@ let mix = require('laravel-mix');
 // mix.copy('resources/assets/assets/images', 'public/assets/images');
 
 // Mix jQuery, tether and bootstrap
-mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/js')
-    .copy(['node_modules/popper.js/dist/popper.min.js',
-        'node_modules/bootstrap/dist/js/bootstrap.min.js'], 'public/js')
-    .js('resources/assets/js/vendor.js', 'public/js')
+// mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/js')
+//     .copy(['node_modules/popper.js/dist/popper.min.js',
+//         'node_modules/bootstrap/dist/js/bootstrap.min.js'], 'public/js')
+//     .js('resources/assets/js/vendor.js', 'public/js')
 
 // // Mix custom application
 // mix.js('resources/assets/js/main.js', 'public/js/app.js');
@@ -41,7 +41,8 @@ mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/js')
 //Mix scss files
 // mix.sass('node_modules/bootstrap/scss/bootstrap.scss', 'public/css');
 // mix.sass('resources/assets/main/scss/style.scss', 'public/main/css');
-// mix.sass('resources/assets/landingpage/scss/style.scss', 'public/landingpage/css/style.css');
+mix.sass('resources/assets/landingpage/scss/style.scss', 'public/landingpage/css/style.css');
+
 // mix.sass('resources/assets/main/scss/colors/purple-dark.scss', 'public/main/css/colors');
 // mix.sass('resources/assets/main/scss/colors/blue-dark.scss', 'public/main/css/colors');
 // mix.sass('resources/assets/main/scss/colors/blue.scss', 'public/main/css/colors');

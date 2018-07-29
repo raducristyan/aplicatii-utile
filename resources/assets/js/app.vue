@@ -204,16 +204,16 @@
                 if ( cnp.val.length ) {
                     if (cnp.val.length !== 13) {
                         cnp.isValid = false;
-                        cnp.hasError = "Cnp-ul trebuie să conțină 13 numere!";
+                        cnp.hasError = "Cnp-ul trebuie să conțină 13 cifre!";
                     } else {
                         var cnp_v = cnp.val.split("");
                         var suma = cnp_v[0]*2+cnp_v[1]*7+cnp_v[2]*9+cnp_v[3]*1+cnp_v[4]*4+cnp_v[5]*6+cnp_v[6]*3+cnp_v[7]*5+cnp_v[8]*8+cnp_v[9]*2+cnp_v[10]*7+cnp_v[11]*9;
-                        if (suma%11 < 11) {
+                        if (suma % 11 < 11) {
 
-                            if (suma%11 < 10 && suma%11 == cnp_v[12]){
+                            if (suma % 11 < 10 && suma%11 == cnp_v[12]){
                                 cnp.isValid = true;
                                 cnp.hasError = false;
-                            }else if (suma%11 == 10 && cnp_v[12] == 1){
+                            }else if (suma % 11 == 10 && cnp_v[12] == 1){
                                 cnp.isValid = true;
                                 cnp.hasError = false;
                             }else {
@@ -231,58 +231,58 @@
 
             //start validateName
             validateName(type) {
-                var name_expr = "";
+                var pattern = "";
                 var temp_name = "";
-                var pers = "";
+                var person = "";
 
                 if (type === 'person') {
-                    name_expr = this.person.name.pattern;
+                    pattern = this.person.name.pattern;
                     temp_name = this.person.name;
-                    pers = "persoanei";
+                    person = "persoanei";
                 } else if (type === 'company'){
-                    name_expr = this.company.name.pattern;
+                    pattern = this.company.name.pattern;
                     temp_name = this.company.name;
-                    pers = "firmei";
+                    person = "firmei";
                 } else if (type === 'auth_name') {
-                    name_expr = this.company.authorized.name.pattern;
+                    pattern = this.company.authorized.name.pattern;
                     temp_name = this.company.authorized.name;
-                    pers = "reprezentantului";
+                    person = "reprezentantului";
                 }
 
                 if ( temp_name.val.length > 0 ) {
 
-                    if ( (temp_name.val.length < 6) && (!name_expr.test(temp_name.val)) ) {
+                    if ( (temp_name.val.length < 6) && (!pattern.test(temp_name.val)) ) {
 
                         temp_name.isValid = false;
                         if (type === "person") {
-                            temp_name.hasError = "Numele "+ pers +" trebuie să conțină minim 6 caractere. Sunt permise numai litere!";
+                            temp_name.hasError = "Numele "+ person +" trebuie să conțină minim 6 caractere. Sunt permise numai litere!";
 
                         } else {
-                            temp_name.hasError = "Numele "+ pers +" trebuie să conțină minim 6 caractere. Sunt permise numai caractere alfanumerice!";
+                            temp_name.hasError = "Numele "+ person +" trebuie să conțină minim 6 caractere. Sunt permise numai caractere alfanumerice!";
                         }
 
                     } else if (temp_name.val.length < 6) {
 
                         temp_name.isValid = false;
-                        temp_name.hasError = "Numele "+ pers +" trebuie să conțină minim 6 caractere!";
+                        temp_name.hasError = "Numele "+ person +" trebuie să conțină minim 6 caractere!";
 
-                    } else if ( name_expr.test(temp_name.val) === false) {
+                    } else if ( pattern.test(temp_name.val) === false) {
 
                         temp_name.isValid = false;
                         if (type === "person") {
-                            temp_name.hasError = "Numele "+ pers +" trebuie să conțină numai litere. Eliminați spațiile goale de la începutul sau sfârșitul câmpului!";
+                            temp_name.hasError = "Numele "+ person +" trebuie să conțină numai litere. Eliminați spațiile goale de la începutul sau sfârșitul câmpului!";
                         } else {
-                            temp_name.hasError = "Numele "+ pers +" trebuie să conțină numai caractere alfanumerice. Eliminați spațiile goale de la începutul sau sfârșitul câmpului!";
+                            temp_name.hasError = "Numele "+ person +" trebuie să conțină numai caractere alfanumerice. Eliminați spațiile goale de la începutul sau sfârșitul câmpului!";
                         }
 
-                    } else if ( (temp_name.val.length >= 6) && (name_expr.test(temp_name.val)) ) {
+                    } else if ( (temp_name.val.length >= 6) && (pattern.test(temp_name.val)) ) {
                         temp_name.isValid = true;
                         temp_name.hasError = false;
                     }
 
                 } else {
                     temp_name.isValid = false;
-                    temp_name.hasError = "Nu ați completat numele "+ pers +"!";
+                    temp_name.hasError = "Nu ați completat numele "+ person +"!";
                 }
             },
             //end validateName

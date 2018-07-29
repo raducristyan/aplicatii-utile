@@ -7770,59 +7770,25 @@ File: scss
   }
 }
 
-.topbar .profile-pic {
-  border: 1px solid #A87F48;
-  padding: 1px;
+#main-wrapper {
+  margin-top: 93px;
 }
 
-.register {
-  padding-bottom: 0;
+.topheader {
+  background-color: #304177;
+  border-bottom: 1px solid #222f55;
 }
 
-/* Media query */
-
-@media screen and (min-width: 768px) {
-  .register-box,
-  .reset-box {
-    width: 520px;
+@media (max-width: 991.98px) {
+  .footer,
+  .footer .sub-footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
-.register-box {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.bg-img {
-  background: url(/images/login-register-bg.png?438894271a9a4307784675ec87c0f4a3) repeat;
-}
-
-.message {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-animation-delay: 800ms;
-          animation-delay: 800ms;
-  border-radius: 0;
-  height: 70px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10001;
-}
-
-.message .msg,
-.message .close {
-  text-align: center;
-}
-
-.message .msg {
-  -ms-flex-preferred-size: 90%;
-      flex-basis: 90%;
-}
-
-.message .close {
-  -ms-flex-preferred-size: 10%;
-      flex-basis: 10%;
+.my-50 {
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
