@@ -7792,3 +7792,23 @@ File: scss
   margin-bottom: 50px;
 }
 
+.app-msg {
+  border-radius: 0;
+  height: 94px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 1080;
+}
+
+.app-msg .msg {
+  text-align: center;
+  width: 98%;
+  margin: auto;
+}
+
+.app-msg .close {
+  text-align: center;
+  margin: auto;
+}
+

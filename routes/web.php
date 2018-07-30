@@ -52,7 +52,7 @@ Route::prefix('root')->middleware('auth:root')->name('root.')->group(function ()
 });
 
 Route::get('test', function () {
-    flash()->overlay('Modal Message', 'Modal Title');
-    // flash()->success('Modal Title')->important();
+    // flash()->overlay('Modal Message', 'Modal Title');
+    flash('Modal Title')->info()->important();
     return view('test');
 });

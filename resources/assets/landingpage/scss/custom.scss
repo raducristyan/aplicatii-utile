@@ -24,3 +24,21 @@
   margin-top: 50px;
   margin-bottom: 50px;
 }
+
+.app-msg {
+  border-radius: 0;
+  height: 94px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 1080;
+  .msg {
+    text-align: center;
+    width: 98%;
+    margin: auto;
+  }
+  .close {
+    text-align: center;
+    margin: auto;
+  }
+}

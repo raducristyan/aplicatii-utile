@@ -15,8 +15,7 @@
                     alert
                     alert-{{ $message['level'] }}
                     {{ $message['important'] ? 'alert-important' : '' }}"
-                    role="alert"
-                    >
+                    role="alert">
             <div class="msg">
                 {!! $message['message'] !!}
             </div>
