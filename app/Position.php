@@ -3,8 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Person extends Model
+class Position extends Model
 {
     use SoftDeletes;
 
@@ -23,20 +24,9 @@ class Person extends Model
      * @var array
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
-        'cnp',
-        'email',
-        'phone'
+        'name',
+        'description'
     ];
     
     
-    /**
-    * Get the institution that owns the model.
-    */
-    public function institution()
-    {
-        return $this->belongsTo(Institution::class);
-    }
-
 }

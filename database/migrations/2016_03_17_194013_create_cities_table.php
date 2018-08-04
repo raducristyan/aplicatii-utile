@@ -17,10 +17,7 @@ class CreateCitiesTable extends Migration
             $table->string('name');
             $table->integer('county_siruta')->unsigned();
 
-            $table->foreign('county_siruta')
-                  ->references('siruta')
-                  ->on('counties')
-                  ->onDelete('cascade');
+            $table->foreign('county_siruta')->references('siruta')->on('counties')->onDelete('cascade');
         });
     }
 

@@ -1,4 +1,5 @@
-@extends('layouts.apps.layout') @section('main-wrapper')
+@extends('apps.layout') 
+@section('page-wrapper')
 <div class="row">
 	<!-- Column -->
 	<div class="col-lg-4 col-xlg-3 col-md-5">

@@ -53,10 +53,10 @@ class LoginController extends Controller
             Auth::logout($user);
             
             if ($user->is_admin) {
-                flash('Vă rugăm să activați contul instituției. <a href="' . route('activate.resend') . '?email=' . $user->email . '">Retransmite email-ul pentru activare.</a>')->important();
+                flash('Vă rugăm să activați contul instituției. <a href="' . route('activate.resend') . '?email=' . $user->email . '">Retransmite email-ul pentru activare.</a>')->info()->important();
                 return redirect('/login');
             } else {
-                flash('Contul instituției nu a fost activat. Contactați administratorul contului');
+                flash('Contul instituției nu a fost activat. Contactați administratorul contului')->info();
                 return redirect('/login');
             }
         }

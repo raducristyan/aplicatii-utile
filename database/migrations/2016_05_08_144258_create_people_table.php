@@ -14,7 +14,8 @@ class CreatePeopleTable extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->index();
+            $table->string('first_name')->index();
+            $table->string('last_name')->index();
             $table->string('cnp')->index();
             $table->string('email')->index()->nullable();
             $table->string('phone')->nullable();
@@ -22,10 +23,7 @@ class CreatePeopleTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

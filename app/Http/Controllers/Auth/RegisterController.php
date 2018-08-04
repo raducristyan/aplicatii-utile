@@ -117,7 +117,7 @@ class RegisterController extends Controller
     protected function registered(Request $request, $user)
     {
         Auth::logout();
-        flash('Vă rugăm să activați contul dumneavoastră. Verificați căsuța de email.')->success();
+        flash('Contul dumneavoastră a fost creat. Verificați căsuța de email pentru activarea contului.')->info()->important();
         return redirect('/login');
     }
 }

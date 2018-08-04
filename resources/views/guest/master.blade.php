@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ro">
-	@include('partials.guest.head')
+	@include('guest.partials.head')
 	<body>
 		<!-- ============================================================== -->
 		<!-- Preloader - style you can find in spinners.css -->
@@ -13,7 +13,7 @@
 		<!-- ============================================================== -->
 		<div id="main-wrapper">
 
-			@include('partials.guest.navbar')
+			@include('guest.partials.navbar')
 
 			<!-- ============================================================== -->
 			<!-- Page wrapper  -->
@@ -26,7 +26,7 @@
 
 					@yield('page-wrapper')
 
-					@include('partials.footer')
+					@include('guest.partials.footer')
 
 				</div>
 				<!-- ============================================================== -->

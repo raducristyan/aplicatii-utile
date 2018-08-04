@@ -1,4 +1,4 @@
-@extends('layouts.guest.master')
+@extends('guest.master')
 
 <!-- Main Content -->
 @section('page-wrapper')

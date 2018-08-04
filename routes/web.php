@@ -1,13 +1,8 @@
 <?php
 
 Route::get('/', function () {
-    if (auth()->guest()) {
-        $title = config('apps.title.welcome');
-        return view('welcome', compact('title'));
-    } else {
-        return redirect(route('dashboard'));
-    }
-})->name('welcome');
+    return view('welcome', compact('title'));
+})->middleware('guest')->name('welcome');
 
 Route::prefix('contact')->name('contact')->middleware('guest')->group(function () {
     Route::get('/', 'ContactController@index')->name('.index');
@@ -16,6 +11,7 @@ Route::prefix('contact')->name('contact')->middleware('guest')->group(function (
 
 Route::get('/help', 'HelpController@index')->name('help')->middleware('guest');
 
+/*-- User dashboard --*/
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middleware('auth');
 
 Route::prefix('activate')->name('activate.')->namespace('Auth')->middleware('guest')->group(function () {
@@ -39,17 +35,13 @@ Route::prefix('apps')->name('apps')->namespace('Apps')->middleware('auth')->grou
         Route::get('/', 'AppsController@index')->name('.all');
 });
 
-/*-- Admin routes --*/
+
+/*-- Admin dashboard --*/
 Route::prefix('admin')->name('admin.')->middleware(['auth','admin'])->group(function () {
     Route::get('/dashboard', 'AdminController@index')->name('dashboard');
 });
 
 Auth::routes();
-
-// Application admin
-Route::prefix('root')->middleware('auth:root')->name('root.')->group(function () {
-    Route::resource('/root', 'RootController');
-});
 
 Route::get('test', function () {
     // flash()->overlay('Modal Message', 'Modal Title');

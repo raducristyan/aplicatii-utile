@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Person extends Model
+class Employee extends Model
 {
     use SoftDeletes;
 
@@ -27,16 +27,8 @@ class Person extends Model
         'last_name',
         'cnp',
         'email',
-        'phone'
+        'phone',
     ];
     
     
-    /**
-    * Get the institution that owns the model.
-    */
-    public function institution()
-    {
-        return $this->belongsTo(Institution::class);
-    }
-
 }

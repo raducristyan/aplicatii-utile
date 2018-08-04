@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateActivationTokensTable extends Migration
+class CreateEmployeesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class CreateActivationTokensTable extends Migration
      */
     public function up()
     {
-        Schema::create('activation_tokens', function (Blueprint $table) {
+        Schema::create('employees', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('institution_id')->unsigned();
-            $table->string('token');
+            $table->string('first_name')->index();
+            $table->string('last_name')->index();
+            $table->string('cnp')->index();
+            $table->string('email')->index()->nullable();
+            $table->string('phone')->nullable();
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('institution_id')->references('id')->on('institutions')->onDelete('cascade');
@@ -30,6 +34,6 @@ class CreateActivationTokensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('activation_tokens');
+        Schema::dropIfExists('employees');
     }
 }

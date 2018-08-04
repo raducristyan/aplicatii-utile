@@ -31,6 +31,8 @@ class User extends Authenticatable implements CanResetPassword
         'first_name',
         'last_name',
         'email',
+        'mobile',
+        'phone',
         'password',
         'is_admin',
     ];
@@ -176,5 +178,14 @@ class User extends Authenticatable implements CanResetPassword
     public function people()
     {
         return $this->hasMany(Person::class);
+    }
+
+    /**
+     * Get the user address
+     *
+     */
+    public function address()
+    {
+        return $this->morphMany('App\Address', 'addressable');
     }
 }

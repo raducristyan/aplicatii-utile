@@ -8,44 +8,20 @@
   }
 }
 
-.register {
-  padding-bottom: 0;
-}
-
-/* Media query */
-
-@media screen and (min-width: 768px) {
-  .register-box, .reset-box {
-    width: 520px;
-  }
-}
-
-.register-box {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.bg-img {
-  background: url(../../assets/images/background/login-register-bg.png) repeat;
-}
-
-.message {
-  align-items: center;
+.app-msg {
   animation-delay: 800ms;
   border-radius: 0;
   height: 70px;
   position: fixed;
-  top: 0;
+  top: 0px;
   width: 100%;
-  z-index: 10001;
+  z-index: 1080;
   .msg, .close {
+    margin: auto;
     text-align: center;
   }
   .msg {
-    flex-basis: 90%;
-  }
-  .close {
-    flex-basis: 10%;
+    width: 98%;
   }
 }
 

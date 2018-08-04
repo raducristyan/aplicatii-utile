@@ -1,1 +1,1 @@
-@extends('layouts.guest.master')
+@extends('layouts.guest.layout')

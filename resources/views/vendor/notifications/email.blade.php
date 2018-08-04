@@ -20,13 +20,13 @@
 $style = [
     /* Layout ------------------------------ */
 
-    'body' => 'margin: 0; padding: 0; width: 100%; background-color: #F2F4F6;',
-    'email-wrapper' => 'width: 100%; margin: 0; padding: 0; background-color: #F2F4F6;',
+    'body' => 'margin: 0; padding: 0; width: 100%; background-color: #222f55;',
+    'email-wrapper' => 'width: 100%; margin: 0; padding: 0; background-color: #222f55;',
 
     /* Masthead ----------------------- */
 
     'email-masthead' => 'padding: 15px 0; text-align: center;',
-    'email-masthead_name' => 'font-size: 16px; font-weight: bold; color: #2F3133; text-decoration: none; text-shadow: 0 1px 0 white;',
+    'email-masthead_name' => 'font-size: 16px; font-weight: bold; color: #a6b7bf; text-decoration: none;',
 
     'email-body' => 'width: 100%; margin: 0; padding: 0; border-top: 1px solid #EDEFF2; border-bottom: 1px solid #EDEFF2; background-color: #FFF;',
     'email-body_inner' => 'width: auto; max-width: 570px; margin: 0 auto; padding: 0;',
@@ -71,8 +71,7 @@ $style = [
                     <tr>
                         <td style="{{ $style['email-masthead'] }}">
                             <a style="{{ $fontFamily }} {{ $style['email-masthead_name'] }}" href="{{ url('/') }}" target="_blank">
-                            {{-- ![Some option text][logo]
-                                [Logo]:{{ asset("/images/email_logo_brand.png") }} " Logo" --}}
+                            aplicații-utile
                             </a>
                         </td>
                     </tr>
