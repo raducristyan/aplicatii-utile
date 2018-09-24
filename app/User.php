@@ -34,7 +34,7 @@ class User extends Authenticatable implements CanResetPassword
         'mobile',
         'phone',
         'password',
-        'is_admin',
+        'institution_id'
     ];
 
     /**
@@ -148,9 +148,11 @@ class User extends Authenticatable implements CanResetPassword
      *
      * @return IlluminateDatabaseEloquentBuilder
      */
-    public function scopeIsAdmin($query)
+    public function scopeAdmin($query)
     {
-        return $query->where('is_admin', true);
+        return $query->whereHas('roles', function ($q) {
+            $q->where('name', 'admin');
+        })->first();
     }
 
     /**
@@ -187,5 +189,13 @@ class User extends Authenticatable implements CanResetPassword
     public function address()
     {
         return $this->morphMany('App\Address', 'addressable');
+    }
+
+    /**
+     * The roles that belong to the user.
+     */
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role', 'users_roles', 'user_id', 'role_id');
     }
 }

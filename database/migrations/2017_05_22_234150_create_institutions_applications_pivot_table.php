@@ -13,8 +13,8 @@ class CreateInstitutionsApplicationsPivotTable extends Migration
     public function up()
     {
         Schema::create('institutions_applications', function (Blueprint $table) {
-            $table->integer('institution_id')->unsigned()->index();
-            $table->integer('application_id')->unsigned()->index();
+            $table->integer('institution_id')->unsigned();
+            $table->integer('application_id')->unsigned();
             
             $table->foreign('institution_id')->references('id')->on('institutions')->onDelete('cascade');
             $table->foreign('application_id')->references('id')->on('applications')->onDelete('cascade');
@@ -30,6 +30,6 @@ class CreateInstitutionsApplicationsPivotTable extends Migration
      */
     public function down()
     {
-        Schema::drop('application_institution');
+        Schema::drop('institutions_applications');
     }
 }

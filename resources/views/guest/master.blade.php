@@ -60,6 +60,10 @@
 			});
 
 			$('#flash-overlay-modal').modal();
+
+			$(function () {
+				$('[data-toggle="tooltip"]').tooltip()
+			})
 		</script>
 	</body>
 </html>

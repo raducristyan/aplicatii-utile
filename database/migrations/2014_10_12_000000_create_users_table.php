@@ -17,15 +17,16 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('mobile')->nullable();
             $table->string('phone')->nullable();
             $table->string('password');
-            $table->string('is_admin')->default(false);
             $table->rememberToken();
             $table->integer('institution_id')->unsigned();
             $table->timestamps();
             $table->SoftDeletes();
+
+            $table->unique('email');
 
             $table->foreign('institution_id')->references('id')->on('institutions')->onDelete('cascade');
         });

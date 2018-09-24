@@ -17,11 +17,14 @@ class CreateEmployeesTable extends Migration
             $table->increments('id');
             $table->string('first_name')->index();
             $table->string('last_name')->index();
-            $table->string('cnp')->index();
+            $table->string('cnp');
             $table->string('email')->index()->nullable();
             $table->string('phone')->nullable();
+            $table->integer('institution_id')->unsigned();
             $table->softDeletes();
             $table->timestamps();
+
+            $table->unique('cnp');
 
             $table->foreign('institution_id')->references('id')->on('institutions')->onDelete('cascade');
         });

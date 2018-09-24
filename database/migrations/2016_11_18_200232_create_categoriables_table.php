@@ -17,6 +17,8 @@ class CreateCategoriablesTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->morphs('categoriable');
             $table->timestamps();
+
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

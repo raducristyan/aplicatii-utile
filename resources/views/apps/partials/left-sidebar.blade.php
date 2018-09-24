@@ -7,9 +7,11 @@
         <!-- User profile -->
         <div class="user-profile">
             <!-- User profile image -->
-            <div class="profile-img"> <img src="./assets/images/users/1.jpg" alt="user" /> </div>
+            <div class="profile-img"> <img src="./assets/images/account/default-logo.png" alt="user" /> </div>
             <!-- User profile text-->
-            <div class="profile-text"> <a href="#" class="dropdown-toggle link u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Nume utilizator <span class="caret"></span></a>
+            <div class="dropdown">
+                <div class="profile-text"> <a href="#" class="dropdown-toggle link u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ auth()->user()->institution->name }}<span class="caret"></span></a>
+                </div>
                 <div class="dropdown-menu animated flipInY">
                     <a href="#" class="dropdown-item"><i class="fal fa-user"></i> Profile</a>
                     <a href="#" class="dropdown-item"><i class="fal fa-envelope"></i> Mesaje</a>
@@ -22,7 +24,6 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-                <li class="nav-small-cap">CONT</li>
                 <li class="{{ Route::is('/dashboard') ? 'active' : '' }}">
                     <a href="{{ url('/dashboard') }}" aria-expanded="false"><i class="fal fa-cogs"></i><span class="hide-menu"> Dashboard</span></a>
                 </li>

@@ -71,10 +71,10 @@ function validateCif($cif)
 /* Get apps routes */
 function getAppsRoutes()
 {
-    $routes = Application::pluck('route');
-    if ($routes) {
-        return $routes;
-    } else {
-        return null;
+    if (Schema::hasTable('applications')) {
+        $routes = Application::pluck('route');
+        if ($routes) {
+            return $routes;
+        }
     }
 }

@@ -13,8 +13,8 @@ class Application extends Model
     */
     protected $fillable = [
         'name',
-        'slug',
-        'description'
+        'description',
+        'path'
     ];
     
     /**
@@ -22,6 +22,6 @@ class Application extends Model
     */
     public function institutions()
     {
-        return $this->belongsToMany(Institution::class, 'application_institution', 'application_id', 'institution_id');
+        return $this->belongsToMany(Institution::class, 'institutions_applications', 'institution_id', 'application_id');
     }
 }

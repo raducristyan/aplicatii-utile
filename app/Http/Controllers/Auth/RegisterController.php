@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use Auth;
+use App\Role;
 use App\User;
 use Validator;
 use App\Institution;
@@ -81,29 +82,38 @@ class RegisterController extends Controller
       */
     private function newAccount(array $data)
     {
-        if ($institution = Institution::create([
+        $institution = Institution::create([
             'name'  => $data['institution'],
             'cif'   => $data['cif'],
-         ])) {
+         ]);
+
+         $newUser = User::create([
+            'first_name' => $data['first_name'],
+            'last_name'  => $data['last_name'],
+            'email'      => $data['email'],
+            'password'   => bcrypt($data['password']),
+            'institution_id' => $institution->id,
+         ]);
+
+        if ($institution && $newUser) {
             $token = new ActivationToken([
                 'token' => str_random( 128 ),
              ]);
+
+             $role = Role::where('name','admin')->first()->id;
      
-             $newUser = new User([
-                'first_name' => $data['first_name'],
-                'last_name'  => $data['last_name'],
-                'email'      => $data['email'],
-                'password'   => bcrypt($data['password']),
-                'is_admin'       => true,
-             ]);
+
+            $institution->token()->save($token);
+            $newUser->roles()->attach($role);
+
+            event(new InstitutionCreated($institution));
      
-            if ($institution->users()->save($newUser) && $institution->token()->save($token)) {
-                event(new InstitutionCreated($institution));
-     
-                return $newUser;
-            } else {
-                $institution->delete();
-            }
+            return $newUser;
+
+        } else {
+            $institution->delete();
+            $newUser->delete();
+            $token->delete();
         }
     }
 

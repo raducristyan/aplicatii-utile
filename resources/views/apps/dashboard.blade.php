@@ -6,7 +6,7 @@
 		<div class="card">
 			<div class="card-body">
 				<center class="m-t-30">
-					<img src="../assets/images/users/5.jpg" class="img-circle" width="150" />
+					<img src="../assets/images/users/user-male.png" class="img-circle" width="150" />
 					<h4 class="card-title m-t-10">{{ auth()->user()->full_name }}</h4>
 					<h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
 					<div class="row text-center justify-content-md-center">
@@ -59,7 +59,7 @@
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs profile-tab" role="tablist">
 				<li class="nav-item">
-					<a class="nav-link active" data-toggle="tab" href="#home" role="tab">Activitate</a>
+					<a class="nav-link active" data-toggle="tab" href="#activity" role="tab">Activitate</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" data-toggle="tab" href="#profile" role="tab">Profil</a>
@@ -70,100 +70,10 @@
 			</ul>
 			<!-- Tab panes -->
 			<div class="tab-content">
-				<div class="tab-pane active" id="home" role="tabpanel">
+				<div class="tab-pane active" id="activity" role="tabpanel">
 					<div class="card-body">
 						<div class="profiletimeline">
-							<div class="sl-item">
-								<div class="sl-left">
-									<img src="../assets/images/users/1.jpg" alt="user" class="img-circle" /> </div>
-								<div class="sl-right">
-									<div>
-										<a href="#" class="link">John Doe</a>
-										<span class="sl-date">5 minutes ago</span>
-										<p>assign a new task
-											<a href="#"> Design weblayout</a>
-										</p>
-										<div class="row">
-											<div class="col-lg-3 col-md-6 m-b-20">
-												<img src="../assets/images/big/img1.jpg" class="img-responsive radius" />
-											</div>
-											<div class="col-lg-3 col-md-6 m-b-20">
-												<img src="../assets/images/big/img2.jpg" class="img-responsive radius" />
-											</div>
-											<div class="col-lg-3 col-md-6 m-b-20">
-												<img src="../assets/images/big/img3.jpg" class="img-responsive radius" />
-											</div>
-											<div class="col-lg-3 col-md-6 m-b-20">
-												<img src="../assets/images/big/img4.jpg" class="img-responsive radius" />
-											</div>
-										</div>
-										<div class="like-comm">
-											<a href="javascript:void(0)" class="link m-r-10">2 comment</a>
-											<a href="javascript:void(0)" class="link m-r-10">
-												<i class="fa fa-heart text-danger"></i> 5 Love</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<hr>
-							<div class="sl-item">
-								<div class="sl-left">
-									<img src="../assets/images/users/2.jpg" alt="user" class="img-circle" /> </div>
-								<div class="sl-right">
-									<div>
-										<a href="#" class="link">John Doe</a>
-										<span class="sl-date">5 minutes ago</span>
-										<div class="m-t-20 row">
-											<div class="col-md-3 col-xs-12">
-												<img src="../assets/images/big/img1.jpg" alt="user" class="img-responsive radius" />
-											</div>
-											<div class="col-md-9 col-xs-12">
-												<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus
-													diam. </p>
-												<a href="#" class="btn btn-success"> Design weblayout</a>
-											</div>
-										</div>
-										<div class="like-comm m-t-20">
-											<a href="javascript:void(0)" class="link m-r-10">2 comment</a>
-											<a href="javascript:void(0)" class="link m-r-10">
-												<i class="fa fa-heart text-danger"></i> 5 Love</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<hr>
-							<div class="sl-item">
-								<div class="sl-left">
-									<img src="../assets/images/users/3.jpg" alt="user" class="img-circle" /> </div>
-								<div class="sl-right">
-									<div>
-										<a href="#" class="link">John Doe</a>
-										<span class="sl-date">5 minutes ago</span>
-										<p class="m-t-10"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus
-											diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus
-											sed augue semper </p>
-									</div>
-									<div class="like-comm m-t-20">
-										<a href="javascript:void(0)" class="link m-r-10">2 comment</a>
-										<a href="javascript:void(0)" class="link m-r-10">
-											<i class="fa fa-heart text-danger"></i> 5 Love</a>
-									</div>
-								</div>
-							</div>
-							<hr>
-							<div class="sl-item">
-								<div class="sl-left">
-									<img src="../assets/images/users/4.jpg" alt="user" class="img-circle" /> </div>
-								<div class="sl-right">
-									<div>
-										<a href="#" class="link">John Doe</a>
-										<span class="sl-date">5 minutes ago</span>
-										<blockquote class="m-t-10">
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-										</blockquote>
-									</div>
-								</div>
-							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -177,9 +87,9 @@
 								<p class="text-muted">{{ auth()->user()->full_name }}</p>
 							</div>
 							<div class="col-md-3 col-xs-6 b-r">
-								<strong>Mobile</strong>
+								<strong>Mobil</strong>
 								<br>
-								<p class="text-muted">(123) 456 7890</p>
+								<p class="text-muted">{{ auth()->user()->mobile or auth()->user()->phone }}</p>
 							</div>
 							<div class="col-md-3 col-xs-6 b-r">
 								<strong>Email</strong>
@@ -187,9 +97,9 @@
 								<p class="text-muted">{{ auth()->user()->email }}</p>
 							</div>
 							<div class="col-md-3 col-xs-6">
-								<strong>Location</strong>
+								<strong>Adresă</strong>
 								<br>
-								<p class="text-muted">London</p>
+								<p class="text-muted">{{ auth()->user()->full_name }}</p>
 							</div>
 						</div>
 						<hr>
@@ -241,34 +151,24 @@
 					<div class="card-body">
 						<form class="form-horizontal form-material">
 							<div class="form-group">
-								<label class="col-md-12">Full Name</label>
-								<div class="col-md-12">
-									<input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
-								</div>
+								<label class="col-md-12">Prenume</label>
+								<input type="text" name="first_name" placeholder="Prenumele dumneavoastră" class="form-control form-control-line col-md-12" value="{{ auth()->user()->first_name }}">
 							</div>
 							<div class="form-group">
 								<label for="example-email" class="col-md-12">Email</label>
-								<div class="col-md-12">
-									<input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
-								</div>
+								<input type="email" placeholder="Adresa de email" class="form-control form-control-line" name="email" id="email" {{ auth()->user()->email }}>
 							</div>
 							<div class="form-group">
-								<label class="col-md-12">Password</label>
-								<div class="col-md-12">
-									<input type="password" value="password" class="form-control form-control-line">
-								</div>
+								<label class="col-md-12">Parolă</label>
+								<input type="password" value="" class="form-control form-control-line">
 							</div>
 							<div class="form-group">
-								<label class="col-md-12">Phone No</label>
-								<div class="col-md-12">
-									<input type="text" placeholder="123 456 7890" class="form-control form-control-line">
-								</div>
+								<label class="col-md-12">Mobil</label>
+								<input type="text" placeholder="Număr de telefon mobil" class="form-control form-control-line" value="{{ auth()->user()->mobile }}">
 							</div>
 							<div class="form-group">
-								<label class="col-md-12">Message</label>
-								<div class="col-md-12">
-									<textarea rows="5" class="form-control form-control-line"></textarea>
-								</div>
+								<label class="col-md-12">Telefon</label>
+								<input type="text" placeholder="Număr de telefon" class="form-control form-control-line" value="{{ auth()->user()->phone }}">
 							</div>
 							<div class="form-group">
 								<label class="col-sm-12">Select Country</label>
@@ -284,7 +184,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-12">
-									<button class="btn btn-success">Update Profile</button>
+									<button class="btn btn-success">Salvează Profilul</button>
 								</div>
 							</div>
 						</form>

@@ -46,7 +46,7 @@ class Institution extends Model
     */
     public function applications()
     {
-        return $this->belongsToMany(Application::class, 'application_institution', 'institution_id', 'application_id');
+        return $this->belongsToMany(Application::class, 'institutions_applications', 'application_id', 'institution_id');
     }
 
     /**

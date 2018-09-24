@@ -14,7 +14,7 @@ class CreateInstitutionsTable extends Migration
     {
         Schema::create('institutions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('cif')->unique()->index();
+            $table->string('cif')->index();
             $table->string('name')->index();
             $table->string('email')->nullable()->index();
             $table->string('phone')->nullable();
@@ -24,6 +24,7 @@ class CreateInstitutionsTable extends Migration
             $table->boolean('active')->default(false);
             $table->softDeletes();
             $table->timestamps();
+            $table->unique('cif');
         });
     }
 
