@@ -16,11 +16,9 @@ class CreateApplicationsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description');
-            $table->string('route');
+            $table->string('path')->unique();
             $table->boolean('active')->default('false');
             $table->timestamps();
-
-            $table->unique('route');
         });
     }
 

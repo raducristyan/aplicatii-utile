@@ -26,6 +26,7 @@ class CitiesTableSeeder extends Seeder
                 }
             }
         }
+        
         fclose($handle);
     }
 }

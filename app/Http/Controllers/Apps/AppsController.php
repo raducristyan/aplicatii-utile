@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers\Apps;
 
-use Illuminate\Http\Request;
+use App\Application;
 
-use Auth;
 use App\Http\Requests;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class AppsController extends Controller
 {
     public function index()
     {
-        // $institution = Auth::user()->institution()->with('applications')->get();
-        return view('apps.index');
+        $apps = Application::all();
+        // dd($apps);
+        return view('apps.index', compact('apps'));
     }
 }

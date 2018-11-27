@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Person extends Model
 {
@@ -37,6 +38,26 @@ class Person extends Model
     public function institution()
     {
         return $this->belongsTo(Institution::class);
+    }
+
+        /**
+     * Get the person's full name attribute.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function getFullNameAttribute()
+    {
+        return $this->attributes['first_name'].' '.$this->attributes['last_name'];
+    }
+
+    /**
+     * Get the person's address
+     *
+     */
+    public function address()
+    {
+        return $this->morphMany(Address::class, 'addressable');
     }
 
 }

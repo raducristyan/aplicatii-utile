@@ -1782,7 +1782,7 @@ Megamenu
   width: 100%;
   padding: 30px;
   margin-top: 0px;
-  background: url(/images/login-register-bg.png?438894271a9a4307784675ec87c0f4a3) no-repeat right bottom #fff;
+  /* background: url(/images/login-register-bg.png?438894271a9a4307784675ec87c0f4a3) no-repeat right bottom #fff; */
 }
 
 .mega-dropdown ul {

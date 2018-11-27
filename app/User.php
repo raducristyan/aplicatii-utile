@@ -34,6 +34,7 @@ class User extends Authenticatable implements CanResetPassword
         'mobile',
         'phone',
         'password',
+        'job',
         'institution_id'
     ];
 
@@ -112,7 +113,7 @@ class User extends Authenticatable implements CanResetPassword
     }
 
     /**
-     * Get the user's atribute.
+     * Get the user's full name attribute.
      *
      * @param  string  $value
      * @return string
@@ -183,12 +184,12 @@ class User extends Authenticatable implements CanResetPassword
     }
 
     /**
-     * Get the user address
+     * Get the user's address
      *
      */
     public function address()
     {
-        return $this->morphMany('App\Address', 'addressable');
+        return $this->morphMany(Address::class, 'addressable');
     }
 
     /**
@@ -196,6 +197,6 @@ class User extends Authenticatable implements CanResetPassword
      */
     public function roles()
     {
-        return $this->belongsToMany('App\Role', 'users_roles', 'user_id', 'role_id');
+        return $this->belongsToMany(Role::class, 'users_roles', 'user_id', 'role_id');
     }
 }

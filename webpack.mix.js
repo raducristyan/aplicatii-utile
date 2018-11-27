@@ -40,7 +40,7 @@ let mix = require('laravel-mix');
 
 //Mix scss files
 // mix.sass('node_modules/bootstrap/scss/bootstrap.scss', 'public/css');
-// mix.sass('resources/assets/main/scss/style.scss', 'public/main/css');
+mix.sass('resources/assets/main/scss/style.scss', 'public/main/css');
 // mix.sass('resources/assets/landingpage/scss/style.scss', 'public/landingpage/css/style.css');
 
 // mix.sass('resources/assets/main/scss/colors/purple-dark.scss', 'public/main/css/colors');

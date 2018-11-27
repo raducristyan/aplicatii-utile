@@ -50,6 +50,16 @@ class Institution extends Model
     }
 
     /**
+     * Get the institution's address
+     *
+     */
+    public function address()
+    {
+        return $this->morphMany(Address::class, 'addressable');
+    }
+
+
+    /**
      * Set the institution's name.
      *
      * @param  string  $value

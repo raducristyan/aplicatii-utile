@@ -2176,7 +2176,6 @@ Megamenu
   width: 100%;
   padding: 30px;
   margin-top: 0px;
-  background: url(/images/login-register-bg.png?438894271a9a4307784675ec87c0f4a3) no-repeat right bottom #fff;
 }
 
 .mega-dropdown ul {
@@ -6318,7 +6317,6 @@ Error Page
 .error-box {
   height: 100%;
   position: fixed;
-  background: url(/images/login-register-bg.png?438894271a9a4307784675ec87c0f4a3) no-repeat center center #fff;
   width: 100%;
 }
 
@@ -13172,60 +13170,54 @@ File: scss
   }
 }
 
-.topbar .profile-pic {
-  border: 1px solid #A87F48;
-  padding: 1px;
+/*bootstrap Color*/
+
+/*Normal Color*/
+
+.app-card {
+  -webkit-box-shadow: 0 2px 2px 0 #90a4ae, 0 3px 1px -2px #90a4ae, 0 1px 5px 0 #90a4ae;
+          box-shadow: 0 2px 2px 0 #90a4ae, 0 3px 1px -2px #90a4ae, 0 1px 5px 0 #90a4ae;
 }
 
-.register {
-  padding-bottom: 0;
+.app-card:hover {
+  -webkit-box-shadow: 0 3px 3px 0 #7372DE, 0 3px 1px -2px #7372DE, 0 1px 5px 0 #7372DE;
+          box-shadow: 0 3px 3px 0 #7372DE, 0 3px 1px -2px #7372DE, 0 1px 5px 0 #7372DE;
 }
 
-/* Media query */
-
-@media screen and (min-width: 768px) {
-  .register-box,
-  .reset-box {
-    width: 520px;
-  }
+.app-card:hover .app-logo i {
+  color: #FF8552;
 }
 
-.register-box {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+.app-separator {
+  height: 1px;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 0, 0, 0)), color-stop(#118AB2), color-stop(#5C5BC8), color-stop(#118AB2), to(rgba(255, 0, 0, 0)));
+  background: linear-gradient(to right, rgba(255, 0, 0, 0), #118AB2, #5C5BC8, #118AB2, rgba(255, 0, 0, 0));
+  margin: 1rem 0;
 }
 
-.bg-img {
-  background: url(/images/login-register-bg.png?438894271a9a4307784675ec87c0f4a3) repeat;
+.topbar ul.dropdown-user {
+  min-width: 350px;
 }
 
-.message {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.app-msg {
   -webkit-animation-delay: 800ms;
           animation-delay: 800ms;
   border-radius: 0;
   height: 70px;
   position: fixed;
-  top: 0;
+  top: 0px;
   width: 100%;
-  z-index: 10001;
+  z-index: 1080;
 }
 
-.message .msg,
-.message .close {
+.app-msg .msg,
+.app-msg .close {
+  margin: auto;
   text-align: center;
 }
 
-.message .msg {
-  -ms-flex-preferred-size: 90%;
-      flex-basis: 90%;
-}
-
-.message .close {
-  -ms-flex-preferred-size: 10%;
-      flex-basis: 10%;
+.app-msg .msg {
+  width: 98%;
 }
 
 .page-titles .breadcrumb .breadcrumb-item + .breadcrumb-item::before {

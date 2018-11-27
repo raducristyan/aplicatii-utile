@@ -46,21 +46,24 @@
                         <input type="text" class="form-control" placeholder="Caută..."> <a class="srh-btn"><i class="fal fa-search"></i></a> </form>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="./assets/images/users/2.jpg" alt="user" class="profile-pic"></a>
+                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/assets/images/users/user-male.png" alt="user" class="profile-pic"></a>
                     <div class="dropdown-menu dropdown-menu-right animated flipInY">
                         <ul class="dropdown-user">
                             <li>
                                 <div class="row dw-user-box">
-                                    <div class="u-img col-5"><img src="assets/images/users/3.jpg" alt="user"></div>
+                                    <div class="u-img col-5">
+                                        <img src="{{ asset('assets/images/users/user-male-80px.jpg') }}" alt="user">
+                                    </div>
                                     <div class="u-text col-7">
                                         <h4>{{ auth()->user()->full_name }}</h4>
-                                        <p class="text-muted">{{ auth()->user()->email }}</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">Profil</a>
+                                        <p class="text-muted">{{ auth()->user()->email }}</p>
                                     </div>
                                 </div>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#"><i class="fal fa-user"></i> Profil</a></li>
-                            <li><a href="#"><i class="fal fa-email"></i> Mesaje</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#"><i class="fal fa-envelope"></i> Mesaje</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#"><i class="fal fa-cog"></i> Setări cont</a></li>
                             <li role="separator" class="divider"></li>

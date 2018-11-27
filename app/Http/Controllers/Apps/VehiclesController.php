@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Apps;
 
-use Illuminate\Http\Request;
-
+use App\County;
+use App\Person;
 use App\Http\Requests;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class VehiclesController extends Controller
@@ -27,7 +28,11 @@ class VehiclesController extends Controller
      */
     public function create()
     {
-        return view('apps.vehicles.create');
+        $counties = County::all();
+        $people = Person::all();
+        // dd($counties);
+
+        return view('apps.vehicles.create', compact('counties', 'people'));
     }
 
     /**

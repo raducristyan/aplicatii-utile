@@ -9,11 +9,10 @@ Route::prefix('contact')->name('contact')->middleware('guest')->group(function (
     Route::post('/send', 'ContactController@sendMessage')->name('.send');
 });
 
-Route::get('/help', 'HelpController@index')->name('help')->middleware('guest');
-
-/*-- User dashboard --*/
+/*-- Dashboard --*/
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middleware('auth');
 
+/*-- Activation --*/
 Route::prefix('activate')->name('activate.')->namespace('Auth')->middleware('guest')->group(function () {
     Route::get('/confirm/{token}', 'ActivationController@activate')->name('confirm');
     Route::get('/resend', 'ActivationController@resend')->name('resend');
@@ -22,14 +21,10 @@ Route::prefix('activate')->name('activate.')->namespace('Auth')->middleware('gue
 /*-- Aplications routes --*/
 Route::prefix('apps')->name('apps')->namespace('Apps')->middleware('auth')->group(function () {
     Route::get('/', 'AppsController@index')->name('.all');
-    // dd(getAppsRoutes());
-    if (getAppsRoutes()) {
-        Route::name('.')->group(function () {
-            foreach (getAppsRoutes() as $key => $route) {
-                Route::resource($route, title_case($route).'Controller');
-            };
-        });
-    };
+
+    Route::get('/vehicles', 'VehiclesController@index')->name('.vehicles');
+    Route::get('/vehicles/create', 'VehiclesController@create')->name('.vehicles.create');
+    Route::get('/vehicles/store', 'VehiclesController@store')->name('.vehicles.store');
 });
 
 

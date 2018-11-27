@@ -23,4 +23,12 @@ class City extends Model
     {
         return $this->belongsTo(County::class);
     }
+
+    /**
+     * Get all addresses of a city
+     */
+    public function addresses()
+    {
+        return $this->hasMany(Address::class);
+    }
 }

@@ -8,7 +8,7 @@
 				<center class="m-t-30">
 					<img src="../assets/images/users/user-male.png" class="img-circle" width="150" />
 					<h4 class="card-title m-t-10">{{ auth()->user()->full_name }}</h4>
-					<h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
+					<h6 class="card-subtitle">{{ auth()->user()->job ?? 'Nu ați completat funcția în cadrul organizației' }}</h6>
 					<div class="row text-center justify-content-md-center">
 						<div class="col-4">
 							<a href="javascript:void(0)" class="link">
@@ -30,25 +30,22 @@
 			<div class="card-body">
 				<small class="text-muted">Adresa de email </small>
 				<h6>{{ auth()->user()->email }}</h6>
-				<small class="text-muted p-t-30 db">Telefon</small>
-				<h6>+91 654 784 547</h6>
+				<small class="text-muted p-t-30 db">Telefon mobil</small>
+				@if ( auth()->user()->mobile )
+					<h6>{{ auth()->user()->mobile }}</h6>
+				@else
+					<h6>Nu ați completat numărul de telefon</h6>
+				@endif
 				<small class="text-muted p-t-30 db">Adresa</small>
-				<h6>71 Pilgrim Avenue Chevy Chase, MD 20815</h6>
-				<div class="map-box">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d470029.1604841957!2d72.29955005258641!3d23.019996818380896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C+Gujarat!5e0!3m2!1sen!2sin!4v1493204785508"
-					 width="100%" height="150" frameborder="0" style="border:0" allowfullscreen></iframe>
-				</div>
-				<small class="text-muted p-t-30 db">Social Profile</small>
-				<br/>
-				<button class="btn btn-circle btn-secondary">
-					<i class="fa fa-facebook"></i>
-				</button>
-				<button class="btn btn-circle btn-secondary">
-					<i class="fa fa-twitter"></i>
-				</button>
-				<button class="btn btn-circle btn-secondary">
-					<i class="fa fa-youtube"></i>
-				</button>
+				@forelse ( auth()->user()->address as $address )
+					<h6>{{ $address }}</h6>
+					<div class="map-box">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d470029.1604841957!2d72.29955005258641!3d23.019996818380896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C+Gujarat!5e0!3m2!1sen!2sin!4v1493204785508"
+						width="100%" height="150" frameborder="0" style="border:0" allowfullscreen></iframe>
+					</div>
+				@empty
+					<h6>Nu ați compleat adresa</h6>
+				@endforelse
 			</div>
 		</div>
 	</div>
@@ -89,7 +86,15 @@
 							<div class="col-md-3 col-xs-6 b-r">
 								<strong>Mobil</strong>
 								<br>
-								<p class="text-muted">{{ auth()->user()->mobile or auth()->user()->phone }}</p>
+								<p class="text-muted">
+									@if ( auth()->user()->mobile ) 
+										{{ auth()->user()->mobile }}
+									@elseif ( auth()->user()->phone )  
+										{{ auth()->user()->phone }}
+									@else 
+										Nu ați completat numărul de telefon
+									@endif
+								</p>
 							</div>
 							<div class="col-md-3 col-xs-6 b-r">
 								<strong>Email</strong>
@@ -99,7 +104,13 @@
 							<div class="col-md-3 col-xs-6">
 								<strong>Adresă</strong>
 								<br>
-								<p class="text-muted">{{ auth()->user()->full_name }}</p>
+								<p class="text-muted">
+									@forelse ( auth()->user()->address as $address) 
+										{{ $address->city }} 
+									@empty 
+										Nu ați completat adresa dumneavoastră
+									@endforelse
+								</p>
 							</div>
 						</div>
 						<hr>

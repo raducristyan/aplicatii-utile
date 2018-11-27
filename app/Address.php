@@ -37,7 +37,7 @@ class Address extends Model
      */
     public function addressable()
     {
-        return $this->morphTo();
+        return $this->morphMany();
     }
 
     /**
@@ -49,5 +49,13 @@ class Address extends Model
     public function setStreetAttribute($value)
     {
         $this->attributes['street'] = ucwords(strtolower($value));
+    }
+
+    /**
+     * Get tha city of the address
+     */
+    public function city()
+    {
+        return $this->belongsTo(City::class);
     }
 }

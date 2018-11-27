@@ -23,4 +23,15 @@ class County extends Model
     {
         return $this->hasMany('City::class');
     }
+
+    /**
+     * Get the county's name.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function getNameAttribute($value)
+    {
+        return mb_convert_encoding($value, "ISO-8859-2");
+    }
 }

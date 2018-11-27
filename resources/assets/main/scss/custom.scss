@@ -1,11 +1,54 @@
+//Overrides
+
+/*bootstrap Color*/
+$danger: #FF8552;
+$success: #6DDB87;
+$warning: #FDEB6A;
+$primary: #7372DE;
+$info: #009efb;
+
+/*Normal Color*/
+$red: #FF3C38;
+$yellow: #FDEB6C;
+$purple: #7460ee;
+$blue: #118AB2;
+$megna: #01c0c8;
+
+$danger-dark: #e6294b;
+$success-dark: #4ab657;
+$warning-dark: #e9ab2e;
+$primary-dark: #5C5BC8;
+$info-dark: #028ee1;
+$red-dark: #d61f1f;
+
+$transparent: rgba(255,0,0,0);
+
+$radius: 3px;
+
+$border-radius:               .15rem;
+$border-radius-lg:            .2rem;
+$border-radius-sm:            .1rem;
+
 // Custom css and overrides
 
-
-.topbar {
-  .profile-pic {
-    border: 1px solid $brown;
-    padding: 1px;
+.app-card {
+  box-shadow: 0 2px 2px 0 $muted, 0 3px 1px -2px $muted, 0 1px 5px 0 $muted;
+  &:hover {
+    box-shadow: 0 3px 3px 0 $primary, 0 3px 1px -2px $primary, 0 1px 5px 0 $primary;
+    .app-logo i {
+      color: $danger;
+    }  
   }
+}
+
+.app-separator {
+  height: 1px;
+  background: linear-gradient(to right, $transparent, $blue, $primary-dark, $blue, $transparent);
+  margin: 1rem 0;
+}
+
+.topbar ul.dropdown-user {
+  min-width: 350px;
 }
 
 .app-msg {
@@ -25,7 +68,8 @@
   }
 }
 
-//Overrides
+
+
 
 .page-titles .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
   font-family: "Font Awesome 5 Pro";

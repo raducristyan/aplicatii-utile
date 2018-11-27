@@ -5,7 +5,7 @@
         <div class="col-xl-4 col-lg-5  col-sm-8 col-xs-10">
             <form class="form-horizontal form-material" id="loginform" action="{{ url('/register') }}" method="POST">
                 {!! csrf_field() !!}
-                <h2 class="text-primary m-b-20">Înregistrare</h3>
+                <h1 class="text-primary m-b-20">Înregistrare</h1>
                 <div class="form-group">
                     <label for="institution">Instituția</label>
                     <input id="institution" class="form-control {{ $errors->has('institution') ? ' is-invalid' : '' }}" type="text" name="institution" value="{{ old('institution') }}" required="required" placeholder=" Denumirea instituției">
@@ -77,12 +77,12 @@
                 </div>  --}}
                 <div class="form-group text-center m-t-20">
                     <div class="col-xs-12">
-                        <button class="btn btn-primary btn-block text-uppercase waves-effect waves-light" type="submit">Crează contul</button>
+                        <button class="btn btn-primary btn-block waves-effect waves-light" type="submit"><i class="fal fa-sign-in"></i> Crează contul</button>
                     </div>
                 </div>
                 <div class="form-group m-b-0">
                     <div class="col-sm-12 text-center">
-                        <p>Ai deja un cont? <a href="{{route('login')}}" class="text-info m-l-5"><b>Autentificare</b></a></p>
+                        <p>Ai deja un cont? <a href="{{route('login')}}" class="text-info m-l-5"><b>Login</b></a></p>
                     </div>
                 </div>
             </form>

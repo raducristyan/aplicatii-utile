@@ -35,7 +35,7 @@
                 </div>
                 <div class="form-group text-center mt-5">
                     <div class="col-xs-12">
-                        <button class="btn btn-primary btn-md btn-block waves-effect waves-light" type="submit">Autentificare</button>
+                        <button class="btn btn-primary btn-md btn-block waves-effect waves-light" type="submit">Login</button>
                     </div>
                 </div>
                 <div class="form-group m-b-0">

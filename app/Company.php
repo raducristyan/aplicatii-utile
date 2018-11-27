@@ -43,7 +43,7 @@ class Company extends Model
     /**
     * Get all of the company's addreses.
     */
-    public function addresses()
+    public function address()
     {
         return $this->morphMany(Address::class, "addressable");
     }

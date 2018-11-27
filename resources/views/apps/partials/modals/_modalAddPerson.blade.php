@@ -1,15 +1,15 @@
 <div class="modal fade" id="add-people" tabindex="-1" role="dialog" aria-labeled-by="#add-person">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             {{-- Modal header --}}
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="add-person">Adăugare persoană</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             {{-- End modal header --}}
             {{-- Modal body --}}
             <div class="modal-body">
-                <div class="row">
+                <div class="">
                     <div class="col-md-10 col-md-offset-1 alert alert-danger" v-if="!formAddPerson.isEmpty && !formAddPerson.isValid">
                         <strong>Verificați următoarele erori!!!</strong>
                         <li v-if="person.name.hasError">
@@ -37,13 +37,13 @@
                             @{{person.postalCode.hasError}}
                         </li>
                     </div>
-                    {!! Form::open( ['url' => 'api/person', 'method' => 'POST', 'class' => 'form-horizontal'] ) !!}
+                    {!! Form::open( ['url' => 'api/person', 'method' => 'POST'] ) !!}
                     @include('apps.partials.forms._formAddPerson')
                 </div>
             </div>
             {{-- End modal body --}}
             {{-- Modal footer --}}
-            <div class="modal-footer">
+            <div class="modal-footer d-flex flex-row-reverse">
                 <button type="button" class="btn btn-warning" data-dismiss="modal">Renunță</button>
                 <button type="submit" class="btn btn-primary" :disabled="!formAddPerson.isCompleted">Salvează</button>
             </div><!-- End modal footer -->
