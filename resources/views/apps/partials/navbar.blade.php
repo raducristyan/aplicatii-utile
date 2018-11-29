@@ -67,16 +67,16 @@
                             <li role="separator" class="divider"></li>
                             <li><a href="#"><i class="fal fa-cog"></i> Setări cont</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a class="logout" href="{{ route('logout') }}">
+                            <li><a class="logout" @click='logout'>
                             <i class="fal fa-power-off"></i>
                             Ieșire
                             </a></li>
-                            <form id="logout-form" 
+                            <!-- <form id="logout-form" 
                                 action="{{ route('logout') }}" 
                                 method="POST" 
                                 style="display: none;">
                                 {{ csrf_field() }}
-                            </form>
+                            </form> -->
                         </ul>
                     </div>
                 </li>

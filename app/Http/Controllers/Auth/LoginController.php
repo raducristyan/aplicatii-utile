@@ -64,4 +64,17 @@ class LoginController extends Controller
         }
     }
 
+    // public function logout(Request $request)
+    // {
+    //         $this->guard()->logout();
+
+    //         $request->session()->invalidate();
+
+    //     if ($request->wantsJson()) {
+    //         return response()->json([], 204);
+    //     }
+
+    //     return redirect('/');
+    // }
+
 }
