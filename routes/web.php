@@ -36,7 +36,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth','admin'])->group(func
 Auth::routes();
 
 Route::get('test', function () {
+    return auth()->user()->address->first();
     // flash()->overlay('Modal Message', 'Modal Title');
-    flash('Modal Title')->info()->important();
-    return view('test');
+    // flash('Modal Title')->info()->important();
+    // return view('test');
 });

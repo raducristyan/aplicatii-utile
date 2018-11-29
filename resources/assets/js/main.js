@@ -1,18 +1,11 @@
 
-// import app from './app.vue';
+import Vue from 'vue';
+import App from './App.vue';
 
-// const vm = new Vue({
-//     el: '#app',
-//     components: {
-//         app,
-//     },
+const vm = new Vue({
+    el: '#app',
+    components: {
+        App
+    }
 
-//     //render: h => h('app'),
-
-//     mounted() {
-//         // if (this.selected.county) {
-//         //     this.getCities();
-//         // }
-//         console.log('functioneaza');
-//     },
-// });
+});
