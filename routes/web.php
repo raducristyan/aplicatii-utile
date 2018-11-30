@@ -1,5 +1,7 @@
 <?php
 
+use App\Institution;
+
 Route::get('/', function () {
     return view('welcome', compact('title'));
 })->middleware('guest')->name('welcome');
@@ -36,7 +38,9 @@ Route::prefix('admin')->name('admin.')->middleware(['auth','admin'])->group(func
 Auth::routes();
 
 Route::get('test', function () {
-    return auth()->user()->address->first();
+    // dd($admin = Institution::first());
+    dd(auth()->user()->institution()->first()->id);
+    // dd($admin->administrator());
     // flash()->overlay('Modal Message', 'Modal Title');
     // flash('Modal Title')->info()->important();
     // return view('test');

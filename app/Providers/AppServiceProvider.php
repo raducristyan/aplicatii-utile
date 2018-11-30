@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Events\InstitutionCreated;
 use Laravel\Dusk\DuskServiceProvider;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
 
 class AppServiceProvider extends ServiceProvider
 {

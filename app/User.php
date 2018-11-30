@@ -149,11 +149,19 @@ class User extends Authenticatable implements CanResetPassword
      *
      * @return IlluminateDatabaseEloquentBuilder
      */
-    public function scopeAdmin($query)
+    public function scopeIsAdmin($query)
     {
-        return $query->whereHas('roles', function ($q) {
-            $q->where('name', 'admin');
-        })->first();
+        return $this->hasRole('admin');
+    }
+
+    /**
+     * Check if a user has a given role
+     *
+     * @param $role
+     * @return boolean
+     */
+    public function hasRole($role) {
+        return $this->roles->contains('name', $role);
     }
 
     /**

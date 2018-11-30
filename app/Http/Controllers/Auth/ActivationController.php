@@ -40,7 +40,7 @@ class ActivationController extends Controller
     {
         $user = User::byEmail($request->email)->firstOrFail();
 
-        if ($user->admin() && $user->institution()->active) {
+        if ($user->isAdmin() && $user->institution()->active()) {
             return redirect('/');
         }
 

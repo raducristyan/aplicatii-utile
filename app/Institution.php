@@ -33,6 +33,29 @@ class Institution extends Model
         return $this->hasMany(User::class);
     }
 
+        /**
+     * Get the users for the Institution model.
+     */
+    public function administrator()
+    {
+        return $this->hasMany(User::class)
+            ->whereHas('roles', function ($q) {
+                $q->where('name','admin');
+            })->first();
+    }
+
+
+    // /**
+    //  * Get the institution's administrator
+    //  */
+    // public function scopeAdministrator($query) {
+    //     $query->whereHas('users', function ($q) {
+    //         $q->whereHas('roles', function ($subq) {
+    //             $subq->where('name','admin');
+    //         });
+    //     });
+    // }
+
     /**
     * Get the token record associated with the model.
     */
@@ -58,6 +81,13 @@ class Institution extends Model
         return $this->morphMany(Address::class, 'addressable');
     }
 
+    /**
+     * Check if institution's account is active
+     */
+
+    public function scopeActive() {
+        return $this->active == true;
+    }
 
     /**
      * Set the institution's name.

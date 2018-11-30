@@ -1,7 +1,3 @@
-<template>
-    
-</template>
-
 
 <script>
     import example from './components/Example.vue'
