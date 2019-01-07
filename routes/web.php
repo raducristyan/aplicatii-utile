@@ -35,11 +35,13 @@ Route::prefix('admin')->name('admin.')->middleware(['auth','admin'])->group(func
     Route::get('/dashboard', 'AdminController@index')->name('dashboard');
 });
 
+// Route::post('cities', 'CountyController@getCities');
+
 Auth::routes();
 
 Route::get('test', function () {
     // dd($admin = Institution::first());
-    dd(auth()->user()->institution()->first()->id);
+    dd(Institution::where('id', auth()->user()->institution()->first()->id)->first()->users()->get());
     // dd($admin->administrator());
     // flash()->overlay('Modal Message', 'Modal Title');
     // flash('Modal Title')->info()->important();

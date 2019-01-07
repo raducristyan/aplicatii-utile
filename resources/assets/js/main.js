@@ -1,23 +1,29 @@
 
 import Vue from 'vue';
 import Axios from 'axios';
-import App from './App.vue';
-import Address from './components/Address.vue';
+
+Vue.component('address-view', require('./components/Address.vue'));
 
 const vm = new Vue({
     el: '#app',
     data: {
-
-    },
-    components: {
-        App,
-        Address
+        county: '',
+        countyCities: ''
     },
     methods: {
         logout: function () {
             Axios.post('logout',{})
             .then(function (response) {
                 window.location.href = '/';
+            })
+        },
+        getCities () {
+            axios.post('/api/county/cities', {'county_id': this.county})
+                    .then((data) => {
+                    console.log(data);
+                    this.countyCities = data.data;
+                }).catch((error) => {
+                console.log(error)
             })
         }
     }

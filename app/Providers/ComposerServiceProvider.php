@@ -22,6 +22,10 @@ class ComposerServiceProvider extends ServiceProvider
         view()->composer('apps.dashboard', function ($view) {
             $view->with('institution', Institution::where('id', auth()->user()->institution()->first()->id)->first());
         });
+
+        view()->composer('apps.dashboard', function ($view) {
+            $view->with('users', Institution::where('id', auth()->user()->institution()->first()->id)->first()->users()->get());
+        });
     }
 
     /**

@@ -13,8 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['middleware' => 'auth', 'namespace' => 'Api', 'as' => 'api.'], function () {
-    Route::post('county/cities', ['as' => 'county.cities', 'uses' => 'CityController@index']);
+Route::group(['middleware' => 'api', 'namespace' => 'Api', 'as' => 'api.'], function () {
+    Route::post('county/cities', ['as' => 'county.cities', 'uses' => 'CountyController@getCities']);
     Route::post('person', ['as' => 'person', 'uses' => 'PersonController@store']);
     Route::post('company', ['as' => 'company', 'uses' => 'CompanyController@store']);
 });

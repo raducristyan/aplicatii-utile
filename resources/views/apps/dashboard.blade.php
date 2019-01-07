@@ -74,6 +74,9 @@
 				<li class="nav-item">
 					<a class="nav-link" data-toggle="tab" href="#institution" role="tab">Instituție</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#users" role="tab">Utilizatori</a>
+				</li>
 				@endadmin
 			</ul>
 			<!-- Tab panes -->
@@ -81,7 +84,10 @@
 				@include('apps.partials.tabs.activity')
 				@include('apps.partials.tabs.profile')
 				@include('apps.partials.tabs.settings')
-				@include('apps.partials.tabs.institution')
+				@admin
+					@include('apps.partials.tabs.institution')
+					@include('apps.partials.tabs.users')
+				@endadmin
 			</div>
 		</div>
 	</div>

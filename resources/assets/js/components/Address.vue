@@ -1,34 +1,24 @@
+<template>
+    <div class="form-group">
+        <label class="col-sm-12">Localitatea</label>
+        <div class="col-sm-12">
+            <select class="form-control form-control-line" name="city" v-model="selectedCity">
+            <option v-for="city in cities" :value="city.id">
+                {{ city.name }}
+            </option>
+            </select>
+        </div>
+    </div>
+</template>
+
 <script>
 export default {
     name: 'Address',
+    props: ['selectedCounty', 'cities'],
     data() {
-        return { 
-            cities: [],
-            selected: {
-                county: '',
-                city: ''
-            },
-            showCities: 'disabled'
-        }
-    },
-    methods: {
-        getCities: function () {
-            this.showCities = false;
-            this.selected.city = "";
-
-            axios.post('/api/county/cities', {'county_id': this.selected.county})
-                    .then((data) => {
-                    console.log(data);
-                    this.cities = data.data;
-                    if (this.selected.county) {
-                        this.showCities = true;
-                    }
-                    this.showHideCities();
-                })
-                    .catch((error) => {
-                console.log(error)
-            })
-        }
+        return {
+            selectedCity: ''
+        };
     }
 }
 </script>

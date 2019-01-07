@@ -12,8 +12,8 @@
                     <input type="text" name="cif" placeholder="Codul fiscal" class="form-control form-control-line col-md-12" value="{{ $institution->cif ?? ''}}">
                 </div>
                 <div class="form-group">
-                    <label for="example-email" class="col-md-12">Email</label>
-                    <input type="email" placeholder="Adresa de email" class="form-control form-control-line" name="email" id="email" value="{{ $institution->email ?? ''}}">
+                    <label for="institution-email" class="col-md-12">Email</label>
+                    <input type="email" placeholder="Adresa de email" class="form-control form-control-line" name="institution-email" id="institution-email" value="{{ $institution->email ?? ''}}">
                 </div>
                 <div class="form-group">
                     <label class="col-md-12">Telefon</label>

@@ -8,24 +8,24 @@
             </div>
             <div class="form-group">
                 <label class="col-md-12">Nume</label>
-                <input type="text" name="last_name" placeholder="Numele dumneavoastră" class="form-control form-control-line col-md-12" value="{{ auth()->user()->last_name }}">
+                <input type="text" name="last_name" class="form-control form-control-line col-md-12" value="{{ auth()->user()->last_name }}">
             </div>
             <div class="form-group">
-                <label for="example-email" class="col-md-12">Email</label>
-                <input type="email" placeholder="Adresa de email" class="form-control form-control-line" name="email" id="email" disabled value="{{ auth()->user()->email }}">
+                <label for="user-email" class="col-md-12">Email</label>
+                <input type="email"  class="form-control form-control-line" name="user-email" id="user-email" disabled value="{{ auth()->user()->email }}">
             </div>
             <div class="form-group">
                 <label class="col-md-12">Mobil</label>
-                <input type="text" placeholder="Număr de telefon mobil" name="mobile" class="form-control form-control-line" value="{{ auth()->user()->mobile }}">
+                <input type="text" name="mobile" class="form-control form-control-line" value="{{ auth()->user()->mobile }}">
             </div>
             <div class="form-group">
                 <label class="col-md-12">Telefon</label>
-                <input type="text" placeholder="Număr de telefon" name="phone" class="form-control form-control-line" value="{{ auth()->user()->phone }}">
+                <input type="text" name="phone" class="form-control form-control-line" value="{{ auth()->user()->phone }}">
             </div>
             <div class="form-group">
                 <label class="col-sm-12">Județul</label>
                 <div class="col-sm-12">
-                    <select class="form-control form-control-line" name="county">
+                    <select class="form-control form-control-line" name="county" v-model="county" @change="getCities">
                         <option disabled value="">Selectați județul</option>
                         @if (isset($counties))
                             @foreach ($counties as $county)
@@ -35,41 +35,32 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group">
-                <label class="col-sm-12">Localitatea</label>
-                <div class="col-sm-12">
-                    <select class="form-control form-control-line" name="city">
-                        <option>London</option>
-                        <option>India</option>
-                        <option>Usa</option>
-                        <option>Canada</option>
-                        <option>Thailand</option>
-                    </select>
-                </div>
-            </div>
+            <address-view :selected-county="county" :cities="countyCities">
+                
+            </address-view>
             <div class="form-group">
                 <label class="col-md-12">Strada</label>
-                <input type="text" placeholder="Strada" name="street" class="form-control form-control-line" value="{{ auth()->user()->address->first()->street ?? ''}}">
+                <input type="text"  name="street" class="form-control form-control-line" value="{{ auth()->user()->address->first()->street ?? ''}}">
             </div>
             <div class="form-group">
                 <label class="col-md-12">Număr stradă</label>
-                <input type="text" placeholder="Număr stradă" name="number" class="form-control form-control-line" value="{{ auth()->user()->address->first()->number ?? ''}}">
+                <input type="text" name="number" class="form-control form-control-line" value="{{ auth()->user()->address->first()->number ?? ''}}">
             </div>
             <div class="form-group">
                 <label class="col-md-12">Bloc</label>
-                <input type="text" placeholder="Bloc" name="bl" class="form-control form-control-line" value="{{ auth()->user()->address->first()->bl ?? ''}}">
+                <input type="text" name="bl" class="form-control form-control-line" value="{{ auth()->user()->address->first()->bl ?? ''}}">
             </div>
             <div class="form-group">
                 <label class="col-md-12">Scară</label>
-                <input type="text" placeholder="Scară" name="sc" class="form-control form-control-line" value="{{ auth()->user()->address->first()->sc ?? ''}}">
+                <input type="text" name="sc" class="form-control form-control-line" value="{{ auth()->user()->address->first()->sc ?? ''}}">
             </div>
             <div class="form-group">
                 <label class="col-md-12">Apartament</label>
-                <input type="text" placeholder="Apartament" name="ap" class="form-control form-control-line" value="{{ auth()->user()->address->first()->ap ?? ''}}">
+                <input type="text" name="ap" class="form-control form-control-line" value="{{ auth()->user()->address->first()->ap ?? ''}}">
             </div>
             <div class="form-group">
                 <label class="col-md-12">Cod poștal</label>
-                <input type="text" placeholder="Codul poștal" name="postal_code" class="form-control form-control-line" value="{{ auth()->user()->address->first()->postal_code ?? ''}}">
+                <input type="text" name="postal_code" class="form-control form-control-line" value="{{ auth()->user()->address->first()->postal_code ?? ''}}">
             </div>
             <div class="form-group">
                 <div class="col-sm-12">
