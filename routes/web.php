@@ -3,6 +3,7 @@
 use App\Institution;
 
 Route::get('/', function () {
+    $title = 'Welcome';
     return view('welcome', compact('title'));
 })->middleware('guest')->name('welcome');
 
