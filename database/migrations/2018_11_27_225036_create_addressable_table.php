@@ -15,7 +15,7 @@ class CreateAddressableTable extends Migration
     {
         Schema::create('addressable', function (Blueprint $table) {
             $table->increments('id');
-            $table->morphs('addressable')
+            $table->morphs('addressable');
             $table->timestamps();
         });
     }
