@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Foundation\Application;
 
 class ApplicationsTableSeeder extends Seeder
 {
@@ -11,6 +12,7 @@ class ApplicationsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('TRUNCATE applications CASCADE');
         factory(App\Application::class)->create();
     }
 }

@@ -12,6 +12,8 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('TRUNCATE roles CASCADE');
+
         $roles = ['admin','user'];
         
         foreach ($roles as $role) {
