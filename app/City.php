@@ -25,10 +25,10 @@ class City extends Model
     }
 
     /**
-     * Get all addresses of a city
+     * Get all villages of a city
      */
-    public function addresses()
+    public function villages()
     {
-        return $this->hasMany(Address::class);
+        return $this->hasMany(Village::class);
     }
 }

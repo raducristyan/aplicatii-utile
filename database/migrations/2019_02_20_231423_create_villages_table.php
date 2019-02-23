@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCitiesTable extends Migration
+class CreateVillagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +13,13 @@ class CreateCitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('villages', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('siruta')->unique();
             $table->string('name');
-            $table->integer('county_siruta')->unsigned();
+            $table->integer('city_siruta')->unsigned();
 
-            $table->foreign('county_siruta')->references('siruta')->on('counties')->onDelete('cascade');
+            $table->foreign('city_siruta')->references('siruta')->on('cities')->onDelete('cascade');
         });
     }
 
@@ -29,6 +30,6 @@ class CreateCitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('villages');
     }
 }

@@ -2,7 +2,7 @@
 import Vue from 'vue';
 import Axios from 'axios';
 
-Vue.component('address-view', require('./components/Address.vue'));
+Vue.component('city-view', require('./components/Address.vue'));
 
 const vm = new Vue({
     el: '#app',

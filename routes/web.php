@@ -1,5 +1,8 @@
 <?php
 
+use App\City;
+use App\County;
+use App\Village;
 use App\Institution;
 
 Route::get('/', function () {
@@ -40,11 +43,10 @@ Route::prefix('admin')->name('admin.')->middleware(['auth','admin'])->group(func
 
 Auth::routes();
 
-// Route::get('test', function () {
-//     // dd($admin = Institution::first());
-//     dd(Institution::where('id', auth()->user()->institution()->first()->id)->first()->users()->get());
-//     // dd($admin->administrator());
-//     // flash()->overlay('Modal Message', 'Modal Title');
-//     // flash('Modal Title')->info()->important();
-//     // return view('test');
-// });
+Route::get('test', function () {
+    // dd($admin = Institution::first());
+    // dd(Institution::where('id', auth()->user()->institution()->first()->id)->first()->users()->get());
+    // dd($admin->administrator());
+    // flash()->overlay('Modal Message', 'Modal Title');
+    // flash('Modal Title')->info()->important();
+});

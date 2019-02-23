@@ -14,11 +14,9 @@ class CreateCountiesTable extends Migration
     {
         Schema::create('counties', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('siruta');
+            $table->integer('siruta')->unique();
             $table->string('name')->index();
             $table->softDeletes();
-
-            $table->unique('siruta');
         });
     }
 

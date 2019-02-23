@@ -35,9 +35,9 @@
                     </select>
                 </div>
             </div>
-            <address-view :selected-county="county" :cities="countyCities">
+            <city-view :selected-county="county" :cities="countyCities">
                 
-            </address-view>
+            </city-view>
             <div class="form-group">
                 <label class="col-md-12">Strada</label>
                 <input type="text"  name="street" class="form-control form-control-line" value="{{ auth()->user()->address->first()->street ?? ''}}">
