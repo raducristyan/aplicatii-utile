@@ -1,9 +1,11 @@
 <?php
 
 use App\City;
+use App\User;
 use App\County;
 use App\Village;
 use App\Institution;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     $title = 'Welcome';
@@ -43,10 +45,14 @@ Route::prefix('admin')->name('admin.')->middleware(['auth','admin'])->group(func
 
 Auth::routes();
 
+
 Route::get('test', function () {
     // dd($admin = Institution::first());
-    // dd(Institution::where('id', auth()->user()->institution()->first()->id)->first()->users()->get());
+    $institution = Institution::where('id', auth()->user()->institution()->first()->id)->first();
+    $user = User::find(1);
     // dd($admin->administrator());
     // flash()->overlay('Modal Message', 'Modal Title');
     // flash('Modal Title')->info()->important();
+    dd($user);
+    dd(Auth::user());
 });

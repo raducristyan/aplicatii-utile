@@ -1,6 +1,10 @@
 @extends('guest.master')
 
 @section('page-wrapper')
+<!-- ============================================================== -->
+<!-- Container fluid  -->
+<!-- ============================================================== -->
+<div class="container-fluid"> 
     <div class="row justify-content-center my-50">
         <div class="col-xl-4 col-lg-5  col-sm-8 col-xs-10">
             <form class="form-horizontal form-material" id="loginform" action="{{ url('/register') }}" method="POST">
@@ -89,5 +93,8 @@
             
         </div>
     </div>
-    
+    </div>
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->             
 @endsection

@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\County;
 use App\Institution;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Auth;
 
 class ComposerServiceProvider extends ServiceProvider
 {

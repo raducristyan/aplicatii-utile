@@ -1,84 +1,124 @@
 <!-- third tab -->
 <div class="tab-pane" id="settings" role="tabpanel">
     <div class="card-body">
-        <form class="form-horizontal form-material">
-            <div class="form-group">
-                <label class="col-md-12">Prenume</label>
-                <input type="text" name="first_name" placeholder="Prenumele dumneavoastră" class="form-control form-control-line col-md-12" value="{{ auth()->user()->first_name }}">
-            </div>
-            <div class="form-group">
-                <label class="col-md-12">Nume</label>
-                <input type="text" name="last_name" class="form-control form-control-line col-md-12" value="{{ auth()->user()->last_name }}">
-            </div>
-            <div class="form-group">
-                <label for="user-email" class="col-md-12">Email</label>
-                <input type="email"  class="form-control form-control-line" name="user-email" id="user-email" disabled value="{{ auth()->user()->email }}">
-            </div>
-            <div class="form-group">
-                <label class="col-md-12">Mobil</label>
-                <input type="text" name="mobile" class="form-control form-control-line" value="{{ auth()->user()->mobile }}">
-            </div>
-            <div class="form-group">
-                <label class="col-md-12">Telefon</label>
-                <input type="text" name="phone" class="form-control form-control-line" value="{{ auth()->user()->phone }}">
-            </div>
-            <div class="form-group">
-                <label class="col-sm-12">Județul</label>
-                <div class="col-sm-12">
-                    <select class="form-control form-control-line" name="county" v-model="county" @change="getCities">
-                        <option disabled value="">Selectați județul</option>
-                        @if (isset($counties))
-                            @foreach ($counties as $county)
-                                <option value="{{ $county->id}}">{{ $county->name }}</option>
-                            @endforeach
-                        @endif
-                    </select>
+    <h3>Parola</h3>
+        <hr class="py-2">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <span class="text-muted">Parola:</span>
+                        <span name="password">*******</span>
+                    </div>
                 </div>
             </div>
-            <city-view :selected-county="county" :cities="countyCities">
-                
-            </city-view>
-            <div class="form-group">
-                <label class="col-md-12">Strada</label>
-                <input type="text"  name="street" class="form-control form-control-line" value="{{ auth()->user()->address->first()->street ?? ''}}">
-            </div>
-            <div class="form-group">
-                <label class="col-md-12">Număr stradă</label>
-                <input type="text" name="number" class="form-control form-control-line" value="{{ auth()->user()->address->first()->number ?? ''}}">
-            </div>
-            <div class="form-group">
-                <label class="col-md-12">Bloc</label>
-                <input type="text" name="bl" class="form-control form-control-line" value="{{ auth()->user()->address->first()->bl ?? ''}}">
-            </div>
-            <div class="form-group">
-                <label class="col-md-12">Scară</label>
-                <input type="text" name="sc" class="form-control form-control-line" value="{{ auth()->user()->address->first()->sc ?? ''}}">
-            </div>
-            <div class="form-group">
-                <label class="col-md-12">Apartament</label>
-                <input type="text" name="ap" class="form-control form-control-line" value="{{ auth()->user()->address->first()->ap ?? ''}}">
-            </div>
-            <div class="form-group">
-                <label class="col-md-12">Cod poștal</label>
-                <input type="text" name="postal_code" class="form-control form-control-line" value="{{ auth()->user()->address->first()->postal_code ?? ''}}">
-            </div>
-            <div class="form-group">
-                <div class="col-sm-12">
-                    <button class="btn btn-success">Salvează Profilul</button>
+            <div class="col-lg-4">
+                <div class="col-md-10">
+                    <div class="text-right">
+                        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#editUserPassword">Schimbă parola</button>
+                    </div>
                 </div>
             </div>
-        </form>
-        <form class="form-horizontal form-material">
-            <div class="form-group">
-                <label class="col-md-12">Parolă</label>
-                <input type="password" value="" placeholder="*******" class="form-control form-control-line">
-            </div>
-            
-            <div class="form-group">
-                <div class="col-sm-12">
-                    <button class="btn btn-success">Modifică parola</button>
+        </div>
+        <h3>Profil</h3>
+        <hr class="py-2">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <span class="text-muted">Prenume:</span>
+                        <span name="first_name">{{ auth()->user()->first_name ?? ''}}</span>
+                    </div>
+                    <div class="col-md-10">
+                        <span class="text-muted">Nume:</span>
+                        <span name="last_name">{{ auth()->user()->last_name ?? ''}}</span>
+                    </div>
+                </div>
+                <div class="row  justify-content-center">
+                    <div class="col-md-10">
+                        <span class="text-muted">Email:</span>
+                        <span name="email">{{ auth()->user()->email ?? ''}}</span>
+                    </div>
+                    <div class="col-md-10">
+                        <span class="text-muted">Telefon mobil:</span>
+                        <span name="mobile">{{ auth()->user()->mobile ?? '' }}</span>
+                    </div>
+                </div>
+                <div class="row  justify-content-center">
+                    <div class="col-md-10">
+                        <span class="text-muted">Telefon:</span>
+                        <span name="phone">{{ auth()->user()->phone ?? '' }}</span>
+                    </div>
+                    <div class="col-md-10">
+                        <span class="text-muted">Funcție:</span>
+                        <span name="job">{{ auth()->user()->job ?? '' }}</span>
+                    </div>
                 </div>
             </div>
-        </form>
+            <div class="col-lg-4">
+                <div class="col-md-10">
+                    <div class="text-right">
+                        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#editUserProfile">Editează profilul</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="pt-2">Adresa</h3>
+        <hr class="py-2">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <span class="text-muted">Județul:</span>
+                        <span name="county">
+                            @if (auth()->user()->address->first())
+                            {{ auth()->user()->address->first()->village()->city()->county()->name ?? ''}}
+                            @endif
+                        </span>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <span class="text-muted">Localitatea:</span>
+                        <span name="city">
+                            @if (auth()->user()->address->first())
+                            {{ auth()->user()->address->first()->village()->city()->name ?? ''}}
+                            @endif
+                        </span>
+                    </div>
+                    <div class="col-md-10">
+                        <span class="text-muted">Localitatea componentă:</span>
+                        <span name="village">
+                            @if (auth()->user()->address->first())
+                            {{ auth()->user()->address->first()->village()->name ?? ''}}
+                            @endif
+                        </span>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <span class="text-muted">Strada:</span>
+                        <span name="street">{{ auth()->user()->address->first()->street ?? ''}}</span>
+                    </div>
+                    <div class="col-md-10">
+                        <span class="text-muted">Număr stradă:</span>
+                        <span name="number">{{ auth()->user()->address->first()->number ?? ''}}</span>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <span class="text-muted">Cod poștal:</span>
+                        <span name="postal_code">{{ auth()->user()->address->first()->postal_code ?? ''}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="col-md-10">
+                    <div class="text-right">
+                        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#editUserAddress">Editează adresa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

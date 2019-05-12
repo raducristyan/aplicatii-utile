@@ -13251,3 +13251,8 @@ Checkbox
   font-family: 'Font Awesome 5 Pro';
 }
 
+.logo-icon,
+.logo-text {
+  height: 34px;
+}
+

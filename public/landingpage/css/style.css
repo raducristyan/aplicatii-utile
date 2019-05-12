@@ -1782,7 +1782,6 @@ Megamenu
   width: 100%;
   padding: 30px;
   margin-top: 0px;
-  /* background: url(/images/login-register-bg.png?438894271a9a4307784675ec87c0f4a3) no-repeat right bottom #fff; */
 }
 
 .mega-dropdown ul {
@@ -7777,6 +7776,19 @@ File: scss
 .topheader {
   background-color: #304177;
   border-bottom: 1px solid #222f55;
+  padding: 5px 0;
+}
+
+.navbar-logo {
+  height: 40px;
+}
+
+.hexagon-logo {
+  height: 220px;
+}
+
+.hexagon-img {
+  height: 450px;
 }
 
 @media (max-width: 991.98px) {
@@ -7810,5 +7822,35 @@ File: scss
 .app-msg .close {
   text-align: center;
   margin: auto;
+}
+
+.section-1 {
+  background-image: url(/images/section-1-background-2.png?b7c48f1cadb17c1b00119eb90c3d5ecd);
+}
+
+.section-1 .fix-width .left-side {
+  padding-top: 6%;
+  padding-bottom: 6%;
+}
+
+.section-1 .fix-width .right-side {
+  padding-top: 5%;
+  padding-bottom: 4%;
+}
+
+h1.app-text {
+  color: darkgray;
+  font-weight: 500;
+  line-height: 85px;
+  font-size: 70px;
+}
+
+.subtext {
+  font-size: 22px;
+}
+
+.down-btn .btn:hover {
+  -webkit-box-shadow: 0px 0px 6px 1px #7b74a6;
+          box-shadow: 0px 0px 6px 1px #7b74a6;
 }
 

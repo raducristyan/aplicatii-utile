@@ -1,5 +1,9 @@
 @extends('guest.master')
 @section('page-wrapper')
+<!-- ============================================================== -->
+<!-- Container fluid  -->
+<!-- ============================================================== -->
+<div class="container-fluid">
     <div class="row justify-content-center my-50">
         <div class="col-xl-3 col-lg-5  col-sm-8 col-xs-10">
             <form class="form-horizontal" method="POST" action="{{ url('/password/email') }}" style="display: block;">
@@ -27,4 +31,9 @@
             </form>
         </div>
     </div>
+    </div>
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->         
+
 @endsection

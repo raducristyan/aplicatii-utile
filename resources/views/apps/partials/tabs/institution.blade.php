@@ -1,79 +1,113 @@
 <!-- forth tab -->
 @admin
-    <div class="tab-pane" id="institution" role="tabpanel">
-        <div class="card-body">
-            <form class="form-horizontal form-material">
-                <div class="form-group">
-                    <label class="col-md-12">Denumire</label>
-                    <input type="text" name="institution" placeholder="Denumirea instituției" class="form-control form-control-line col-md-12" disabled value="{{ $institution->first()->name ?? ''}}">
+<div class="tab-pane" id="institution" role="tabpanel">
+    <div class="card-body">
+        <h3>Profil instituție</h3>
+        <hr class="py-2">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <span class="text-muted">Denumire:</span>
+                        <span name="institution" class="col-md-12">{{ $institution->first()->name ?? ''}}</span>
+                    </div>
+                    <div class="col-md-10">
+                        <span class="text-muted">CIF:</span>
+                        <span name="cif">{{ $institution->cif ?? ''}}</span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-md-12">CIF</label>
-                    <input type="text" name="cif" placeholder="Codul fiscal" class="form-control form-control-line col-md-12" value="{{ $institution->cif ?? ''}}">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <span class="text-muted">Email:</span>
+                        <span name="institution-email">{{ $institution->email ?? ''}}</span>
+                    </div>
+                    <div class="col-md-10">
+                        <span class="text-muted">Telefon:</span>
+                        <span name="phone">{{ $institution->phone ?? '' }}</span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="institution-email" class="col-md-12">Email</label>
-                    <input type="email" placeholder="Adresa de email" class="form-control form-control-line" name="institution-email" id="institution-email" value="{{ $institution->email ?? ''}}">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <span class="text-muted">Fax:</span>
+                        <span name="fax">{{ $institution->fax ?? '' }}</span>
+                    </div>
+                    <div class="col-md-10">
+                        <span class="text-muted">Banca:</span>
+                        <span name="bank">{{ $institution->bank ?? '' }}</span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-md-12">Telefon</label>
-                    <input type="text" placeholder="Număr de telefon" name="phone" class="form-control form-control-line" value="{{ $institution->phone ?? '' }}">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <span class="text-muted">IBAN:</span>
+                        <span name="iban">{{ $institution->iban ?? '' }}</span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-md-12">Fax</label>
-                    <input type="text" placeholder="Număr de fax" name="fax" class="form-control form-control-line" value="{{ $institution->fax ?? '' }}">
+            </div>
+            <div class="col-lg-4">
+                <div class="col-md-10">
+                    <div class="text-right">
+                        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#editInstitutionProfile">Editează profilul</button>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-md-12">Banca</label>
-                    <input type="text" placeholder="Denumirea băncii" name="bank" class="form-control form-control-line" value="{{ $institution->bank ?? '' }}">
-                </div>
-                <div class="form-group">
-                    <label class="col-md-12">IBAN</label>
-                    <input type="text" placeholder="Contul bancar" name="iban" class="form-control form-control-line" value="{{ $institution->iban ?? '' }}">
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-12">Județul</label>
-                    <div class="col-sm-12">
-                        <select class="form-control form-control-line" name="county">
-                            <option disabled value="">Selectați județul</option>
-                            @if (isset($counties))
-                                @foreach ($counties as $county)
-                                    <option value="{{ $county->id}}">{{ $county->name }}</option>
-                                @endforeach
+            </div>
+        </div>
+        <h3 class="pt-2">Adresă instituție</h3>
+        <hr class="py-2">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <span class="text-muted">Județul:</span>
+                        <span name="county">
+                            @if (auth()->user()->institution()->first()->address->first())
+                            {{ auth()->user()->institution()->first()->address->first()->village()->city()->county()->name ?? ''}}
                             @endif
-                        </select>
+                        </span>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-12">Localitatea</label>
-                    <div class="col-sm-12">
-                        <select class="form-control form-control-line" name="city">
-                            <option>London</option>
-                            <option>India</option>
-                            <option>Usa</option>
-                            <option>Canada</option>
-                            <option>Thailand</option>
-                        </select>
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <span class="text-muted">Localitatea:</span>
+                        <span name="city">
+                            @if (auth()->user()->institution()->first()->address->first())
+                            {{ auth()->user()->institution()->first()->address->first()->village()->city()->name ?? ''}}
+                            @endif
+                        </span>
+                    </div>
+                    <div class="col-md-10">
+                        <span class="text-muted">Localitatea componentă:</span>
+                        <span name="village">
+                            @if (auth()->user()->institution()->first()->address->first())
+                            {{ auth()->user()->institution()->first()->address->first()->village()->name ?? ''}}
+                            @endif
+                        </span>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-md-12">Strada</label>
-                    <input type="text" placeholder="Strada" name="street" class="form-control form-control-line" value="{{ auth()->user()->institution()->first()->address->first()->street ?? ''}}">
-                </div>
-                <div class="form-group">
-                    <label class="col-md-12">Număr stradă</label>
-                    <input type="text" placeholder="Număr stradă" name="number" class="form-control form-control-line" value="{{ auth()->user()->institution()->first()->address->first()->number ?? ''}}">
-                </div>
-                <div class="form-group">
-                    <label class="col-md-12">Cod poștal</label>
-                    <input type="text" placeholder="Codul poștal" name="postal_code" class="form-control form-control-line" value="{{ auth()->user()->institution()->first()->address->first()->postal_code ?? ''}}">
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <button class="btn btn-success">Salvează Profilul Instituției</button>
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <span class="text-muted">Strada:</span>
+                        <span name="street">{{ auth()->user()->institution()->first()->address->first()->street ?? ''}}</span>
+                    </div>
+                    <div class="col-md-10">
+                        <span class="text-muted">Număr stradă:</span>
+                        <span name="number">{{ auth()->user()->institution()->first()->address->first()->number ?? ''}}</span>
                     </div>
                 </div>
-            </form>
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <span class="text-muted">Cod poștal:</span>
+                        <span name="postal_code">{{ auth()->user()->institution()->first()->address->first()->postal_code ?? ''}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="col-md-10">
+                    <div class="text-right">
+                        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#editUserAddress">Editează adresa</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-@endadmin
+</div>
+@endadmin 

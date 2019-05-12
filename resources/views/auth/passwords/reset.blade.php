@@ -1,7 +1,10 @@
 @extends('guest.master')
 <!-- Main Content -->
 @section('page-wrapper')
-    
+<!-- ============================================================== -->
+<!-- Container fluid  -->
+<!-- ============================================================== -->
+<div class="container-fluid"> 
     <div class="row justify-content-center my-50">        
         <div class="col-xl-3 col-lg-5  col-sm-8 col-xs-10">
             <form class="form-horizontal form-material" role="form" method="POST" action="{{ url('/password/reset') }}">
@@ -37,6 +40,10 @@
                 </div>
                 </form>
         </div>
-        </div>
-        
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->         
+       
 @endsection

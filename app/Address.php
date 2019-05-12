@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Village;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -54,8 +55,8 @@ class Address extends Model
     /**
      * Get tha city of the address
      */
-    public function city()
+    public function village()
     {
-        return $this->belongsTo(City::class);
+        return $this->belongsTo(Village::class);
     }
 }

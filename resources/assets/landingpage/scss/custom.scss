@@ -4,6 +4,7 @@
 
 // Custom css and overrides
 
+
 #main-wrapper {
   margin-top: 93px;
 }
@@ -11,6 +12,19 @@
 .topheader {
   background-color: rgb(48, 65, 119);
   border-bottom: 1px solid #222f55;
+  padding: 5px 0;
+}
+
+.navbar-logo {
+  height: 40px;
+}
+
+.hexagon-logo {
+  height: 220px;
+}
+
+.hexagon-img {
+  height: 450px;
 }
 
 @include media-breakpoint-down(md) {
@@ -41,4 +55,37 @@
     text-align: center;
     margin: auto;
   }
+}
+
+.section-1 {
+  background-image: url(../../assets/images/background/section-1-background-2.png);
+}
+
+.section-1 {
+  .fix-width {
+    .left-side {
+      padding-top: 6%;
+      padding-bottom: 6%;
+    }
+    
+    .right-side{
+      padding-top: 5%;
+      padding-bottom: 4%;
+    }
+  }
+}
+
+h1.app-text {
+  color: darkgray;
+  font-weight: 500;
+  line-height: 85px;
+  font-size: 70px;
+}
+
+.subtext {
+  font-size: 22px;
+}
+
+.down-btn .btn:hover {
+  box-shadow: 0px 0px 6px 1px #7b74a6;
 }

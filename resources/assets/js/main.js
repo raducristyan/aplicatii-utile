@@ -2,28 +2,27 @@
 import Vue from 'vue';
 import Axios from 'axios';
 
-Vue.component('city-view', require('./components/Address.vue'));
+Vue.component('address-view', require('./components/Address.vue'));
+Vue.component('user-profile-view', require('./components/UserProfile.vue'));
 
 const vm = new Vue({
     el: '#app',
     data: {
         county: '',
-        countyCities: ''
+        countyCities: ''        
     },
     methods: {
         logout: function () {
             Axios.post('logout',{})
             .then(function (response) {
-                window.location.href = '/';
+                window.location.reload(true);
             })
         },
         getCities () {
             axios.post('/api/county/cities', {'county_id': this.county})
                     .then((data) => {
-                    console.log(data);
                     this.countyCities = data.data;
                 }).catch((error) => {
-                console.log(error)
             })
         }
     }

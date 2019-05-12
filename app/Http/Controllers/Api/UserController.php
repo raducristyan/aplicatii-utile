@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
+use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\Api\UserRequest;
 
 class UserController extends Controller
 {
@@ -67,9 +69,21 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request)
     {
-        //
+        $id = $request->user_id;
+        $user = User::find($id);
+        // return response($request->user());
+        
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->job = $request->job;
+        $user->mobile = $request->mobile;
+        $user->phone = $request->phone;
+        
+        $user->save([$request]);
+        
+        return response([], 201);
     }
 
     /**

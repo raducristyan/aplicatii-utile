@@ -20,12 +20,12 @@ class CreateAddressesTable extends Migration
             $table->string('sc')->nullable();
             $table->string('ap')->nullable();
             $table->string('postal_code')->nullable();
-            $table->integer('city_id')->unsigned();
+            $table->integer('village_id')->unsigned();
             $table->morphs('addressable');
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
+            $table->foreign('village_id')->references('id')->on('villages')->onDelete('cascade');
         });
     }
 

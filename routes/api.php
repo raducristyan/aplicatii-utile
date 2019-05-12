@@ -15,7 +15,8 @@ use Illuminate\Http\Request;
 
 Route::group(['middleware' => 'api', 'namespace' => 'Api', 'as' => 'api.'], function () {
     Route::post('county/cities', ['as' => 'county.cities', 'uses' => 'CountyController@getCities']);
-    Route::post('city/villages', ['as' => 'city.villagexites', 'uses' => 'CityController@getVillages']);
+    Route::post('city/villages', ['as' => 'city.villages', 'uses' => 'CityController@getVillages']);
     Route::post('person', ['as' => 'person', 'uses' => 'PersonController@store']);
     Route::post('company', ['as' => 'company', 'uses' => 'CompanyController@store']);
+    Route::put('user/profile', ['as' => 'user.profile', 'uses' => 'UserController@update']);
 });

@@ -65,9 +65,6 @@
 					<a class="nav-link active" data-toggle="tab" href="#activity" role="tab">Activitate</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" data-toggle="tab" href="#profile" role="tab">Profil</a>
-				</li>
-				<li class="nav-item">
 					<a class="nav-link" data-toggle="tab" href="#settings" role="tab">Setări</a>
 				</li>
 				@admin
@@ -82,7 +79,6 @@
 			<!-- Tab panes -->
 			<div class="tab-content">
 				@include('apps.partials.tabs.activity')
-				@include('apps.partials.tabs.profile')
 				@include('apps.partials.tabs.settings')
 				@admin
 					@include('apps.partials.tabs.institution')
@@ -93,4 +89,8 @@
 	</div>
 	<!-- Column -->
 </div>
+
+@include('apps.partials.modals.userPassword')
+@include('apps.partials.modals.userProfile')
+@include('apps.partials.modals.userAddress')
 @endsection

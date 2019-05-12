@@ -12,17 +12,17 @@
                 <b>
                     <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                     <!-- Dark Logo icon -->
-                    <img src="/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                    <img src="/assets/images/icon/logo-hexagon.svg" alt="au" class="dark-logo logo-icon" />
                     <!-- Light Logo icon -->
-                    <img src="/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                    <img src="/assets/images/icon/logo-hexagon.svg" alt="au" class="light-logo logo-icon" />
                 </b>
                 <!--End Logo icon -->
                 <!-- Logo text -->
                 <span>
                 <!-- dark Logo text -->
-                <img src="/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                <img src="/assets/images/icon/logo-text.svg" alt="aplicatii utile" class="dark-logo logo-text" />
                 <!-- Light Logo text -->    
-                <img src="/assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
+                <img src="/assets/images/icon/logo-text.svg" class="light-logo logo-text" alt="aplicatii utile" /></span> </a>
         </div>
         <!-- ============================================================== -->
         <!-- End Logo -->
