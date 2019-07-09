@@ -29,7 +29,7 @@ export default {
   methods: {
     updateProfile() {
       axios
-        .put( "/api/user/profile", this.forms.userProfile )
+        .put( "/apps/user/profile", this.forms.userProfile )
         .then(response => {
           window.location.href = '/dashboard';
           console.log(response);

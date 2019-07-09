@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
-use App\Http\Requests\Api\PersonRequest;
 
 use Auth;
 use App\User;
@@ -10,6 +9,7 @@ use App\City;
 use App\Person;
 use App\Address;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\PersonRequest;
 
 class PersonController extends Controller
 {

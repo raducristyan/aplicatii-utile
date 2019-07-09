@@ -12,37 +12,37 @@
             </select>
         </div>
     </div>
-    <address-view :selected-county="county" :cities="countyCities">
+    <village-view :selected-county="county" :cities="countyCities" v-on:update-village="getVillageId($event)">
 
-    </address-view>
+    </village-view>
     <div class="row">
         <div class="form-group col-md-6">
             <label class="col-md-12">Strada</label>
-            <input type="text" name="street" class="form-control" value="{{ auth()->user()->address->first()->street ?? ''}}">
+            <input type="text" name="street" class="form-control" v-model="forms.address.street" >
         </div>
         <div class="form-group col-md-6">
             <label class="col-md-12">Număr stradă</label>
-            <input type="text" name="number" class="form-control" value="{{ auth()->user()->address->first()->number ?? ''}}">
+            <input type="text" name="number" class="form-control" v-model="forms.address.number" >
         </div>
     </div>
     <div class="row">
         <div class="form-group col-md-6">
             <label class="col-md-12">Bloc</label>
-            <input type="text" name="bl" class="form-control" value="{{ auth()->user()->address->first()->bl ?? ''}}">
+            <input type="text" name="bl" class="form-control" v-model="forms.address.bl" >
         </div>
         <div class="form-group col-md-6">
             <label class="col-md-12">Scară</label>
-            <input type="text" name="sc" class="form-control" value="{{ auth()->user()->address->first()->sc ?? ''}}">
+            <input type="text" name="sc" class="form-control" v-model="forms.address.sc" >
         </div>
     </div>
     <div class="row">
         <div class="form-group col-md-6">
             <label class="col-md-12 col-md-6">Apartament</label>
-            <input type="text" name="ap" class="form-control" value="{{ auth()->user()->address->first()->ap ?? ''}}">
+            <input type="text" name="ap" class="form-control" v-model="forms.address.ap" >
         </div>
         <div class="form-group col-md-6">
             <label class="col-md-12 col-md-6">Cod poștal</label>
-            <input type="text" name="postal_code" class="form-control" value="{{ auth()->user()->address->first()->postal_code ?? ''}}">
+            <input type="text" name="postal_code" class="form-control" v-model="forms.address.postal_code" >
         </div>
     </div>
 </form> 

@@ -20,7 +20,7 @@
                     <span class="font-medium text-info">Împreună facem lucrurile mai simple!</span>
                 </p>
                 <div class="down-btn">
-                    <a href="{{ route('register') }}" class="btn btn-primary m-b-10">ÎNREGISTRARE</a>
+                    <a href="{{ route('register') }}" class="btn btn-lg btn-primary m-b-10">ÎNREGISTRARE</a>
                 </div>
             </div>
             <div class="col-md-5 m-b-20 right-side">

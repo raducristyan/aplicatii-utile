@@ -2,7 +2,7 @@
     <div class="form-group">
         <label>Județul</label>
         <div>
-            <select class="form-control" name="county" v-model="county" @change="getCities">
+            <select class="form-control" name="county" v-model="county" @change="getVillages">
                 <option disabled value="">Selectați județul</option>
                 @if (isset($counties))
                 @foreach ($counties as $county)
@@ -12,9 +12,9 @@
             </select>
         </div>
     </div>
-    <address-view :selected-county="county" :cities="countyCities">
+    <village-view :selected-county="county" :cities="countyCities">
 
-    </address-view>
+    </village-view>
     <div class="row">
         <div class="form-group col-md-6">
             <label class="col-md-12">Strada</label>
