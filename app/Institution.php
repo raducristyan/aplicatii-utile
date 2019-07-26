@@ -30,43 +30,34 @@ class Institution extends Model
      */
     public function users()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(User::class)->whereHas('roles', function ($q) {
+            $q->where('name', '!=', 'admin');
+        });
     }
 
-        /**
+    /**
      * Get the users for the Institution model.
      */
-    public function administrator()
+    public function admin()
     {
         return $this->hasMany(User::class)
             ->whereHas('roles', function ($q) {
-                $q->where('name','admin');
-            })->first();
+                $q->where('name', 'admin');
+            });
     }
 
 
-    // /**
-    //  * Get the institution's administrator
-    //  */
-    // public function scopeAdministrator($query) {
-    //     $query->whereHas('users', function ($q) {
-    //         $q->whereHas('roles', function ($subq) {
-    //             $subq->where('name','admin');
-    //         });
-    //     });
-    // }
-
     /**
-    * Get the token record associated with the model.
-    */
+     * Get the token record associated with the model.
+     */
     public function token()
     {
         return $this->hasOne(ActivationToken::class);
     }
 
     /**
-    * The applications that belong to the institution.
-    */
+     * The applications that belong to the institution.
+     */
     public function applications()
     {
         return $this->belongsToMany(Application::class, 'institutions_applications', 'application_id', 'institution_id');
@@ -85,7 +76,8 @@ class Institution extends Model
      * Check if institution's account is active
      */
 
-    public function scopeActive() {
+    public function scopeActive()
+    {
         return $this->active == true;
     }
 

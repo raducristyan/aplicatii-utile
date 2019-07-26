@@ -14,8 +14,8 @@ class CreateAddressesTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('street')->index();
-            $table->string('number');
+            $table->string('street')->index()->nullable();
+            $table->string('number')->nullable();
             $table->string('bl')->nullable();
             $table->string('sc')->nullable();
             $table->string('ap')->nullable();
@@ -25,6 +25,7 @@ class CreateAddressesTable extends Migration
             $table->softDeletes();
             $table->timestamps();
 
+            $table->unique(['addressable_id', 'addressable_type']);
             $table->foreign('village_id')->references('id')->on('villages')->onDelete('cascade');
         });
     }

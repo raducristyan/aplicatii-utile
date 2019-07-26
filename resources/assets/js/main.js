@@ -1,4 +1,3 @@
-
 import Vue from 'vue';
 import Axios from 'axios';
 
@@ -10,15 +9,15 @@ Vue.component('village-view', require('./components/getVillage.vue'));
 const vm = new Vue({
     el: '#app',
     data: {
-        
+
     },
     methods: {
-        logout: function () {
-            Axios.post('logout',{})
-            .then(function (response) {
-                window.location.reload(true);
-            })
+        logout: function() {
+            Axios.post('logout', {})
+                .then(function(response) {
+                    window.location.reload(true);
+                })
         },
-        
+
     }
 });

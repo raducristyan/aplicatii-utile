@@ -30,7 +30,8 @@ class AddressRequest extends FormRequest
             'sc' => 'string|nullable|min:1|max:5',
             'ap' => 'string|nullable|min:1|max:5',
             'postal_code' => 'digits:6|nullable',
-            'village_id' => 'required|integer|exists:villages,id'
+            'village_id' => 'required|integer|exists:villages,id',
+            'owner' => 'required|in:user,institution',
         ];
     }
 }

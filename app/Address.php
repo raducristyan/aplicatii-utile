@@ -30,23 +30,16 @@ class Address extends Model
         'bl',
         'sc',
         'ap',
-        'postal_code'
+        'postal_code',
+        'village_id'
     ];
 
     /**
-     * Get all of the owning adressable models.
+     * Set the adresses's street.
+     *
+     * @param  string  $value
+     * @return void
      */
-    public function addressable()
-    {
-        return $this->morphTo();
-    }
-
-    /**
-    * Set the adresses's street.
-    *
-    * @param  string  $value
-    * @return void
-    */
     public function setStreetAttribute($value)
     {
         $this->attributes['street'] = ucwords(strtolower($value));

@@ -16,17 +16,14 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('apps.dashboard', function ($view) {
-            $view->with('counties', County::all());
-        });
 
-        view()->composer('apps.dashboard', function ($view) {
-            $view->with('institution', Institution::where('id', auth()->user()->institution()->first()->id)->first());
-        });
+        // view()->composer('apps.dashboard', function ($view) {
+        //     $counties = County::with('cities')->get();
+        //     $view->with('counties', $counties);
+        // });
 
-        view()->composer('apps.dashboard', function ($view) {
-            $view->with('users', Institution::where('id', auth()->user()->institution()->first()->id)->first()->users()->get());
-        });
+        view()->composer('*', 'App\Http\View\Composers\InstitutionViewComposer');
+        view()->composer('*', 'App\Http\View\Composers\CountyViewComposer');
     }
 
     /**
@@ -36,6 +33,7 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(\App\Http\View\Composers\InstitutionViewComposer::class);
+        $this->app->singleton(\App\Http\View\Composers\CountyViewComposer::class);
     }
 }

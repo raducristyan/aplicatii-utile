@@ -21,7 +21,7 @@ class City extends Model
      */
     public function county()
     {
-        return $this->belongsTo(County::class);
+        return $this->belongsTo(County::class, 'county_siruta', 'siruta');
     }
 
     /**

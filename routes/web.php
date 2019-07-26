@@ -34,18 +34,19 @@ Route::prefix('apps')->name('apps')->namespace('Apps')->middleware('auth')->grou
     Route::get('/vehicles/create', 'VehiclesController@create')->name('.vehicles.create');
     Route::get('/vehicles/store', 'VehiclesController@store')->name('.vehicles.store');
 
-    Route::post('county/cities', ['as' => 'county.cities', 'uses' => 'CountyController@getCities']);
-    Route::post('city/villages', ['as' => 'city.villages', 'uses' => 'CityController@getVillages']);
-    Route::post('person', ['as' => 'person', 'uses' => 'PersonController@store']);
-    Route::post('company', ['as' => 'company', 'uses' => 'CompanyController@store']);
-    Route::put('user/profile', ['as' => 'user.profile', 'uses' => 'UserController@update']);
-    Route::put('user/address', ['as' => 'user.address', 'uses' => 'AddressController@update']);
+    Route::post('county/cities', ['as' => '.county.cities', 'uses' => 'CountyController@getCities']);
+    Route::post('city/villages', ['as' => '.city.villages', 'uses' => 'CityController@getVillages']);
+    Route::post('person', ['as' => '.person', 'uses' => 'PersonController@store']);
+    Route::post('company', ['as' => '.company', 'uses' => 'CompanyController@store']);
+    Route::put('user/profile', ['as' => '.user.profile', 'uses' => 'UserController@update']);
+    Route::put('user/address', ['as' => '.user.address', 'uses' => 'AddressController@update']);
+    Route::put('institution/address', ['as' => '.institution.address', 'uses' => 'AddressController@update']);
 });
 
 
 
 /*-- Admin dashboard --*/
-Route::prefix('admin')->name('admin.')->middleware(['auth','admin'])->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', 'AdminController@index')->name('dashboard');
 });
 
@@ -59,12 +60,9 @@ Auth::routes();
 
 
 Route::get('test', function () {
-    // dd($admin = Institution::first());
-    // $institution = Institution::where('id', auth()->user()->institution()->first()->id)->first();
-    // $user = User::find(1);
-    // dd($admin->administrator());
+    // dd($admin);
     // flash('Modal Message', 'Modal Title')->info();
     // flash('Modal Title')->info()->important();
     // dd($user);
-    // dd(Auth::user());
-});
+    // dd(auth()->user()->institution->with('address')->get());
+})->name('test')->middleware('auth');

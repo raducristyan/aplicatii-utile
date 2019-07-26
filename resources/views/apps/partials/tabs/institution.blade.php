@@ -1,5 +1,6 @@
 <!-- forth tab -->
 @admin
+
 <div class="tab-pane" id="institution" role="tabpanel">
     <div class="card-body">
         <h3>Profil instituție</h3>
@@ -9,7 +10,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-10">
                         <span class="text-muted">Denumire:</span>
-                        <span name="institution" class="col-md-12">{{ $institution->first()->name ?? ''}}</span>
+                        <span name="institution" class="col-md-12">{{ $institution->name ?? ''}}</span>
                     </div>
                     <div class="col-md-10">
                         <span class="text-muted">CIF:</span>
@@ -59,26 +60,25 @@
                     <div class="col-md-10">
                         <span class="text-muted">Județul:</span>
                         <span name="county">
-                            @if (auth()->user()->institution()->first()->address->first())
-                            {{ auth()->user()->institution()->first()->address->first()->village()->city()->county()->name ?? ''}}
-                            @endif
-                        </span>
+                            @if ( $institution->address !== null )
+                            {{ $institution->address[0]->village->city->county->name ?? ''}}
+                            @endif </span>
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-md-10">
                         <span class="text-muted">Localitatea:</span>
                         <span name="city">
-                            @if (auth()->user()->institution()->first()->address->first())
-                            {{ auth()->user()->institution()->first()->address->first()->village()->city()->name ?? ''}}
+                            @if ( $institution->address !== null )
+                            {{ $institution->address[0]->village->city->name ?? ''}}
                             @endif
                         </span>
                     </div>
                     <div class="col-md-10">
                         <span class="text-muted">Localitatea componentă:</span>
                         <span name="village">
-                            @if (auth()->user()->institution()->first()->address->first())
-                            {{ auth()->user()->institution()->first()->address->first()->village()->name ?? ''}}
+                            @if ( $institution->address !== null )
+                            {{ $institution->address[0]->village->name ?? ''}}
                             @endif
                         </span>
                     </div>
@@ -86,28 +86,34 @@
                 <div class="row justify-content-center">
                     <div class="col-md-10">
                         <span class="text-muted">Strada:</span>
-                        <span name="street">{{ auth()->user()->institution()->first()->address->first()->street ?? ''}}</span>
+                        @if ( $institution->address !== null )
+                        <span name="street">{{ $institution->address[0]->street ?? ''}}</span>
+                        @endif
                     </div>
                     <div class="col-md-10">
                         <span class="text-muted">Număr stradă:</span>
-                        <span name="number">{{ auth()->user()->institution()->first()->address->first()->number ?? ''}}</span>
+                        @if ( $institution->address !== null )
+                        <span name="number">{{ $institution->address[0]->number ?? ''}}</span>
+                        @endif
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-md-10">
                         <span class="text-muted">Cod poștal:</span>
-                        <span name="postal_code">{{ auth()->user()->institution()->first()->address->first()->postal_code ?? ''}}</span>
+                        @if ( $institution->address !== null )
+                        <span name="postal_code">{{ $institution->address[0]->postal_code ?? ''}}</span>
+                        @endif
                     </div>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="col-md-10">
                     <div class="text-right">
-                        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#editUserAddress">Editează adresa</button>
+                        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#editInstitutionAddress">Editează adresa</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-@endadmin 
+@endadmin

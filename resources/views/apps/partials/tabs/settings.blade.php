@@ -1,7 +1,7 @@
 <!-- third tab -->
 <div class="tab-pane" id="settings" role="tabpanel">
     <div class="card-body">
-    <h3>Parola</h3>
+        <h3>Parola</h3>
         <hr class="py-2">
         <div class="row">
             <div class="col-lg-8">
@@ -71,8 +71,8 @@
                     <div class="col-md-10">
                         <span class="text-muted">Județul:</span>
                         <span name="county">
-                            @if (auth()->user()->address->first())
-                            {{ auth()->user()->address->first()->village()->city()->county()->name ?? ''}}
+                            @if (auth()->user()->address->isNotEmpty() )
+                            {{ auth()->user()->address[0]->village->city->county->name ?? ''}}
                             @endif
                         </span>
                     </div>
@@ -81,16 +81,16 @@
                     <div class="col-md-10">
                         <span class="text-muted">Localitatea:</span>
                         <span name="city">
-                            @if (auth()->user()->address->first())
-                            {{ auth()->user()->address->first()->village()->city()->name ?? ''}}
+                            @if (auth()->user()->address->isNotEmpty() )
+                            {{ auth()->user()->address[0]->village->city->name ?? ''}}
                             @endif
                         </span>
                     </div>
                     <div class="col-md-10">
                         <span class="text-muted">Localitatea componentă:</span>
                         <span name="village">
-                            @if (auth()->user()->address->first())
-                            {{ auth()->user()->address->first()->village()->name ?? ''}}
+                            @if (auth()->user()->address->isNotEmpty() )
+                            {{ auth()->user()->address[0]->village->name ?? ''}}
                             @endif
                         </span>
                     </div>
@@ -98,17 +98,29 @@
                 <div class="row justify-content-center">
                     <div class="col-md-10">
                         <span class="text-muted">Strada:</span>
-                        <span name="street">{{ auth()->user()->address->first()->street ?? ''}}</span>
+                        <span name="street">
+                            @if ( auth()->user()->address->isNotEmpty() )
+                            {{ auth()->user()->address[0]->street ?? '' }}
+                            @endif
+                        </span>
                     </div>
                     <div class="col-md-10">
                         <span class="text-muted">Număr stradă:</span>
-                        <span name="number">{{ auth()->user()->address->first()->number ?? ''}}</span>
+                        <span name="number">
+                            @if ( auth()->user()->address->isNotEmpty() )
+                            {{ auth()->user()->address[0]->number ?? '' }}
+                            @endif
+                        </span>
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-md-10">
                         <span class="text-muted">Cod poștal:</span>
-                        <span name="postal_code">{{ auth()->user()->address->first()->postal_code ?? ''}}</span>
+                        <span name="postal_code">
+                            @if ( auth()->user()->address->isNotEmpty() )
+                            {{ auth()->user()->address[0]->postal_code ?? '' }}
+                            @endif
+                        </span>
                     </div>
                 </div>
             </div>

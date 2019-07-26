@@ -1,21 +1,3 @@
-<address-view street="{{ auth()->user()->address->first()->street ?? ''}}" number="{{ auth()->user()->address->first()->number ?? ''}}" bl="{{ auth()->user()->address->first()->bl ?? ''}}" sc="{{ auth()->user()->address->first()->sc ?? ''}}" ap="{{ auth()->user()->address->first()->ap ?? ''}}" postal_code="{{ auth()->user()->address->first()->postal_code ?? ''}}" inline-template>
-  <div class="modal fade" id="editUserAddress" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title text-dark" id="exampleModalLabel">Editează adresa utilizatorului</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          @include('apps.partials.forms.userAddress')
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-success" @click="updateAddress">Salvează</button>
-          <button type="submit" class="btn btn-secondary" data-dismiss="modal">Renunță</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<address-view :counties="{{$counties}}" :county="{{auth()->user()->address[0]->village->city->county->id ?? ''}}" :city="{{auth()->user()->address[0]->village->city->id ?? ''}}" :village="{{auth()->user()->address[0]->village->id ?? ''}}" street="{{ auth()->user()->address[0]->street ?? ''}}" number="{{ auth()->user()->address[0]->number ?? ''}}" bl="{{ auth()->user()->address[0]->bl ?? ''}}" sc="{{ auth()->user()->address[0]->sc ?? ''}}" ap="{{ auth()->user()->address[0]->ap ?? ''}}" postal_code="{{ auth()->user()->address[0]->postal_code ?? ''}}" url="{{route('apps.user.address')}}" owner="user" modal-id="editUserAddress">
+
 </address-view>

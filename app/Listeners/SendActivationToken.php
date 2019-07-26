@@ -28,12 +28,14 @@ class SendActivationToken
      */
     public function handle($event)
     {
-        $user = $event->institution->administrator();
+        $user = $event->institution->admin()->first();
 
         $token = $event->institution->token ?: $event->institution->token()->save(
-            new ActivationToken(['token' => str_random( 128 ),
-         ]));
-         
+            new ActivationToken([
+                'token' => str_random(128),
+            ])
+        );
+
         $user->notify(new SendActivationEmail($token));
     }
 }
