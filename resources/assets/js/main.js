@@ -1,16 +1,17 @@
 import Vue from 'vue';
 import Axios from 'axios';
 
+Vue.component('address-view', require('./components/Address.vue'));
 Vue.component('user-profile-view', require('./components/UserProfile.vue'));
 Vue.component('user-password-view', require('./components/UserPassword.vue'));
-Vue.component('address-view', require('./components/Address.vue'));
-Vue.component('village-view', require('./components/getVillage.vue'));
+Vue.component('institution-profile-view', require('./components/InstitutionProfile.vue'));
 
 const vm = new Vue({
     el: '#app',
     data: {
 
     },
+
     methods: {
         logout: function() {
             Axios.post('logout', {})
@@ -18,6 +19,5 @@ const vm = new Vue({
                     window.location.reload(true);
                 })
         },
-
     }
 });

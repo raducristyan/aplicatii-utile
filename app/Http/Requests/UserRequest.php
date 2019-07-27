@@ -25,12 +25,12 @@ class UserRequest extends FormRequest
     {
         $id = request()->user_id;
         return [
-            'email' => 'required|email|unique:users,email,'.$id,
+            'email' => 'required|email|unique:users,email,' . $id,
             'first_name' => 'required|string|max:50',
             'last_name' => 'required|string|max:50',
-            'job' => 'required|string|max:50',
-            'mobile' => 'max:12',
-            'phone' => 'max:12',
+            'job' => 'required|string|min:3|max:50',
+            'mobile' => 'min:10|max:12',
+            'phone' => 'min:10|max:12',
         ];
     }
 }

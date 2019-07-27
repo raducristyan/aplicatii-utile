@@ -3,7 +3,7 @@
 
 @php
 #dd($institution->address);
-#dd(auth()->user());
+#dd(auth()->user()->institution);
 @endphp
 <div class="row">
 	<!-- Column -->
@@ -45,9 +45,7 @@
 				<small class="text-muted p-t-30 db">Adresa</small>
 				@forelse ( $institution->admin[0]->address as $address )
 				<h6>
-					@if ( $address->county ) {{ $address->county }}, @endif
-					@if ( $address->city ) {{ $address->city }}, @endif
-					@if ( $address->village_id ) {{ $address->village_id }}, @endif
+					@if ( $address->village->name ) {{ $address->village->name }}, @endif
 					@if ( $address->street ) {{ $address->street }}, @endif
 					@if ( $address->number ) {{ $address->number }}, @endif
 					@if ( $address->bl ) {{ $address->bl }}, @endif
@@ -99,5 +97,8 @@
 @include('apps.partials.modals.userPassword')
 @include('apps.partials.modals.userProfile')
 @include('apps.partials.modals.userAddress')
+@admin
+@include('apps.partials.modals.institutionProfile')
 @include('apps.partials.modals.institutionAddress')
+@endadmin
 @endsection

@@ -40,7 +40,6 @@ Route::prefix('apps')->name('apps')->namespace('Apps')->middleware('auth')->grou
     Route::post('company', ['as' => '.company', 'uses' => 'CompanyController@store']);
     Route::put('user/profile', ['as' => '.user.profile', 'uses' => 'UserController@update']);
     Route::put('user/address', ['as' => '.user.address', 'uses' => 'AddressController@update']);
-    Route::put('institution/address', ['as' => '.institution.address', 'uses' => 'AddressController@update']);
 });
 
 
@@ -48,6 +47,10 @@ Route::prefix('apps')->name('apps')->namespace('Apps')->middleware('auth')->grou
 /*-- Admin dashboard --*/
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', 'AdminController@index')->name('dashboard');
+    Route::namespace('Apps')->group(function () {
+        Route::put('institution/address', ['as' => 'institution.address', 'uses' => 'AddressController@update']);
+        Route::put('institution/profile', ['as' => 'institution.profile', 'uses' => 'InstitutionController@update']);
+    });
 });
 
 Route::post('user/password/change', ['as' => 'user.password', 'uses' => 'Auth\ChangePasswordController@changePassword']);

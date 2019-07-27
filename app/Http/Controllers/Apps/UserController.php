@@ -71,18 +71,20 @@ class UserController extends Controller
      */
     public function update(UserRequest $request)
     {
-        $id = $request->user_id;
-        $user = User::find($id);
-        // return response($request->user());
-        
+        $user = auth()->user();
+
+        if (auth()->user()->id !== (int) $request->user_id) {
+            return response([auth()->user()->id, $request->user_id], 403);
+        }
+
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->job = $request->job;
         $user->mobile = $request->mobile;
         $user->phone = $request->phone;
-        
+
         $user->save([$request]);
-        
+
         return response([], 201);
     }
 

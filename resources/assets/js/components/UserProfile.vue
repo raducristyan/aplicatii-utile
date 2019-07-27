@@ -9,7 +9,8 @@ export default {
     "job",
     "mobile",
     "phone",
-    "user_id"
+    "user_id",
+    "url"
   ],
   data() {
     return {
@@ -29,12 +30,12 @@ export default {
   methods: {
     updateProfile() {
       axios
-        .put( "/apps/user/profile", this.forms.userProfile )
+        .put(this.url, this.forms.userProfile)
         .then(response => {
-          window.location.href = '/dashboard';
+          window.location.href = "/dashboard";
           console.log(response);
         })
-        .catch(error =>  {
+        .catch(error => {
           console.log(error);
         });
     }

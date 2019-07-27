@@ -1,4 +1,4 @@
-<user-profile-view email="{{ auth()->user()->email ?? ''}}" first_name="{{ auth()->user()->first_name ?? ''}}" last_name="{{ auth()->user()->last_name ?? ''}}" job="{{ auth()->user()->job ?? ''}}" mobile="{{ auth()->user()->mobile ?? ''}}" phone="{{ auth()->user()->phone ?? ''}}" user_id="{{ auth()->user()->id ?? ''}}" inline-template>
+<user-profile-view email="{{ auth()->user()->email ?? ''}}" first_name="{{ auth()->user()->first_name ?? ''}}" last_name="{{ auth()->user()->last_name ?? ''}}" job="{{ auth()->user()->job ?? ''}}" mobile="{{ auth()->user()->mobile ?? ''}}" phone="{{ auth()->user()->phone ?? ''}}" user_id="{{ auth()->user()->id ?? ''}}" url="{{ route('apps.user.profile') }}" inline-template>
     <div class="modal fade" id="editUserProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">

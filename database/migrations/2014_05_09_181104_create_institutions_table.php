@@ -25,6 +25,7 @@ class CreateInstitutionsTable extends Migration
             $table->softDeletes();
             $table->timestamps();
             $table->unique('cif');
+            $table->unique('email');
         });
     }
 
