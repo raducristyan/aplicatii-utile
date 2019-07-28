@@ -105,7 +105,12 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success" @click="updateAddress">Salvează</button>
+          <button
+            type="submit"
+            class="btn btn-success"
+            @click="updateAddress"
+            :disabled="canUpdate"
+          >Salvează</button>
           <button type="submit" class="btn btn-secondary" data-dismiss="modal">Renunță</button>
         </div>
       </div>
@@ -149,9 +154,17 @@ export default {
           owner: this.owner
         },
         url: this.url
-      }
+      },
+      oldData: {}
     };
   },
+
+  computed: {
+    canUpdate: function() {
+      return window.util.compareObj(this.oldData, this.forms.address);
+    }
+  },
+
   methods: {
     getVillageId(id) {
       this.forms.address.village_id = id;
@@ -192,9 +205,12 @@ export default {
     if (this.county) {
       this.getCities();
     }
+
     if (this.city) {
       this.getVillages();
     }
+
+    this.oldData = Object.assign({}, this.forms.address);
   }
 };
 </script>

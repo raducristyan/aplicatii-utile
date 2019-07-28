@@ -12,6 +12,7 @@ export default {
     "user_id",
     "url"
   ],
+
   data() {
     return {
       forms: {
@@ -24,9 +25,17 @@ export default {
           phone: this.phone,
           user_id: this.user_id
         }
-      }
+      },
+      oldData: {}
     };
   },
+
+  computed: {
+    canUpdate: function() {
+      return window.util.compareObj(this.oldData, this.forms.userProfile);
+    }
+  },
+
   methods: {
     updateProfile() {
       axios
@@ -39,6 +48,10 @@ export default {
           console.log(error);
         });
     }
+  },
+
+  mounted() {
+    this.oldData = Object.assign({}, this.forms.userProfile);
   }
 };
 </script>

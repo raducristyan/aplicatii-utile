@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Axios from 'axios';
+window.util = require('./util');
 
 Vue.component('address-view', require('./components/Address.vue'));
 Vue.component('user-profile-view', require('./components/UserProfile.vue'));

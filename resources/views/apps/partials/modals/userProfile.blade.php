@@ -12,7 +12,7 @@
                     @include('apps.partials.forms.userProfile')
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" @click="updateProfile">Salvează</button>
+                    <button type="submit" class="btn btn-success" @click="updateProfile" :disabled="canUpdate">Salvează</button>
                     <button type="submit" class="btn btn-secondary" data-dismiss="modal">Renunță</button>
                 </div>
             </div>

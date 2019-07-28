@@ -23,12 +23,12 @@
     <div class="form-group">
         <label for="institutionFax">Fax</label>
         <input type="text" class="form-control" id="institutionFax" aria-describedby="institutionFaxHelp" v-model="forms.institutionProfile.fax">
-        <small id="institutionFaxlHelp" class="form-text text-muted">Numărul de telefon.</small>
+        <small id="institutionFaxlHelp" class="form-text text-muted">Numărul de fax.</small>
     </div>
     <div class="form-group">
         <label for="institution_bank">Banca</label>
         <input type="text" class="form-control" id="institution_bank" aria-describedby="institutionBankHelp" v-model="forms.institutionProfile.bank">
-        <small id="institutionBankHelp" class="form-text text-muted">Funcția în cadrul instituției.</small>
+        <small id="institutionBankHelp" class="form-text text-muted">Instituția bancară.</small>
     </div>
     <div class="form-group">
         <label for="institution_iban">Contul IBAN</label>

@@ -33,9 +33,9 @@ export default {
 
   computed: {
     canUpdate: function() {
-      return (
-        JSON.stringify(this.oldData) ==
-        JSON.stringify(this.forms.institutionProfile)
+      return window.util.compareObj(
+        this.oldData,
+        this.forms.institutionProfile
       );
     }
   },
