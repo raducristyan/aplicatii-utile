@@ -1099,13 +1099,28 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('institution-profile-view'
 
 var vm = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app',
-    data: {},
+    data: {
+        activeTab: ''
+    },
+
+    mounted: function mounted() {
+        this.getActiveTab();
+    },
+
 
     methods: {
         logout: function logout() {
             __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('logout', {}).then(function (response) {
                 window.location.reload(true);
             });
+        },
+
+        setActiveTab: function setActiveTab(tab) {
+            this.activeTab = tab;
+            localStorage.setItem('activeTab', tab);
+        },
+        getActiveTab: function getActiveTab() {
+            this.activeTab = localStorage.getItem('activeTab') ? localStorage.getItem('activeTab') : 'activity';
         }
     }
 });
@@ -13235,7 +13250,7 @@ module.exports = function spread(callback) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "compareObj", function() { return compareObj; });
 var compareObj = function compareObj(x, y) {
-    return JSON.stringify(x) == JSON.stringify(y);
+    return JSON.stringify(x) !== JSON.stringify(y);
 };
 
 /***/ }),
@@ -13999,42 +14014,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   data: function data() {
     return {
-      forms: {
-        userProfile: {
-          email: this.email,
-          first_name: this.first_name,
-          last_name: this.last_name,
-          job: this.job,
-          mobile: this.mobile,
-          phone: this.phone,
-          user_id: this.user_id
-        }
+      address: {
+        email: this.email,
+        first_name: this.first_name,
+        last_name: this.last_name,
+        job: this.job,
+        mobile: this.mobile,
+        phone: this.phone,
+        user_id: this.user_id
       },
-      oldData: {}
+      errors: {}
     };
   },
 
 
-  computed: {
-    canUpdate: function canUpdate() {
-      return window.util.compareObj(this.oldData, this.forms.userProfile);
-    }
-  },
+  computed: {},
 
   methods: {
     updateProfile: function updateProfile() {
-      axios.put(this.url, this.forms.userProfile).then(function (response) {
+      var _this = this;
+
+      axios.put(this.url, this.address).then(function (response) {
         window.location.href = "/dashboard";
-        console.log(response);
       }).catch(function (error) {
-        console.log(error);
+        _this.errors = error.response.data.errors;
       });
     }
   },
 
-  mounted: function mounted() {
-    this.oldData = Object.assign({}, this.forms.userProfile);
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -14228,42 +14236,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   props: ["email", "name", "bank", "iban", "phone", "fax", "cif", "institution_id", "url"],
   data: function data() {
     return {
-      forms: {
-        institutionProfile: {
-          email: this.email,
-          name: this.name,
-          bank: this.bank,
-          iban: this.iban,
-          cif: this.cif,
-          phone: this.phone,
-          fax: this.fax,
-          institution_id: this.institution_id
-        }
+      address: {
+        email: this.email,
+        name: this.name,
+        bank: this.bank,
+        iban: this.iban,
+        cif: this.cif,
+        phone: this.phone,
+        fax: this.fax,
+        institution_id: this.institution_id
       },
-      oldData: {}
+      errors: {}
     };
   },
 
 
-  computed: {
-    canUpdate: function canUpdate() {
-      return window.util.compareObj(this.oldData, this.forms.institutionProfile);
-    }
-  },
+  computed: {},
 
   methods: {
     updateProfile: function updateProfile() {
-      axios.put(this.url, this.forms.institutionProfile).then(function (response) {
+      var _this = this;
+
+      axios.put(this.url, this.address).then(function (response) {
         window.location.href = "/dashboard";
       }).catch(function (error) {
-        console.log(error);
+        _this.errors = error.response.data.errors;
       });
     }
   },
 
-  mounted: function mounted() {
-    this.oldData = Object.assign({}, this.forms.institutionProfile);
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),

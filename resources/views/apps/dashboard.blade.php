@@ -5,83 +5,83 @@
 #dd($institution->address);
 #dd(auth()->user()->institution);
 @endphp
-<div class="row">
+<div class="flex flex-wrap">
 	<!-- Column -->
-	<div class="col-lg-4 col-xlg-3 col-md-5">
-		<div class="card">
-			<div class="card-body">
-				<center class="m-t-30">
-					<img src="../assets/images/users/user-male.png" class="img-circle" width="150" />
-					<h4 class="card-title m-t-10">{{ $institution->admin[0]->full_name }}</h4>
-					<h6 class="card-subtitle">{{ $institution->admin[0]->job ?? 'Nu ați completat funcția în cadrul organizației' }}</h6>
-					<div class="row text-center justify-content-md-center">
-						<div class="col-4">
-							<a href="javascript:void(0)" class="link">
-								<i class="icon-people"></i>
-								<font class="font-medium">254</font>
+	<div class="w-full md:w-1/4">
+		<div class="bg-white px-4 py-8 md:mr-6 mb-6 md:mb-0 rounded-sm">
+			<div class="border-b border-gray-300">
+				<center>
+					<img src="../assets/images/users/user-male.png" class="w-40 rounded-full shadow" />
+					<h4 class="py-2 text-gray-700"><strong>{{ $institution->admin[0]->full_name }}</strong></h4>
+					<h6 class="text-gray-600">{{ $institution->admin[0]->job ?? 'Nu ați completat funcția în cadrul organizației' }}</h6>
+					<div class="flex py-4">
+						<div class="w-1/2">
+							<a href="javascript:void(0)" class="">
+								<i class="fal fa-user-friends"></i>
+								<font>254</font>
 							</a>
 						</div>
-						<div class="col-4">
-							<a href="javascript:void(0)" class="link">
-								<i class="icon-picture"></i>
-								<font class="font-medium">54</font>
+						<div class="w-1/2">
+							<a href="javascript:void(0)" class="">
+								<i class="fal fa-user-cog"></i>
+								<font>54</font>
 							</a>
 						</div>
 					</div>
 				</center>
 			</div>
-			<div>
-				<hr>
-			</div>
-			<div class="card-body">
-				<small class="text-muted">Adresa de email </small>
-				<h6>{{ $institution->admin[0]->email }}</h6>
-				<small class="text-muted p-t-30 db">Telefon mobil</small>
-				@if ( $institution->admin[0]->mobile )
-				<h6>{{ $institution->admin[0]->mobile or ""}}</h6>
-				@else
-				<h6>Nu ați completat numărul de telefon</h6>
-				@endif
-				<small class="text-muted p-t-30 db">Adresa</small>
-				@forelse ( $institution->admin[0]->address as $address )
-				<h6>
-					@if ( $address->village->name ) {{ $address->village->name }}, @endif
-					@if ( $address->street ) {{ $address->street }}, @endif
-					@if ( $address->number ) {{ $address->number }}, @endif
-					@if ( $address->bl ) {{ $address->bl }}, @endif
-					@if ( $address->sc ) {{ $address->sc }}, @endif
-					@if ( $address->ap ) {{ $address->ap }}, @endif
-					@if ( $address->postal_code ) {{ $address->postal_code }} @endif
-				</h6>
-				@empty
-				<h6>Nu ați compleat adresa</h6>
-				@endforelse
+
+			<div class="pt-2">
+				<div class="py-2">
+					<small class="text-gray-600 text-sm">Adresa de email </small>
+					<h6 class="break-words text-gray-700 font-normal">{{ $institution->admin[0]->email }}</h6>
+				</div>
+				<div class="py-2">
+					<small class="text-gray-600 text-sm">Telefon mobil</small>
+					@if ( $institution->admin[0]->mobile )
+					<h6 class="text-gray-700 font-normal">{{ $institution->admin[0]->mobile or ""}}</h6>
+					@else
+					<h6 class="text-gray-700 font-normal">Nu ați completat numărul de telefon</h6>
+					@endif
+				</div>
+				<div class="py-2">
+					<small class="text-gray-600 text-sm">Adresa</small>
+					@forelse ( $institution->admin[0]->address as $address )
+					<h6 class="text-gray-700 font-normal">
+						@if ( $address->village->name ) {{ $address->village->name }}, @endif
+						@if ( $address->street ) {{ $address->street }}, @endif
+						@if ( $address->number ) {{ $address->number }}, @endif
+						@if ( $address->bl ) {{ $address->bl }}, @endif
+						@if ( $address->sc ) {{ $address->sc }}, @endif
+						@if ( $address->ap ) {{ $address->ap }}, @endif
+						@if ( $address->postal_code ) {{ $address->postal_code }} @endif
+					</h6>
+					@empty
+					<h6 class="text-gray-700 font-normal">Nu ați compleat adresa</h6>
+					@endforelse
+				</div>
 			</div>
 		</div>
 	</div>
 	<!-- Column -->
 	<!-- Column -->
-	<div class="col-lg-8 col-xlg-9 col-md-7">
-		<div class="card">
+	<div class="w-full md:w-3/4">
+		<div class="bg-white rounded">
 			<!-- Nav tabs -->
-			<ul class="nav nav-tabs profile-tab" role="tablist">
-				<li class="nav-item">
-					<a class="nav-link active" data-toggle="tab" href="#activity" role="tab">Activitate</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-toggle="tab" href="#settings" role="tab">Setări</a>
-				</li>
+			<div class="flex items-center border-b border-gray-300">
+
+				<a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-normal" :class="activeTab === 'activity' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('activity')" href="#activity">Activitate</a>
+
+				<a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-normal" :class="activeTab === 'settings' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('settings')" href="#settings">Setări</a>
 				@admin
-				<li class="nav-item">
-					<a class="nav-link" data-toggle="tab" href="#institution" role="tab">Instituție</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-toggle="tab" href="#users" role="tab">Utilizatori</a>
-				</li>
+
+				<a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-normal" :class="activeTab === 'institution' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('institution')" href="#institution">Instituție</a>
+
+				<a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-normal" :class="activeTab === 'users' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('users')" href="#users">Utilizatori</a>
 				@endadmin
-			</ul>
+			</div>
 			<!-- Tab panes -->
-			<div class="tab-content">
+			<div>
 				@include('apps.partials.tabs.activity')
 				@include('apps.partials.tabs.settings')
 				@admin

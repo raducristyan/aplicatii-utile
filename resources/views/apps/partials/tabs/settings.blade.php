@@ -1,5 +1,5 @@
 <!-- third tab -->
-<div class="tab-pane" id="settings" role="tabpanel">
+<div v-show="activeTab==='settings'" id="settings">
     <div class="card-body">
         <h3>Parola</h3>
         <hr class="py-2">

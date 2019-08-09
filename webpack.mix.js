@@ -1,4 +1,5 @@
 let mix = require('laravel-mix');
+const tailwindcss = require('tailwindcss');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,7 +12,7 @@ let mix = require('laravel-mix');
  |
  */
 
- //Copy fonts folder and images
+//Copy fonts folder and images
 // mix.copy(['node_modules/mdi/fonts',
 // 'node_modules/simple-line-icons/fonts',
 // 'resources/assets/fonts/*.*'
@@ -23,7 +24,7 @@ let mix = require('laravel-mix');
 // mix.copy('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', 'public/js');
 
 // Mix custom application
-mix.js('resources/assets/js/main.js', 'public/js/app.js');
+// mix.js('resources/assets/js/main.js', 'public/js/app.js');
 // mix.js('resources/assets/js/vendor.js', 'public/js/vendor.js');
 
 // Mix combine assets
@@ -56,6 +57,13 @@ mix.js('resources/assets/js/main.js', 'public/js/app.js');
 // mix.sass('resources/assets/main/scss/colors/purple.scss', 'public/main/css/colors');
 // mix.sass('resources/assets/main/scss/colors/red-dark.scss', 'public/main/css/colors');
 // mix.sass('resources/assets/main/scss/colors/red.scss', 'public/main/css/colors');
+mix.sass('resources/assets/main/scss/tailwind.scss', 'public/main/css')
+    .options({
+        processCssUrls: false,
+        postCss: [
+            tailwindcss('./tailwind.config.js'),
+        ]
+    });
 
 
 // Full API

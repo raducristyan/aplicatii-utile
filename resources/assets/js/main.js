@@ -10,7 +10,11 @@ Vue.component('institution-profile-view', require('./components/InstitutionProfi
 const vm = new Vue({
     el: '#app',
     data: {
+        activeTab: '',
+    },
 
+    mounted() {
+        this.getActiveTab();
     },
 
     methods: {
@@ -19,6 +23,15 @@ const vm = new Vue({
                 .then(function(response) {
                     window.location.reload(true);
                 })
+        },
+
+        setActiveTab(tab) {
+            this.activeTab = tab;
+            localStorage.setItem('activeTab', tab);
+        },
+
+        getActiveTab() {
+            this.activeTab = localStorage.getItem('activeTab') ? localStorage.getItem('activeTab') : 'activity'
         },
     }
 });

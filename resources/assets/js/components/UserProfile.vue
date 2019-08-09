@@ -15,43 +15,34 @@ export default {
 
   data() {
     return {
-      forms: {
-        userProfile: {
-          email: this.email,
-          first_name: this.first_name,
-          last_name: this.last_name,
-          job: this.job,
-          mobile: this.mobile,
-          phone: this.phone,
-          user_id: this.user_id
-        }
+      address: {
+        email: this.email,
+        first_name: this.first_name,
+        last_name: this.last_name,
+        job: this.job,
+        mobile: this.mobile,
+        phone: this.phone,
+        user_id: this.user_id
       },
-      oldData: {}
+      errors: {}
     };
   },
 
-  computed: {
-    canUpdate: function() {
-      return window.util.compareObj(this.oldData, this.forms.userProfile);
-    }
-  },
+  computed: {},
 
   methods: {
     updateProfile() {
       axios
-        .put(this.url, this.forms.userProfile)
+        .put(this.url, this.address)
         .then(response => {
           window.location.href = "/dashboard";
-          console.log(response);
         })
         .catch(error => {
-          console.log(error);
+          this.errors = error.response.data.errors;
         });
     }
   },
 
-  mounted() {
-    this.oldData = Object.assign({}, this.forms.userProfile);
-  }
+  mounted() {}
 };
 </script>

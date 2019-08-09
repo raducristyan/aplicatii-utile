@@ -5,4 +5,6 @@
 <!-- You can change the theme colors from here -->
 <link href="/main/css/colors/purple-dark.css" id="theme" rel="stylesheet">
 
+<link href="/main/css/tailwind.css" rel="stylesheet">
+
 @stack('styles')

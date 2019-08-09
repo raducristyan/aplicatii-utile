@@ -15,46 +15,35 @@ export default {
   ],
   data() {
     return {
-      forms: {
-        institutionProfile: {
-          email: this.email,
-          name: this.name,
-          bank: this.bank,
-          iban: this.iban,
-          cif: this.cif,
-          phone: this.phone,
-          fax: this.fax,
-          institution_id: this.institution_id
-        }
+      address: {
+        email: this.email,
+        name: this.name,
+        bank: this.bank,
+        iban: this.iban,
+        cif: this.cif,
+        phone: this.phone,
+        fax: this.fax,
+        institution_id: this.institution_id
       },
-      oldData: {}
+      errors: {}
     };
   },
 
-  computed: {
-    canUpdate: function() {
-      return window.util.compareObj(
-        this.oldData,
-        this.forms.institutionProfile
-      );
-    }
-  },
+  computed: {},
 
   methods: {
     updateProfile() {
       axios
-        .put(this.url, this.forms.institutionProfile)
+        .put(this.url, this.address)
         .then(response => {
           window.location.href = "/dashboard";
         })
         .catch(error => {
-          console.log(error);
+          this.errors = error.response.data.errors;
         });
     }
   },
 
-  mounted() {
-    this.oldData = Object.assign({}, this.forms.institutionProfile);
-  }
+  mounted() {}
 };
 </script>

@@ -1,38 +1,38 @@
 <form class="">
     <div class="form-group">
         <label for="institution_email">Adresa de email</label>
-        <input type="email" class="form-control" id="institution_email" aria-describedby="institutionEmailHelp" v-model="forms.institutionProfile.email">
-        <small id="institutionEmailHelp" class="form-text text-muted">Adresa de email a instituției.</small>
+        <input type="email" class="form-control" :class="{'is-invalid': errors.email}" id="institution_email" aria-describedby="institutionEmailHelp" v-model="address.email">
+        <small id="institutionEmailHelp" class="form-text text-muted" :class="{'invalid-feedback': errors.email}" v-text="errors.email">Adresa de email a instituției.</small>
     </div>
 
     <div class="form-group">
         <label for="institution_name">Denumire</label>
-        <input type="text" class="form-control" id="institution_name" aria-describedby="institutionNameHelp" v-model="forms.institutionProfile.name">
-        <small id="institutionNameHelp" class="form-text text-muted">Denumirea instituției.</small>
+        <input type="text" class="form-control" :class="{'is-invalid': errors.name}" id="institution_name" aria-describedby="institutionNameHelp" v-model="address.name">
+        <small id="institutionNameHelp" class="form-text text-muted" :class="{'invalid-feedback': errors.name}" v-text="errors.name">Denumirea instituției.</small>
     </div>
     <div class="form-group">
         <label for="cif">Codul fiscal</label>
-        <input type="text" class="form-control" id="cif" aria-describedby="institutionCifHelp" v-model="forms.institutionProfile.cif">
-        <small id="institutionCifHelp" class="form-text text-muted">Codul fiscal al instituției.</small>
+        <input type="text" class="form-control" :class="{'is-invalid': errors.cif}" id="cif" aria-describedby="institutionCifHelp" v-model="address.cif" disabled>
+        <small id="institutionCifHelp" class="form-text text-muted" :class="{'invalid-feedback': errors.cif}" v-text="errors.cif">Codul fiscal al instituției.</small>
     </div>
     <div class="form-group">
         <label for="institution_phone">Telefon</label>
-        <input type="text" class="form-control" id="institution_phone" aria-describedby="institutionPhoneHelp" v-model="forms.institutionProfile.phone">
-        <small id="institutionPhonelHelp" class="form-text text-muted">Numărul de telefon.</small>
+        <input type="text" class="form-control" :class="{'is-invalid': errors.phone}" id="institution_phone" aria-describedby="institutionPhoneHelp" v-model="address.phone">
+        <small id="institutionPhonelHelp" class="form-text text-muted" :class="{'invalid-feedback': errors.phone}" v-text="errors.phone">Numărul de telefon.</small>
     </div>
     <div class="form-group">
         <label for="institutionFax">Fax</label>
-        <input type="text" class="form-control" id="institutionFax" aria-describedby="institutionFaxHelp" v-model="forms.institutionProfile.fax">
-        <small id="institutionFaxlHelp" class="form-text text-muted">Numărul de fax.</small>
+        <input type="text" class="form-control" :class="{'is-invalid': errors.fax}" id="institution_fax" aria-describedby="institutionFaxHelp" v-model="address.fax">
+        <small id="institutionFaxlHelp" class="form-text text-muted" :class="{'invalid-feedback': errors.fax}" v-text="errors.fax">Numărul de fax.</small>
     </div>
     <div class="form-group">
         <label for="institution_bank">Banca</label>
-        <input type="text" class="form-control" id="institution_bank" aria-describedby="institutionBankHelp" v-model="forms.institutionProfile.bank">
-        <small id="institutionBankHelp" class="form-text text-muted">Instituția bancară.</small>
+        <input type="text" class="form-control" :class="{'is-invalid': errors.bank}" id="institution_bank" aria-describedby="institutionBankHelp" v-model="address.bank">
+        <small id="institutionBankHelp" class="form-text text-muted" :class="{'invalid-feedback': errors.bank}" v-text="errors.bank">Instituția bancară.</small>
     </div>
     <div class="form-group">
         <label for="institution_iban">Contul IBAN</label>
-        <input type="text" class="form-control" id="institution_iban" aria-describedby="institutionIbanHelp" v-model="forms.institutionProfile.iban">
-        <small id="institutionIbanlHelp" class="form-text text-muted">Numărul contului de trezorerie sau bancar.</small>
+        <input type="text" class="form-control" :class="{'is-invalid': errors.iban}" id="institution_iban" aria-describedby="institutionIbanHelp" v-model="address.iban">
+        <small id="institutionIbanlHelp" class="form-text text-muted" :class="{'invalid-feedback': errors.iban}" v-text="errors.iban">Numărul contului de trezorerie sau bancar.</small>
     </div>
 </form>
