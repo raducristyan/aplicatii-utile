@@ -1,4 +1,7 @@
 [submodule "laradock-au"]
 	path = laradock-au
-	url = https://github.com/Laradock/laradock.git
+	url = https://github.com/raducristyan/laradock.git
 
+[submodule "laradock"]
+	path = laradock
+	url = https://github.com/Laradock/laradock.git
