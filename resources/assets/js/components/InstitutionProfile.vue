@@ -15,7 +15,7 @@ export default {
   ],
   data() {
     return {
-      address: {
+      profile: {
         email: this.email,
         name: this.name,
         bank: this.bank,
@@ -42,8 +42,6 @@ export default {
           this.errors = error.response.data.errors;
         });
     }
-  },
-
-  mounted() {}
+  }
 };
 </script>

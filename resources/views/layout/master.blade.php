@@ -3,8 +3,8 @@
 
 @include('partials.head')
 
-<body class="leading-normal">
-	<div id='app'>
+<body class="leading-normal bg-gray-200">
+	<div id="app" class="flex w-full">
 		<!-- ============================================================== -->
 		<!-- Preloader - style you can find in spinners.css -->
 		<!-- ============================================================== -->
@@ -21,17 +21,6 @@
 	</div>
 	@include('partials.scripts')
 
-	<script>
-		function fadeOutMsg() {
-			$('.app-msg').not('.alert-important').removeClass('fadeInDown').addClass('fadeOutUp');
-		};
-
-		$(function() {
-			window.setTimeout("fadeOutMsg()", 5000);
-		});
-
-		$('#flash-overlay-modal').modal();
-	</script>
 </body>
 
 </html>

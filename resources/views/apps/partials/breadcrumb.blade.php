@@ -1,17 +1,21 @@
 <!-- ============================================================== -->
 <!-- Bread crumb and right sidebar toggle -->
 <!-- ============================================================== -->
-<div class="row page-titles">
-    <div class="col-md-6 col-8 align-self-center">
-        <h3 class="text-themecolor m-b-0 m-t-0">Dashboard</h3>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Acasă</a></li>
-            <li class="breadcrumb-item active">Dashboard</li>
+<div class="py-3">
+    <div class="flex flex-col items-start">
+        <h3 class="text-indigo-600 font-normal text-xl">Dashboard</h3>
+        <ol class="flex items-center text-lg">
+            <li class="inline-block"><a href="javascript:void(0)">Acasă</a></li>
+            <li class="flex items-center">
+
+                <svg aria-hidden="true" focusable="false" class="inline-block w-3 h-3 text-gray-400 mx-1 text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                    <path d="M24.707 38.101L4.908 57.899c-4.686 4.686-4.686 12.284 0 16.971L185.607 256 4.908 437.13c-4.686 4.686-4.686 12.284 0 16.971L24.707 473.9c4.686 4.686 12.284 4.686 16.971 0l209.414-209.414c4.686-4.686 4.686-12.284 0-16.971L41.678 38.101c-4.687-4.687-12.285-4.687-16.971 0z"></path>
+                </svg>
+            </li>
+            <li class="inline-block">Dashboard</li>
         </ol>
     </div>
-    <div class="col-md-6 col-4 align-self-center">
-        <button class="right-side-toggle waves-effect waves-light btn-info btn-circle btn-sm pull-right m-l-10"><i class="fal fa-cog text-white"></i></button>
-    </div>
+
 </div>
 <!-- ============================================================== -->
 <!-- End Bread crumb and right sidebar toggle -->

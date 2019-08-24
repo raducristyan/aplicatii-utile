@@ -42,7 +42,7 @@ class Institution extends Model
     {
         return $this->hasMany(User::class)
             ->whereHas('roles', function ($q) {
-                $q->where('name', 'admin');
+                $q->where('name', '=', 'admin');
             });
     }
 

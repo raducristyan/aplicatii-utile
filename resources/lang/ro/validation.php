@@ -33,7 +33,7 @@ return [
     'date_format'          => 'Câmpul :attribute nu se potrivește cu formatul :format.',
     'different'            => 'Câmpurile :attribute și :other trebuie să fie diferite.',
     'digits'               => 'Câmpul :attribute trebuie să conțină :digits cifre.',
-    'digits_between'       => 'Câmpul :attribute trebuie să fie între :min și :max cifre.',
+    'digits_between'       => 'Câmpul :attribute trebuie să conțină între :min și :max cifre.',
     'email'                => 'Câmpul :attribute trebuie să fie o adresă de e-mail validă.',
     'exists'               => 'Câmpul :attribute selectat este invalid.',
     'filled'               => 'Câmpul :attribute este necesar.',

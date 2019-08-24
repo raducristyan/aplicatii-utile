@@ -1,8 +1,10 @@
 <!-- ============================================================== -->
 <!-- footer -->
 <!-- ============================================================== -->
-<footer class="footer">
-    © 2017 Radu Cristian BURDUHOS
+<footer class="flex justify-center w-full px-6 p-6 items-center bg-white">
+    <p class="text-normal">
+        © 2019 Radu Cristian BURDUHOS
+    </p>
 </footer>
 <!-- ============================================================== -->
 <!-- End footer -->

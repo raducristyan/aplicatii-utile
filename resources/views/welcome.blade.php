@@ -1,35 +1,42 @@
-@extends('guest.master')
+@extends('layout.master')
 
-@section('page-wrapper')
+@section('wrapper')
 
-<!-- ============================================================== -->
-<!-- Container fluid  -->
-<!-- ============================================================== -->
-<div class="container-fluid section-1">
-    <!-- ============================================================== -->
-    <!-- Start Page Content -->
-    <!-- ============================================================== -->
-    <div class="fix-width">
-        <div class="row justify-content-center banner-text">
-            <div class="col-md-7 m-b-20 left-side">
-                <p>
-                    <img class="hexagon-logo" src="./assets/images/icon/logo-hexagon.svg" alt="Aplicații utile">
-                </p>
-                <h1 class="app-text">Aplicatii utile</h1>
-                <p class="subtext">
-                    <span class="font-medium text-info">Împreună facem lucrurile mai simple!</span>
-                </p>
-                <div class="down-btn">
-                    <a href="{{ route('register') }}" class="btn btn-lg btn-primary m-b-10">ÎNREGISTRARE</a>
+<div class="mx-auto bg-img-dust">
+    <div class="container">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="flex">
+            <div class="py-24 md:py-32 px-6 mx-auto flex flex-wrap items-center">
+
+                <!--Left Col-->
+                <div class="flex flex-col w-full lg:w-1/2 justify-center lg:items-start overflow-y-hidden pb-8">
+                    <div class="mx-auto">
+
+                        <h1 class="my-4 text-3xl text-3xl md:text-5xl text-indigo-700 font-bold leading-tight text-center md:text-left slide-in-bottom-h1">Aplicații utile</h1>
+                    </div>
+                    <div class="mx-auto">
+
+                        <p class="leading-normal text-base text-gray-700 md:text-2xl mb-8 text-center md:text-left">Împreună facem lucrurile mai simple.</p>
+                    </div>
+
+
+                    <div class="flex mx-auto">
+                        <a href="{{ route('register') }}" class="border-2 bg-orange-400 border-orange-500  px-8 py-4 rounded-full text-indigo-700 font-bold text-2xl outline-none hover:text-gray-200 hover:bg-indigo-500 hover:border-indigo-700 hover:shadow-lg">Merită să încerci...</a>
+                    </div>
+
                 </div>
-            </div>
-            <div class="col-md-5 m-b-20 right-side">
-                <img class="hexagon-img" src="./assets/images/background/hexagon-bkg.svg" alt="">
+
+                <!--Right Col-->
+                <div class="w-full lg:w-1/2 py-6 overflow-y-hidden">
+                    <img class="mx-auto lg:mr-0 slide-in-bottom w-full" src="./assets/svg/devices.svg">
+                </div>
+
+
+
             </div>
         </div>
     </div>
-</div>
-<!-- ============================================================== -->
-<!-- End Container fluid  -->
-<!-- ============================================================== -->
+</div class="bg-img-dust">
 @endsection

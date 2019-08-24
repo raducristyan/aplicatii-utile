@@ -46,7 +46,7 @@
               <div class="form-group col-md-6">
                 <label class="col-sm-12">Localitatea componentă</label>
                 <div>
-                  <select class="form-control" name="village" v-model="forms.address.village_id">
+                  <select class="form-control" name="village" v-model="address.village_id">
                     <option
                       v-for="village in cityVillages"
                       :value="village.id"
@@ -60,37 +60,27 @@
             <div class="row">
               <div class="form-group col-md-6">
                 <label class="col-md-12">Strada</label>
-                <input
-                  type="text"
-                  name="street"
-                  class="form-control"
-                  v-model="forms.address.street"
-                />
+                <input type="text" name="street" class="form-control" v-model="address.street" />
               </div>
               <div class="form-group col-md-6">
                 <label class="col-md-12">Număr stradă</label>
-                <input
-                  type="text"
-                  name="number"
-                  class="form-control"
-                  v-model="forms.address.number"
-                />
+                <input type="text" name="number" class="form-control" v-model="address.number" />
               </div>
             </div>
             <div class="row">
               <div class="form-group col-md-6">
                 <label class="col-md-12">Bloc</label>
-                <input type="text" name="bl" class="form-control" v-model="forms.address.bl" />
+                <input type="text" name="bl" class="form-control" v-model="address.bl" />
               </div>
               <div class="form-group col-md-6">
                 <label class="col-md-12">Scară</label>
-                <input type="text" name="sc" class="form-control" v-model="forms.address.sc" />
+                <input type="text" name="sc" class="form-control" v-model="address.sc" />
               </div>
             </div>
             <div class="row">
               <div class="form-group col-md-6">
                 <label class="col-md-12 col-md-6">Apartament</label>
-                <input type="text" name="ap" class="form-control" v-model="forms.address.ap" />
+                <input type="text" name="ap" class="form-control" v-model="address.ap" />
               </div>
               <div class="form-group col-md-6">
                 <label class="col-md-12 col-md-6">Cod poștal</label>
@@ -98,7 +88,7 @@
                   type="text"
                   name="postal_code"
                   class="form-control"
-                  v-model="forms.address.postal_code"
+                  v-model="address.postal_code"
                 />
               </div>
             </div>
@@ -142,18 +132,15 @@ export default {
       countyCities: "",
       cityVillages: "",
 
-      forms: {
-        address: {
-          street: this.street,
-          number: this.number,
-          bl: this.bl,
-          sc: this.sc,
-          ap: this.ap,
-          postal_code: this.postal_code,
-          village_id: this.village,
-          owner: this.owner
-        },
-        url: this.url
+      address: {
+        street: this.street,
+        number: this.number,
+        bl: this.bl,
+        sc: this.sc,
+        ap: this.ap,
+        postal_code: this.postal_code,
+        village_id: this.village,
+        owner: this.owner
       },
       oldData: {}
     };
@@ -161,17 +148,17 @@ export default {
 
   computed: {
     canUpdate: function() {
-      return window.util.compareObj(this.oldData, this.forms.address);
+      return window.util.compareObj(this.oldData, this.address);
     }
   },
 
   methods: {
     getVillageId(id) {
-      this.forms.address.village_id = id;
+      this.address.village_id = id;
     },
     updateAddress() {
       axios
-        .put(this.forms.url, this.forms.address)
+        .put(this.url, this.address)
         .then(response => {
           window.location.href = "/dashboard";
         })
@@ -210,7 +197,7 @@ export default {
       this.getVillages();
     }
 
-    this.oldData = Object.assign({}, this.forms.address);
+    this.oldData = Object.assign({}, this.address);
   }
 };
 </script>

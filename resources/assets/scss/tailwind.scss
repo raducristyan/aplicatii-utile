@@ -1,0 +1,14 @@
+@tailwind base;
+
+@tailwind components;
+
+.bg-img-dust {
+  background-image: url('../assets/images/background/bg-dust.png');
+  background-repeat: repeat;
+}
+
+.indigo-purple {
+  background: linear-gradient(theme('colors.indigo.500'), theme('colors.purple.500'));
+}
+
+@tailwind utilities;

@@ -1,7 +1,7 @@
 <!-- first tab -->
 <div v-show="activeTab==='activity'" id="activity">
-    <div class="card-body">
-        <div class="profiletimeline">
+    <div class="flex">
+        <div class="">
 
         </div>
     </div>

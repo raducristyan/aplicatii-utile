@@ -1,5 +1,5 @@
 <institution-profile-view email="{{ $institution->email ?? ''}}" name="{{ $institution->name ?? ''}}" cif="{{ $institution->cif ?? ''}}" bank="{{ $institution->bank ?? ''}}" iban="{{ $institution->iban ?? ''}}" phone="{{ $institution->phone ?? ''}}" fax="{{ $institution->fax ?? ''}}" institution_id="{{ $institution->id ?? ''}}" url="{{ route('admin.institution.profile') }}" inline-template>
-    <div class="modal fade" id="editInstitutionProfile" tabindex="-1" role="dialog" aria-labelledby="institutionModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editInstitutionProfile" role="dialog" aria-labelledby="institutionModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">

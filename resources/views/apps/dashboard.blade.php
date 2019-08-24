@@ -1,11 +1,11 @@
 @extends('apps.layout')
-@section('page-wrapper')
+@section('content')
 
 @php
 #dd($institution->address);
 #dd(auth()->user()->institution);
 @endphp
-<div class="flex flex-wrap">
+<div class="flex flex-wrap w-full">
 	<!-- Column -->
 	<div class="w-full md:w-1/4">
 		<div class="bg-white px-4 py-8 md:mr-6 mb-6 md:mb-0 rounded-sm">
@@ -48,12 +48,12 @@
 					<small class="text-gray-600 text-sm">Adresa</small>
 					@forelse ( $institution->admin[0]->address as $address )
 					<h6 class="text-gray-700 font-normal">
-						@if ( $address->village->name ) {{ $address->village->name }}, @endif
-						@if ( $address->street ) {{ $address->street }}, @endif
-						@if ( $address->number ) {{ $address->number }}, @endif
-						@if ( $address->bl ) {{ $address->bl }}, @endif
-						@if ( $address->sc ) {{ $address->sc }}, @endif
-						@if ( $address->ap ) {{ $address->ap }}, @endif
+						@if ( $address->village->name ) {{ $address->village->name }} @endif
+						@if ( $address->street ) {{ $address->street }} @endif
+						@if ( $address->number ) {{ $address->number }} @endif
+						@if ( $address->bl ) {{ $address->bl }} @endif
+						@if ( $address->sc ) {{ $address->sc }} @endif
+						@if ( $address->ap ) {{ $address->ap }} @endif
 						@if ( $address->postal_code ) {{ $address->postal_code }} @endif
 					</h6>
 					@empty
@@ -70,14 +70,14 @@
 			<!-- Nav tabs -->
 			<div class="flex items-center border-b border-gray-300">
 
-				<a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-normal" :class="activeTab === 'activity' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('activity')" href="#activity">Activitate</a>
+				<a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-semibold" :class="activeTab === 'activity' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('activity')" href="#activity">Activitate</a>
 
-				<a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-normal" :class="activeTab === 'settings' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('settings')" href="#settings">Setări</a>
+				<a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-semibold" :class="activeTab === 'settings' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('settings')" href="#settings">Setări</a>
 				@admin
 
-				<a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-normal" :class="activeTab === 'institution' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('institution')" href="#institution">Instituție</a>
+				<a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-semibold" :class="activeTab === 'institution' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('institution')" href="#institution">Instituție</a>
 
-				<a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-normal" :class="activeTab === 'users' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('users')" href="#users">Utilizatori</a>
+				<a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-semibold" :class="activeTab === 'users' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('users')" href="#users">Utilizatori</a>
 				@endadmin
 			</div>
 			<!-- Tab panes -->

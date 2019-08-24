@@ -1,13 +1,13 @@
 @extends('apps.layout')
 
-@section('page-wrapper')
-        <div class="main-wrapper">
-            @include('apps.vehicles.partials.forms._formAddVehicleCertificate')
-        </div>
+@section('content')
+<div class="main-wrapper">
+    @include('apps.vehicles.partials.forms._formAddVehicleCertificate')
+</div>
 @endsection
 
 @section('scripts')
-    <script type="text/javascript">
+<script type="text/javascript">
 
-    </script>
+</script>
 @endsection
