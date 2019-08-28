@@ -35,8 +35,8 @@ Autentificare
     <div class="flex items-center my-6 text-gray-200">
         <div class="w-full flex items-center justify-between">
             <div class="flex items-center">
-                <label for="checkbox-signup" class="relative cursor-pointer">
-                    <input id="checkbox-signup" type="checkbox" class="absolute w-0 h-0 top-0 left-0 opacity-0">
+                <label for="checkbox-remembter" class="relative cursor-pointer">
+                    <input id="checkbox-remembter" type="checkbox" class="absolute w-0 h-0 top-0 left-0 opacity-0">
                     <span class="absolute top-0 mt-1 left-0 w-4 h-4 bg-gray-200 rounded-sm"></span>
                     <span class="ml-6">
                         Ține-mă autentificat

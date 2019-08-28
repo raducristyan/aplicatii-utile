@@ -1,4 +1,4 @@
-<nav id="header" class="fixed w-full z-10 top-0 shadow">
+<nav id="header" class="fixed w-full z-20 top-0 shadow">
 
     <div class="">
         <div class="bg-blue-900 w-full px-8 mx-auto flex flex-wrap items-center mt-0 py-2">

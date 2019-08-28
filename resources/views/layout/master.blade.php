@@ -3,7 +3,7 @@
 
 @include('partials.head')
 
-<body class="leading-normal bg-gray-200">
+<body class="leading-normal bg-gray-200 .tracking-normal">
 	<div id="app" class="flex w-full">
 		<!-- ============================================================== -->
 		<!-- Preloader - style you can find in spinners.css -->

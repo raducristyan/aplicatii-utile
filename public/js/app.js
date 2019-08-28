@@ -1939,6 +1939,9 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         _this.errors = error.response.data.errors;
       });
+    },
+    closeModal: function closeModal() {
+      this.$emit("close-modal", "edit-institution-profile-modal");
     }
   }
 });
@@ -15477,6 +15480,9 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     activeTab: '',
     userMenu: {
       isVisible: false
+    },
+    modal: {
+      opened: []
     }
   },
   components: {
@@ -15487,6 +15493,11 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   },
   mounted: function mounted() {
     this.getActiveTab();
+  },
+  computed: {
+    modalOpened: function modalOpened() {
+      return this.modal.opened.length;
+    }
   },
   methods: {
     logout: function logout() {
@@ -15503,6 +15514,27 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     },
     onClose: function onClose() {
       this.userMenu.isVisible = false;
+    },
+    modalIsOpen: function modalIsOpen(modal) {
+      return Boolean(this.modal.opened.filter(function (val, i, arr) {
+        return val == modal;
+      }).length);
+    },
+    openModal: function openModal(modal) {
+      this.modal.opened.push(modal);
+      this.addClass('body', 'overflow-y-hidden');
+    },
+    closeModal: function closeModal(modal) {
+      this.modal.opened = this.modal.opened.filter(function (val, i, arr) {
+        return val != modal;
+      });
+      this.removeClass('body', 'overflow-y-hidden');
+    },
+    addClass: function addClass(el, cls) {
+      document.querySelector(el).classList.add(cls);
+    },
+    removeClass: function removeClass(el, cls) {
+      document.querySelector(el).classList.remove(cls);
     }
   }
 });

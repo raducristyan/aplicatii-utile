@@ -81,7 +81,7 @@
 				@endadmin
 			</div>
 			<!-- Tab panes -->
-			<div>
+			<div class="">
 				@include('apps.partials.tabs.activity')
 				@include('apps.partials.tabs.settings')
 				@admin

@@ -1,21 +1,16 @@
-<institution-profile-view email="{{ $institution->email ?? ''}}" name="{{ $institution->name ?? ''}}" cif="{{ $institution->cif ?? ''}}" bank="{{ $institution->bank ?? ''}}" iban="{{ $institution->iban ?? ''}}" phone="{{ $institution->phone ?? ''}}" fax="{{ $institution->fax ?? ''}}" institution_id="{{ $institution->id ?? ''}}" url="{{ route('admin.institution.profile') }}" inline-template>
-    <div class="modal fade" id="editInstitutionProfile" role="dialog" aria-labelledby="institutionModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-dark" id="institutionModalLabel">Editare profil instituție</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    @include('apps.partials.forms.institutionProfile')
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" @click="updateProfile">Salvează</button>
-                    <button type="submit" class="btn btn-secondary" data-dismiss="modal">Renunță</button>
-                </div>
-            </div>
-        </div>
-    </div>
+<institution-profile-view email="{{ $institution->email ?? ''}}" name="{{ $institution->name ?? ''}}" cif="{{ $institution->cif ?? ''}}" bank="{{ $institution->bank ?? ''}}" iban="{{ $institution->iban ?? ''}}" phone="{{ $institution->phone ?? ''}}" fax="{{ $institution->fax ?? ''}}" institution_id="{{ $institution->id ?? ''}}" url="{{ route('admin.institution.profile') }}" v-show="modalIsOpen('edit-institution-profile-modal')" @close-modal="closeModal" inline-template>
+    @component('components.modal', ['modal_id' => 'editInstitutionProfile'])
+    @slot('title')
+    <p>Editare profil instituție</p>
+    @endslot
+
+    @include('apps.partials.forms.institutionProfile')
+
+    @slot('footer')
+    <button type="button" class="bg-green-100 text-green-500 font-medium border-b-2 border-green-500 px-3 py-2 hover:border-green-600 hover:bg-green-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md mr-4" @click="updateProfile">Salvează</button>
+    <button type="button" @click="closeModal" class="bg-red-100 text-red-500 font-medium border-b-2 border-red-500 px-3 py-2 hover:border-red-600 hover:bg-red-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md mr-0">
+        Renunță
+    </button>
+    @endslot
+    @endcomponent
 </institution-profile-view>

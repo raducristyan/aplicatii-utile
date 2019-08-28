@@ -60,7 +60,10 @@ const vm = new Vue({
         activeTab: '',
         userMenu: {
             isVisible: false,
-        }
+        },
+        modal: {
+            opened: []
+        },
     },
 
     components: {
@@ -72,6 +75,12 @@ const vm = new Vue({
 
     mounted() {
         this.getActiveTab();
+    },
+
+    computed: {
+        modalOpened: function() {
+            return this.modal.opened.length
+        }
     },
 
     methods: {
@@ -94,5 +103,32 @@ const vm = new Vue({
         onClose() {
             this.userMenu.isVisible = false;
         },
+
+        modalIsOpen(modal) {
+            return Boolean(this.modal.opened.filter((val, i, arr) => {
+                return val == modal
+            }).length)
+        },
+
+        openModal(modal) {
+            this.modal.opened.push(modal)
+            this.addClass('body', 'overflow-y-hidden')
+        },
+
+        closeModal(modal) {
+            this.modal.opened = this.modal.opened.filter((val, i, arr) => {
+                return val != modal
+            })
+            this.removeClass('body', 'overflow-y-hidden')
+        },
+
+        addClass(el, cls) {
+            document.querySelector(el).classList.add(cls)
+        },
+
+        removeClass(el, cls) {
+            document.querySelector(el).classList.remove(cls)
+        },
+
     }
 });

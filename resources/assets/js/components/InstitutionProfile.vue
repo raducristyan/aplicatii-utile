@@ -41,6 +41,9 @@ export default {
         .catch(error => {
           this.errors = error.response.data.errors;
         });
+    },
+    closeModal() {
+      this.$emit("close-modal", "edit-institution-profile-modal");
     }
   }
 };
