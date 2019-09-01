@@ -1,44 +1,44 @@
 <!-- forth tab -->
 @admin
 
-<div v-show="activeTab==='institution'" id="institution" class="flex flex-col lg:flex-row w-full px-4 pb-6">
-    <div class="w-full lg:w-1/2 md:mr-2">
-        <h3 class="py-3 border-b border-gray-300 text-gray-700 font-normal">Profil instituție</h3>
-        <div class="flex flex-wrap py-3">
-            <div class="w-full md:w-4/6">
+<div v-show="activeTab==='institution'" id="institution" class="flex flex-col lg:flex-row w-full my-2">
+    <div class="w-full lg:w-1/2 bg-white md:mr-2 px-4 my-2 rounded">
+        <h3 class="py-3 border-b border-gray-300 text-indigo-500 font-normal text-xl">Profil instituție</h3>
+        <div class="flex flex-col flex-grow py-3">
+            <div class="w-full flex-grow">
                 <div class="px-4">
-                    <div class="">
-                        <span class="font-light">Denumire:</span>
-                        <span class="text-gray-700 font-normal" name="institution" class="">{{ $institution->name ?? ''}}</span>
+                    <div class="my-2">
+                        <span class="text-gray-600 font-normal">Denumire:</span>
+                        <span class="text-gray-700 font-semibold" name="institution" class="">{{ $institution->name ?? ''}}</span>
                     </div>
-                    <div class="">
-                        <span class="font-light">CIF:</span>
-                        <span class="text-gray-700 font-normal" name="cif">{{ $institution->cif ?? ''}}</span>
+                    <div class="my-2">
+                        <span class="text-gray-600 font-normal">CIF:</span>
+                        <span class="text-gray-700 font-semibold" name="cif">{{ $institution->cif ?? ''}}</span>
                     </div>
-                    <div class="">
-                        <span class="font-light">Email:</span>
-                        <span class="text-gray-700 font-normal" name="institution-email">{{ $institution->email ?? ''}}</span>
+                    <div class="my-2">
+                        <span class="text-gray-600 font-normal">Email:</span>
+                        <span class="text-gray-700 font-semibold" name="institution-email">{{ $institution->email ?? ''}}</span>
                     </div>
-                    <div class="">
-                        <span class="font-light">Telefon:</span>
-                        <span class="text-gray-700 font-normal" name="phone">{{ $institution->phone ?? '' }}</span>
+                    <div class="my-2">
+                        <span class="text-gray-600 font-normal">Telefon:</span>
+                        <span class="text-gray-700 font-semibold" name="phone">{{ $institution->phone ?? '' }}</span>
                     </div>
-                    <div class="">
-                        <span class="font-light">Fax:</span>
-                        <span class="text-gray-700 font-normal" name="fax">{{ $institution->fax ?? '' }}</span>
+                    <div class="my-2">
+                        <span class="text-gray-600 font-normal">Fax:</span>
+                        <span class="text-gray-700 font-semibold" name="fax">{{ $institution->fax ?? '' }}</span>
                     </div>
-                    <div class="">
-                        <span class="font-light">Banca:</span>
-                        <span class="text-gray-700 font-normal" name="bank">{{ $institution->bank ?? '' }}</span>
+                    <div class="my-2">
+                        <span class="text-gray-600 font-normal">Banca:</span>
+                        <span class="text-gray-700 font-semibold" name="bank">{{ $institution->bank ?? '' }}</span>
                     </div>
-                    <div class="">
-                        <span class="font-light">IBAN:</span>
-                        <span class="text-gray-700 font-normal" name="iban">{{ $institution->iban ?? '' }}</span>
+                    <div class="my-2">
+                        <span class="text-gray-600 font-normal">IBAN:</span>
+                        <span class="text-gray-700 font-semibold" name="iban">{{ $institution->iban ?? '' }}</span>
                     </div>
                 </div>
             </div>
-            <div class="w-full flex-grow md:w-2/6">
-                <div class="flex justify-center md:justify-end py-3 md:py-0 text-sm">
+            <div class="w-full flex-grow-0">
+                <div class="flex justify-center py-3 text-sm">
                     <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md" @click="openModal('edit-institution-profile-modal')">
                         <span>
                             Editează
@@ -50,58 +50,58 @@
                 </div>
             </div>
         </div>
-        </div>
-        <div class="w-full lg:w-1/2 md:ml-2">
-        <h3 class="py-3 border-b border-gray-400 text-gray-700 font-normal">Adresă instituție</h3>
-        <div class="flex flex-wrap py-3">
-            <div class="w-full md:w-4/6">
+    </div>
+    <div class="flex flex-col w-full lg:w-1/2 bg-white lg:ml-2 px-4 my-2 rounded">
+        <h3 class="py-3 border-b border-gray-300 text-indigo-500 font-normal text-xl">Adresă instituție</h3>
+        <div class="flex flex-col flex-grow py-3">
+            <div class="w-full flex-grow">
                 <div class="px-4">
-                    <div class="">
-                        <span class="">Județul:</span>
-                        <span class="text-gray-700 font-normal" name="county">
+                    <div class="my-2">
+                        <span class="text-gray-600 font-normal">Județul:</span>
+                        <span class="text-gray-700 font-semibold" name="county">
                             @if ( $institution->address !== null )
                             {{ $institution->address[0]->village->city->county->name ?? ''}}
                             @endif </span>
                     </div>
-                    <div class="">
-                        <span class="">Localitatea:</span>
-                        <span class="text-gray-700 font-normal" name="city">
+                    <div class="my-2">
+                        <span class="text-gray-600 font-normal">Localitatea:</span>
+                        <span class="text-gray-700 font-semibold" name="city">
                             @if ( $institution->address !== null )
                             {{ $institution->address[0]->village->city->name ?? ''}}
                             @endif
                         </span>
                     </div>
-                    <div class="">
-                        <span class="">Localitatea componentă:</span>
-                        <span class="text-gray-700 font-normal" name="village">
+                    <div class="my-2">
+                        <span class="text-gray-600 font-normal">Localitatea componentă:</span>
+                        <span class="text-gray-700 font-semibold" name="village">
                             @if ( $institution->address !== null )
                             {{ $institution->address[0]->village->name ?? ''}}
                             @endif
                         </span>
                     </div>
-                    <div class="">
-                        <span class="">Strada:</span>
+                    <div class="my-2">
+                        <span class="text-gray-600 font-normal">Strada:</span>
                         @if ( $institution->address !== null )
-                        <span class="text-gray-700 font-normal" name="street">{{ $institution->address[0]->street ?? ''}}</span>
+                        <span class="text-gray-700 font-semibold" name="street">{{ $institution->address[0]->street ?? ''}}</span>
                         @endif
                     </div>
-                    <div class="">
-                        <span class="">Număr stradă:</span>
+                    <div class="my-2">
+                        <span class="text-gray-600 font-normal">Număr stradă:</span>
                         @if ( $institution->address !== null )
-                        <span class="text-gray-700 font-normal" name="number">{{ $institution->address[0]->number ?? ''}}</span>
+                        <span class="text-gray-700 font-semibold" name="number">{{ $institution->address[0]->number ?? ''}}</span>
                         @endif
                     </div>
-                    <div class="">
-                        <span class="">Cod poștal:</span>
+                    <div class="my-2">
+                        <span class="text-gray-600 font-normal">Cod poștal:</span>
                         @if ( $institution->address !== null )
-                        <span class="text-gray-700 font-normal" name="postal_code">{{ $institution->address[0]->postal_code ?? ''}}</span>
+                        <span class="text-gray-700 font-semibold" name="postal_code">{{ $institution->address[0]->postal_code ?? ''}}</span>
                         @endif
                     </div>
                 </div>
             </div>
-            <div class="w-full flex-grow md:w-2/6">
-                <div class="flex justify-center md:justify-end py-3 md:py-0 text-sm">
-                    <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md" @click="openModal('edit-institution-profile-modal')">
+            <div class="w-full flex-grow-0">
+                <div class="flex justify-center py-3 text-sm">
+                    <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md" @click="openModal('edit-institution-address-modal')">
                         <span>
                             Editează
                         </span>

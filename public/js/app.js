@@ -1722,118 +1722,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Address",
-  props: ["counties", "county", "city", "village", "street", "number", "bl", "sc", "ap", "postal_code", "url", "owner", "modalId"],
+  props: ["counties", "county", "city", "village", "street", "number", "bl", "sc", "ap", "postal_code", "url", "owner", "modalId", "modalIsOpen"],
   data: function data() {
     return {
+      selectedCounty: "",
+      selectedCity: "",
+      selectedVillage: "",
       countyCities: "",
       cityVillages: "",
       address: {
@@ -1846,7 +1742,8 @@ __webpack_require__.r(__webpack_exports__);
         village_id: this.village,
         owner: this.owner
       },
-      oldData: {}
+      oldData: {},
+      errors: {}
     };
   },
   computed: {
@@ -1869,7 +1766,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.post("/apps/county/cities", {
-        county_id: this.county
+        county_id: this.selectedCounty
       }).then(function (data) {
         _this.countyCities = data.data;
       })["catch"](function (error) {});
@@ -1878,23 +1775,31 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios.post("/apps/city/villages", {
-        city_id: this.city
+        city_id: this.selectedCity
       }).then(function (data) {
         _this2.cityVillages = data.data;
       })["catch"](function (error) {
         console.log(error);
       });
+    },
+    closeModal: function closeModal(modal) {
+      this.$emit("close-modal", modal);
     }
   },
   mounted: function mounted() {
-    if (this.county) {
+    this.selectedCounty = this.county;
+
+    if (this.selectedCounty) {
       this.getCities();
     }
 
-    if (this.city) {
+    this.selectedCity = this.city;
+
+    if (this.selectedCity) {
       this.getVillages();
     }
 
+    this.selectedVillage = this.village;
     this.oldData = Object.assign({}, this.address);
   }
 });
@@ -1913,7 +1818,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "InstitutionProfile",
-  props: ["email", "name", "bank", "iban", "phone", "fax", "cif", "institution_id", "url"],
+  props: ["email", "name", "bank", "iban", "phone", "fax", "cif", "institution_id", "url", "modalIsOpen"],
   data: function data() {
     return {
       profile: {
@@ -1934,14 +1839,14 @@ __webpack_require__.r(__webpack_exports__);
     updateProfile: function updateProfile() {
       var _this = this;
 
-      axios.put(this.url, this.address).then(function (response) {
+      axios.put(this.url, this.profile).then(function (response) {
         window.location.href = "/dashboard";
       })["catch"](function (error) {
         _this.errors = error.response.data.errors;
       });
     },
-    closeModal: function closeModal() {
-      this.$emit("close-modal", "edit-institution-profile-modal");
+    closeModal: function closeModal(modal) {
+      this.$emit("close-modal", modal);
     }
   }
 });
@@ -2025,7 +1930,7 @@ __webpack_require__.r(__webpack_exports__);
     updateProfile: function updateProfile() {
       var _this = this;
 
-      axios.put(this.url, this.address).then(function (response) {
+      axios.put(this.url, this.profile).then(function (response) {
         window.location.href = "/dashboard";
       })["catch"](function (error) {
         _this.errors = error.response.data.errors;
@@ -2519,434 +2424,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "modal fade",
-      attrs: {
-        id: _vm.modalId,
-        tabindex: "-1",
-        role: "dialog",
-        "aria-labelledby": "exampleModalLabel",
-        "aria-hidden": "true"
-      }
-    },
-    [
-      _c(
-        "div",
-        { staticClass: "modal-dialog modal-lg", attrs: { role: "document" } },
-        [
-          _c("div", { staticClass: "modal-content" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-body" }, [
-              _c("form", [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Județul")]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.county,
-                            expression: "county"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { name: "county" },
-                        on: {
-                          change: [
-                            function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.county = $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            },
-                            _vm.getCities
-                          ]
-                        }
-                      },
-                      [
-                        _c("option", { attrs: { disabled: "", value: "" } }, [
-                          _vm._v("Selectați județul")
-                        ]),
-                        _vm._v(" "),
-                        _vm._l(_vm.counties, function(county) {
-                          return _c(
-                            "option",
-                            {
-                              domProps: {
-                                value: county.id,
-                                selected: county.id == county
-                              }
-                            },
-                            [_vm._v(_vm._s(county.name))]
-                          )
-                        })
-                      ],
-                      2
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "form-group col-md-6" }, [
-                    _c("label", { staticClass: "col-sm-12" }, [
-                      _vm._v("Localitatea (UAT)")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _c(
-                        "select",
-                        {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.city,
-                              expression: "city"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { name: "city" },
-                          on: {
-                            change: [
-                              function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.city = $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              },
-                              _vm.getVillages
-                            ]
-                          }
-                        },
-                        _vm._l(_vm.countyCities, function(city) {
-                          return _c(
-                            "option",
-                            {
-                              domProps: {
-                                value: city.id,
-                                selected: city.id == city
-                              }
-                            },
-                            [_vm._v(_vm._s(city.name))]
-                          )
-                        }),
-                        0
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group col-md-6" }, [
-                    _c("label", { staticClass: "col-sm-12" }, [
-                      _vm._v("Localitatea componentă")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _c(
-                        "select",
-                        {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.address.village_id,
-                              expression: "address.village_id"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { name: "village" },
-                          on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.$set(
-                                _vm.address,
-                                "village_id",
-                                $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              )
-                            }
-                          }
-                        },
-                        _vm._l(_vm.cityVillages, function(village) {
-                          return _c(
-                            "option",
-                            {
-                              domProps: {
-                                value: village.id,
-                                selected: village.id == village
-                              }
-                            },
-                            [_vm._v(_vm._s(village.name))]
-                          )
-                        }),
-                        0
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "form-group col-md-6" }, [
-                    _c("label", { staticClass: "col-md-12" }, [
-                      _vm._v("Strada")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.address.street,
-                          expression: "address.street"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text", name: "street" },
-                      domProps: { value: _vm.address.street },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.address, "street", $event.target.value)
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group col-md-6" }, [
-                    _c("label", { staticClass: "col-md-12" }, [
-                      _vm._v("Număr stradă")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.address.number,
-                          expression: "address.number"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text", name: "number" },
-                      domProps: { value: _vm.address.number },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.address, "number", $event.target.value)
-                        }
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "form-group col-md-6" }, [
-                    _c("label", { staticClass: "col-md-12" }, [_vm._v("Bloc")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.address.bl,
-                          expression: "address.bl"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text", name: "bl" },
-                      domProps: { value: _vm.address.bl },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.address, "bl", $event.target.value)
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group col-md-6" }, [
-                    _c("label", { staticClass: "col-md-12" }, [
-                      _vm._v("Scară")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.address.sc,
-                          expression: "address.sc"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text", name: "sc" },
-                      domProps: { value: _vm.address.sc },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.address, "sc", $event.target.value)
-                        }
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "form-group col-md-6" }, [
-                    _c("label", { staticClass: "col-md-12 col-md-6" }, [
-                      _vm._v("Apartament")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.address.ap,
-                          expression: "address.ap"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text", name: "ap" },
-                      domProps: { value: _vm.address.ap },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.address, "ap", $event.target.value)
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group col-md-6" }, [
-                    _c("label", { staticClass: "col-md-12 col-md-6" }, [
-                      _vm._v("Cod poștal")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.address.postal_code,
-                          expression: "address.postal_code"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text", name: "postal_code" },
-                      domProps: { value: _vm.address.postal_code },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.address,
-                            "postal_code",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    })
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-footer" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-success",
-                  attrs: { type: "submit", disabled: _vm.canUpdate },
-                  on: { click: _vm.updateAddress }
-                },
-                [_vm._v("Salvează")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-secondary",
-                  attrs: { type: "submit", "data-dismiss": "modal" }
-                },
-                [_vm._v("Renunță")]
-              )
-            ])
-          ])
-        ]
-      )
-    ]
-  )
+  return _c("div")
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        {
-          staticClass: "modal-title text-dark",
-          attrs: { id: "exampleModalLabel" }
-        },
-        [_vm._v("Editează adresa")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -15128,6 +14608,18 @@ module.exports = g;
 
 /***/ }),
 
+/***/ "./resources/assets/js/bootstrap.js":
+/*!******************************************!*\
+  !*** ./resources/assets/js/bootstrap.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+/***/ }),
+
 /***/ "./resources/assets/js/components/Address.vue":
 /*!****************************************************!*\
   !*** ./resources/assets/js/components/Address.vue ***!
@@ -15421,6 +14913,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_UserProfile_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/UserProfile.vue */ "./resources/assets/js/components/UserProfile.vue");
 /* harmony import */ var _components_UserPassword_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/UserPassword.vue */ "./resources/assets/js/components/UserPassword.vue");
 /* harmony import */ var _components_InstitutionProfile_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/InstitutionProfile.vue */ "./resources/assets/js/components/InstitutionProfile.vue");
+__webpack_require__(/*! ./bootstrap */ "./resources/assets/js/bootstrap.js");
+
 
 
 window.util = __webpack_require__(/*! ./util */ "./resources/assets/js/util.js");
@@ -15483,7 +14977,8 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     },
     modal: {
       opened: []
-    }
+    },
+    navBarToggle: false
   },
   components: {
     'address-view': _components_Address_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -15521,8 +15016,10 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       }).length);
     },
     openModal: function openModal(modal) {
-      this.modal.opened.push(modal);
-      this.addClass('body', 'overflow-y-hidden');
+      if (!this.modalIsOpen(modal)) {
+        this.modal.opened.push(modal);
+        this.addClass('body', 'overflow-y-hidden');
+      }
     },
     closeModal: function closeModal(modal) {
       this.modal.opened = this.modal.opened.filter(function (val, i, arr) {

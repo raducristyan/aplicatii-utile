@@ -9,19 +9,19 @@
     </div>
     <div class="form-group">
         <label class="">Parola veche</label>
-        <input type="password" name="old_password" placeholder="*******" class="form-control" :class="{'is-invalid': errors.old_password}" v-model="userPassword.old_password">
+        <input type="password" name="old_password" placeholder="*******" class="form-control" :class="{'border-orange-500': errors.old_password}" v-model="userPassword.old_password">
         <small id="userPasswordHelp" class="form-text text-warning" v-if="errors.old_password">@{{ errors.old_password }}</small>
         <small id="userPasswordHelp" class="form-text text-muted" v-else>Introduceți parola actuală a contului dumneavoastră</small>
     </div>
     <div class="form-group">
         <label class="">Parola nouă</label>
-        <input type="password" name="new_password" placeholder="*******" class="form-control" :class="{'is-invalid': errors.new_password}" v-model="userPassword.new_password">
+        <input type="password" name="new_password" placeholder="*******" class="form-control" :class="{'border-orange-500': errors.new_password}" v-model="userPassword.new_password">
         <small id="userPasswordHelp" class="form-text text-warning" v-if="errors.new_password">@{{errors.new_password}}</small>
         <small id="userPasswordHelp" class="form-text text-muted" v-else>Noua parolă trebuie să fie diferită de vechea parolă și conțină minimum 6 caractere.</small>
     </div>
     <div class="form-group">
         <label class="">Confirmare parolă</label>
-        <input type="password" name="new_password_confirmation" placeholder="*******" class="form-control" :class="{'is-invalid': errors.new_password}" v-model="userPassword.new_password_confirmation">
+        <input type="password" name="new_password_confirmation" placeholder="*******" class="form-control" :class="{'border-orange-500': errors.new_password}" v-model="userPassword.new_password_confirmation">
         <small id="userConfirmPasswordHelp" class="form-text text-warning" v-if="errors.new_password">@{{errors.new_password}}</small>
         <small id="userConfirmPasswordHelp" class="form-text text-muted" v-else>Confirmați noua parolă.</small>
     </div>

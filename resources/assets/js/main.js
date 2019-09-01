@@ -1,3 +1,4 @@
+require('./bootstrap');
 import Vue from 'vue';
 import Axios from 'axios';
 window.util = require('./util');
@@ -64,6 +65,7 @@ const vm = new Vue({
         modal: {
             opened: []
         },
+        navBarToggle: false,
     },
 
     components: {
@@ -111,8 +113,10 @@ const vm = new Vue({
         },
 
         openModal(modal) {
-            this.modal.opened.push(modal)
-            this.addClass('body', 'overflow-y-hidden')
+            if (!this.modalIsOpen(modal)) {
+                this.modal.opened.push(modal)
+                this.addClass('body', 'overflow-y-hidden')
+            }
         },
 
         closeModal(modal) {

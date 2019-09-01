@@ -9,26 +9,24 @@
 	<!-- Column -->
 	<div class="w-full md:w-1/4">
 		<div class="bg-white px-4 py-8 md:mr-6 mb-6 md:mb-0 rounded-sm">
-			<div class="border-b border-gray-300">
-				<center>
-					<img src="../assets/images/users/user-male.png" class="w-40 rounded-full shadow" />
-					<h4 class="py-2 text-gray-700"><strong>{{ $institution->admin[0]->full_name }}</strong></h4>
-					<h6 class="text-gray-600">{{ $institution->admin[0]->job ?? 'Nu ați completat funcția în cadrul organizației' }}</h6>
+			<div class="flex flex-col border-b border-gray-300">
+					<img src="../assets/images/users/user-male.png" class="w-40 mx-auto rounded-full shadow" />
+					<h4 class="py-2 text-gray-700 mx-auto"><strong>{{ $institution->admin[0]->full_name }}</strong></h4>
+					<h6 class="text-gray-600 text-center">{{ $institution->admin[0]->job ?? 'Nu ați completat funcția în cadrul organizației' }}</h6>
 					<div class="flex py-4">
-						<div class="w-1/2">
+						<div class="w-1/2 flex justify-center">
 							<a href="javascript:void(0)" class="">
 								<i class="fal fa-user-friends"></i>
 								<font>254</font>
 							</a>
 						</div>
-						<div class="w-1/2">
+						<div class="w-1/2 flex justify-center">
 							<a href="javascript:void(0)" class="">
 								<i class="fal fa-user-cog"></i>
 								<font>54</font>
 							</a>
 						</div>
 					</div>
-				</center>
 			</div>
 
 			<div class="pt-2">
@@ -66,9 +64,9 @@
 	<!-- Column -->
 	<!-- Column -->
 	<div class="w-full md:w-3/4">
-		<div class="bg-white rounded">
+		<div class="rounded">
 			<!-- Nav tabs -->
-			<div class="flex items-center border-b border-gray-300">
+			<div class="flex items-center bg-white border-b border-gray-300">
 
 				<a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-semibold" :class="activeTab === 'activity' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('activity')" href="#activity">Activitate</a>
 
