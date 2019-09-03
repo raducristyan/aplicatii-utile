@@ -1,4 +1,4 @@
-<div v-show="activeTab === 'users'" class="px-4 pb-6" id="users">
+<div v-show="activeTab === 'users'" class="px-4 my-4 bg-white" id="users">
     <div class="flex justify-center py-3">
         <button class="flex items-center bg-indigo-500 text-gray-200 text-semibold px-4 py-2 hover:bg-indigo-600 focus:underline-none focus:shadow-outline border-indigo-700 border-b-4 rounded-sm shadow">
             <span>Adaugă utilizator</span>

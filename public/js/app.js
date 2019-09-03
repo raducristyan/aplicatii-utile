@@ -1799,7 +1799,7 @@ __webpack_require__.r(__webpack_exports__);
       this.getVillages();
     }
 
-    this.selectedVillage = this.village;
+    this.address.village_id = this.village;
     this.oldData = Object.assign({}, this.address);
   }
 });
@@ -1865,20 +1865,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UserPassword",
-  props: ["user_email", "old_password", "new_password", "new_password_confirmation"],
+  props: ["user_email", "modalIsOpen"],
   data: function data() {
     return {
       userPassword: {
         user_email: this.user_email,
-        old_password: this.old_password,
-        new_password: this.new_password,
-        new_password_confirmation: this.new_password_confirmation
+        old_password: '',
+        new_password: '',
+        new_password_confirmation: ''
       },
       errors: {}
     };
   },
   methods: {
-    changePassword: function changePassword() {
+    updatePassword: function updatePassword() {
       var _this = this;
 
       axios.post("/user/password/change", this.userPassword).then(function (response) {
@@ -1890,6 +1890,9 @@ __webpack_require__.r(__webpack_exports__);
           _this.errors = error.response.data.errors;
         }
       });
+    },
+    closeModal: function closeModal(modal) {
+      this.$emit("close-modal", modal);
     },
     formReset: function formReset() {
       this.userPassword.old_password = "", this.userPassword.new_password = "", this.userPassword.new_password_confirmation = "";
@@ -1911,7 +1914,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UserProfile",
-  props: ["email", "first_name", "last_name", "job", "mobile", "phone", "user_id", "url"],
+  props: ["email", "first_name", "last_name", "job", "mobile", "phone", "user_id", "url", "modalIsOpen"],
   data: function data() {
     return {
       profile: {
@@ -1935,6 +1938,9 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         _this.errors = error.response.data.errors;
       });
+    },
+    closeModal: function closeModal(modal) {
+      this.$emit("close-modal", modal);
     }
   }
 });

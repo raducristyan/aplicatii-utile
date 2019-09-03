@@ -13,7 +13,6 @@
             "institution_id",
             "url",
             "modalIsOpen"
-
         ],
         data() {
             return {

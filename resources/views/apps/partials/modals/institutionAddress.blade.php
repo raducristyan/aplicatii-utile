@@ -13,5 +13,4 @@
     </button>
     @endslot
     @endcomponent
-
 </address-view>

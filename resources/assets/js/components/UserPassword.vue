@@ -4,23 +4,21 @@ export default {
   name: "UserPassword",
   props: [
     "user_email",
-    "old_password",
-    "new_password",
-    "new_password_confirmation"
+    "modalIsOpen"
   ],
   data() {
     return {
       userPassword: {
         user_email: this.user_email,
-        old_password: this.old_password,
-        new_password: this.new_password,
-        new_password_confirmation: this.new_password_confirmation
+        old_password: '',
+        new_password: '',
+        new_password_confirmation: ''
       },
       errors: {}
     };
   },
   methods: {
-    changePassword() {
+    updatePassword() {
       axios
         .post("/user/password/change", this.userPassword)
         .then(response => {
@@ -32,6 +30,10 @@ export default {
             this.errors = error.response.data.errors;
           }
         });
+    },
+
+    closeModal(modal) {
+      this.$emit("close-modal", modal);
     },
 
     formReset() {

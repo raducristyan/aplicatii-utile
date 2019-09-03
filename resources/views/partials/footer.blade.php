@@ -1,7 +1,7 @@
 <!-- ============================================================== -->
 <!-- footer -->
 <!-- ============================================================== -->
-<footer class="flex justify-center w-full px-6 p-6 items-center bg-white">
+<footer class="flex justify-center w-full mt-6 p-6 items-center bg-white fixed bottom-0 shadow">
     <p class="text-normal">
         © 2019 Radu Cristian BURDUHOS
     </p>

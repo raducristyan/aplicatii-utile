@@ -11,6 +11,7 @@
             "phone",
             "user_id",
             "url",
+            "modalIsOpen"
         ],
 
         data() {
@@ -38,7 +39,11 @@
                     .catch(error => {
                         this.errors = error.response.data.errors;
                     });
+            },
+            closeModal(modal) {
+                this.$emit("close-modal", modal);
             }
+
         }
     }; 
 </script>

@@ -14,7 +14,7 @@
                 </svg>
             </div>
         </div>
-        <small id="countylHelp" class="w-full font-normal text-sm text-orange-500" v-text="errors.county"></small>
+        <small class="w-full font-normal text-sm text-orange-500" v-text="errors.county"></small>
     </div>
     <div class="flex flex-col w-full mt-2">
         <label class="block font-semibold text-gray-700" for="county">Localitatea (UAT)</label>
@@ -30,7 +30,7 @@
                 </svg>
             </div>
         </div>
-        <small id="countylHelp" class="w-full font-normal text-sm text-orange-500" v-text="errors.county"></small>
+        <small class="w-full font-normal text-sm text-orange-500" v-text="errors.county"></small>
     </div>
     <div class="flex flex-col w-full mt-2">
         <label class="block font-semibold text-gray-700" for="county">Localitatea componentă</label>
@@ -46,85 +46,43 @@
                 </svg>
             </div>
         </div>
-        <small id="countylHelp" class="w-full font-normal text-sm text-orange-500" v-text="errors.county"></small>
+        <small class="w-full font-normal text-sm text-orange-500" v-text="errors.county"></small>
     </div>
-</form>
-
-{{-- <div class="modal fade" :id="modalId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-dark" id="exampleModalLabel">Editează adresa</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label>Județul</label>
-                        <div>
-                            <select class="form-control" name="county" v-model="county" @change="getCities">
-                                <option disabled value>Selectați județul</option>
-                                <option v-for="county in counties" :value="county.id" :selected="county.id == county">@{{ county.name }}</option>
-</select>
-</div>
-</div>
-<div class="row">
-    <div class="form-group col-md-6">
-        <label class="col-sm-12">Localitatea (UAT)</label>
-        <div>
-            <select class="form-control" name="city" v-model="city" @change="getVillages">
-                <option v-for="city in countyCities" :value="city.id" :selected="city.id == city">@{{ city.name }}</option>
-            </select>
+    <div class="flex flex-row">
+        <div class="flex flex-col w-3/4 mt-2 mr-1">
+            <label class="block font-semibold text-gray-700" for="street">Strada</label>
+            <input type="text" name="street" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" :class="{'border-orange-500': errors.street}" v-model="address.street">
+            <small class="w-full font-normal text-sm text-orange-500" v-text="errors.street"></small>
+        </div>
+        <div class="flex flex-col w-1/4 mt-2 ml-1">
+            <label class="block font-semibold text-gray-700" for="number">Număr</label>
+            <input type="text" name="number" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" :class="{'border-orange-500': errors.number}" v-model="address.number">
+            <small class="w-full font-normal text-sm text-orange-500" v-text="errors.number"></small>
         </div>
     </div>
-    <div class="form-group col-md-6">
-        <label class="col-sm-12">Localitatea componentă</label>
-        <div>
-            <select class="form-control" name="village" v-model="address.village_id">
-                <option v-for="village in cityVillages" :value="village.id" :selected="village.id == village">@{{ village.name }}</option>
-            </select>
+    <div class="flex flex-row">
+        <div class="flex flex-col w-1/2 mt-2 mr-1">
+            <label class="block font-semibold text-gray-700" for="bl">Bloc</label>
+            <input type="text" name="bl" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" :class="{'border-orange-500': errors.bl}" v-model="address.bl">
+            <small class="w-full font-normal text-sm text-orange-500" v-text="errors.bl"></small>
+        </div>
+        <div class="flex flex-col w-1/2 mt-2 ml-1">
+            <label class="block font-semibold text-gray-700" for="sc">Scară</label>
+            <input type="text" name="sc" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" :class="{'border-orange-500': errors.sc}" v-model="address.sc">
+            <small class="w-full font-normal text-sm text-orange-500" v-text="errors.sc"></small>
         </div>
     </div>
-</div>
+    <div class="flex flex-row">
+        <div class="flex flex-col w-1/2 mt-2 mr-1">
+            <label class="block font-semibold text-gray-700" for="ap">Apartament</label>
+            <input type="text" name="ap" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" :class="{'border-orange-500': errors.ap}" v-model="address.ap">
+            <small class="w-full font-normal text-sm text-orange-500" v-text="errors.ap"></small>
+        </div>
+        <div class="flex flex-col w-1/2 mt-2 ml-1">
+            <label class="block font-semibold text-gray-700" for="postal_code">Cod poștal</label>
+            <input type="text" name="postal_code" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" :class="{'border-orange-500': errors.postal_code}" v-model="address.postal_code">
+            <small class="w-full font-normal text-sm text-orange-500" v-text="errors.postal_code"></small>
+        </div>
+    </div>
 
-<div class="row">
-    <div class="form-group col-md-6">
-        <label class="col-md-12">Strada</label>
-        <input type="text" name="street" class="form-control" v-model="address.street" />
-    </div>
-    <div class="form-group col-md-6">
-        <label class="col-md-12">Număr stradă</label>
-        <input type="text" name="number" class="form-control" v-model="address.number" />
-    </div>
-</div>
-<div class="row">
-    <div class="form-group col-md-6">
-        <label class="col-md-12">Bloc</label>
-        <input type="text" name="bl" class="form-control" v-model="address.bl" />
-    </div>
-    <div class="form-group col-md-6">
-        <label class="col-md-12">Scară</label>
-        <input type="text" name="sc" class="form-control" v-model="address.sc" />
-    </div>
-</div>
-<div class="row">
-    <div class="form-group col-md-6">
-        <label class="col-md-12 col-md-6">Apartament</label>
-        <input type="text" name="ap" class="form-control" v-model="address.ap" />
-    </div>
-    <div class="form-group col-md-6">
-        <label class="col-md-12 col-md-6">Cod poștal</label>
-        <input type="text" name="postal_code" class="form-control" v-model="address.postal_code" />
-    </div>
-</div>
 </form>
-</div>
-<div class="modal-footer">
-    <button type="submit" class="btn btn-success" @click="updateAddress" :disabled="canUpdate">Salvează</button>
-    <button type="submit" class="btn btn-secondary" data-dismiss="modal">Renunță</button>
-</div>
-</div>
-</div>
-</div> --}}
