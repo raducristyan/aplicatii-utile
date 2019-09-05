@@ -96,6 +96,7 @@
 @include('apps.partials.modals.userProfile')
 @include('apps.partials.modals.userAddress')
 @admin
+@include('apps.partials.modals.newUser')
 @include('apps.partials.modals.institutionProfile')
 @include('apps.partials.modals.institutionAddress')
 @endadmin

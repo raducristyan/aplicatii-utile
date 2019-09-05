@@ -4,6 +4,7 @@ import Axios from 'axios';
 window.util = require('./util');
 
 import Address from './components/Address.vue';
+import newUser from './components/newUser.vue';
 import UserProfile from './components/UserProfile.vue';
 import UserPassword from './components/UserPassword.vue';
 import InstitutionProfile from './components/InstitutionProfile.vue';
@@ -70,6 +71,7 @@ const vm = new Vue({
 
     components: {
         'address-view': Address,
+        'new-user-view': newUser,
         'user-profile-view': UserProfile,
         'user-password-view': UserPassword,
         'institution-profile-view': InstitutionProfile
