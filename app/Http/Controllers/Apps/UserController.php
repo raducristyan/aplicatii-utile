@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Apps;
 
+use App\Role;
 use App\User;
+use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\AddUserRequest;
 
 class UserController extends Controller
 {
@@ -35,9 +37,25 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AddUserRequest $request)
     {
-        //
+        $institution = auth()->user()->institution;
+        $user = new User(
+            [
+                'email' => $request->email,
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'last_name' => $request->last_name,
+                'job' => $request->job,
+                'password'   => bcrypt($request->password),
+            ]
+        );
+        $institution->users()->save($user);
+        $role = Role::where('name', 'user')->first()->id;
+
+        $user->roles()->attach($role);
+
+        return response([], 201);
     }
 
     /**

@@ -50,6 +50,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::namespace('Apps')->group(function () {
         Route::put('institution/address', ['as' => 'institution.address', 'uses' => 'AddressController@update']);
         Route::put('institution/profile', ['as' => 'institution.profile', 'uses' => 'InstitutionController@update']);
+        Route::put('institution/users/add', ['as' => 'institution.users.add', 'uses' => 'UserController@store']);
     });
 });
 

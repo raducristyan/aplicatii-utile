@@ -2,13 +2,13 @@
 @section('content')
 
 @php
-#dd($institution->address);
+#dd($institution->users);
 #dd(auth()->user()->institution);
 @endphp
 <div class="flex flex-wrap w-full">
     <!-- Column -->
-    <div class="w-full md:w-1/4">
-        <div class="bg-white px-4 py-8 md:mr-6 mb-6 md:mb-0 rounded-sm">
+    <div class="w-full lg:w-1/4">
+        <div class="bg-white px-4 py-8 lg:mr-6 mb-6 lg:mb-0 rounded-sm">
             <div class="flex flex-col border-b border-gray-300">
                 <img src="../assets/images/users/user-male.png" class="w-40 mx-auto rounded-full shadow" />
                 <h4 class="py-2 text-gray-700 mx-auto"><strong>{{ auth()->user()->full_name }}</strong></h4>
@@ -63,7 +63,7 @@
     </div>
     <!-- Column -->
     <!-- Column -->
-    <div class="w-full md:w-3/4">
+    <div class="w-full lg:w-3/4">
         <div class="rounded">
             <!-- Nav tabs -->
             <div class="flex items-center bg-white border-b border-gray-300">

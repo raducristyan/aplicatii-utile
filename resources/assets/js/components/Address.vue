@@ -61,7 +61,9 @@ export default {
           window.location.href = "/dashboard";
         })
         .catch(error => {
-          console.log(error);
+          if (error.response.data.errors) {
+            this.errors = error.response.data.errors;
+          }
         });
     },
 

@@ -1756,28 +1756,32 @@ __webpack_require__.r(__webpack_exports__);
       this.address.village_id = id;
     },
     updateAddress: function updateAddress() {
+      var _this = this;
+
       axios.put(this.url, this.address).then(function (response) {
         window.location.href = "/dashboard";
       })["catch"](function (error) {
-        console.log(error);
+        if (error.response.data.errors) {
+          _this.errors = error.response.data.errors;
+        }
       });
     },
     getCities: function getCities() {
-      var _this = this;
+      var _this2 = this;
 
       axios.post("/apps/county/cities", {
         county_id: this.selectedCounty
       }).then(function (data) {
-        _this.countyCities = data.data;
+        _this2.countyCities = data.data;
       })["catch"](function (error) {});
     },
     getVillages: function getVillages() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.post("/apps/city/villages", {
         city_id: this.selectedCity
       }).then(function (data) {
-        _this2.cityVillages = data.data;
+        _this3.cityVillages = data.data;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -1959,7 +1963,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "newUser",
-  props: ["modalIsOpen"],
+  props: ["url", "modalIsOpen"],
   data: function data() {
     return {
       newUser: {
@@ -1977,7 +1981,7 @@ __webpack_require__.r(__webpack_exports__);
     addUser: function addUser() {
       var _this = this;
 
-      axios.post("/user/new", this.newUser).then(function (response) {
+      axios.put(this.url, this.newUser).then(function (response) {
         _this.formReset();
 
         window.location.href = "/dashboard";
@@ -15059,11 +15063,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_Address_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Address.vue */ "./resources/assets/js/components/Address.vue");
-/* harmony import */ var _components_newUser_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/newUser.vue */ "./resources/assets/js/components/newUser.vue");
-/* harmony import */ var _components_UserProfile_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/UserProfile.vue */ "./resources/assets/js/components/UserProfile.vue");
-/* harmony import */ var _components_UserPassword_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/UserPassword.vue */ "./resources/assets/js/components/UserPassword.vue");
-/* harmony import */ var _components_InstitutionProfile_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/InstitutionProfile.vue */ "./resources/assets/js/components/InstitutionProfile.vue");
+/* harmony import */ var _components_UserProfile_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/UserProfile.vue */ "./resources/assets/js/components/UserProfile.vue");
+/* harmony import */ var _components_UserPassword_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/UserPassword.vue */ "./resources/assets/js/components/UserPassword.vue");
+/* harmony import */ var _components_InstitutionProfile_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/InstitutionProfile.vue */ "./resources/assets/js/components/InstitutionProfile.vue");
+/* harmony import */ var _components_Address_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Address.vue */ "./resources/assets/js/components/Address.vue");
+/* harmony import */ var _components_newUser_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/newUser.vue */ "./resources/assets/js/components/newUser.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/assets/js/bootstrap.js");
 
 
@@ -15133,11 +15137,11 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     navBarToggle: false
   },
   components: {
-    'address-view': _components_Address_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    'new-user-view': _components_newUser_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    'user-profile-view': _components_UserProfile_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    'user-password-view': _components_UserPassword_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    'institution-profile-view': _components_InstitutionProfile_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+    'address-view': _components_Address_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    'new-user-view': _components_newUser_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    'user-profile-view': _components_UserProfile_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    'user-password-view': _components_UserPassword_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    'institution-profile-view': _components_InstitutionProfile_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   mounted: function mounted() {
     this.getActiveTab();

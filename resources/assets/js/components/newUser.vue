@@ -3,6 +3,7 @@
 export default {
   name: "newUser",
   props: [
+    "url",
     "modalIsOpen"
   ],
   data() {
@@ -21,7 +22,7 @@ export default {
   methods: {
     addUser() {
       axios
-        .post("/user/new", this.newUser)
+        .put(this.url, this.newUser)
         .then(response => {
           this.formReset();
           window.location.href = "/dashboard";

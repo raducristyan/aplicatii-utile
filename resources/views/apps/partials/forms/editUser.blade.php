@@ -23,18 +23,24 @@
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.last_name" v-text="errors.last_name[0]"></small>
     </div>
     <div class="flex flex-col w-full mt-2">
+        <label class="block font-semibold text-gray-700">Compartiment</label>
+        <div class="relative">
+            <select class="w-full appearance-none bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" name="compartment" v-model="selectedCompartment" @change="getVillages">
+                <option v-for="compartment in compartments" :value="compartment.id" :selected="compartment.id == compartment" v-text="compartment.name"></option>
+            </select>
+            <div class="pointer-events-none absolute top-0 right-0 bottom-0 flex items-center px-2">
+                <svg class="w-4 h-4 fill-current text-gray-800" viewBox="0 0 129 129">
+                    <g>
+                        <path d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z"></path>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <small class="w-full font-normal text-sm text-orange-500" v-if="errors.compartment" v-text="errors.compartment[0]"></small>
+    </div>
+    <div class="flex flex-col w-full mt-2">
         <label for="new_user_job" class="block font-semibold text-gray-700">Funcție</label>
         <input type="text" id="new_user_job" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded" :class="{'border-orange-500': errors.job}" v-model="newUser.job" placeholder="Funcția utilizatorului">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.job" v-text="errors.job[0]"></small>
-    </div>
-    <div class="flex flex-col w-full mt-2">
-        <label for="new_user_password" class="block font-semibold text-gray-700">Parola</label>
-        <input type="password" id="new_user_password" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded" :class="{'border-orange-500': errors.password}" v-model="newUser.password" placeholder="Parola contului">
-        <small class="w-full font-normal text-sm text-orange-500" v-if="errors.password" v-text="errors.password[0]"></small>
-    </div>
-    <div class="flex flex-col w-full mt-2">
-        <label for="new_user_password_confirmation" class="block font-semibold text-gray-700">Confirmare parolă</label>
-        <input type="password" id="new_user_password_confirmation" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded" :class="{'border-orange-500': errors.password}" v-model="newUser.password_confirmation" placeholder="Confirmați parola">
-        <small class="w-full font-normal text-sm text-orange-500" v-if="errors.password" v-text="errors.password[0]"></small>
     </div>
 </form>

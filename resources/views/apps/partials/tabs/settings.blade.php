@@ -1,6 +1,6 @@
 <!-- third tab -->
 <div v-show="activeTab==='settings'" id="settings" class="flex flex-col w-full my-2">
-    <div class="w-full bg-white md:mr-2 px-4 my-2 rounded">
+    <div class="w-full bg-white px-4 my-2 rounded">
         <h3 class="py-3 border-b border-gray-300 text-indigo-500 font-normal text-xl">Parola</h3>
         <div class="flex flex-row flex-grow py-3">
             <div class="w-1/2 flex-grow">
@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="flex flex-col lg:flex-row w-full my-2">
-        <div class="w-full lg:w-1/2 bg-white md:mr-2 px-4 my-2 rounded">
+        <div class="w-full lg:w-1/2 bg-white lg:mr-2 px-4 my-2 rounded">
             <h3 class="py-3 border-b border-gray-300 text-indigo-500 font-normal text-xl">Profil</h3>
             <div class="flex flex-col flex-grow py-3">
                 <div class="w-full flex-grow">
@@ -75,7 +75,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-full lg:w-1/2 bg-white md:mr-2 px-4 my-2 rounded">
+        <div class="w-full lg:w-1/2 bg-white px-4 my-2 rounded">
             <h3 class="py-3 border-b border-gray-300 text-indigo-500 font-normal text-xl">Adresa</h3>
             <div class="flex flex-col flex-grow py-3">
                 <div class="w-full flex-grow">

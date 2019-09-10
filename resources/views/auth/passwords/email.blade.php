@@ -16,10 +16,10 @@ Recuperare parolă
                 </svg>
             </label>
 
-            <input id="email" class="w-full bg-transparent border-b-2 border-purple-400 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('email') ? ' border-b-2 border-red-600' : '' }}" name="email" type="email" required="required" placeholder="Introduceți adresa de email" value="{{ old('email')}}">
+            <input id="email" class="w-full bg-transparent border-b-2 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('email') ? ' border-orange-600' : 'border-purple-400' }}" name="email" type="email" required="required" placeholder="Introduceți adresa de email" value="{{ old('email')}}">
         </div>
         @if ($errors->has('email'))
-        <div class="text-sm font-normal text-red-600 w-full mt-1">
+        <div class="text-sm font-normal text-orange-600 w-full mt-1">
             {{ $errors->first('email') }}
         </div>
         @endif

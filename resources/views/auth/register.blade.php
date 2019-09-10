@@ -16,7 +16,7 @@
                 </svg>
             </label>
 
-            <input id="institution" class="w-full bg-transparent border-b-2 border-purple-400 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('institution') ? ' border-b-2 border-red-600' : '' }}" name="institution" type="institution" required="required" placeholder="Denumirea instituției" value="{{ old('institution')}}">
+            <input id="institution" class="w-full bg-transparent border-b-2 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('institution') ? ' border-orange-600' : 'border-purple-400' }}" name="institution" type="institution" required="required" placeholder="Denumirea instituției" value="{{ old('institution')}}">
 
         </div> @if ($errors->has('institution'))
         <div class="text-sm font-normal text-orange-600 w-full mt-1">
@@ -32,7 +32,7 @@
                 </svg>
             </label>
 
-            <input id="cif" class="w-full bg-transparent border-b-2 border-purple-400 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('cif') ? ' border-b-2 border-red-600' : '' }}" name="cif" type="text" required="required" placeholder="Codul fiscal" value="{{ old('cif')}}">
+            <input id="cif" class="w-full bg-transparent border-b-2 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('cif') ? ' border-orange-600' : 'border-purple-400' }}" name="cif" type="text" required="required" placeholder="Codul fiscal" value="{{ old('cif')}}">
         </div>
         @if ($errors->has('cif'))
         <div class="text-sm font-normal text-orange-600 w-full mt-1">
@@ -48,7 +48,7 @@
                 </svg>
             </label>
 
-            <input id="email" class="w-full bg-transparent border-b-2 border-purple-400 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('email') ? ' border-b-2 border-red-600' : '' }}" name="email" type="email" required="required" placeholder="Introduceți adresa de email" value="{{ old('email')}}">
+            <input id="email" class="w-full bg-transparent border-b-2 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('email') ? ' border-orange-600' : 'border-purple-400' }}" name="email" type="email" required="required" placeholder="Introduceți adresa de email" value="{{ old('email')}}">
         </div>
         @if ($errors->has('email'))
         <div class="text-sm font-normal text-orange-600 w-full mt-1">
@@ -63,7 +63,7 @@
                     <path fill="currentColor" d="M336 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zM144 32h96c8.8 0 16 7.2 16 16s-7.2 16-16 16h-96c-8.8 0-16-7.2-16-16s7.2-16 16-16zm48 128c35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64 28.7-64 64-64zm112 236.8c0 10.6-10 19.2-22.4 19.2H102.4C90 416 80 407.4 80 396.8v-19.2c0-31.8 30.1-57.6 67.2-57.6h5c12.3 5.1 25.7 8 39.8 8s27.6-2.9 39.8-8h5c37.1 0 67.2 25.8 67.2 57.6v19.2z"></path>
                 </svg>
             </label>
-            <input id="first_name" class="w-full bg-transparent border-b-2 border-purple-400 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('email') ? ' border-b-2 border-red-600' : '' }}" type="text" name="first_name" required="required" placeholder="Numele dumneavoastră">
+            <input id="first_name" class="w-full bg-transparent border-b-2 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('email') ? ' border-orange-600' : 'border-purple-400' }}" type="text" name="first_name" required="required" placeholder="Numele dumneavoastră">
             @if ($errors->has('first_name'))
             <div class="text-sm font-normal text-orange-600 mt-1">
                 {{ $errors->first('first_name') }}
@@ -76,7 +76,7 @@
                     <path fill="currentColor" d="M336 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm0 464H48V48h288v416zM144 112h96c8.8 0 16-7.2 16-16s-7.2-16-16-16h-96c-8.8 0-16 7.2-16 16s7.2 16 16 16zm48 176c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm-89.6 128h179.2c12.4 0 22.4-8.6 22.4-19.2v-19.2c0-31.8-30.1-57.6-67.2-57.6-10.8 0-18.7 8-44.8 8-26.9 0-33.4-8-44.8-8-37.1 0-67.2 25.8-67.2 57.6v19.2c0 10.6 10 19.2 22.4 19.2z"></path>
                 </svg>
             </label>
-            <input id="last_name" class="w-full bg-transparent border-b-2 border-purple-400 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('email') ? ' border-b-2 border-red-600' : '' }}" type="text" name="last_name" required="required" placeholder="Prenumele dumneavostră">
+            <input id="last_name" class="w-full bg-transparent border-b-2 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('email') ? ' border-orange-600' : 'border-purple-400' }}" type="text" name="last_name" required="required" placeholder="Prenumele dumneavostră">
             @if ($errors->has('last_name'))
             <div class="text-sm font-normal text-orange-600 mt-1">
                 {{ $errors->first('last_name') }}
@@ -92,7 +92,7 @@
                         <path fill="currentColor" d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zM264 392c0 22.1-17.9 40-40 40s-40-17.9-40-40v-48c0-22.1 17.9-40 40-40s40 17.9 40 40v48zm32-168H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path>
                     </svg>
                 </label>
-                <input id="password" class="w-full bg-transparent border-b-2 border-purple-400 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('email') ? ' border-b-2 border-red-600' : '' }}" type="password" name="password" required="required" placeholder="Introduceți parola">
+                <input id="password" class="w-full bg-transparent border-b-2 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('email') ? ' border-orange-600' : 'border-purple-400' }}" type="password" name="password" required="required" placeholder="Introduceți parola">
             </div>
         </div>
         <div class="flex items-center mt-4 w-full md:w-1/2">
@@ -101,7 +101,7 @@
                     <path fill="currentColor" d="M224 412c-15.5 0-28-12.5-28-28v-64c0-15.5 12.5-28 28-28s28 12.5 28 28v64c0 15.5-12.5 28-28 28zm224-172v224c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V240c0-26.5 21.5-48 48-48h32v-48C80 64.5 144.8-.2 224.4 0 304 .2 368 65.8 368 145.4V192h32c26.5 0 48 21.5 48 48zm-320-48h192v-48c0-52.9-43.1-96-96-96s-96 43.1-96 96v48zm272 48H48v224h352V240z"></path>
                 </svg>
             </label>
-            <input id="password_confirmation" class="w-full bg-transparent border-b-2 border-purple-400 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('email') ? ' border-b-2 border-red-600' : '' }}" type="password" name="password" required="required" placeholder="Confirmați parola">
+            <input id="password_confirmation" class="w-full bg-transparent border-b-2 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('email') ? ' border-orange-600' : 'border-purple-400' }}" type="password" name="password" required="required" placeholder="Confirmați parola">
         </div>
         @if ($errors->has('password'))
         <div class="text-sm font-normal text-orange-600 w-full mt-1">
