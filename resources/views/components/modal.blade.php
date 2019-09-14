@@ -1,11 +1,11 @@
 <div class="relative z-30" :class="[modalIsOpen ? 'visible' : 'invisible']">
     <!-- Modal overlay -->
-    <div class="fixed top-0 left-0 right-0 bottom-0 bg-gray-100 opacity-75 z-20">
+    <div class="fixed top-0 left-0 right-0 bottom-0 opacity-75 z-20 animated fadeIn fast" style="background-color: rgba(247, 250, 252, 0.75);">
     </div>
     <!-- Modal container -->
     <div class="flex items-center justify-center fixed top-0 left-0 right-0 bottom-0 py-16 font-sans z-30 overflow-y-scroll" id="{{ $modal_id }}">
         <!-- Modal -->
-        <div class=" bg-white flex flex-col items-center rounded shadow-xl w-5/6 max-w-2xl mx-auto my-auto z-40 p-6">
+        <div class=" bg-white flex flex-col items-center rounded shadow-xl w-5/6 max-w-2xl mx-auto my-auto z-40 p-6 animated fadeInDown faster">
             <!-- Modal header -->
             <div class="w-full flex justify-between">
                 <h1 class="text-gray-700 font-semibold text-2xl">{{ $title }}</h1>

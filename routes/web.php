@@ -65,8 +65,10 @@ Auth::routes();
 
 Route::get('test', function () {
     // dd($admin);
-    // flash('Modal Message', 'Modal Title')->info();
-    // flash('Modal Title')->info()->important();
+    session()->flash('flash_alert.title', 'Test alert!');
+    session()->flash('flash_alert.body', 'Flash body');
+
+    return view('test');
     // dd($user);
     // dd(auth()->user()->institution->with('address')->get());
 })->name('test')->middleware('auth');

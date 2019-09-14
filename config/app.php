@@ -170,7 +170,6 @@ return [
          */
 
         'Fideloper\Proxy\TrustedProxyServiceProvider',
-        Laracasts\Flash\FlashServiceProvider::class,
 
         /*
          * Application Service Providers...

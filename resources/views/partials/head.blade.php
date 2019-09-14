@@ -11,6 +11,7 @@
     <meta name="csrf-token" content="{{ Session::token() }}">
     <title>Aplicatii utile</title>
     <link href="{{ mix('css/tailwind.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/animate.css') }}" rel="stylesheet">
 
     @stack('styles')
 

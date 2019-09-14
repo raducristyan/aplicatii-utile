@@ -39,7 +39,7 @@
             </div>
             <div class="w-full flex-grow-0">
                 <div class="flex justify-center py-3 text-sm">
-                    <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md" @click="openModal('edit-institution-profile-modal')">
+                    <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md transition-4" @click="openModal('edit-institution-profile-modal')">
                         <span>
                             Editează
                         </span>
@@ -101,7 +101,7 @@
             </div>
             <div class="w-full flex-grow-0">
                 <div class="flex justify-center py-3 text-sm">
-                    <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md" @click="openModal('edit-institution-address-modal')">
+                    <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md transition-4" @click="openModal('edit-institution-address-modal')">
                         <span>
                             Editează
                         </span>

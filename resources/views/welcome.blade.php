@@ -41,7 +41,7 @@
                 </a>
             </div>
             <a href="{{ route('login') }}">
-                <button class="border-2 border-indigo-500 px-6 py-1 rounded-full text-indigo-700 font-semibold text-md focus:outline-none focus:shadow-outline hover:text-gray-200 hover:bg-indigo-500 hover:border-indigo-600 hover:shadow-md" type="button">Login</button>
+                <button class="border-2 border-indigo-500 px-6 py-1 rounded-full text-indigo-700 font-semibold text-md focus:outline-none focus:shadow-outline hover:text-gray-200 hover:bg-indigo-500 hover:border-indigo-700 hover:shadow-md transition-4" type="button">Login</button>
             </a>
         </div>
 

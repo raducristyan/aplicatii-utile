@@ -2,7 +2,8 @@
 @section('content')
 
 @php
-#dd($institution->users);
+// dd(session()->has('flash_alert'));
+// dd(empty( session()->get('flash_alert') ));
 #dd(auth()->user()->institution);
 @endphp
 <div class="flex flex-wrap w-full">
@@ -47,12 +48,12 @@
                     @forelse ( auth()->user()->address as $address )
                     <h6 class="text-gray-700 font-normal">
                         @if ( $address->village->name ) {{ $address->village->name }} @endif
-                        @if ( $address->street ) {{ $address->street }} @endif
-                        @if ( $address->number ) {{ $address->number }} @endif
-                        @if ( $address->bl ) {{ $address->bl }} @endif
-                        @if ( $address->sc ) {{ $address->sc }} @endif
-                        @if ( $address->ap ) {{ $address->ap }} @endif
-                        @if ( $address->postal_code ) {{ $address->postal_code }} @endif
+                        @if ( $address->street ) {{ ", ".$address->street }} @endif
+                        @if ( $address->number ) {{ ", ".$address->number }} @endif
+                        @if ( $address->bl ) {{ ", ".$address->bl }} @endif
+                        @if ( $address->sc ) {{ ", ".$address->sc }} @endif
+                        @if ( $address->ap ) {{ ", ".$address->ap }} @endif
+                        @if ( $address->postal_code ) {{ ", ".$address->postal_code }} @endif
                     </h6>
                     @empty
                     <h6 class="text-gray-700 font-normal">Nu ați compleat adresa</h6>

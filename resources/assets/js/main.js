@@ -7,7 +7,8 @@ import UserProfile from './components/UserProfile.vue';
 import UserPassword from './components/UserPassword.vue';
 import InstitutionProfile from './components/InstitutionProfile.vue';
 import Address from './components/Address.vue';
-import newUser from './components/newUser.vue';
+import NewUser from './components/NewUser.vue';
+import FlashMessage from './components/FlashMessage.vue';
 
 let handleOutsideClick;
 Vue.directive('closable', {
@@ -71,10 +72,11 @@ const vm = new Vue({
 
     components: {
         'address-view': Address,
-        'new-user-view': newUser,
+        'new-user-view': NewUser,
         'user-profile-view': UserProfile,
         'user-password-view': UserPassword,
-        'institution-profile-view': InstitutionProfile
+        'institution-profile-view': InstitutionProfile,
+        'flash-message-view': FlashMessage
     },
 
     mounted() {
@@ -112,6 +114,10 @@ const vm = new Vue({
             return Boolean(this.modal.opened.filter((val, i, arr) => {
                 return val == modal
             }).length)
+        },
+
+        openFlash(flash) {
+            this.modal.opened.push(flash)
         },
 
         openModal(modal) {

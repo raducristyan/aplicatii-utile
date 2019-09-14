@@ -126,7 +126,7 @@
     </div>
     <div class="flex items-center my-8">
         <div class="w-2/3 mx-auto">
-            <button class="w-full border-2 border-orange-500  py-3 rounded-full text-indigo-700 font-bold text-lg focus:outline-none focus:shadow-outline hover:text-gray-200 hover:bg-indigo-500 hover:border-indigo-700 hover:shadow-lg" type="submit">Creează contul</button>
+            <button class="w-full border-2 border-orange-500  py-3 rounded-full text-indigo-700 font-bold text-lg focus:outline-none focus:shadow-outline hover:text-gray-200 hover:bg-indigo-500 hover:border-indigo-700 hover:shadow-lg transition-4" type="submit">Creează contul</button>
         </div>
     </div>
     <div class="flex items-center mt-6">

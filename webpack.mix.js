@@ -25,6 +25,8 @@ mix.js('resources/assets/js/main.js', 'public/js/app.js')
 
 //Mix scss files
 
+mix.postCss('node_modules/animate.css/animate.css', 'public/css');
+
 mix.sass('resources/assets/scss/tailwind.scss', 'public/css')
     .options({
         processCssUrls: false,

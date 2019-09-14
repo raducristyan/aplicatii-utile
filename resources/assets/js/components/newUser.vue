@@ -1,7 +1,7 @@
 <template></template>
 <script>
 export default {
-  name: "newUser",
+  name: "NewUser",
   props: [
     "url",
     "modalIsOpen"

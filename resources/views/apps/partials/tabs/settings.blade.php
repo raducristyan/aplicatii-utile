@@ -13,7 +13,7 @@
             </div>
             <div class="w-1/2 flex-grow-0">
                 <div class="flex justify-end py-3 text-sm">
-                    <button class="flex items-center whitespace-no-wrap bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md" @click="openModal('update-user-password-modal')">
+                    <button class="flex items-center whitespace-no-wrap bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md transition-4" @click="openModal('update-user-password-modal')">
                         <span>
                             Schimbă parola
                         </span>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="w-full flex-grow-0">
                     <div class="flex justify-center py-3 text-sm">
-                        <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md" @click="openModal('edit-user-profile-modal')">
+                        <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md transition-4" @click="openModal('edit-user-profile-modal')">
                             <span>
                                 Editează
                             </span>
@@ -138,7 +138,7 @@
                 </div>
                 <div class="w-full flex-grow-0">
                     <div class="flex justify-center py-3 text-sm">
-                        <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md" @click="openModal('edit-user-address-modal')">
+                        <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md transition-4" @click="openModal('edit-user-address-modal')">
                             <span>
                                 Editează
                             </span>
