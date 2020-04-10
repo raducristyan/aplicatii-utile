@@ -1,12 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Apps;
+namespace App\Http\Controllers;
 
-use App\Role;
-use App\User;
+use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\AddUserRequest;
 
 class UserController extends Controller
@@ -114,6 +111,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (auth()->user()->isAdmin() && auth()->user()->institution()->first()->users->containes($id)) {
+            User::destroy($id);
+        }
     }
 }

@@ -12,7 +12,8 @@
             "cif",
             "institution_id",
             "url",
-            "modalIsOpen"
+            "modalIsOpen",
+            "closeModalClass"
         ],
         data() {
             return {

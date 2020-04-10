@@ -8,18 +8,18 @@
         </span>
     </div>
     <div class="flex flex-col w-full mt-2">
-        <label class="block font-semibold text-gray-700" for="edited_user_email">Adresa de email</label>
-        <input type="email" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded" :class="{'border-orange-500': errors.email}" v-model="editedUser.email" id="edited_user_email" placeholder="Adresa de email">
+        <label class="block font-semibold text-gray-700" for="profile_email">Adresa de email</label>
+        <input type="email" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded" :class="{'border-orange-500': errors.email}" v-model="profile.email" id="profile_email" placeholder="Adresa de email">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.email" v-text="errors.email[0]"></small>
     </div>
     <div class="flex flex-col w-full mt-2">
-        <label for="edited_user_first_name" class="block font-semibold text-gray-700">Prenume</label>
-        <input type="text" id="edited_user_first_name" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded" :class="{'border-orange-500': errors.first_name}" v-model="editedUser.first_name" placeholder="Prenumele utilizatorului">
+        <label for="profile_first_name" class="block font-semibold text-gray-700">Prenume</label>
+        <input type="text" id="profile_first_name" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded" :class="{'border-orange-500': errors.first_name}" v-model="profile.first_name" placeholder="Prenumele utilizatorului">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.first_name" v-text="errors.first_name[0]"></small>
     </div>
     <div class="flex flex-col w-full mt-2">
-        <label for="edited_user_last_name" class="block font-semibold text-gray-700">Nume</label>
-        <input type="text" id="edited_user_last_name" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded" :class="{'border-orange-500': errors.last_name}" v-model="editedUser.last_name" placeholder="Numele utilizatorului">
+        <label for="profile_last_name" class="block font-semibold text-gray-700">Nume</label>
+        <input type="text" id="profile_last_name" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded" :class="{'border-orange-500': errors.last_name}" v-model="profile.last_name" placeholder="Numele utilizatorului">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.last_name" v-text="errors.last_name[0]"></small>
     </div>
     <div class="flex flex-col w-full mt-2">
@@ -39,8 +39,8 @@
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.compartment" v-text="errors.compartment[0]"></small>
     </div>
     <div class="flex flex-col w-full mt-2">
-        <label for="edited_user_job" class="block font-semibold text-gray-700">Funcție</label>
-        <input type="text" id="edited_user_job" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded" :class="{'border-orange-500': errors.job}" v-model="editedUser.job" placeholder="Funcția utilizatorului">
+        <label for="profile_job" class="block font-semibold text-gray-700">Funcție</label>
+        <input type="text" id="profile_job" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded" :class="{'border-orange-500': errors.job}" v-model="profile.job" placeholder="Funcția utilizatorului">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.job" v-text="errors.job[0]"></small>
     </div>
 </form>

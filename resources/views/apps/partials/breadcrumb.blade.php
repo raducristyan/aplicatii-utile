@@ -1,11 +1,11 @@
 <!-- ============================================================== -->
-<!-- Bread crumb and right sidebar toggle -->
+<!-- Bread crumb -->
 <!-- ============================================================== -->
 <div class="py-3">
     <div class="flex flex-col items-start">
-        <h3 class="text-indigo-600 font-normal text-xl">Dashboard</h3>
+        <h3 class="text-indigo-600 font-normal text-xl">@yield('page-name', 'Dashboard')</h3>
         <ol class="flex items-center text-lg">
-            <li class="inline-block"><a href="javascript:void(0)">Acasă</a></li>
+            <li class="inline-block"><a href="{{ route('dashboard') }}">Acasă</a></li>
             <li class="flex items-center">
 
                 <svg aria-hidden="true" focusable="false" class="inline-block w-3 h-3 text-gray-400 mx-1 text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
@@ -18,5 +18,5 @@
 
 </div>
 <!-- ============================================================== -->
-<!-- End Bread crumb and right sidebar toggle -->
+<!-- End Bread crumb -->
 <!-- ============================================================== -->

@@ -1,154 +1,49 @@
-<!-- third tab -->
-<div v-show="activeTab==='settings'" id="settings" class="flex flex-col w-full my-2">
-    <div class="w-full bg-white px-4 my-2 rounded">
-        <h3 class="py-3 border-b border-gray-300 text-indigo-500 font-normal text-xl">Parola</h3>
-        <div class="flex flex-row flex-grow py-3">
-            <div class="w-1/2 flex-grow">
-                <div class="px-4">
-                    <div class="my-2">
-                        <span class="text-gray-600 font-normal">Parola:</span>
-                        <span class="text-gray-700 font-semibold" name="password">*******</span>
-                    </div>
-                </div>
-            </div>
-            <div class="w-1/2 flex-grow-0">
-                <div class="flex justify-end py-3 text-sm">
-                    <button class="flex items-center whitespace-no-wrap bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md transition-4" @click="openModal('update-user-password-modal')">
-                        <span>
-                            Schimbă parola
-                        </span>
-                        <svg aria-hidden="true" focusable="false" class="w-4 h-4 fill-current ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                            <path d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1 0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7 0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174L402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7l-43.2-43.2c-4.1-4.1-10.8-4.1-14.8 0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
+@admin
+<div v-show="activeTab === 'settings'" class="px-4 py-3 my-6 bg-white" id="settings">
+    <div class="flex justify-center py-3">
+        <button class="flex items-center bg-indigo-500 text-gray-200 text-semibold px-4 py-2 hover:bg-indigo-700 focus:underline-none focus:shadow-outline border-indigo-800 border-b-4 rounded-sm shadow transition-4" @click="openModal('new-user-modal')">
+            <span>Adaugă utilizator</span>
+            <svg aria-hidden="true" focusable="false" data-icon="plus" class="w-4 h-4 ml-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                <path fill="currentColor" d="M376 232H216V72c0-4.42-3.58-8-8-8h-32c-4.42 0-8 3.58-8 8v160H8c-4.42 0-8 3.58-8 8v32c0 4.42 3.58 8 8 8h160v160c0 4.42 3.58 8 8 8h32c4.42 0 8-3.58 8-8V280h160c4.42 0 8-3.58 8-8v-32c0-4.42-3.58-8-8-8z"></path>
+            </svg>
+        </button>
     </div>
-    <div class="flex flex-col lg:flex-row w-full my-2">
-        <div class="w-full lg:w-1/2 bg-white lg:mr-2 px-4 my-2 rounded">
-            <h3 class="py-3 border-b border-gray-300 text-indigo-500 font-normal text-xl">Profil</h3>
-            <div class="flex flex-col flex-grow py-3">
-                <div class="w-full flex-grow">
-                    <div class="px-4">
-                        <div class="my-2">
-                            <span class="text-gray-600 font-normal">Prenume:</span>
-                            <span class="text-gray-700 font-semibold" name="first_name">{{ auth()->user()->first_name ?? ''}}</span>
-                        </div>
-                        <div class="my-2">
-                            <span class="text-gray-600 font-normal">Nume:</span>
-                            <span class="text-gray-700 font-semibold" name="last_name">{{ auth()->user()->last_name ?? ''}}</span>
-                        </div>
-                    </div>
-                    <div class="px-4">
-                        <div class="my-2">
-                            <span class="text-gray-600 font-normal">Email:</span>
-                            <span class="text-gray-700 font-semibold" name="email">{{ auth()->user()->email ?? ''}}</span>
-                        </div>
-                        <div class="my-2">
-                            <span class="text-gray-600 font-normal">Telefon mobil:</span>
-                            <span class="text-gray-700 font-semibold" name="mobile">{{ auth()->user()->mobile ?? '' }}</span>
-                        </div>
-                    </div>
-                    <div class="px-4">
-                        <div class="my-2">
-                            <span class="text-gray-600 font-normal">Telefon:</span>
-                            <span class="text-gray-700 font-semibold" name="phone">{{ auth()->user()->phone ?? '' }}</span>
-                        </div>
-                        <div class="my-2">
-                            <span class="text-gray-600 font-normal">Funcție:</span>
-                            <span class="text-gray-700 font-semibold" name="job">{{ auth()->user()->job ?? '' }}</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full flex-grow-0">
-                    <div class="flex justify-center py-3 text-sm">
-                        <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md transition-4" @click="openModal('edit-user-profile-modal')">
-                            <span>
-                                Editează
-                            </span>
-                            <svg aria-hidden="true" focusable="false" class="w-4 h-4 fill-current ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                <path d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1 0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7 0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174L402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7l-43.2-43.2c-4.1-4.1-10.8-4.1-14.8 0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="w-full lg:w-1/2 bg-white px-4 my-2 rounded">
-            <h3 class="py-3 border-b border-gray-300 text-indigo-500 font-normal text-xl">Adresa</h3>
-            <div class="flex flex-col flex-grow py-3">
-                <div class="w-full flex-grow">
-                    <div class="px-4">
-                        <div class="my-2">
-                            <span class="text-gray-600 font-normal">Județul:</span>
-                            <span class="text-gray-700 font-semibold" name="county">
-                                @if (auth()->user()->address->isNotEmpty() )
-                                {{ auth()->user()->address[0]->village->city->county->name ?? ''}}
-                                @endif
-                            </span>
-                        </div>
-                    </div>
-                    <div class="px-4">
-                        <div class="my-2">
-                            <span class="text-gray-600 font-normal">Localitatea:</span>
-                            <span class="text-gray-700 font-semibold" name="city">
-                                @if (auth()->user()->address->isNotEmpty() )
-                                {{ auth()->user()->address[0]->village->city->name ?? ''}}
-                                @endif
-                            </span>
-                        </div>
-                        <div class="my-2">
-                            <span class="text-gray-600 font-normal">Localitatea componentă:</span>
-                            <span class="text-gray-700 font-semibold" name="village">
-                                @if (auth()->user()->address->isNotEmpty() )
-                                {{ auth()->user()->address[0]->village->name ?? ''}}
-                                @endif
-                            </span>
-                        </div>
-                    </div>
-                    <div class="px-4">
-                        <div class="my-2">
-                            <span class="text-gray-600 font-normal">Strada:</span>
-                            <span class="text-gray-700 font-semibold" name="street">
-                                @if ( auth()->user()->address->isNotEmpty() )
-                                {{ auth()->user()->address[0]->street ?? '' }}
-                                @endif
-                            </span>
-                        </div>
-                        <div class="my-2">
-                            <span class="text-gray-600 font-normal">Număr stradă:</span>
-                            <span class="text-gray-700 font-semibold" name="number">
-                                @if ( auth()->user()->address->isNotEmpty() )
-                                {{ auth()->user()->address[0]->number ?? '' }}
-                                @endif
-                            </span>
-                        </div>
-                    </div>
-                    <div class="px-4">
-                        <div class="my-2">
-                            <span class="text-gray-600 font-normal">Cod poștal:</span>
-                            <span class="text-gray-700 font-semibold" name="postal_code">
-                                @if ( auth()->user()->address->isNotEmpty() )
-                                {{ auth()->user()->address[0]->postal_code ?? '' }}
-                                @endif
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full flex-grow-0">
-                    <div class="flex justify-center py-3 text-sm">
-                        <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md transition-4" @click="openModal('edit-user-address-modal')">
-                            <span>
-                                Editează
-                            </span>
-                            <svg aria-hidden="true" focusable="false" class="w-4 h-4 fill-current ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                <path d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1 0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7 0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174L402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7l-43.2-43.2c-4.1-4.1-10.8-4.1-14.8 0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <table class="w-full text-left border-collapse">
+        <thead>
+            <tr class="bg-gray-200 border-b border-grey-400">
+                <th class="py-3 px-3 font-medium text-sm text-gray-700">#</th>
+                <th class="py-3 px-3 font-medium text-sm text-gray-700">Nume</th>
+                <th class="py-3 px-3 font-medium text-sm text-gray-700">Funție</th>
+                <th class="py-3 px-3 font-medium text-sm text-gray-700">Adresa de email</th>
+                <th class="py-3 px-3 font-medium text-sm text-gray-700">Creat la:</th>
+                <th class="py-3 px-3 font-medium text-sm text-gray-700">Acțiuni</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($institution->users as $user)
+            <tr class="items-center hover:bg-gray-100 border-b border-grey-400">
+                <td class="py-3 px-3">{{ $loop->iteration }}</td>
+                <td class="py-3 px-3">{{ $user->full_name }}</td>
+                <td class="py-3 px-3">{{ $user->job }}</td>
+                <td class="py-3 px-3">
+                    <p>{{ $user->email }}</p>
+                </td>
+                <td class="py-3 px-3">{{ $user->created_at }}</td>
+                <td class="py-3 px-3 align-middle">
+                    <svg aria-hidden="true" focusable="false" @click="openModal('edit-user-modal')" class="w-5 h-5 fill-current text-gray-500 mr-2 hover:text-teal-600 mr-2 cursor-pointer inline-block" viewBox="0 0 640 512">
+                        <path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h274.9c-2.4-6.8-3.4-14-2.6-21.3l6.8-60.9 1.2-11.1 7.9-7.9 77.3-77.3c-24.5-27.7-60-45.5-99.9-45.5zm45.3 145.3l-6.8 61c-1.1 10.2 7.5 18.8 17.6 17.6l60.9-6.8 137.9-137.9-71.7-71.7-137.9 137.8zM633 268.9L595.1 231c-9.3-9.3-24.5-9.3-33.8 0l-37.8 37.8-4.1 4.1 71.8 71.7 41.8-41.8c9.3-9.4 9.3-24.5 0-33.9z"></path>
+                    </svg>
+                    <svg aria-hidden="true" focusable="false" @click="openModal('view-user-modal')" class="w-5 h-5 fill-current text-gray-500 mr-2 hover:text-blue-600 mr-2 cursor-pointer inline-block" viewBox="0 0 576 512">
+                        <path fill="currentColor" d="M288 144a110.94 110.94 0 0 0-31.24 5 55.4 55.4 0 0 1 7.24 27 56 56 0 0 1-56 56 55.4 55.4 0 0 1-27-7.24A111.71 111.71 0 1 0 288 144zm284.52 97.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400c-98.65 0-189.09-55-237.93-144C98.91 167 189.34 112 288 112s189.09 55 237.93 144C477.1 345 386.66 400 288 400z"></path>
+                    </svg>
+                    <svg aria-hidden="true" focusable="false" v-on:click="getUserToDelete({{ $user }})" @click="openModal('delete-user-modal')" class="w-5 h-5 fill-current text-gray-500 hover:text-orange-600 cursor-pointer inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                        <path d="M593.9 240l41.4-41.4c6.2-6.2 6.2-16.4 0-22.6L624 164.7c-6.2-6.2-16.4-6.2-22.6 0L560 206.1l-41.4-41.4c-6.2-6.2-16.4-6.2-22.6 0L484.7 176c-6.2 6.2-6.2 16.4 0 22.6l41.4 41.4-41.4 41.4c-6.2 6.2-6.2 16.4 0 22.6l11.3 11.3c6.2 6.2 16.4 6.2 22.6 0l41.4-41.4 41.4 41.4c6.2 6.2 16.4 6.2 22.6 0l11.3-11.3c6.2-6.2 6.2-16.4 0-22.6L593.9 240zM224 288c79.5 0 144-64.5 144-144S303.5 0 224 0 80 64.5 80 144s64.5 144 144 144zm0-240c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96zm89.6 256c-28.8 0-42.4 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 304 0 364.2 0 438.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-25.6c0-74.2-60.2-134.4-134.4-134.4zM400 464H48v-25.6c0-47.6 38.8-86.4 86.4-86.4 14.6 0 38.3 16 89.6 16 51.7 0 74.9-16 89.6-16 47.6 0 86.4 38.8 86.4 86.4V464z"></path>
+                    </svg>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
+@endadmin

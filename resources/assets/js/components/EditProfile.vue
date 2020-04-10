@@ -1,7 +1,7 @@
 <template></template> 
 <script>
     export default {
-        name: "UserProfile",
+        name: "EditProfile",
         props: [
             "email",
             "first_name",
@@ -11,7 +11,8 @@
             "phone",
             "user_id",
             "url",
-            "modalIsOpen"
+            "modalIsOpen",
+            "closeModalClass"
         ],
 
         data() {

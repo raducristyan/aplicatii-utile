@@ -1,7 +1,7 @@
 @if ( session()->has('flash_alert.title') && session()->has('flash_alert.body') )
 <flash-message-view v-show="modalIsOpen('flash-message')" @open-flash="openFlash" @close-modal="closeModal" :modal-is-open="modalIsOpen('flash-message')" inline-template>
     <div class="w-full mt-2 absolute z-50">
-        <div class="w-11/12 md:w-2/3 lg:w-1/2 mx-auto bg-orange-100 border-orange-500 text-orange-700 border-t-4 p-4 rounded-b-lg relative animated" :class="[activeClass ? fadeIn : fadeOut]">
+        <div class="w-11/12 md:w-2/3 lg:w-1/2 mx-auto bg-orange-100 border-orange-500 text-orange-700 border-t-4 p-4 rounded-b-lg relative animated" :class="[{'fadeInDown': activeClass}, {'fadeOutUp': !activeClass}]">
             <div class="mr-4" role="alert">
                 <p class="font-bold">{{ session()->get('flash_alert.title') }}</p>
                 <p>{{ session()->get('flash_alert.body') }}</p>

@@ -4,7 +4,8 @@ export default {
   name: "UserPassword",
   props: [
     "user_email",
-    "modalIsOpen"
+    "modalIsOpen",
+    "closeModalClass"
   ],
   data() {
     return {

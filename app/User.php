@@ -56,24 +56,24 @@ class User extends Authenticatable implements CanResetPassword
     protected $appends = ['full_name'];
 
     /**
-    * Get the institution that owns the model.
-    */
+     * Get the institution that owns the model.
+     */
     public function institution()
     {
         return $this->belongsTo(Institution::class);
     }
 
     /**
-    * Get all of the people's vehicles for the user.
-    */
+     * Get all of the people's vehicles for the user.
+     */
     public function peopleVehicles()
     {
         return $this->hasManyThrough(Vehicles::class, Person::class);
     }
 
     /**
-    * Get all of the companies vehicles for the user.
-    */
+     * Get all of the companies vehicles for the user.
+     */
     public function companiesVehicles()
     {
         return $this->hasManyThrough(Vehicle::class, Company::class);
@@ -120,7 +120,7 @@ class User extends Authenticatable implements CanResetPassword
      */
     public function getFullNameAttribute()
     {
-        return $this->attributes['first_name'].' '.$this->attributes['last_name'];
+        return $this->attributes['first_name'] . ' ' . $this->attributes['last_name'];
     }
 
     /**
@@ -160,7 +160,8 @@ class User extends Authenticatable implements CanResetPassword
      * @param $role
      * @return boolean
      */
-    public function hasRole($role) {
+    public function hasRole($role)
+    {
         return $this->roles->contains('name', $role);
     }
 
@@ -176,16 +177,16 @@ class User extends Authenticatable implements CanResetPassword
     }
 
     /**
-    * Get the companys for the user model.
-    */
+     * Get the companys for the user model.
+     */
     public function companies()
     {
         return $this->hasMany(Company::class);
     }
 
     /**
-    * Get the people for the user model.
-    */
+     * Get the people for the user model.
+     */
     public function people()
     {
         return $this->hasMany(Person::class);

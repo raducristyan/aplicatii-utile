@@ -71,18 +71,20 @@
 
                 <a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-semibold" :class="activeTab === 'activity' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('activity')" href="#activity">Activitate</a>
 
-                <a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-semibold" :class="activeTab === 'settings' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('settings')" href="#settings">Setări</a>
+                <a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-semibold" :class="activeTab === 'profile' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('profile')" href="#profile">Profil</a>
                 @admin
 
                 <a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-semibold" :class="activeTab === 'institution' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('institution')" href="#institution">Instituție</a>
 
                 <a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-semibold" :class="activeTab === 'users' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('users')" href="#users">Utilizatori</a>
+
+                <a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-semibold" :class="activeTab === 'settings' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('settings')" href="#settings">Setări</a>
                 @endadmin
             </div>
             <!-- Tab panes -->
             <div class="">
                 @include('apps.partials.tabs.activity')
-                @include('apps.partials.tabs.settings')
+                @include('apps.partials.tabs.profile')
                 @admin
                 @include('apps.partials.tabs.institution')
                 @include('apps.partials.tabs.users')
@@ -93,11 +95,13 @@
     <!-- Column -->
 </div>
 
-@include('apps.partials.modals.userPassword')
-@include('apps.partials.modals.userProfile')
-@include('apps.partials.modals.userAddress')
+@include('apps.partials.modals.profilePassword')
+@include('apps.partials.modals.editProfile')
+@include('apps.partials.modals.profileAddress')
 @admin
+@include('apps.partials.modals.editUser')
 @include('apps.partials.modals.newUser')
+@include('apps.partials.modals.deleteUser')
 @include('apps.partials.modals.institutionProfile')
 @include('apps.partials.modals.institutionAddress')
 @endadmin

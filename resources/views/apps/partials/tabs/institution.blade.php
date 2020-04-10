@@ -2,7 +2,7 @@
 @admin
 
 <div v-show="activeTab==='institution'" id="institution" class="flex flex-col lg:flex-row w-full my-2">
-    <div class="w-full lg:w-1/2 bg-white lg:mr-2 px-4 my-2 rounded">
+    <div class="w-full lg:w-1/2 bg-white lg:mr-2 px-4 my-4 rounded">
         <h3 class="py-3 border-b border-gray-300 text-indigo-500 font-normal text-xl">Profil instituție</h3>
         <div class="flex flex-col flex-grow py-3">
             <div class="w-full flex-grow">
@@ -51,7 +51,7 @@
             </div>
         </div>
     </div>
-    <div class="flex flex-col w-full lg:w-1/2 bg-white lg:ml-2 px-4 my-2 rounded">
+    <div class="flex flex-col w-full lg:w-1/2 bg-white lg:ml-2 px-4 my-4 rounded">
         <h3 class="py-3 border-b border-gray-300 text-indigo-500 font-normal text-xl">Adresă instituție</h3>
         <div class="flex flex-col flex-grow py-3">
             <div class="w-full flex-grow">

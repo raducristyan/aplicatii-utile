@@ -18,7 +18,8 @@ export default {
     "url",
     "owner",
     "modalId",
-    "modalIsOpen"
+    "modalIsOpen",
+    "closeModalClass"
   ],
 
   data() {
@@ -40,14 +41,14 @@ export default {
         owner: this.owner
       },
       oldData: {},
-      errors: {}
+      errors: {},
     };
   },
 
   computed: {
     canUpdate: function() {
       return window.util.compareObj(this.oldData, this.address);
-    }
+    },
   },
 
   methods: {

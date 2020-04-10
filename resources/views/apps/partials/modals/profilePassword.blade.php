@@ -1,4 +1,4 @@
-<user-password-view user_email="{{ auth()->user()->email ?? ''}}" v-show="modalIsOpen('update-user-password-modal')" @close-modal="closeModal" :modal-is-open="modalIsOpen('update-user-password-modal')" inline-template>
+<user-password-view user_email="{{ auth()->user()->email ?? ''}}" v-show="modalIsOpen('update-user-password-modal')" @close-modal="closeModal" :modal-is-open="modalIsOpen('update-user-password-modal')" :close-modal-class="closeModalClass" inline-template>
     @component('components.modal', ['modal_id' => 'updateUserPassword', 'closeModal' => 'update-user-password-modal'])
     @slot('title')
     <p>Editare profil utilizator</p>

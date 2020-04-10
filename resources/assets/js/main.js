@@ -3,11 +3,13 @@ import Vue from 'vue';
 import Axios from 'axios';
 window.util = require('./util');
 
-import UserProfile from './components/UserProfile.vue';
+import EditProfile from './components/EditProfile.vue';
 import UserPassword from './components/UserPassword.vue';
 import InstitutionProfile from './components/InstitutionProfile.vue';
 import Address from './components/Address.vue';
 import NewUser from './components/NewUser.vue';
+import EditUser from './components/EditUser.vue';
+import DeleteUser from './components/DeleteUser.vue';
 import FlashMessage from './components/FlashMessage.vue';
 
 let handleOutsideClick;
@@ -67,13 +69,18 @@ const vm = new Vue({
         modal: {
             opened: []
         },
+        closeModalClass: false,
         navBarToggle: false,
+        userToDelete: '',
+        userToEdit: ''
     },
 
     components: {
         'address-view': Address,
         'new-user-view': NewUser,
-        'user-profile-view': UserProfile,
+        'edit-user-view': EditUser,
+        'delete-user-view': DeleteUser,
+        'edit-profile-view': EditProfile,
         'user-password-view': UserPassword,
         'institution-profile-view': InstitutionProfile,
         'flash-message-view': FlashMessage
@@ -86,7 +93,7 @@ const vm = new Vue({
     computed: {
         modalOpened: function() {
             return this.modal.opened.length
-        }
+        },
     },
 
     methods: {
@@ -120,7 +127,7 @@ const vm = new Vue({
             this.modal.opened.push(flash)
         },
 
-        openModal(modal) {
+        openModal(modal, payload = null) {
             if (!this.modalIsOpen(modal)) {
                 this.modal.opened.push(modal)
                 this.addClass('body', 'overflow-y-hidden')
@@ -128,10 +135,16 @@ const vm = new Vue({
         },
 
         closeModal(modal) {
-            this.modal.opened = this.modal.opened.filter((val, i, arr) => {
-                return val != modal
-            })
-            this.removeClass('body', 'overflow-y-hidden')
+            setTimeout(() => {
+                this.removeClass('body', 'overflow-y-hidden')
+                this.closeModalClass = true
+            }, 0);
+            setTimeout(() => {
+                this.modal.opened = this.modal.opened.filter((val, i, arr) => {
+                    return val != modal
+                })
+                this.closeModalClass = false
+            }, 500);
         },
 
         addClass(el, cls) {
@@ -140,6 +153,14 @@ const vm = new Vue({
 
         removeClass(el, cls) {
             document.querySelector(el).classList.remove(cls)
+        },
+
+        getUserToDelete(user) {
+            this.userToDelete = user
+        },
+
+        getUserToEdit(user) {
+            this.userToEdit = user
         },
 
     }

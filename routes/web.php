@@ -38,6 +38,9 @@ Route::prefix('apps')->name('apps')->namespace('Apps')->middleware('auth')->grou
     Route::post('city/villages', ['as' => '.city.villages', 'uses' => 'CityController@getVillages']);
     Route::post('person', ['as' => '.person', 'uses' => 'PersonController@store']);
     Route::post('company', ['as' => '.company', 'uses' => 'CompanyController@store']);
+});
+
+Route::prefix('apps')->name('apps')->middleware('auth')->group(function () {
     Route::put('user/profile', ['as' => '.user.profile', 'uses' => 'UserController@update']);
     Route::put('user/address', ['as' => '.user.address', 'uses' => 'AddressController@update']);
 });
@@ -47,10 +50,12 @@ Route::prefix('apps')->name('apps')->namespace('Apps')->middleware('auth')->grou
 /*-- Admin dashboard --*/
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', 'AdminController@index')->name('dashboard');
-    Route::namespace('Apps')->group(function () {
-        Route::put('institution/address', ['as' => 'institution.address', 'uses' => 'AddressController@update']);
+
+    Route::namespace('Admin')->group(function () {
+        Route::put('institution/users/add', ['as' => 'institution.users.add', 'uses' => 'InstitutionUserController@store']);
+        Route::delete('institution/users/delete/{id}', ['as' => 'institution.users.delete', 'uses' => 'InstitutionUserController@destroy']);
+        Route::put('institution/address', ['as' => 'institution.address', 'uses' => 'InstitutionAddressController@update']);
         Route::put('institution/profile', ['as' => 'institution.profile', 'uses' => 'InstitutionController@update']);
-        Route::put('institution/users/add', ['as' => 'institution.users.add', 'uses' => 'UserController@store']);
     });
 });
 

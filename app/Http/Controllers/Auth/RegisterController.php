@@ -8,6 +8,7 @@ use App\User;
 use Validator;
 use App\Institution;
 use App\ActivationToken;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Events\InstitutionCreated;
 use App\Http\Controllers\Controller;
@@ -75,41 +76,40 @@ class RegisterController extends Controller
         return $this->newAccount($data);
     }
 
-     /**
-      * Create new user and institution instances
-      * @param  array  $data
-      * @return User
-      */
+    /**
+     * Create new user and institution instances
+     * @param  array  $data
+     * @return User
+     */
     private function newAccount(array $data)
     {
         $institution = Institution::create([
             'name'  => $data['institution'],
             'cif'   => $data['cif'],
-         ]);
+        ]);
 
-         $newUser = User::create([
+        $newUser = User::create([
             'first_name' => $data['first_name'],
             'last_name'  => $data['last_name'],
             'email'      => $data['email'],
             'password'   => bcrypt($data['password']),
             'institution_id' => $institution->id,
-         ]);
+        ]);
 
         if ($institution && $newUser) {
             $token = new ActivationToken([
-                'token' => str_random( 128 ),
-             ]);
+                'token' => Str::random(128),
+            ]);
 
-             $role = Role::where('name','admin')->first()->id;
-     
+            $role = Role::where('name', 'admin')->first()->id;
+
 
             $institution->token()->save($token);
             $newUser->roles()->attach($role);
 
             event(new InstitutionCreated($institution));
-     
-            return $newUser;
 
+            return $newUser;
         } else {
             $institution->delete();
             $newUser->delete();
@@ -117,7 +117,7 @@ class RegisterController extends Controller
         }
     }
 
-     /**
+    /**
      * The user has been registered.
      *
      * @param  \Illuminate\Http\Request  $request

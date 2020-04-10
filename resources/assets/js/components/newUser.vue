@@ -4,7 +4,8 @@ export default {
   name: "NewUser",
   props: [
     "url",
-    "modalIsOpen"
+    "modalIsOpen",
+    "closeModalClass"
   ],
   data() {
     return {
@@ -12,6 +13,8 @@ export default {
         email: '',
         first_name: '',
         last_name: '',
+        mobile: '',
+        phone: '',
         job: '',
         password: '',
         password_confirmation: ''
@@ -30,6 +33,7 @@ export default {
         .catch(error => {
           if (error.response.data.errors) {
             this.errors = error.response.data.errors;
+            formReset();
           }
         });
     },

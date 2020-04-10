@@ -1,4 +1,4 @@
-<new-user-view v-show="modalIsOpen('new-user-modal')" url="{{ route('admin.institution.users.add') }}" @close-modal="closeModal" :modal-is-open="modalIsOpen('new-user-modal')" inline-template>
+<new-user-view v-show="modalIsOpen('new-user-modal')" url="{{ route('admin.institution.users.add') }}" @close-modal="closeModal" :modal-is-open="modalIsOpen('new-user-modal')" :close-modal-class="closeModalClass" inline-template>
     @component('components.modal', ['modal_id' => 'newUser', 'closeModal' => 'new-user-modal'])
     @slot('title')
     <p>Adăugare utilizator nou</p>
