@@ -23,9 +23,8 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        $id = request()->user_id;
         return [
-            'email' => 'required|email|unique:users,email,' . $id,
+            'email' => 'required|email|unique:users,email,' . request()->id,
             'first_name' => 'required|string|max:50',
             'last_name' => 'required|string|max:50',
             'job' => 'required|string|min:3|max:50',

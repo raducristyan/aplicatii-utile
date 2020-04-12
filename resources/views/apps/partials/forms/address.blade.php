@@ -60,36 +60,36 @@
     <div class="flex flex-row">
         <div class="flex flex-col w-3/4 mt-2 mr-1">
             <label class="block font-semibold text-gray-700" for="street">Strada</label>
-            <input type="text" name="street" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" :class="{'border-orange-500': errors.street}" v-model="address.street">
+            <input type="text" name="street" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" :class="{'border-orange-500': errors.street}" v-model="address.data.street">
             <small class="w-full font-normal text-sm text-orange-500" v-if="errors.street" v-text="errors.street[0]"></small>
         </div>
         <div class="flex flex-col w-1/4 mt-2 ml-1">
             <label class="block font-semibold text-gray-700" for="number">Număr</label>
-            <input type="text" name="number" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" :class="{'border-orange-500': errors.number}" v-model="address.number">
+            <input type="text" name="number" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" :class="{'border-orange-500': errors.number}" v-model="address.data.number">
             <small class="w-full font-normal text-sm text-orange-500" v-if="errors.number" v-text="errors.number[0]"></small>
         </div>
     </div>
     <div class="flex flex-row">
         <div class="flex flex-col w-1/2 mt-2 mr-1">
             <label class="block font-semibold text-gray-700" for="bl">Bloc</label>
-            <input type="text" name="bl" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" :class="{'border-orange-500': errors.bl}" v-model="address.bl">
+            <input type="text" name="bl" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" :class="{'border-orange-500': errors.bl}" v-model="address.data.bl">
             <small class="w-full font-normal text-sm text-orange-500" v-if="errors.bl" v-text="errors.bl[0]"></small>
         </div>
         <div class="flex flex-col w-1/2 mt-2 ml-1">
             <label class="block font-semibold text-gray-700" for="sc">Scară</label>
-            <input type="text" name="sc" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" :class="{'border-orange-500': errors.sc}" v-model="address.sc">
+            <input type="text" name="sc" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" :class="{'border-orange-500': errors.sc}" v-model="address.data.sc">
             <small class="w-full font-normal text-sm text-orange-500" v-if="errors.sc" v-text="errors.sc[0]"></small>
         </div>
     </div>
     <div class="flex flex-row">
         <div class="flex flex-col w-1/2 mt-2 mr-1">
             <label class="block font-semibold text-gray-700" for="ap">Apartament</label>
-            <input type="text" name="ap" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" :class="{'border-orange-500': errors.ap}" v-model="address.ap">
+            <input type="text" name="ap" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" :class="{'border-orange-500': errors.ap}" v-model="address.data.ap">
             <small class="w-full font-normal text-sm text-orange-500" v-if="errors.ap" v-text="errors.ap[0]"></small>
         </div>
         <div class="flex flex-col w-1/2 mt-2 ml-1">
             <label class="block font-semibold text-gray-700" for="postal_code">Cod poștal</label>
-            <input type="text" name="postal_code" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" :class="{'border-orange-500': errors.postal_code}" v-model="address.postal_code">
+            <input type="text" name="postal_code" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" :class="{'border-orange-500': errors.postal_code}" v-model="address.data.postal_code">
             <small class="w-full font-normal text-sm text-orange-500" v-if="errors.postal_code" v-text="errors.postal_code[0]"></small>
         </div>
     </div>

@@ -9,7 +9,7 @@
 <div class="flex flex-wrap w-full">
     <!-- Column -->
     <div class="w-full lg:w-1/4">
-        <div class="bg-white px-4 py-8 lg:mr-6 mb-6 lg:mb-0 rounded-sm">
+        <div class="bg-white px-4 py-8 lg:mr-6 mb-6 lg:mb-0 rounded">
             <div class="flex flex-col border-b border-gray-300">
                 <img src="../assets/images/users/user-male.png" class="w-40 mx-auto rounded-full shadow" />
                 <h4 class="py-2 text-gray-700 mx-auto"><strong>{{ auth()->user()->full_name }}</strong></h4>
@@ -67,18 +67,18 @@
     <div class="w-full lg:w-3/4">
         <div class="rounded">
             <!-- Nav tabs -->
-            <div class="flex items-center bg-white border-b border-gray-300">
+            <div class="flex flex-col md:flex-row items-center bg-white border-b border-gray-300 rounded">
 
-                <a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-semibold" :class="activeTab === 'activity' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('activity')" href="#activity">Activitate</a>
+                <a class="w-full md:w-auto text-center px-4 py-3 border-b-2 border-gray-200 md:border-transparent -mb-px text-gray-700 hover:text-indigo-500 hover:border-indigo-400  font-semibold" :class="activeTab === 'activity' ? 'text-indigo-500 border-indigo-500 md:border-indigo-500' : ''" @click="setActiveTab('activity')" href="#activity">Activitate</a>
 
-                <a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-semibold" :class="activeTab === 'profile' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('profile')" href="#profile">Profil</a>
+                <a class="w-full md:w-auto text-center px-4 py-3 border-b-2 border-gray-200 md:border-transparent -mb-px text-gray-700 hover:text-indigo-500 hover:border-indigo-400  font-semibold" :class="activeTab === 'profile' ? 'text-indigo-500 border-indigo-500 md:border-indigo-500' : ''" @click="setActiveTab('profile')" href="#profile">Profil</a>
                 @admin
 
-                <a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-semibold" :class="activeTab === 'institution' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('institution')" href="#institution">Instituție</a>
+                <a class="w-full md:w-auto text-center px-4 py-3 border-b-2 border-gray-200 md:border-transparent -mb-px text-gray-700 hover:text-indigo-500 hover:border-indigo-400  font-semibold" :class="activeTab === 'institution' ? 'text-indigo-500 border-indigo-500 md:border-indigo-500' : ''" @click="setActiveTab('institution')" href="#institution">Instituție</a>
 
-                <a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-semibold" :class="activeTab === 'users' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('users')" href="#users">Utilizatori</a>
+                <a class="w-full md:w-auto text-center px-4 py-3 border-b-2 border-gray-200 md:border-transparent -mb-px text-gray-700 hover:text-indigo-500 hover:border-indigo-400  font-semibold" :class="activeTab === 'users' ? 'text-indigo-500 border-indigo-500 md:border-indigo-500' : ''" @click="setActiveTab('users')" href="#users">Utilizatori</a>
 
-                <a class="px-4 py-3 border-b-2 border-transparent -mb-px text-gray-700 hover:text-indigo-500 font-semibold" :class="activeTab === 'settings' ? 'text-indigo-500 hover:border-b-2 hover:border-indigo-500 border-indigo-500' : ''" @click="setActiveTab('settings')" href="#settings">Setări</a>
+                <a class="w-full md:w-auto text-center px-4 py-3 border-b-2 border-gray-200 md:border-transparent -mb-px text-gray-700 hover:text-indigo-500 hover:border-indigo-400  font-semibold" :class="activeTab === 'settings' ? 'text-indigo-500 border-indigo-500 md:border-indigo-500' : ''" @click="setActiveTab('settings')" href="#settings">Setări</a>
                 @endadmin
             </div>
             <!-- Tab panes -->
@@ -88,6 +88,7 @@
                 @admin
                 @include('apps.partials.tabs.institution')
                 @include('apps.partials.tabs.users')
+                @include('apps.partials.tabs.settings')
                 @endadmin
             </div>
         </div>

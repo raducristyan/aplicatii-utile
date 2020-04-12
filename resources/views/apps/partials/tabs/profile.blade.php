@@ -1,4 +1,4 @@
-<!-- third tab -->
+<!-- profile tab -->
 <div v-show="activeTab==='profile'" id="profile" class="flex flex-col w-full my-2">
     <div class="flex flex-col lg:flex-row w-full mt-2">
         <div class="w-full lg:w-1/2 bg-white lg:mr-2 px-4 mt-2 rounded">
@@ -151,9 +151,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="w-full lg:w-1/2 px-4 mt-2">
-
         </div>
     </div>
 </div>

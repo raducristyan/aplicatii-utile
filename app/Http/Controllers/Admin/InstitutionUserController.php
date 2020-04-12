@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Role;
 use App\User;
-use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AddUserRequest;
 
@@ -85,23 +85,9 @@ class InstitutionUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequest $request)
+    public function update($id)
     {
-        $user = auth()->user();
-
-        if (auth()->user()->id !== (int) $request->user_id) {
-            return response([auth()->user()->id, $request->user_id], 403);
-        }
-
-        $user->first_name = $request->first_name;
-        $user->last_name = $request->last_name;
-        $user->job = $request->job;
-        $user->mobile = $request->mobile;
-        $user->phone = $request->phone;
-
-        $user->save([$request]);
-
-        return response([], 201);
+        //
     }
 
     /**
@@ -112,12 +98,13 @@ class InstitutionUserController extends Controller
      */
     public function destroy($id)
     {
-        if (auth()->user()->isAdmin() && auth()->user()->institution()->first()->users->contains($id)) {
-            User::destroy($id);
+        if (!auth()->user()->isAdmin() && !auth()->user()->institution()->first()->users->contains($id)) {
 
-            return response(['message' => 'Utilizatorul a fost șters'], 201);
+            return response(['message' => 'Utilizatorul nu a fost șters'], 403);
         }
 
-        return response(['message' => 'Utilizatorul nu a fost șters'], 403);
+        User::destroy($id);
+
+        return response(['message' => 'Utilizatorul a fost șters'], 201);
     }
 }

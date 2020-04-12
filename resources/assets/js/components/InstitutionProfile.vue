@@ -3,35 +3,26 @@
     export default {
         name: "InstitutionProfile",
         props: [
-            "email",
-            "name",
-            "bank",
-            "iban",
-            "phone",
-            "fax",
-            "cif",
-            "institution_id",
+            "institution",
             "url",
             "modalIsOpen",
             "closeModalClass"
         ],
         data() {
             return {
-                profile: {
-                    email: this.email,
-                    name: this.name,
-                    bank: this.bank,
-                    iban: this.iban,
-                    cif: this.cif,
-                    phone: this.phone,
-                    fax: this.fax,
-                    institution_id: this.institution_id
-                },
+                profile: this.institution,
                 errors: {}
             };
         },
 
-        computed: {},
+        watch: {
+            institution: {
+            immediate: true,
+                handler: function(institution) {
+                    this.profile = institution
+                }
+            }
+        },
 
         methods: {
             updateProfile() {

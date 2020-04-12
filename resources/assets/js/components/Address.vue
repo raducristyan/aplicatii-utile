@@ -9,12 +9,7 @@ export default {
     "county",
     "city",
     "village",
-    "street",
-    "number",
-    "bl",
-    "sc",
-    "ap",
-    "postal_code",
+    'addressData',
     "url",
     "owner",
     "modalId",
@@ -31,12 +26,7 @@ export default {
       cityVillages: "",
 
       address: {
-        street: this.street,
-        number: this.number,
-        bl: this.bl,
-        sc: this.sc,
-        ap: this.ap,
-        postal_code: this.postal_code,
+        data: this.addressData,
         village_id: this.village,
         owner: this.owner
       },

@@ -1,4 +1,4 @@
-<edit-profile-view email="{{ auth()->user()->email ?? ''}}" first_name="{{ auth()->user()->first_name ?? ''}}" last_name="{{ auth()->user()->last_name ?? ''}}" job="{{ auth()->user()->job ?? ''}}" mobile="{{ auth()->user()->mobile ?? ''}}" phone="{{ auth()->user()->phone ?? ''}}" user_id="{{ auth()->user()->id ?? ''}}" url="{{ route('apps.user.profile') }}" v-show="modalIsOpen('edit-profile-modal')" @close-modal="closeModal" :modal-is-open="modalIsOpen('edit-profile-modal')" :close-modal-class="closeModalClass" inline-template>
+<edit-profile-view :edit-profile="{{ auth()->user() }}" url="{{ route('apps.user.profile') }}" v-show="modalIsOpen('edit-profile-modal')" @close-modal="closeModal" :modal-is-open="modalIsOpen('edit-profile-modal')" :close-modal-class="closeModalClass" inline-template>
     @component('components.modal', ['modal_id' => 'editProfile', 'closeModal' => 'edit-profile-modal'])
     @slot('title')
     <p>Editare profil</p>

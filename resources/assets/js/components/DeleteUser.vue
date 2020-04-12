@@ -20,8 +20,7 @@ export default {
       axios
         .delete(this.url + this.user.id)
         .then(response => {
-          console.log(response);
-          //window.location.href = "/dashboard";
+          window.location.href = "/dashboard";
         })
         .catch(error => {
           if (error.response.data.errors) {

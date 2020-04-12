@@ -3,13 +3,7 @@
     export default {
         name: "EditProfile",
         props: [
-            "email",
-            "first_name",
-            "last_name",
-            "job",
-            "mobile",
-            "phone",
-            "user_id",
+            "editProfile",
             "url",
             "modalIsOpen",
             "closeModalClass"
@@ -17,17 +11,18 @@
 
         data() {
             return {
-                profile: {
-                    email: this.email,
-                    first_name: this.first_name,
-                    last_name: this.last_name,
-                    job: this.job,
-                    mobile: this.mobile,
-                    phone: this.phone,
-                    user_id: this.user_id
-                },
+                profile: {},
                 errors: {}
             };
+        },
+
+        watch: {
+            editProfile: {
+            immediate: true,
+                handler: function(editProfile) {
+                    this.profile = editProfile
+                }
+            }
         },
 
         methods: {

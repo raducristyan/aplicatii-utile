@@ -1702,7 +1702,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Address",
-  props: ["counties", "county", "city", "village", "street", "number", "bl", "sc", "ap", "postal_code", "url", "owner", "modalId", "modalIsOpen", "closeModalClass"],
+  props: ["counties", "county", "city", "village", 'addressData', "url", "owner", "modalId", "modalIsOpen", "closeModalClass"],
   data: function data() {
     return {
       selectedCounty: "",
@@ -1711,12 +1711,7 @@ __webpack_require__.r(__webpack_exports__);
       countyCities: "",
       cityVillages: "",
       address: {
-        street: this.street,
-        number: this.number,
-        bl: this.bl,
-        sc: this.sc,
-        ap: this.ap,
-        postal_code: this.postal_code,
+        data: this.addressData,
         village_id: this.village,
         owner: this.owner
       },
@@ -1813,7 +1808,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios["delete"](this.url + this.user.id).then(function (response) {
-        console.log(response); //window.location.href = "/dashboard";
+        window.location.href = "/dashboard";
       })["catch"](function (error) {
         if (error.response.data.errors) {
           _this.errors = error.response.data.errors;
@@ -1847,20 +1842,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "EditProfile",
-  props: ["email", "first_name", "last_name", "job", "mobile", "phone", "user_id", "url", "modalIsOpen", "closeModalClass"],
+  props: ["editProfile", "url", "modalIsOpen", "closeModalClass"],
   data: function data() {
     return {
-      profile: {
-        email: this.email,
-        first_name: this.first_name,
-        last_name: this.last_name,
-        job: this.job,
-        mobile: this.mobile,
-        phone: this.phone,
-        user_id: this.user_id
-      },
+      profile: {},
       errors: {}
     };
+  },
+  watch: {
+    editProfile: {
+      immediate: true,
+      handler: function handler(editProfile) {
+        this.profile = editProfile;
+      }
+    }
   },
   methods: {
     updateProfile: function updateProfile() {
@@ -1892,7 +1887,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "EditUser",
-  props: ["modalIsOpen", "closeModalClass", "editedUser"],
+  props: ["userToEdit", "modalIsOpen", "closeModalClass"],
   data: function data() {
     return {
       editedUser: {},
@@ -1900,11 +1895,19 @@ __webpack_require__.r(__webpack_exports__);
       url: 'admin/institution/users/edit/'
     };
   },
+  watch: {
+    userToEdit: {
+      immediate: true,
+      handler: function handler(user) {
+        this.editedUser = user;
+      }
+    }
+  },
   methods: {
     updateUser: function updateUser() {
       var _this = this;
 
-      axios["delete"](this.url + this.user.id).then(function (response) {
+      axios.put(this.url, this.editedUser).then(function (response) {
         console.log(response); //window.location.href = "/dashboard";
       })["catch"](function (error) {
         if (error.response.data.errors) {
@@ -1917,10 +1920,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     openModal: function openModal(modal) {
       this.$emit("open-modal", modal);
-    },
-    confirmDeletion: function confirmDeletion() {
-      this.user = this.editedUser;
-      this.updateUser();
     }
   }
 });
@@ -1981,23 +1980,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "InstitutionProfile",
-  props: ["email", "name", "bank", "iban", "phone", "fax", "cif", "institution_id", "url", "modalIsOpen", "closeModalClass"],
+  props: ["institution", "url", "modalIsOpen", "closeModalClass"],
   data: function data() {
     return {
-      profile: {
-        email: this.email,
-        name: this.name,
-        bank: this.bank,
-        iban: this.iban,
-        cif: this.cif,
-        phone: this.phone,
-        fax: this.fax,
-        institution_id: this.institution_id
-      },
+      profile: this.institution,
       errors: {}
     };
   },
-  computed: {},
+  watch: {
+    institution: {
+      immediate: true,
+      handler: function handler(institution) {
+        this.profile = institution;
+      }
+    }
+  },
   methods: {
     updateProfile: function updateProfile() {
       var _this = this;

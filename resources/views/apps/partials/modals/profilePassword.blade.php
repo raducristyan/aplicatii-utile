@@ -4,7 +4,7 @@
     <p>Editare profil utilizator</p>
     @endslot
 
-    @include('apps.partials.forms.userPassword')
+    @include('apps.partials.forms.profilePassword')
 
     @slot('footer')
     <button type="button" class="bg-green-100 text-green-500 font-medium border-b-2 border-green-500 px-3 py-2 hover:border-green-600 hover:bg-green-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md mr-4 transition-4" @click="updatePassword">Salvează</button>

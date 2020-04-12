@@ -25,8 +25,8 @@
     <div class="flex flex-col w-full mt-2">
         <label class="block font-semibold text-gray-700">Compartiment</label>
         <div class="relative">
-            <select class="w-full appearance-none bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" name="compartment" v-model="selectedCompartment" @change="getVillages">
-                <option v-for="compartment in compartments" :value="compartment.id" :selected="compartment.id == compartment" v-text="compartment.name"></option>
+            <select class="w-full appearance-none bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" name="compartment">
+                <option></option>
             </select>
             <div class="pointer-events-none absolute top-0 right-0 bottom-0 flex items-center px-2">
                 <svg class="w-4 h-4 fill-current text-gray-800" viewBox="0 0 129 129">

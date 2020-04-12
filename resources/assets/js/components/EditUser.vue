@@ -3,22 +3,33 @@
 export default {
   name: "EditUser",
   props: [
+    "userToEdit",
     "modalIsOpen",
     "closeModalClass",
-    "editedUser"
   ],
+
   data() {
     return {
       editedUser: {},
       errors: {},
       url: 'admin/institution/users/edit/',
-    };
+    }
   },
+
+  watch: {
+    userToEdit: {
+      immediate: true,
+      handler: function(user) {
+        this.editedUser = user
+      }
+    }
+  },
+
   methods: {
     updateUser() {
 
       axios
-        .put(this.url, this.user.id)
+        .put(this.url, this.editedUser)
         .then(response => {
           console.log(response);
           //window.location.href = "/dashboard";
@@ -37,11 +48,6 @@ export default {
     openModal(modal) {
       this.$emit("open-modal", modal);
     },
-
-    confirmDeletion() {
-      this.user = this.editedUser;
-      this.updateUser();
-    }
 
   }
 };

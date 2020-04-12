@@ -4,7 +4,7 @@
 <div class="py-3">
     <div class="flex flex-col items-start">
         <h3 class="text-indigo-600 font-normal text-xl">@yield('page-name', 'Dashboard')</h3>
-        <ol class="flex items-center text-lg">
+        <ol class="flex items-center text-base">
             <li class="inline-block"><a href="{{ route('dashboard') }}">Acasă</a></li>
             <li class="flex items-center">
 

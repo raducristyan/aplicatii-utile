@@ -23,7 +23,7 @@ class InstitutionRequest extends FormRequest
      */
     public function rules()
     {
-        $id = request()->institution_id;
+        $id = request()->id;
         return [
             'name' => 'required|string',
             'email' => 'required|email|unique:institutions,email,' . $id,

@@ -21,8 +21,8 @@ class InstitutionController extends Controller
     {
         $institution = auth()->user()->institution;
 
-        if ($institution->id !== (int) $request->institution_id) {
-            return response([$institution->id, (int) $request->institution_id], 403);
+        if ($institution->id !== (int) $request->id) {
+            return response(['Nu aveți drepturi suficiente pentru a actualiza această resursă'], 403);
         }
 
         $institution->name = $request->name;

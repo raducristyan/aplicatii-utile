@@ -1,4 +1,4 @@
-<edit-user-view url="{{ route('apps.user.profile') }}" v-show="modalIsOpen('edit-user-modal')" @close-modal="closeModal" :modal-is-open="modalIsOpen('edit-user-modal')" :close-modal-class="closeModalClass" :edited-user="userToEdit" inline-template>
+<edit-user-view url="{{ route('apps.user.profile') }}" v-show="modalIsOpen('edit-user-modal')" @close-modal="closeModal" :modal-is-open="modalIsOpen('edit-user-modal')" :close-modal-class="closeModalClass" :user-to-edit="userToEdit" inline-template>
     @component('components.modal', ['modal_id' => 'editUser', 'closeModal' => 'edit-user-modal'])
     @slot('title')
     <p>Editare utilizator</p>

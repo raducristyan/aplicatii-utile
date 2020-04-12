@@ -88,8 +88,8 @@ class UserController extends Controller
     {
         $user = auth()->user();
 
-        if (auth()->user()->id !== (int) $request->user_id) {
-            return response([auth()->user()->id, $request->user_id], 403);
+        if (auth()->user()->id != $request->id) {
+            return response(['message' => 'Acțiune interzisă'], 403);
         }
 
         $user->first_name = $request->first_name;
@@ -100,7 +100,7 @@ class UserController extends Controller
 
         $user->save([$request]);
 
-        return response([], 201);
+        return response(['message' => 'Profilul a fost actualizat.'], 201);
     }
 
     /**
@@ -111,8 +111,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        if (auth()->user()->isAdmin() && auth()->user()->institution()->first()->users->containes($id)) {
-            User::destroy($id);
-        }
+        //
     }
 }

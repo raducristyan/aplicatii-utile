@@ -10,7 +10,7 @@
 
     <div class="flex flex-col w-full mt-2">
         <label class="block font-semibold text-gray-700" for="institution_email">Email</label>
-        <input type="email" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded" :class="{'border-orange-500': errors.email}" id="institution_email" v-model="profile.email" placeholder="Adresa de email">
+        <input type="email" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded" :class="{'border-orange-500': errors.email}" id="institution_email" v-model="profile.email" disabled placeholder="Adresa de email">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.email" v-text="errors.email[0]"></small>
     </div>
 

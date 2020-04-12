@@ -9,7 +9,7 @@
     </div>
     <div class="flex flex-col w-full mt-2">
         <label class="block font-semibold text-gray-700" for="edited_user_email">Adresa de email</label>
-        <input type="email" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded" :class="{'border-orange-500': errors.email}" v-model="editedUser.email" id="edited_user_email" placeholder="Adresa de email">
+        <input type="email" class="w-full bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded" :class="{'border-orange-500': errors.email}" v-model="editedUser.email" id="edited_user_email" disabled placeholder="Adresa de email">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.email" v-text="errors.email[0]"></small>
     </div>
     <div class="flex flex-col w-full mt-2">
@@ -25,8 +25,8 @@
     <div class="flex flex-col w-full mt-2">
         <label class="block font-semibold text-gray-700">Compartiment</label>
         <div class="relative">
-            <select class="w-full appearance-none bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" name="compartment" v-model="selectedCompartment" @change="getVillages">
-                <option v-for="compartment in compartments" :value="compartment.id" :selected="compartment.id == compartment" v-text="compartment.name"></option>
+            <select class="w-full appearance-none bg-gray-100 text-gray-800 font-normal p-2 my-2 border border-transparent focus:border focus:border-indigo-500 focus:outline-none rounded-sm" name="compartment">
+                <option></option>
             </select>
             <div class="pointer-events-none absolute top-0 right-0 bottom-0 flex items-center px-2">
                 <svg class="w-4 h-4 fill-current text-gray-800" viewBox="0 0 129 129">
