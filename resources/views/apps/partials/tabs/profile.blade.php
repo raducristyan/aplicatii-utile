@@ -1,7 +1,7 @@
 <!-- profile tab -->
 <div v-show="activeTab==='profile'" id="profile" class="flex flex-col w-full my-2">
     <div class="flex flex-col lg:flex-row w-full mt-2">
-        <div class="w-full lg:w-1/2 bg-white lg:mr-2 px-4 mt-2 rounded">
+        <div class="w-full lg:w-1/2 bg-white lg:mr-2 px-4 mt-2 rounded shadow-md">
             <h3 class="py-3 border-b border-gray-300 text-indigo-500 font-normal text-xl">Profil</h3>
             <div class="flex flex-col flex-grow py-3">
                 <div class="w-full flex-grow">
@@ -11,8 +11,8 @@
                             <span class="text-gray-700 font-semibold" name="last_name">{{ auth()->user()->last_name ?? ''}}</span>
                         </div>
                         <div class="my-2">
-                            <span class="text-gray-600 font-normal">Nume:</span>
-                            <span class="text-gray-700 font-semibold" name="first_name">{{ auth()->user()->first_name ?? ''}}</span>
+                            <span class="text-gray-600 font-mal">Nume:</span>
+                            <span class="text-gray-700 font-semibolnord" name="first_name">{{ auth()->user()->first_name ?? ''}}</span>
                         </div>
                     </div>
                     <div class="px-4">
@@ -38,7 +38,7 @@
                 </div>
                 <div class="w-full flex-grow-0">
                     <div class="flex justify-center py-3 text-sm">
-                        <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md transition-4" @click="openModal('edit-profile-modal')">
+                        <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-t shadow-md transition-4" @click="openModal('edit-profile-modal')">
                             <span>
                                 Editează
                             </span>
@@ -50,7 +50,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-full lg:w-1/2 bg-white px-4 mt-2 rounded">
+        <div class="w-full lg:w-1/2 bg-white lg:ml-2 px-4 mt-2 rounded shadow-md">
             <h3 class="py-3 border-b border-gray-300 text-indigo-500 font-normal text-xl">Adresa</h3>
             <div class="flex flex-col flex-grow py-3">
                 <div class="w-full flex-grow">
@@ -113,7 +113,7 @@
                 </div>
                 <div class="w-full flex-grow-0">
                     <div class="flex justify-center py-3 text-sm">
-                        <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md transition-4" @click="openModal('edit-user-address-modal')">
+                        <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-t shadow-md transition-4" @click="openModal('edit-user-address-modal')">
                             <span>
                                 Editează
                             </span>
@@ -127,7 +127,7 @@
         </div>
     </div>
     <div class="flex flex-col lg:flex-row w-full mt-2">
-        <div class="w-full lg:w-1/2 bg-white lg:mr-2 px-4 mt-2 rounded">
+        <div class="w-full lg:w-1/2 bg-white lg:mr-2 px-4 mt-2 rounded shadow-md">
             <h3 class="py-3 border-b border-gray-300 text-indigo-500 font-normal text-xl">Parola</h3>
             <div class="flex flex-col flex-grow py-3">
                 <div class="w-full flex-grow">
@@ -140,7 +140,7 @@
                 </div>
                 <div class="w-full flex-grow-0">
                     <div class="flex justify-center py-3 text-sm">
-                        <button class="flex items-center whitespace-no-wrap bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-sm shadow-md transition-4" @click="openModal('update-user-password-modal')">
+                        <button class="flex items-center whitespace-no-wrap bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-t shadow-md transition-4" @click="openModal('update-user-password-modal')">
                             <span>
                                 Schimbă parola
                             </span>
@@ -151,6 +151,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="w-full lg:w-1/2 lg:ml-2 px-4 mt-2">
         </div>
     </div>
 </div>

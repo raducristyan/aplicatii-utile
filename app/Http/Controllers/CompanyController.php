@@ -15,7 +15,7 @@ class CompanyController extends Controller
 {
     protected $user;
 
-    public function __construct (User $user)
+    public function __construct(User $user)
     {
         $this->user = Auth::user();
     }
@@ -56,7 +56,6 @@ class CompanyController extends Controller
 
         $company->addresses()->save($address);
 
-        return redirect(route('myapps.rc.create'))->withSuccess("Firma ".$company->name." a fost adăugată cu succes!");
-
+        return redirect(route('myapps.rc.create'))->with('flash', ['body' => "Firma " . $company->name . " a fost adăugată cu succes!", 'type' => 'success']);
     }
 }

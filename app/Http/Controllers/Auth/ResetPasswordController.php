@@ -56,7 +56,6 @@ class ResetPasswordController extends Controller
      */
     protected function sendResetLinkResponse($response)
     {
-        flash('Parola a fost resetată cu succes')->success();
-        return back();
+        return back()->with('flash', ['body' => 'Parola a fost resetată cu succes', 'type' => 'success']);
     }
 }

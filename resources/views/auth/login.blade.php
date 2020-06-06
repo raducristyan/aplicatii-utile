@@ -16,7 +16,7 @@ Autentificare
                 </svg>
             </label>
 
-            <input id="email" class="w-full bg-transparent border-b-2 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('email') ? ' border-orange-600' : 'border-purple-400' }}" name="email" type="email" required="required" placeholder="Introduceți adresa de email" value="{{ old('email')}}">
+            <input id="email" class="w-full bg-transparent border-b-2 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none transition-4 {{ $errors->has('email') ? ' border-orange-600' : 'border-purple-400' }}" name="email" type="email" required="required" placeholder="Introduceți adresa de email" value="{{ old('email')}}">
         </div>
         @if ($errors->has('email'))
         <div class="w-full text-sm font-normal text-orange-600 mt-1">
@@ -30,14 +30,14 @@ Autentificare
                 <path fill="currentColor" d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zM264 392c0 22.1-17.9 40-40 40s-40-17.9-40-40v-48c0-22.1 17.9-40 40-40s40 17.9 40 40v48zm32-168H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path>
             </svg>
         </label>
-        <input id="password" class="w-full bg-transparent border-b-2 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('email') ? ' border-orange-600' : 'border-purple-400' }}" type="password" name="password" required="required" placeholder="Introduceți parola">
+        <input id="password" class="w-full bg-transparent border-b-2 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none transition-4 {{ $errors->has('email') ? ' border-orange-600' : 'border-purple-400' }}" type="password" name="password" required="required" placeholder="Introduceți parola">
     </div>
     <div class="flex items-center my-6 text-gray-200">
         <div class="w-full flex items-center justify-between">
             <div class="flex items-center">
-                <label for="checkbox-remembter" class="relative cursor-pointer">
-                    <input id="checkbox-remembter" type="checkbox" class="absolute w-0 h-0 top-0 left-0 opacity-0">
-                    <span class="absolute top-0 mt-1 left-0 w-4 h-4 bg-gray-200 rounded-sm"></span>
+                <label for="remember" class="relative cursor-pointer checkbox">
+                    <input id="remember" name="remember" type="checkbox" class="absolute w-0 h-0 opacity-0">
+                    <span class="checkmark absolute bg-gray-200 w-4 h-4 top-0 left-0 mt-1 rounded-sm"></span>
                     <span class="ml-6">
                         Ține-mă autentificat
                     </span>

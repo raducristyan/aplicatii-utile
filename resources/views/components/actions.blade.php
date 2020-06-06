@@ -1,6 +1,6 @@
 <div class="flex w-full h-screen p-6 mx-auto bg-img-dust">
     <div class="flex justify-center w-full">
-        <div class="w-full md:w-5/6 sm:min-w-sm max-w-lg my-auto mx-auto bg-indigo-600 indigo-purple p-12 shadow-xl rounded-lg">
+        <div class="w-full md:w-5/6 sm:min-w-sm max-w-lg my-auto mx-auto bg-indigo-600 indigo-purple p-12 shadow-2xl rounded-lg">
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 107.238 107.029" class="w-32 h-32 mx-auto">
                     <rect x="-280.078" y="-120.329" width="100%" height="100%" fill="none" />

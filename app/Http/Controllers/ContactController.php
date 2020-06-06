@@ -34,6 +34,6 @@ class ContactController extends Controller
 
         Mail::to(config('mail.from.address'))->send(new ContactEmail($from, $subject, $body));
 
-        return redirect()->back()->withSuccess('Mesajul a fost trimis cu succes.');
+        return redirect()->back()->with('flash', ['body' => 'Mesajul a fost trimis cu succes.', 'type' => 'success']);
     }
 }

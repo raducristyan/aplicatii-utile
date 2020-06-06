@@ -36,7 +36,7 @@ class ChangePasswordController extends Controller
         $user->password = bcrypt($request->get('new_password'));
         $user->save();
 
-        flash("Parola a fost schimbată cu succes !")->success()->important();
+        session()->put(['flash' => ['body' => "Parola a fost schimbată cu succes !", 'type' => 'success']]);
 
         return response([], 200);
     }

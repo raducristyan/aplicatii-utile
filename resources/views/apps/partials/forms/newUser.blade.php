@@ -9,32 +9,32 @@
     </div>
     <div class="flex flex-col w-full mt-2">
         <label class="block font-semibold text-gray-700" for="new_user_email">Adresa de email</label>
-        <input type="email" class="w-full bg-gray-200 border border-gray-200 text-gray-800 font-normal p-2 my-2 focus:border focus:border-indigo-500 focus:outline-none focus:bg-white rounded-sm shadow-lg" :class="{'border-orange-500': errors.email}" v-model="newUser.email" id="new_user_email" placeholder="Adresa de email">
+        <input type="email" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition-4" :class="{'border-orange-500': errors.email}" v-model="newUser.email" id="new_user_email" placeholder="Adresa de email">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.email" v-text="errors.email[0]"></small>
     </div>
     <div class="flex flex-col w-full mt-2">
         <label for="new_user_first_name" class="block font-semibold text-gray-700">Prenume</label>
-        <input type="text" id="new_user_first_name" class="w-full bg-gray-200 border border-gray-200 text-gray-800 font-normal p-2 my-2 focus:border focus:border-indigo-500 focus:outline-none focus:bg-white rounded-sm shadow-lg" :class="{'border-orange-500': errors.first_name}" v-model="newUser.first_name" placeholder="Prenumele utilizatorului">
+        <input type="text" id="new_user_first_name" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition-4" :class="{'border-orange-500': errors.first_name}" v-model="newUser.first_name" placeholder="Prenumele utilizatorului">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.first_name" v-text="errors.first_name[0]"></small>
     </div>
     <div class="flex flex-col w-full mt-2">
         <label for="new_user_last_name" class="block font-semibold text-gray-700">Nume</label>
-        <input type="text" id="new_user_last_name" class="w-full bg-gray-200 border border-gray-200 text-gray-800 font-normal p-2 my-2 focus:border focus:border-indigo-500 focus:outline-none focus:bg-white rounded-sm shadow-lg" :class="{'border-orange-500': errors.last_name}" v-model="newUser.last_name" placeholder="Numele utilizatorului">
+        <input type="text" id="new_user_last_name" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition-4" :class="{'border-orange-500': errors.last_name}" v-model="newUser.last_name" placeholder="Numele utilizatorului">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.last_name" v-text="errors.last_name[0]"></small>
     </div>
     <div class="flex flex-col w-full mt-2">
         <label for="new_user_job" class="block font-semibold text-gray-700">Funcție</label>
-        <input type="text" id="new_user_job" class="w-full bg-gray-200 border border-gray-200 text-gray-800 font-normal p-2 my-2 focus:border focus:border-indigo-500 focus:outline-none focus:bg-white rounded-sm shadow-lg" :class="{'border-orange-500': errors.job}" v-model="newUser.job" placeholder="Funcția utilizatorului">
+        <input type="text" id="new_user_job" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition-4" :class="{'border-orange-500': errors.job}" v-model="newUser.job" placeholder="Funcția utilizatorului">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.job" v-text="errors.job[0]"></small>
     </div>
     <div class="flex flex-col w-full mt-2">
         <label for="new_user_password" class="block font-semibold text-gray-700">Parola</label>
-        <input type="password" id="new_user_password" class="w-full bg-gray-200 border border-gray-200 text-gray-800 font-normal p-2 my-2 focus:border focus:border-indigo-500 focus:outline-none focus:bg-white rounded-sm shadow-lg" :class="{'border-orange-500': errors.password}" v-model="newUser.password" placeholder="Parola contului">
+        <input type="password" id="new_user_password" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition-4" :class="{'border-orange-500': errors.password}" v-model="newUser.password" placeholder="Parola contului">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.password" v-text="errors.password[0]"></small>
     </div>
     <div class="flex flex-col w-full mt-2">
         <label for="new_user_password_confirmation" class="block font-semibold text-gray-700">Confirmare parolă</label>
-        <input type="password" id="new_user_password_confirmation" class="w-full bg-gray-200 border border-gray-200 text-gray-800 font-normal p-2 my-2 focus:border focus:border-indigo-500 focus:outline-none focus:bg-white rounded-sm shadow-lg" :class="{'border-orange-500': errors.password}" v-model="newUser.password_confirmation" placeholder="Confirmați parola">
+        <input type="password" id="new_user_password_confirmation" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition-4" :class="{'border-orange-500': errors.password}" v-model="newUser.password_confirmation" placeholder="Confirmați parola">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.password" v-text="errors.password[0]"></small>
     </div>
 </form>

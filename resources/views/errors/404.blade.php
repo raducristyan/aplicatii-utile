@@ -1,4 +1,4 @@
-@extends('errors::layout')
+@extends('errors.layout')
 
 @section('title', 'Pagina nu a putut fi găsită')
 

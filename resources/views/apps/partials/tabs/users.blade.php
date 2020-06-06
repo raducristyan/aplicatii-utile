@@ -1,7 +1,7 @@
 @admin
-<div v-show="activeTab === 'users'" class="p-4 my-6 bg-white rounded" id="users">
+<div v-show="activeTab === 'users'" class="p-4 my-6 bg-white rounded shadow-md" id="users">
     <div class="flex justify-center py-3">
-        <button class="flex items-center bg-indigo-500 text-gray-200 text-semibold px-4 py-2 hover:bg-indigo-700 focus:underline-none focus:shadow-outline border-indigo-800 border-b-4 rounded-sm shadow transition-4" @click="openModal('new-user-modal')">
+        <button class="flex items-center bg-indigo-500 text-gray-200 text-semibold px-4 py-2 hover:bg-indigo-700 focus:underline-none focus:shadow-outline border-indigo-800 border-b-4 rounded-t shadow transition-4" @click="openModal('new-user-modal')">
             <span>Adaugă utilizator</span>
             <svg aria-hidden="true" focusable="false" data-icon="plus" class="w-4 h-4 ml-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
                 <path fill="currentColor" d="M376 232H216V72c0-4.42-3.58-8-8-8h-32c-4.42 0-8 3.58-8 8v160H8c-4.42 0-8 3.58-8 8v32c0 4.42 3.58 8 8 8h160v160c0 4.42 3.58 8 8 8h32c4.42 0 8-3.58 8-8V280h160c4.42 0 8-3.58 8-8v-32c0-4.42-3.58-8-8-8z"></path>
@@ -19,7 +19,7 @@
             <div class="w-2/12 flex flex-col flex-initial py-3 px-3 font-medium text-large text-gray-700">Acțiuni</div>
         </div>
         @foreach ($institution->users as $user)
-        <div class="w-full flex flex-row flex-grow flex-no-wrap items-center hover:bg-gray-200 border-b border-grey-400">
+        <div class="w-full flex flex-row flex-grow flex-no-wrap items-center hover:bg-indigo-200 border-b-2 border-grey-400">
             <div class="flex flex-col flex-shrink py-3 px-3">{{ $loop->iteration }}</div>
             <div class="w-2/12 flex flex-col flex-initial py-3 px-3">{{ $user->full_name }}</div>
             <div class="w-2/12 flex flex-col flex-initial py-3 px-3">{{ $user->job }}</div>

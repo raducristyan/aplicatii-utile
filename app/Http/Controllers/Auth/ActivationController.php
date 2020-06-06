@@ -28,7 +28,7 @@ class ActivationController extends Controller
     public function activate(ActivationToken $token)
     {
         $token->institution()->update([
-          'active' => true
+            'active' => true
         ]);
 
         $token->delete();
@@ -45,7 +45,7 @@ class ActivationController extends Controller
         }
 
         event(new AdminRequestedActivationEmail($user->institution()->first()));
-        flash('Am transmis un email cu linkul pentru activarea contului.');
-        return redirect('/login');
+
+        return redirect('/login')->with('flash', ['body' => 'Am transmis un email cu linkul pentru activarea contului.', 'type' => 'info']);
     }
 }

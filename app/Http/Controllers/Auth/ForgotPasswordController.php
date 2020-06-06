@@ -38,8 +38,6 @@ class ForgotPasswordController extends Controller
      */
     protected function sendResetLinkResponse($response)
     {
-        flash('Linkul pentru resetarea parolei a fost transmis cu succes pe email')->success();
-
-        return back();
+        return back()->with('flash', ['body' => 'Linkul pentru resetarea parolei a fost transmis cu succes pe email', 'type' => 'info']);
     }
 }

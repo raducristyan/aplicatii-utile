@@ -1,6 +1,6 @@
 @extends('layout.master')
 @php
-// dd(session()->get('flash_alert'))
+dd(session()->get('flash'))
 // dd(session()->get('flash_alert') !== null)
 // dd(auth()->user()->institution->with('users')->get());
 // dd(auth()->user()->isAdmin());

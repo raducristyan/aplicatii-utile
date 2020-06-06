@@ -49,16 +49,16 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
 
-        if (!$user->institution->active) {
+        if (!$user->institution->active && $user->isAdmin()) {
             Auth::logout($user);
-            
-            if ($user->isAdmin()) {
-                flash('Vă rugăm să activați contul instituției. <a href="' . route('activate.resend') . '?email=' . $user->email . '">Retransmite email-ul pentru activare.</a>')->info()->important();
-                return redirect('/login');
-            } else {
-                flash('Contul instituției nu a fost activat. Contactați administratorul contului')->info();
-                return redirect('/login');
-            }
+
+            return redirect('/login')->with('flash', ['body' => 'Vă rugăm să activați contul instituției. <a href="' . route('activate.resend') . '?email=' . $user->email . '">Retransmite email-ul pentru activare.</a>', 'type' => 'info']);
+        }
+
+        if (!$user->institution->active && !$user->isAdmin()) {
+            Auth::logout($user);
+
+            return redirect('/login')->with('flash', ['body' => 'Contul instituției nu a fost activat. Contactați administratorul contului', 'type' => 'info']);
         }
     }
 }

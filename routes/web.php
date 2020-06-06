@@ -18,7 +18,13 @@ Route::prefix('contact')->name('contact')->middleware('guest')->group(function (
 });
 
 /*-- Dashboard --*/
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middleware('auth');
+Route::prefix('dashboard')->name('dashboard')->middleware('auth')->group(function () {
+    Route::get('/', 'DashboardController@index');
+    Route::get('/activity', 'ActivityController@index')->name('.activity');
+    Route::get('/profile/{id}', 'UserController@show')->name('.profile');
+    Route::get('/institution', 'InstitutionController@index')->name('.institution');
+    Route::get('/users', 'UserController@index')->name('.institution');
+});
 
 /*-- Activation --*/
 Route::prefix('activate')->name('activate.')->namespace('Auth')->middleware('guest')->group(function () {
@@ -49,7 +55,7 @@ Route::prefix('apps')->name('apps')->middleware('auth')->group(function () {
 
 /*-- Admin dashboard --*/
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
-    Route::get('/dashboard', 'AdminController@index')->name('dashboard');
+
 
     Route::namespace('Admin')->group(function () {
         Route::put('institution/users/add', ['as' => 'institution.users.add', 'uses' => 'InstitutionUserController@store']);
@@ -70,10 +76,9 @@ Auth::routes();
 
 Route::get('test', function () {
     // dd($admin);
-    session()->flash('flash_alert.title', 'Test alert!');
-    session()->flash('flash_alert.body', 'Flash body');
+    return redirect('/login')->with('flash', ['body' => 'Contul instituției nu a fost activat. Contactați administratorul contului', 'type' => 'info']);
 
-    return view('test');
+    // return view('test');
     // dd($user);
     // dd(auth()->user()->institution->with('address')->get());
-})->name('test')->middleware('auth');
+})->name('test')->middleware('guest');

@@ -16,7 +16,7 @@ class PersonController extends Controller
 
     protected $user;
 
-    public function __construct (User $user)
+    public function __construct(User $user)
     {
         $this->user = Auth::user();
     }
@@ -26,7 +26,7 @@ class PersonController extends Controller
      *
      * @return array
      */
-    public function index ()
+    public function index()
     {
         # code...
     }
@@ -65,7 +65,6 @@ class PersonController extends Controller
 
         $person->addresses()->save($address);
 
-        return redirect(route('myapps.rc.create'))->withSuccess("Persoana ".$person->name." a fost adăugată cu succes!");
-
+        return redirect(route('myapps.rc.create'))->with('flash', ['body' => "Persoana " . $person->name . " a fost adăugată cu succes!", 'type' => 'success']);
     }
 }

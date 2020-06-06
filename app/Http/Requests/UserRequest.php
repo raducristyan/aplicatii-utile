@@ -25,11 +25,11 @@ class UserRequest extends FormRequest
     {
         return [
             'email' => 'required|email|unique:users,email,' . request()->id,
-            'first_name' => 'required|string|max:50',
-            'last_name' => 'required|string|max:50',
-            'job' => 'required|string|min:3|max:50',
-            'mobile' => 'nullable|min:10|max:12',
-            'phone' => 'nullable|min:10|max:12',
+            'first_name' => 'required|regex:/^[A-Za-z0-9âîșță\s-]+$/i|min:3|max:50',
+            'last_name' => 'required|regex:/^[A-Za-z0-9âîșță\s-]+$/i|min:3|max:50',
+            'job' => 'required|regex:/^[A-Za-z0-9âîșță\s-]+$/i|min:3|max:50',
+            'mobile' => 'nullable|min:10|max:15',
+            'phone' => 'nullable|min:10|max:15',
         ];
     }
 }
