@@ -4,7 +4,7 @@
 <div class="flex flex-wrap w-full">
     <!-- Column -->
     <div class="w-full lg:w-1/4">
-        <div class="bg-white px-4 py-8 lg:mr-6 mb-6 lg:mb-0 rounded shadow-md">
+        <div class="bg-white px-4 py-8 lg:mr-6 mb-6 lg:mb-0 rounded shadow-md border border-gray-400">
             <div class="flex flex-col border-b border-gray-300">
                 <img src="../assets/images/users/user-male.png" class="w-40 mx-auto rounded-full shadow" />
                 <h4 class="py-2 text-gray-700 mx-auto"><strong>{{ auth()->user()->full_name }}</strong></h4>
@@ -62,19 +62,19 @@
     <div class="w-full lg:w-3/4">
 
         <!-- Nav tabs -->
-        <div class="flex flex-col md:flex-row items-center bg-white border-b border-gray-300 rounded shadow-md">
+        <div class="flex flex-col md:flex-row items-center bg-white border-b border-gray-300 rounded shadow-md border border-gray-400">
 
-            <a class="w-full md:w-auto text-center px-4 py-3 border-b-2 border-gray-200 md:border-transparent -mb-px text-gray-700 hover:text-indigo-500 hover:border-indigo-400  font-semibold transition-4 @if (Request::is('activity')) text-indigo-500 border-indigo-500 md:border-indigo-500 @endif" @click="setActiveTab('activity')" href="#activity">Activitate</a>
+            <a class="w-full md:w-auto text-center px-4 py-3 border-b-2 border-gray-200 md:border-transparent -mb-px text-gray-700 hover:text-indigo-500 hover:border-indigo-400  font-semibold transition duration-300 @if (Request::is('activity')) text-indigo-500 border-indigo-500 md:border-indigo-500 @endif" @click="setActiveTab('activity')" href="#activity">Activitate</a>
 
-            <a class="w-full md:w-auto text-center px-4 py-3 border-b-2 border-gray-200 md:border-transparent -mb-px text-gray-700 hover:text-indigo-500 hover:border-indigo-400  font-semibold transition-4 @if (Request::is('profile')) text-indigo-500 border-indigo-500 md:border-indigo-500 @endif" @click="setActiveTab('profile')" href="#profile">Profil</a>
+            <a class="w-full md:w-auto text-center px-4 py-3 border-b-2 border-gray-200 md:border-transparent -mb-px text-gray-700 hover:text-indigo-500 hover:border-indigo-400  font-semibold transition duration-300 @if (Request::is('profile')) text-indigo-500 border-indigo-500 md:border-indigo-500 @endif" @click="setActiveTab('profile')" href="#profile">Profil</a>
 
             @admin
 
-            <a class="w-full md:w-auto text-center px-4 py-3 border-b-2 border-gray-200 md:border-transparent -mb-px text-gray-700 hover:text-indigo-500 hover:border-indigo-400  font-semibold transition-4 @if (Request::is('institution')) text-indigo-500 border-indigo-500 md:border-indigo-500 @endif" @click="setActiveTab('institution')" href="#institution">Instituție</a>
+            <a class="w-full md:w-auto text-center px-4 py-3 border-b-2 border-gray-200 md:border-transparent -mb-px text-gray-700 hover:text-indigo-500 hover:border-indigo-400  font-semibold transition duration-300 @if (Request::is('institution')) text-indigo-500 border-indigo-500 md:border-indigo-500 @endif" @click="setActiveTab('institution')" href="#institution">Instituție</a>
 
-            <a class="w-full md:w-auto text-center px-4 py-3 border-b-2 border-gray-200 md:border-transparent -mb-px text-gray-700 hover:text-indigo-500 hover:border-indigo-400  font-semibold transition-4 @if (Request::is('users')) text-indigo-500 border-indigo-500 md:border-indigo-500 @endif" @click="setActiveTab('users')" href="#users">Utilizatori</a>
+            <a class="w-full md:w-auto text-center px-4 py-3 border-b-2 border-gray-200 md:border-transparent -mb-px text-gray-700 hover:text-indigo-500 hover:border-indigo-400  font-semibold transition duration-300 @if (Request::is('users')) text-indigo-500 border-indigo-500 md:border-indigo-500 @endif" @click="setActiveTab('users')" href="#users">Utilizatori</a>
 
-            <a class="w-full md:w-auto text-center px-4 py-3 border-b-2 border-gray-200 md:border-transparent -mb-px text-gray-700 hover:text-indigo-500 hover:border-indigo-400  font-semibold transition-4 @if (Request::is('settings')) text-indigo-500 border-indigo-500 md:border-indigo-500 @endif" @click="setActiveTab('settings')" href="#settings">Setări</a>
+            <a class="w-full md:w-auto text-center px-4 py-3 border-b-2 border-gray-200 md:border-transparent -mb-px text-gray-700 hover:text-indigo-500 hover:border-indigo-400  font-semibold transition duration-300 @if (Request::is('settings')) text-indigo-500 border-indigo-500 md:border-indigo-500 @endif" @click="setActiveTab('settings')" href="#settings">Setări</a>
             @endadmin
         </div>
         <!-- Tab panes -->

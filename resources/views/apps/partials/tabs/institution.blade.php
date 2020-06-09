@@ -2,7 +2,7 @@
 @admin
 
 <div v-show="activeTab==='institution'" id="institution" class="flex flex-col lg:flex-row w-full my-2">
-    <div class="w-full lg:w-1/2 bg-white lg:mr-2 px-4 my-4 rounded shadow-md">
+    <div class="w-full lg:w-1/2 bg-white lg:mr-2 px-4 my-4 rounded shadow-md border border-gray-400">
         <h3 class="py-3 border-b border-gray-300 text-indigo-500 font-normal text-xl">Profil instituție</h3>
         <div class="flex flex-col flex-grow py-3">
             <div class="w-full flex-grow">
@@ -39,7 +39,7 @@
             </div>
             <div class="w-full flex-grow-0">
                 <div class="flex justify-center py-3 text-sm">
-                    <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-t shadow-md transition-4" @click="openModal('edit-institution-profile-modal')">
+                    <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-t shadow-md transition duration-300" @click="openModal('edit-institution-profile-modal')">
                         <span>
                             Editează
                         </span>
@@ -51,7 +51,7 @@
             </div>
         </div>
     </div>
-    <div class="flex flex-col w-full lg:w-1/2 bg-white lg:ml-2 px-4 my-4 rounded shadow-md">
+    <div class="flex flex-col w-full lg:w-1/2 bg-white lg:ml-2 px-4 my-4 rounded shadow-md border border-gray-400">
         <h3 class="py-3 border-b border-gray-300 text-indigo-500 font-normal text-xl">Adresă instituție</h3>
         <div class="flex flex-col flex-grow py-3">
             <div class="w-full flex-grow">
@@ -101,7 +101,7 @@
             </div>
             <div class="w-full flex-grow-0">
                 <div class="flex justify-center py-3 text-sm">
-                    <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-t shadow-md transition-4" @click="openModal('edit-institution-address-modal')">
+                    <button class="flex items-center bg-indigo-100 text-indigo-500 font-medium border-b-2 border-indigo-500 px-3 py-2 hover:border-indigo-600 hover:bg-indigo-500 focus:underline-none focus:shadow-outline hover:text-gray-100 rounded-t shadow-md transition duration-300" @click="openModal('edit-institution-address-modal')">
                         <span>
                             Editează
                         </span>

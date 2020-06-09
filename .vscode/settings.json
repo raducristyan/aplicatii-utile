@@ -1,3 +1,10 @@
 {
-    "vsicons.presets.angular": false
+    "vsicons.presets.angular": false,
+    "phpunit.docker_name": "laradock_workspace_1",
+    "phpunit.code_path": "/var/www",
+    "phpunit.exec": "/var/www/vendor/bin/phpunit",
+    "phpunit.extra_params": [
+
+
+    ]
 }

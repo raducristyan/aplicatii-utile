@@ -16,11 +16,9 @@ class RegisterButtonTest extends DuskTestCase
     {
         $this->browse(function ($browser) {
             $browser->maximize()
-                    ->visit('/')
-                    ->assertSee('Creează cont')
-                    ->clickLink('Creează cont')
-                    ->assertSee('Înregistrare')
-                    ->assertPathIs('/register');
+                ->visit('/register')
+                ->assertSee('Înregistrare')
+                ->press('Creează contul');
         });
     }
 }

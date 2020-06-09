@@ -10,42 +10,42 @@
 
     <div class="flex flex-col w-full mt-2">
         <label class="block font-semibold text-gray-700" for="institution_email">Email</label>
-        <input type="email" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition-4" :class="{'border-orange-500': errors.email}" id="institution_email" v-model="profile.email">
+        <input type="email" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition duration-300" :class="{'border-orange-500': errors.email}" id="institution_email" v-model="profile.email">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.email" v-text="errors.email[0]"></small>
     </div>
 
     <div class="flex flex-col w-full mt-2">
         <label class="block font-semibold text-gray-700" for="cif">Codul fiscal</label>
-        <input type="text" class="w-full bg-gray-200 text-gray-800 font-normal p-2 my-2 focus:outline-none rounded-t shadow transition-4" :class="{'border-orange-500': errors.cif}" id="cif" aria-describedby="institutionCifHelp" v-model="profile.cif" readonly>
+        <input type="text" class="w-full bg-gray-200 text-gray-800 font-normal p-2 my-2 focus:outline-none rounded-t shadow transition duration-300" :class="{'border-orange-500': errors.cif}" id="cif" aria-describedby="institutionCifHelp" v-model="profile.cif" readonly>
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.cif" v-text="errors.cif[0]"></small>
     </div>
 
     <div class="flex flex-col w-full mt-2">
         <label class="block font-semibold text-gray-700" for="institution_name">Denumire</label>
-        <input type="text" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition-4" :class="{'border-orange-500': errors.name}" id="institution_name" aria-describedby="institutionNameHelp" v-model="profile.name">
+        <input type="text" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition duration-300" :class="{'border-orange-500': errors.name}" id="institution_name" aria-describedby="institutionNameHelp" v-model="profile.name">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.name" v-text="errors.name[0]"></small>
     </div>
 
     <div class="flex flex-row">
         <div class="flex flex-col w-full mt-2 mr-1">
             <label class="block font-semibold text-gray-700" for="institution_phone">Telefon</label>
-            <input type="text" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition-4" :class="{'border-orange-500': errors.phone}" id="institution_phone" aria-describedby="institutionPhoneHelp" v-model="profile.phone">
+            <input type="text" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition duration-300" :class="{'border-orange-500': errors.phone}" id="institution_phone" aria-describedby="institutionPhoneHelp" v-model="profile.phone">
             <small class="w-full font-normal text-sm text-orange-500" v-if="errors.phone" v-text="errors.phone[0]"></small>
         </div>
         <div class="flex flex-col w-full mt-2 ml-1">
             <label class="block font-semibold text-gray-700" for="institutionFax">Fax</label>
-            <input type="text" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition-4" :class="{'border-orange-500': errors.fax}" id="institution_fax" aria-describedby="institutionFaxHelp" v-model="profile.fax">
+            <input type="text" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition duration-300" :class="{'border-orange-500': errors.fax}" id="institution_fax" aria-describedby="institutionFaxHelp" v-model="profile.fax">
             <small class="w-full font-normal text-sm text-orange-500" v-if="errors.fax" v-text="errors.fax[0]"></small>
         </div>
     </div>
     <div class="flex flex-col w-full mt-2">
         <label class="block font-semibold text-gray-700" for="institution_bank">Banca</label>
-        <input type="text" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition-4" :class="{'border-orange-500': errors.bank}" id="institution_bank" aria-describedby="institutionBankHelp" v-model="profile.bank">
+        <input type="text" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition duration-300" :class="{'border-orange-500': errors.bank}" id="institution_bank" aria-describedby="institutionBankHelp" v-model="profile.bank">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.bank" v-text="errors.bank[0]"></small>
     </div>
     <div class="flex flex-col w-full mt-2">
         <label class="block font-semibold text-gray-700" for="institution_iban">Contul IBAN</label>
-        <input type="text" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition-4" :class="{'border-orange-500': errors.iban}" id="institution_iban" aria-describedby="institutionIbanHelp" v-model="profile.iban">
+        <input type="text" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition duration-300" :class="{'border-orange-500': errors.iban}" id="institution_iban" aria-describedby="institutionIbanHelp" v-model="profile.iban">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.iban" v-text="errors.iban[0]"></small>
     </div>
 </form>

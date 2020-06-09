@@ -14,18 +14,18 @@
     </div>
     <div class="flex flex-col w-full mt-2">
         <label for="profile_first_name" class="block font-semibold text-gray-700">Prenume</label>
-        <input type="text" id="profile_first_name" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition-4" :class="{'border-orange-500': errors.first_name}" v-model="profile.first_name">
+        <input type="text" id="profile_first_name" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition duration-300" :class="{'border-orange-500': errors.first_name}" v-model="profile.first_name">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.first_name" v-text="errors.first_name[0]"></small>
     </div>
     <div class="flex flex-col w-full mt-2">
         <label for="profile_last_name" class="block font-semibold text-gray-700">Nume</label>
-        <input type="text" id="profile_last_name" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition-4" :class="{'border-orange-500': errors.last_name}" v-model="profile.last_name">
+        <input type="text" id="profile_last_name" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition duration-300" :class="{'border-orange-500': errors.last_name}" v-model="profile.last_name">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.last_name" v-text="errors.last_name[0]"></small>
     </div>
     <div class="flex flex-col w-full mt-2">
         <label class="block font-semibold text-gray-700">Compartiment</label>
         <div class="relative">
-            <select class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition-4" name="compartment">
+            <select class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition duration-300" name="compartment">
                 <option></option>
             </select>
             <div class="pointer-events-none absolute top-0 right-0 bottom-0 flex items-center px-2">
@@ -40,7 +40,7 @@
     </div>
     <div class="flex flex-col w-full mt-2">
         <label for="profile_job" class="block font-semibold text-gray-700">Funcție</label>
-        <input type="text" id="profile_job" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition-4" :class="{'border-orange-500': errors.job}" v-model="profile.job">
+        <input type="text" id="profile_job" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition duration-300" :class="{'border-orange-500': errors.job}" v-model="profile.job">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.job" v-text="errors.job[0]"></small>
     </div>
 </form>

@@ -13,10 +13,6 @@
 
 @tailwind utilities;
 
-.transition-4 {
-  transition: .4s;
-}
-
 /* On mouse-over, add a grey background color */
 .checkbox:hover input~.checkmark {
   background-color: #ccc;

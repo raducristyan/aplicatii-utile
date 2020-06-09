@@ -13,17 +13,17 @@
     </div>
     <div class="flex flex-col w-full mt-2">
         <label for="old_password" class="block font-semibold text-gray-700">Parola veche</label>
-        <input type="password" id="old_password" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition-4" :class="{'border-orange-500': errors.old_password}" v-model="userPassword.old_password" placeholder="Parola actuală a contului dumneavoastră">
+        <input type="password" id="old_password" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition duration-300" :class="{'border-orange-500': errors.old_password}" v-model="userPassword.old_password" placeholder="Parola actuală a contului dumneavoastră">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.old_password" v-text="errors.old_password[0]"></small>
     </div>
     <div class="flex flex-col w-full mt-2">
         <label for="new_password" class="block font-semibold text-gray-700">Parola nouă</label>
-        <input type="password" id="new_password" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition-4" :class="{'border-orange-500': errors.new_password}" v-model="userPassword.new_password" placeholder="Noua parolă">
+        <input type="password" id="new_password" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition duration-300" :class="{'border-orange-500': errors.new_password}" v-model="userPassword.new_password" placeholder="Noua parolă">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.new_password" v-text="errors.new_password[0]"></small>
     </div>
     <div class="flex flex-col w-full mt-2">
         <label for="new_password_confirmation" class="block font-semibold text-gray-700">Confirmare parolă</label>
-        <input type="password" id="new_password_confirmation" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition-4" :class="{'border-orange-500': errors.new_password}" v-model="userPassword.new_password_confirmation" placeholder="Confirmați noua parolă.">
+        <input type="password" id="new_password_confirmation" class="w-full bg-gray-100 border-b-2 border-gray-400 text-gray-800 font-normal p-2 my-2 focus:border-b-2 focus:border-indigo-500 focus:outline-none focus:bg-gray-200 rounded-t shadow-md transition duration-300" :class="{'border-orange-500': errors.new_password}" v-model="userPassword.new_password_confirmation" placeholder="Confirmați noua parolă.">
         <small class="w-full font-normal text-sm text-orange-500" v-if="errors.new_password_confirmation" v-text="errors.new_password_confirmation[0]"></small>
     </div>
 </form>
