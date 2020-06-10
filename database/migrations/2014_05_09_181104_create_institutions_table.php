@@ -22,6 +22,7 @@ class CreateInstitutionsTable extends Migration
             $table->string('iban')->nullable();
             $table->string('bank')->nullable();
             $table->boolean('active')->default(false);
+            $table->boolean('terms_and_conditions');
             $table->softDeletes();
             $table->timestamps();
             $table->unique('cif');

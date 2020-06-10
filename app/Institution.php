@@ -23,7 +23,7 @@ class Institution extends Model
      *
      * @var array
      */
-    protected $fillable = ['cif', 'name', 'email', 'phone', 'fax', 'iban', 'bank', 'active',];
+    protected $fillable = ['cif', 'name', 'email', 'phone', 'fax', 'iban', 'bank', 'active', 'terms_and_conditions'];
 
     /**
      * Get the users for the Institution model.
@@ -123,5 +123,16 @@ class Institution extends Model
     public function setBankAttribute($value)
     {
         $this->attributes['bank'] = ucwords(strtolower(trim(preg_replace('/\s+/', ' ', $value))));
+    }
+
+    /**
+     * Set the terms and conditions.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setTermsAndConditionsAttribute($value)
+    {
+        $this->attributes['terms_and_conditions'] = boolval($value);
     }
 }

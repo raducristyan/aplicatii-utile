@@ -110,19 +110,23 @@
         @endif
 
     </div>
-    <div class="flex items-center my-6 text-gray-200">
-        <div class="w-full flex items-center justify-between">
+    <div class="flex flex-wrap my-6 text-gray-200">
+        <div class="w-full flex items-center">
             <div class="flex items-center">
                 <label for="signup" class="relative cursor-pointer checkbox">
-                    <input id="signup" type="checkbox" class="absolute w-0 h-0 opacity-0  transition duration-300">
+                    <input id="signup" type="checkbox" name="terms_and_conditions" class="absolute w-0 h-0 opacity-0  transition duration-300">
                     <span class="checkmark absolute bg-gray-200 w-4 h-4 top-0 left-0 mt-1 rounded-sm"></span>
                     <span class="ml-6">
                         Sunt de acord cu <a href="#" class="text-orange-500 font-semibold hover:underline">Termenii și condițiile</a>
                     </span>
                 </label>
             </div>
-
         </div>
+        @if ($errors->has('terms_and_conditions'))
+        <div class="text-sm font-normal text-orange-600 w-full mt-1">
+            {{ $errors->first('terms_and_conditions') }}
+        </div>
+        @endif
     </div>
     <div class="flex items-center my-8">
         <div class="w-2/3 mx-auto">

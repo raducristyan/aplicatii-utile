@@ -32,7 +32,7 @@ class SendActivationToken
 
         $token = $event->institution->token ?: $event->institution->token()->save(
             new ActivationToken([
-                'token' => str_random(128),
+                'token' => random_bytes(128),
             ])
         );
 

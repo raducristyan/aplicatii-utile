@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Auth;
 use App\Role;
 use App\User;
-use Validator;
 use App\Institution;
 use App\ActivationToken;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Events\InstitutionCreated;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
@@ -35,7 +38,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/dashboard';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -51,7 +54,7 @@ class RegisterController extends Controller
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @return \Illuminate\Support\Facades\Validator
      */
     protected function validator(array $data)
     {
@@ -62,7 +65,7 @@ class RegisterController extends Controller
             'last_name'   => 'required|max:255',
             'email'       => 'required|email|max:255|unique:users',
             'password'    => 'required|confirmed|min:6',
-            'terms_and_conditions' => 'required|accepted',
+            'terms_and_conditions' => 'accepted',
         ]);
     }
 
@@ -82,40 +85,46 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return User
      */
-    private function newAccount(array $data)
+    protected function newAccount(array $data)
     {
-        $institution = Institution::create([
-            'name'  => $data['institution'],
-            'cif'   => $data['cif'],
+        $token = new ActivationToken([
+            'token' => Str::random(128),
         ]);
 
-        $newUser = User::create([
-            'first_name' => $data['first_name'],
-            'last_name'  => $data['last_name'],
-            'email'      => $data['email'],
-            'password'   => bcrypt($data['password']),
-            'institution_id' => $institution->id,
-        ]);
+        $role = Role::where('name', 'admin')->first();
 
-        if ($institution && $newUser) {
-            $token = new ActivationToken([
-                'token' => Str::random(128),
-            ]);
-
-            $role = Role::where('name', 'admin')->first()->id;
-
+        DB::transaction(function () use ($data) {
+            $institution = $this->createInstitution($data);
+            $user = $this->createUser($data, $institution);
 
             $institution->token()->save($token);
-            $newUser->roles()->attach($role);
+            $user->roles()->attach($role);
 
             event(new InstitutionCreated($institution));
 
-            return $newUser;
-        } else {
-            $institution->delete();
-            $newUser->delete();
-            $token->delete();
+            return $user;
+        });
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        if ($response = $this->registered($request, $user)) {
+            return $response;
         }
+
+        return $request->wantsJson()
+            ? new Response('', 201)
+            : redirect($this->redirectPath());
     }
 
     /**
@@ -127,8 +136,32 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, $user)
     {
-        Auth::logout();
+        if (Auth::check()) {
+            Auth::logout();
+        }
 
         return redirect('/login')->with('flash', ['body' => 'Contul dumneavoastră a fost creat. Verificați căsuța de email pentru activarea contului.', 'type' => 'success']);
+    }
+
+    protected function createInstitution($institution)
+    {
+        $institution = Institution::create([
+            'name'  => $institution['institution'],
+            'cif'   => $institution['cif'],
+            'terms_and_conditions' => $institution['terms_and_conditions'],
+        ]);
+        return $institution;
+    }
+
+    protected function createUser($user, $institution)
+    {
+        $newUser = User::create([
+            'first_name' => $user['first_name'],
+            'last_name'  => $user['last_name'],
+            'email'      => $user['email'],
+            'password'   => bcrypt($user['password']),
+            'institution_id' => $institution->id,
+        ]);
+        return $newUser;
     }
 }
