@@ -24,7 +24,9 @@ class InstitutionViewComposer
     {
         // Dependencies automatically resolved by service cont ainer...
         if (auth()->check()) {
-            $this->institution = $institution->where('id', auth()->user()->institution()->first()->id)->with(['users', 'address.village.city.county', 'admin.address.village.city.county'])->first();
+            $this->institution = $institution->where('id', auth()->user()->institution()->first()->id)
+                ->with(['users', 'address.village.city.county', 'admin.address.village.city.county'])
+                ->first();
         }
     }
 

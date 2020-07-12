@@ -13,7 +13,6 @@ class AppsController extends Controller
     public function index()
     {
         $apps = Application::all();
-        // dd($apps);
         return view('apps.index', compact('apps'));
     }
 }

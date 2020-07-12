@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layouts.master')
 
 <!-- Main Content -->
 @section('wrapper')
@@ -10,18 +10,16 @@ Resetare parolă
     {{ csrf_field() }}
     <div class="flex items-center mt-4">
         <label for="email" class="mr-2">
-            <svg aria-hidden="true" focusable="false" class="w-6 h-6 fill-current text-gray-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path fill="currentColor" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path>
-            </svg>
+            @include('partials.svg.envelope-solid', ['class' => 'w-6 h-6 fill-current text-gray-200'])
         </label>
 
         <input id="email" class="w-full bg-transparent border-b-2 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('email') ? ' border-orange-600' : 'border-purple-400' }}" name="email" type="email" required="required" placeholder="Introduceți adresa de email" value="{{ old('email')}}">
     </div>
-    @if ($errors->has('email'))
-    <div class="text-sm font-normal text-orange-600 w-full mt-1">
+    @error('email')
+    <div class="w-full text-sm font-normal text-orange-600 mt-1">
         {{ $errors->first('email') }}
     </div>
-    @endif
+    @enderror
     <div class="flex items-center mt-4">
         <label for="password" class="mr-2">
             <svg aria-hidden="true" focusable="false" class="w-6 h-6 fill-current text-gray-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -30,11 +28,11 @@ Resetare parolă
         </label>
         <input id="password" class="w-full bg-transparent border-b-2 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('email') ? ' border-orange-600' : 'border-purple-400' }}" type="password" name="password" required="required" placeholder="Introduceți noua parolă">
     </div>
-    @if ($errors->has('password'))
+    @error('password')
     <div class="block text-sm font-normal text-orange-600 w-full mt-1">
         {{ $errors->first('password') }}
     </div>
-    @endif
+    @enderror
     <div class="flex items-center mt-4 w-full">
         <label for="password_confirmation" class="mr-2">
             <svg aria-hidden="true" focusable="false" class="w-6 h-6 fill-current text-gray-200" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -44,8 +42,9 @@ Resetare parolă
         <input id="password_confirmation" class="w-full bg-transparent border-b-2 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('email') ? ' border-orange-600' : 'border-purple-400' }}" type="password" name="password_confirmation" required="required" placeholder="Confirmați parola">
     </div>
     <div class="flex items-center my-12 w-2/3 mx-auto">
-        <button class="w-full border-2 border-orange-500  py-3 rounded-full text-indigo-700 font-bold text-lg focus:outline-none focus:shadow-outline hover:text-gray-200 hover:bg-indigo-500 hover:border-indigo-700 hover:shadow-lg transition duration-300" type="submit">Resetează parola</button>
+        <button class="w-full border-2 border-orange-500  py-3 rounded-full text-indigo-700 font-bold text-lg focus:outline-none focus:shadow-outline hover:text-gray-200 hover:bg-indigo-500 hover:border-indigo-700 hover:shadow-lg transition duration-500" type="submit">Resetează parola</button>
     </div>
 </form>
 @endcomponent
+<a class=" bottom-0 right-0 mr-6 mb-6 fixed" href="https://www.freepik.com/free-photos-vectors/background">Background vector created by freepik - www.freepik.com</a>
 @endsection

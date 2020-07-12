@@ -93,7 +93,7 @@ class RegisterController extends Controller
 
         $role = Role::where('name', 'admin')->first();
 
-        DB::transaction(function () use ($data) {
+        DB::transaction(function () use ($data, $role, $token) {
             $institution = $this->createInstitution($data);
             $user = $this->createUser($data, $institution);
 

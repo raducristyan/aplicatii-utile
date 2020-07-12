@@ -66,6 +66,7 @@ const vm = new Vue({
         userMenu: {
             isVisible: false,
         },
+        flashClass: '',
         modal: {
             opened: []
         },
@@ -98,9 +99,9 @@ const vm = new Vue({
 
     methods: {
         logout: function() {
-            Axios.post('logout', {})
+            Axios.post('/logout', {})
                 .then(function(response) {
-                    window.location.reload(true);
+                    window.location.reload();
                 })
         },
 
@@ -161,6 +162,9 @@ const vm = new Vue({
 
         getUserToEdit(user) {
             this.userToEdit = user
+        },
+        changeClass() {
+            this.flashClass = 'animate__fadeOutUp';
         },
 
     }

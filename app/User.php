@@ -98,7 +98,7 @@ class User extends Authenticatable implements CanResetPassword
      */
     public function setLastNameAttribute($value)
     {
-        $this->attributes['last_name'] = ucwords(strtolower($value));
+        $this->attributes['last_name'] = strtoupper($value);
     }
 
     /**

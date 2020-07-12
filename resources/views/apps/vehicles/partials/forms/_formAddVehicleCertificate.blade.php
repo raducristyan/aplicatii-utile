@@ -12,11 +12,11 @@
                             <div class="col-md-6" id="owner_type">
                                 <div class="btn-group" data-toggle="buttons">
                                     <label class="btn btn-primary active" @click="setTypePerson">
-                                        <input type="radio" name="owner_type" id="person" value="person"  autocomplete="off" :checked="type.person" > Persoană fizică
+                                        <input type="radio" name="owner_type" id="person" value="person" autocomplete="off" :checked="type.person"> Persoană fizică
                                     </label>
 
                                     <label class="btn btn-primary" @click="setTypeCompany">
-                                        <input type="radio" name="owner_type" id="company" value="company"  autocomplete="off" :checked="type.company" > Persoană juridică
+                                        <input type="radio" name="owner_type" id="company" value="company" autocomplete="off" :checked="type.company"> Persoană juridică
                                     </label>
                                 </div>
                             </div>
@@ -27,19 +27,19 @@
                             <div class="col-md-8">
                                 @if (isset($people)) @if (count($people) > 0)
                                 <select class="form-control" id="people_list" , name="person">
-                                <option value="" class="text-muted">-- Selectați o persoană --</option>
-                                            @foreach ($people as $person)
-                                                <option value="{{$person->id}}" @if (old('person') === $person->id)) selected @endif>{{$person->full_name}}</option>
-                                                @endforeach
-                                            </select> @else {!!Form::select('person', [], null, ['id' => 'people_list', 'class'
+                                    <option value="" class="text-muted">-- Selectați o persoană --</option>
+                                    @foreach ($people as $person)
+                                    <option value="{{$person->id}}" @if (old('person')===$person->id)) selected @endif>{{$person->full_name}}</option>
+                                    @endforeach
+                                </select> @else {!!Form::select('person', [], null, ['id' => 'people_list', 'class'
                                 => 'form-control', 'placeholder' => 'Adăugați o persoană nouă...']) !!} @endif @endif
                             </div>
                             <div class="col-md-1">
                                 <span data-toggle="tooltip" data-placement="right" title="Adaugă persoana">
-                                        <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#add-people">
-                                            <i class="fal fa-plus-circle"></i>
-                                        </button>
-                                    </span>
+                                    <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#add-people">
+                                        <i class="fal fa-plus-circle"></i>
+                                    </button>
+                                </span>
                             </div>
                         </div>
 
@@ -49,7 +49,7 @@
                                 @if (isset($companies)) @if (count($companies) > 0)
                                 <select class="form-control" id="companies_list" , name="company">
                                     @foreach ($companies as $company)
-                                        <option value="{{$company->id}}" @if (old('company') === $company->id) selected @endif>{{$company->name}}</option>
+                                    <option value="{{$company->id}}" @if (old('company')===$company->id) selected @endif>{{$company->name}}</option>
                                     @endforeach
                                 </select> @else {!!Form::select('company', [], null, ['id' => 'companies_list',
                                 'class' => 'form-control', 'placeholder' => 'Adăugați o firmă nouă...']) !!} @endif @endif
@@ -69,7 +69,7 @@
                                 @if (isset($vehicleCategories)) @if (count($vehicleCategories) > 0)
                                 <select class="form-control" id="category" name="category">
                                     @foreach ($vehicleCategories as $category)
-                                        <option value="{{$category->id}}" @if (old('category') === $category->id) selected @endif>{{$category->category}}</option>
+                                    <option value="{{$category->id}}" @if (old('category')===$category->id) selected @endif>{{$category->category}}</option>
                                     @endforeach
                                 </select> @else {!!Form::select('category', [], null, ['id' => 'category',
                                 'class' => 'form-control', 'placeholder' => 'Adăugați o categorie nouă...']) !!} @endif @endif
@@ -89,7 +89,7 @@
                                 @if (isset($marks)) @if (count($marks) > 0)
                                 <select class="form-control" id="mark" name="mark">
                                     @foreach ($marks as $mark)
-                                        <option value="{{$mark->id}}" @if (old('mark') === $mark->id) selected @endif>{{$mark->mark}}</option>
+                                    <option value="{{$mark->id}}" @if (old('mark')===$mark->id) selected @endif>{{$mark->mark}}</option>
                                     @endforeach
                                 </select> @else {!!Form::select('mark', [], null, ['id' => 'mark',
                                 'class' => 'form-control', 'placeholder' => 'Adăugați o marcă nouă...']) !!} @endif @endif
@@ -194,7 +194,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
 
     </div>
@@ -202,6 +202,6 @@
 
 
 
-    @include('apps.partials.modals._modalAddPerson')
-    @include('apps.partials.modals._modalAddCompany')
-    @include('apps.vehicles.partials.modals._modalAddCategory')
+@include('partials.modals._modalAddPerson')
+@include('partials.modals._modalAddCompany')
+@include('apps.vehicles.partials.modals._modalAddCategory')

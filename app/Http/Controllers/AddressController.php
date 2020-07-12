@@ -23,7 +23,6 @@ class AddressController extends Controller
         $address->number = $request->number;
         $address->bl = $request->bl;
         $address->sc = $request->sc;
-        $address->sc = $request->sc;
         $address->ap = $request->ap;
         $address->postal_code = $request->postal_code;
         $address->village_id = $request->village_id;

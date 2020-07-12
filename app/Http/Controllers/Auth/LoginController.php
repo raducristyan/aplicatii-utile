@@ -52,7 +52,7 @@ class LoginController extends Controller
         if (!$user->institution->active && $user->isAdmin()) {
             Auth::logout($user);
 
-            return redirect('/login')->with('flash', ['body' => 'Vă rugăm să activați contul instituției. <a href="' . route('activate.resend') . '?email=' . $user->email . '">Retransmite email-ul pentru activare.</a>', 'type' => 'info']);
+            return redirect('/login')->with('flash', ['body' => 'Vă rugăm să activați contul instituției. <a class="font-medium text-indigo-500 hover:text-indigo-700 underline" href="' . route('activate.resend') . '?email=' . $user->email . '">Retransmite email-ul pentru activare.</a>', 'type' => 'info']);
         }
 
         if (!$user->institution->active && !$user->isAdmin()) {

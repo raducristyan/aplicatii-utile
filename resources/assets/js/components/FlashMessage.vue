@@ -22,10 +22,8 @@ mounted() {
   methods: {
     closeModal(modal) {
         this.activeClass = false;
-        setTimeout(() => {
             this.$emit("close-modal", modal);
             this.hidden = true;
-        }, 1000);
     },
   }
 };

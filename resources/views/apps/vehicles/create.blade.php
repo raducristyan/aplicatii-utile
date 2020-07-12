@@ -1,4 +1,4 @@
-@extends('apps.layout')
+@extends('layouts.apps.default')
 
 @section('content')
 <div class="main-wrapper">

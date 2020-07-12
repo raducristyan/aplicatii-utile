@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layouts.master')
 
 <!-- Main Content -->
 @section('wrapper')
@@ -18,15 +18,15 @@ Recuperare parolă
 
             <input id="email" class="w-full bg-transparent border-b-2 focus:border-gray-300 px-2 py-3 text-gray-200 font-normal outline-none {{ $errors->has('email') ? ' border-orange-600' : 'border-purple-400' }}" name="email" type="email" required="required" placeholder="Introduceți adresa de email" value="{{ old('email')}}">
         </div>
-        @if ($errors->has('email'))
-        <div class="text-sm font-normal text-orange-600 w-full mt-1">
+        @error('email')
+        <div class="w-full text-sm font-normal text-orange-600 mt-1">
             {{ $errors->first('email') }}
         </div>
-        @endif
+        @enderror
     </div>
     <div class="flex items-center my-12">
         <div class="w-2/3 mx-auto outline-none">
-            <button class="w-full border-2 border-orange-500  py-3 rounded-full text-indigo-700 font-bold text-lg focus:outline-none focus:shadow-outline hover:text-gray-200 hover:bg-indigo-500 hover:border-indigo-700 hover:shadow-lg transition duration-300" type="submit">Trimite linkul</button>
+            <button class="w-full border-2 border-orange-500  py-3 rounded-full text-indigo-700 font-bold text-lg focus:outline-none focus:shadow-outline hover:text-gray-200 hover:bg-indigo-500 hover:border-indigo-700 hover:shadow-lg transition duration-500" type="submit">Trimite linkul</button>
         </div>
     </div>
 </form>
