@@ -12,16 +12,19 @@ class Submit extends Component
 
     public $for;
 
+    public $class;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($text, $color, $for)
+    public function __construct($text, $color, $for, $class)
     {
         $this->text = $text;
         $this->color = $color;
         $this->for = $for;
+        $this->class = $class;
     }
 
     /**

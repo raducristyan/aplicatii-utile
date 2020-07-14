@@ -111,7 +111,7 @@ const vm = new Vue({
         },
 
         getActiveTab() {
-            this.activeTab = localStorage.getItem('activeTab') ? localStorage.getItem('activeTab') : 'activity'
+            this.activeTab = localStorage.getItem('activeTab') ? localStorage.getItem('activeTab') : 'profile'
         },
 
         onClose() {

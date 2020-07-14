@@ -9,6 +9,4 @@
     @if ($footer)
     <div class="w-full px-8 border-t border-gray-200">{{ $footer }}</div>
     @endif
-
-
 </div>

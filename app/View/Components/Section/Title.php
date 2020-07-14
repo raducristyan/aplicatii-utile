@@ -13,14 +13,17 @@ class Title extends Component
      */
     public $text;
 
+    public $class;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($text)
+    public function __construct($text, $class = null)
     {
         $this->text = $text;
+        $this->class = $class;
     }
 
     /**
