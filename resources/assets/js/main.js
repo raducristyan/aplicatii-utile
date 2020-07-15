@@ -88,7 +88,9 @@ const vm = new Vue({
     },
 
     mounted() {
-        this.getActiveTab();
+        this.$nextTick(function() {
+            this.getActiveTab();
+        })
     },
 
     computed: {
