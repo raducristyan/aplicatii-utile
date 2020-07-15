@@ -62,7 +62,7 @@ Vue.directive('closable', {
 const vm = new Vue({
     el: '#app',
     data: {
-        activeTab: '',
+        tab: '',
         userMenu: {
             isVisible: false,
         },
@@ -89,13 +89,13 @@ const vm = new Vue({
 
     mounted() {
         this.$nextTick(function() {
-            this.getActiveTab();
-        })
+            localStorage.setItem('activeTab', this.getActiveTab())
+        });
     },
 
     computed: {
-        modalOpened: function() {
-            return this.modal.opened.length
+        activeTab: function() {
+            return this.tab;
         },
     },
 
@@ -108,12 +108,12 @@ const vm = new Vue({
         },
 
         setActiveTab(tab) {
-            this.activeTab = tab;
+            this.tab = tab;
             localStorage.setItem('activeTab', tab);
         },
 
         getActiveTab() {
-            this.activeTab = localStorage.getItem('activeTab') ? localStorage.getItem('activeTab') : 'profile'
+            return this.tab = localStorage.getItem('activeTab') ? localStorage.getItem('activeTab') : 'profile'
         },
 
         onClose() {

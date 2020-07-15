@@ -15758,7 +15758,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.directive('closable', {
 var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   data: {
-    activeTab: '',
+    tab: '',
     userMenu: {
       isVisible: false
     },
@@ -15782,11 +15782,13 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     'flash-message-view': _components_FlashMessage_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
   },
   mounted: function mounted() {
-    this.getActiveTab();
+    this.$nextTick(function () {
+      localStorage.setItem('activeTab', this.getActiveTab());
+    });
   },
   computed: {
-    modalOpened: function modalOpened() {
-      return this.modal.opened.length;
+    activeTab: function activeTab() {
+      return this.tab;
     }
   },
   methods: {
@@ -15796,11 +15798,11 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       });
     },
     setActiveTab: function setActiveTab(tab) {
-      this.activeTab = tab;
+      this.tab = tab;
       localStorage.setItem('activeTab', tab);
     },
     getActiveTab: function getActiveTab() {
-      this.activeTab = localStorage.getItem('activeTab') ? localStorage.getItem('activeTab') : 'activity';
+      return this.tab = localStorage.getItem('activeTab') ? localStorage.getItem('activeTab') : 'profile';
     },
     onClose: function onClose() {
       this.userMenu.isVisible = false;
